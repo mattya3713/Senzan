@@ -187,12 +187,12 @@ void PMXRenderer::CreateGraphicsPipelineForPMX() {
 
 	// 頂点シェーダーの読み込み.
 	CompileShaderFromFile(
-		L"SourceCode\\Ggraphic\\Shader\\PMX\\PMXBasicVertexShader.hlsl",
+		L"Data\\Shader\\PMX\\PMXBasicVertexShader.hlsl",
 		"VS", "vs_5_0",
 		VSBlob.ReleaseAndGetAddressOf());
 
 	CompileShaderFromFile(
-		L"SourceCode\\Ggraphic\\Shader\\PMX\\PMXBasicPixelShader.hlsl",
+		L"Data\\Shader\\PMX\\PMXBasicPixelShader.hlsl",
 		"PS", "ps_5_0",
 		PSBlob.ReleaseAndGetAddressOf());
 
@@ -200,6 +200,8 @@ void PMXRenderer::CreateGraphicsPipelineForPMX() {
 		{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
 		{ "NORMAL"	, 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
 		{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT	, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+		{ "BONENO"	, 0, DXGI_FORMAT_R16G16_UINT	, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+		{ "WEIGHT"	, 0, DXGI_FORMAT_R8_UINT		, 0, D3D12_APPEND_ALIGNED_ELEMENT, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
 	};
 
 	D3D12_GRAPHICS_PIPELINE_STATE_DESC GraphicPipeLine = {};

@@ -1,8 +1,11 @@
 struct Output
 {
-	float4 svpos : SV_POSITION;
-	float4 normal: NORMAL;
-	float2 uv	 : TEXCOORD;
+    float4 svpos    : SV_POSITION;  // システム用頂点座標.
+    float4 pos      : POSITION;     // システム用頂点座標.
+    float4 normal   : NORMAL0;      // 法線ベクトル.
+    float4 vnormal  : NORMAL1;      // 法線ベクトル.
+    float2 uv       : TEXCOORD;     // UV値.
+    float3 ray      : VECTOR;       // ベクトル.
 };
 
 Texture2D<float4> tex : register(t0);
@@ -20,8 +23,9 @@ cbuffer SceneBuffer : register(b0)
 
 cbuffer Transform : register(b1)
 {
-	matrix world;
-};
+    matrix world; // ワールド変換行列
+    matrix bones[256]; // ボーン行列.
+}
 
 cbuffer Material : register(b2)
 {
