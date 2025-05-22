@@ -32,34 +32,34 @@ PMXActor::~PMXActor()
 
 void PMXActor::Update() {
 	_angle += 0.03f;
-	//MotionUpdate();
-	m_MappedMatrices[0] = DirectX::XMMatrixRotationY(_angle);
+	MotionUpdate();
 }
 
 void PMXActor::Draw() {
-	m_pDx12.GetCommandList()->IASetVertexBuffers(0, 1, &m_pVertexBufferView);
-	m_pDx12.GetCommandList()->IASetIndexBuffer(&m_pIndexBufferView);
-	m_pDx12.GetCommandList()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	ID3D12GraphicsCommandList* commandList = m_pDx12.GetCommandList().Get();
 
-	ID3D12DescriptorHeap* transheap[] = { m_pTransformHeap.Get() };
-	m_pDx12.GetCommandList()->SetDescriptorHeaps(1, transheap);
-	m_pDx12.GetCommandList()->SetGraphicsRootDescriptorTable(1, m_pTransformHeap->GetGPUDescriptorHandleForHeapStart());
+	// 頂点バッファなどの設定
+	commandList->IASetVertexBuffers(0, 1, &m_pVertexBufferView);
+	commandList->IASetIndexBuffer(&m_pIndexBufferView);
+	commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	ID3D12DescriptorHeap* mdh[] = { m_pMaterialHeap.Get() };
+	ID3D12DescriptorHeap* heaps[] = {
+		m_pTransformHeap.Get(),
+		m_pMaterialHeap.Get()
+	};
+	commandList->SetDescriptorHeaps(_countof(heaps), heaps);
 
-	m_pDx12.GetCommandList()->SetDescriptorHeaps(1, mdh);
-
+	// ルートディスクリプタテーブルの設定
+	commandList->SetGraphicsRootDescriptorTable(0, m_pTransformHeap->GetGPUDescriptorHandleForHeapStart());
 	auto cbvSrvIncSize = m_pDx12.GetDevice()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV) * 4;
-
 	auto materialH = m_pMaterialHeap->GetGPUDescriptorHandleForHeapStart();
 	unsigned int idxOffset = 0;
 
-	for (int i = 0; i < m_Materials.size(); i++)
-	{
+	for (int i = 0; i < m_Materials.size(); i++) {
 		unsigned int numFaceVertices = m_Materials[i].NumFaceCount;
 
-		m_pDx12.GetCommandList()->SetGraphicsRootDescriptorTable(2, materialH);
-		m_pDx12.GetCommandList()->DrawIndexedInstanced(numFaceVertices, 1, idxOffset, 0, 0);
+		commandList->SetGraphicsRootDescriptorTable(2, materialH);
+		commandList->DrawIndexedInstanced(numFaceVertices, 1, idxOffset, 0, 0);
 
 		materialH.ptr += cbvSrvIncSize;
 		idxOffset += numFaceVertices;
@@ -74,45 +74,45 @@ void PMXActor::PlayAnimation()
 
 void PMXActor::MotionUpdate()
 {
-	//auto elapsedTime = timeGetTime() - m_StartTime;
-	//unsigned int frameNo = 30 * (elapsedTime / 1000.0f);
+	auto elapsedTime = timeGetTime() - m_StartTime;
+	unsigned int frameNo = 30 * (elapsedTime / 1000.0f);
 
-	////行列情報クリア(してないと前フレームのポーズが重ね掛けされてモデルが壊れる)
-	//std::fill(m_BoneMatrix.begin(), m_BoneMatrix.end(), DirectX::XMMatrixIdentity());
+	//行列情報クリア(してないと前フレームのポーズが重ね掛けされてモデルが壊れる)
+	std::fill(m_BoneMatrix.begin(), m_BoneMatrix.end(), DirectX::XMMatrixIdentity());
 
-	////モーションデータ更新
-	//for (auto& bonemotion : m_MotionData) {
-	//	auto node = m_BoneNodeTable[bonemotion.first];
-	//	//合致するものを探す
-	//	auto keyframes = bonemotion.second;
+	//モーションデータ更新
+	for (auto& bonemotion : m_MotionData) {
+		auto node = m_BoneNodeTable[bonemotion.first];
+		//合致するものを探す
+		auto keyframes = bonemotion.second;
 
-	//	auto rit = find_if(keyframes.rbegin(), keyframes.rend(), [frameNo](const KeyFrame& keyframe) {
-	//		return keyframe.FrameNo <= frameNo;
-	//		});
-	//	if (rit == keyframes.rend())continue;//合致するものがなければ飛ばす
-	//	DirectX::XMMATRIX Rotation;
-	//	auto it = rit.base();
-	//	if (it != keyframes.end()) {
-	//		auto t = static_cast<float>(frameNo - rit->FrameNo) /
-	//			static_cast<float>(it->FrameNo - rit->FrameNo);
-	//		t = GetYFromXOnBezier(t, it->p1, it->p2, 12);
+		auto rit = find_if(keyframes.rbegin(), keyframes.rend(), [frameNo](const PMX::KeyFrame& keyframe) {
+			return keyframe.FrameNo <= frameNo;
+			});
+		if (rit == keyframes.rend())continue;//合致するものがなければ飛ばす
+		DirectX::XMMATRIX Rotation;
+		auto it = rit.base();
+		if (it != keyframes.end()) {
+			auto t = static_cast<float>(frameNo - rit->FrameNo) /
+				static_cast<float>(it->FrameNo - rit->FrameNo);
+			t = GetYFromXOnBezier(t, it->p1, it->p2, 12);
 
-	//		Rotation = DirectX::XMMatrixRotationQuaternion(
-	//			DirectX::XMQuaternionSlerp(rit->Quaternion, it->Quaternion, t)
-	//		);
-	//	}
-	//	else {
-	//		Rotation = DirectX::XMMatrixRotationQuaternion(rit->Quaternion);
-	//	}
+			Rotation = DirectX::XMMatrixRotationQuaternion(
+				DirectX::XMQuaternionSlerp(rit->Quaternion, it->Quaternion, t)
+			);
+		}
+		else {
+			Rotation = DirectX::XMMatrixRotationQuaternion(rit->Quaternion);
+		}
 
-	//	auto& pos = node.StartPos;
-	//	auto mat = DirectX::XMMatrixTranslation(-pos.x, -pos.y, -pos.z) * //原点に戻し
-	//		Rotation * //回転
-	//		DirectX::XMMatrixTranslation(pos.x, pos.y, pos.z);//元の座標に戻す
-	//	m_BoneMatrix[node.BoneIndex] = mat;
-	//}
-	//RecursiveMatrixMultipy(&m_BoneNodeTable["センター"], DirectX::XMMatrixIdentity());
-	//copy(m_BoneMatrix.begin(), m_BoneMatrix.end(), m_MappedMatrices + 1);
+		auto& pos = node.StartPos;
+		auto mat = DirectX::XMMatrixTranslation(-pos.x, -pos.y, -pos.z) * //原点に戻し
+			Rotation * //回転
+			DirectX::XMMatrixTranslation(pos.x, pos.y, pos.z);//元の座標に戻す
+		m_BoneMatrix[node.BoneIndex] = mat;
+	}
+	RecursiveMatrixMultipy(&m_BoneNodeTable["すべての親"], DirectX::XMMatrixIdentity());
+	copy(m_BoneMatrix.begin(), m_BoneMatrix.end(), m_MappedMatrices + 1);
 }
 
 void* PMXActor::Transform::operator new(size_t size) {
@@ -673,68 +673,68 @@ void PMXActor::LoadPMXFile(const char* path)
 	// ボーンの読み込み.
 	uint32_t BoneNum;
 	fread(&BoneNum, sizeof(BoneNum), 1, fp);
-	std::vector<PMX::Bone> Bones(BoneNum);
+	m_Bones.reserve(BoneNum);
 
 	for (uint32_t i = 0; i < BoneNum; ++i)
 	{
-		Bones.emplace_back();
+		m_Bones.emplace_back();
 
 		// 名前読み込み.
-		ReadString(fp, Bones.back().Name);
-		ReadString(fp, Bones.back().EnglishName);
+		ReadString(fp, m_Bones.back().Name);
+		ReadString(fp, m_Bones.back().EnglishName);
 
 		// ボーンの位置情報を読み込む (スフィアモード)
-		fread(&Bones.back().Position		, sizeof(DirectX::XMFLOAT3), 1, fp);
-		fread(&Bones.back().ParentBoneIndex	, Header.BoneIndexSize, 1, fp);
-		fread(&Bones.back().DeformDepth		, sizeof(uint32_t), 1, fp);
-		fread(&Bones.back().BoneFlag		, sizeof(uint16_t), 1, fp);
+		fread(&m_Bones.back().Position		, sizeof(DirectX::XMFLOAT3), 1, fp);
+		fread(&m_Bones.back().ParentBoneIndex	, Header.BoneIndexSize, 1, fp);
+		fread(&m_Bones.back().DeformDepth		, sizeof(uint32_t), 1, fp);
+		fread(&m_Bones.back().BoneFlag		, sizeof(uint16_t), 1, fp);
 
 		// TargetShowModeが無効の場合、位置オフセットを読み込む.
-		if ((Bones.back().BoneFlag & PMX::BoneFlags::TargetShowMode) == 0) {
+		if ((m_Bones.back().BoneFlag & PMX::BoneFlags::TargetShowMode) == 0) {
 			// 位置オフセット.
-			fread(&Bones.back().PositionOffset, sizeof(DirectX::XMFLOAT3), 1, fp);
+			fread(&m_Bones.back().PositionOffset, sizeof(DirectX::XMFLOAT3), 1, fp);
 		}
 		else {
 			// リンクボーンインデックス.
-			fread(&Bones.back().LinkBoneIndex, Header.BoneIndexSize, 1, fp);
+			fread(&m_Bones.back().LinkBoneIndex, Header.BoneIndexSize, 1, fp);
 		}
 
 		// ボーンが回転または移動を補間する場合.
-		if ((Bones.back().BoneFlag & PMX::BoneFlags::AppendRotate) ||
-			(Bones.back().BoneFlag & PMX::BoneFlags::AppendTranslate)) {
-			fread(&Bones.back().AppendBoneIndex	, Header.BoneIndexSize, 1, fp);
-			fread(&Bones.back().AppendWeight	, sizeof(float), 1, fp);
+		if ((m_Bones.back().BoneFlag & PMX::BoneFlags::AppendRotate) ||
+			(m_Bones.back().BoneFlag & PMX::BoneFlags::AppendTranslate)) {
+			fread(&m_Bones.back().AppendBoneIndex	, Header.BoneIndexSize, 1, fp);
+			fread(&m_Bones.back().AppendWeight	, sizeof(float), 1, fp);
 		}
 
 		// 固定軸が有効な場合.
-		if (Bones.back().BoneFlag & PMX::BoneFlags::FixedAxis) {
-			fread(&Bones.back().FixedAxis, sizeof(DirectX::XMFLOAT3), 1, fp);
+		if (m_Bones.back().BoneFlag & PMX::BoneFlags::FixedAxis) {
+			fread(&m_Bones.back().FixedAxis, sizeof(DirectX::XMFLOAT3), 1, fp);
 		}
 
 		// ローカル軸が有効な場合.
-		if (Bones.back().BoneFlag & PMX::BoneFlags::LocalAxis) {
-			fread(&Bones.back().LocalXAxis, sizeof(DirectX::XMFLOAT3), 1, fp);
-			fread(&Bones.back().LocalZAxis, sizeof(DirectX::XMFLOAT3), 1, fp);
+		if (m_Bones.back().BoneFlag & PMX::BoneFlags::LocalAxis) {
+			fread(&m_Bones.back().LocalXAxis, sizeof(DirectX::XMFLOAT3), 1, fp);
+			fread(&m_Bones.back().LocalZAxis, sizeof(DirectX::XMFLOAT3), 1, fp);
 		}
 
 		// 親ボーンの変形が外部によって制限される場合.
-		if (Bones.back().BoneFlag & PMX::BoneFlags::DeformOuterParent) {
-			fread(&Bones.back().KeyValue, sizeof(uint32_t), 1, fp);
+		if (m_Bones.back().BoneFlag & PMX::BoneFlags::DeformOuterParent) {
+			fread(&m_Bones.back().KeyValue, sizeof(uint32_t), 1, fp);
 		}
 
 		// IKが有効な場合.
-		if (Bones.back().BoneFlag & PMX::BoneFlags::IK) {
-			fread(&Bones.back().IKTargetBoneIndex, Header.BoneIndexSize, 1, fp);
-			fread(&Bones.back().IKIterationCount , sizeof(uint32_t), 1, fp);
-			fread(&Bones.back().IKLimit			 , sizeof(float), 1, fp);
+		if (m_Bones.back().BoneFlag & PMX::BoneFlags::IK) {
+			fread(&m_Bones.back().IKTargetBoneIndex, Header.BoneIndexSize, 1, fp);
+			fread(&m_Bones.back().IKIterationCount , sizeof(uint32_t), 1, fp);
+			fread(&m_Bones.back().IKLimit			 , sizeof(float), 1, fp);
 
 			// IKリンクの数を読み込み.
 			uint32_t LinkCount = 0;
 			fread(&LinkCount, sizeof(uint32_t), 1, fp);
 
 			// IKリンクを読み込む.
-			Bones.back().IKLinks.resize(LinkCount);
-			for (auto& IkLink : Bones.back().IKLinks) {
+			m_Bones.back().IKLinks.resize(LinkCount);
+			for (auto& IkLink : m_Bones.back().IKLinks) {
 				fread(&IkLink.IKBoneIndex, Header.BoneIndexSize, 1, fp);
 				fread(&IkLink.EnableLimit, sizeof(uint8_t), 1, fp);
 
@@ -746,6 +746,38 @@ void PMXActor::LoadPMXFile(const char* path)
 			}
 		}
 	}
+
+	std::vector<std::string> BoneNames(m_Bones.size());
+
+	// ボーンノードを作る.
+	for (size_t i = 0; i < m_Bones.size(); ++i)
+	{
+		PMX::Bone& PmxBone = m_Bones[i];
+		BoneNames[i] = PmxBone.Name;
+		auto& Node = m_BoneNodeTable[PmxBone.Name];
+		Node.BoneIndex = static_cast<int>(i);
+		Node.StartPos = PmxBone.Position;
+	}
+
+	// 親工関係の構築.
+	for (PMX::Bone& pb : m_Bones)
+	{
+		// ありえない番号ならとばす.
+		if (pb.ParentBoneIndex >= m_Bones.size()) { continue; }
+
+		auto ParentName = BoneNames[pb.ParentBoneIndex];
+		m_BoneNodeTable[ParentName].Children.emplace_back(&m_BoneNodeTable[pb.Name]);
+	}
+
+	//ボーン構築
+	m_BoneMatrix.resize(m_Bones.size());
+
+	// ボーンを初期化する.
+	std::fill(
+		m_BoneMatrix.begin(),
+		m_BoneMatrix.end(),
+		DirectX::XMMatrixIdentity()
+	);
 
 	//// もーふの読み込み.
 	//uint32_t MorphNum;
@@ -1031,54 +1063,53 @@ void PMXActor::LoadVMDFile(const char* FilePath, const char* Name)
 }
 
 void PMXActor::CreateTransformView() {
-	////GPUバッファ作成
-	//auto buffSize = sizeof(Transform) * (1 + m_BoneMatrix.size());
-	//buffSize = (buffSize + 0xff)&~0xff;
-	//auto heapProp = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
-	//auto resDesc = CD3DX12_RESOURCE_DESC::Buffer(buffSize);
+	//GPUバッファ作成
+	auto buffSize = sizeof(Transform) * (1 + m_BoneMatrix.size());
+	buffSize = (buffSize + 0xff) & ~0xff;
+	auto heapProp = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
+	auto resDesc = CD3DX12_RESOURCE_DESC::Buffer(buffSize);
 
-	//MyAssert::IsFailed(
-	//	_T("座標バッファ作成"),
-	//	&ID3D12Device::CreateCommittedResource, m_pDx12.GetDevice(),
-	//	&heapProp,
-	//	D3D12_HEAP_FLAG_NONE,
-	//	&resDesc,
-	//	D3D12_RESOURCE_STATE_GENERIC_READ,
-	//	nullptr,
-	//	IID_PPV_ARGS(m_pTransformBuff.ReleaseAndGetAddressOf())
-	//);
+	MyAssert::IsFailed(
+		_T("座標バッファ作成"),
+		&ID3D12Device::CreateCommittedResource, m_pDx12.GetDevice(),
+		&heapProp,
+		D3D12_HEAP_FLAG_NONE,
+		&resDesc,
+		D3D12_RESOURCE_STATE_GENERIC_READ,
+		nullptr,
+		IID_PPV_ARGS(m_pTransformBuffer.ReleaseAndGetAddressOf())
+	);
 
-	////マップとコピー
-	//MyAssert::IsFailed(
-	//	_T("座標のマップ"),
-	//	&ID3D12Resource::Map, m_pTransformBuff.Get(),
-	//	0, nullptr, 
-	//	(void**)&m_MappedMatrices);
+	//マップとコピー
+	MyAssert::IsFailed(
+		_T("座標のマップ"),
+		&ID3D12Resource::Map, m_pTransformBuffer.Get(),
+		0, nullptr, 
+		(void**)&m_MappedMatrices);
 
-	//m_MappedMatrices[0] = m_Transform.world;
-	//copy(m_BoneMatrix.begin(), m_BoneMatrix.end(), m_MappedMatrices + 1);
+	m_MappedMatrices[0] = m_Transform.world;
+	copy(m_BoneMatrix.begin(), m_BoneMatrix.end(), m_MappedMatrices + 1);
 
-	//// ビューの作成.
-	//D3D12_DESCRIPTOR_HEAP_DESC transformDescHeapDesc = {};
-	//transformDescHeapDesc.NumDescriptors = 1; // とりあえずワールドひとつ.
-	//transformDescHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
-	//transformDescHeapDesc.NodeMask = 0;
+	// ビューの作成.
+	D3D12_DESCRIPTOR_HEAP_DESC transformDescHeapDesc = {};
+	transformDescHeapDesc.NumDescriptors = 1; // とりあえずワールドひとつ.
+	transformDescHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
+	transformDescHeapDesc.NodeMask = 0;
 
-	//transformDescHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV; // デスクリプタヒープ種別.
+	transformDescHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV; // デスクリプタヒープ種別.
 
-	//MyAssert::IsFailed(
-	//	_T("座標ヒープの作成"),
-	//	&ID3D12Device::CreateDescriptorHeap, m_pDx12.GetDevice(),
-	//	&transformDescHeapDesc, 
-	//	IID_PPV_ARGS(m_pTransformHeap.ReleaseAndGetAddressOf()));//生成
+	MyAssert::IsFailed(
+		_T("座標ヒープの作成"),
+		&ID3D12Device::CreateDescriptorHeap, m_pDx12.GetDevice(),
+		&transformDescHeapDesc, 
+		IID_PPV_ARGS(m_pTransformHeap.ReleaseAndGetAddressOf()));//生成
 
-	//D3D12_CONSTANT_BUFFER_VIEW_DESC cbvDesc = {};
-	//cbvDesc.BufferLocation = m_pTransformBuff->GetGPUVirtualAddress();
-	//cbvDesc.SizeInBytes = static_cast<UINT>(buffSize);
-	//m_pDx12.GetDevice()->CreateConstantBufferView(
-	//	&cbvDesc,
-	//	m_pTransformHeap->GetCPUDescriptorHandleForHeapStart());
-
+	D3D12_CONSTANT_BUFFER_VIEW_DESC cbvDesc = {};
+	cbvDesc.BufferLocation = m_pTransformBuffer->GetGPUVirtualAddress();
+	cbvDesc.SizeInBytes = static_cast<UINT>(buffSize);
+	m_pDx12.GetDevice()->CreateConstantBufferView(
+		&cbvDesc,
+		m_pTransformHeap->GetCPUDescriptorHandleForHeapStart());
 }
 
 void PMXActor::CreateMaterialData() {
@@ -1215,6 +1246,18 @@ void PMXActor::CreateMaterialAndTextureView() {
 	//	}
 	//	matDescHeapH.ptr += incSize;
 	//}
+}
+
+// 回転情報を末端まで伝播させる再帰関数.
+void PMXActor::RecursiveMatrixMultipy(
+	PMX::BoneNode* node, 
+	const DirectX::XMMATRIX& mat)
+{
+	m_BoneMatrix[node->BoneIndex] = mat;
+	for (auto& cnode : node->Children) {
+		// 子も同じ動作をする.
+		RecursiveMatrixMultipy(cnode, m_BoneMatrix[cnode->BoneIndex] * mat);
+	}
 }
 
 float PMXActor::GetYFromXOnBezier(

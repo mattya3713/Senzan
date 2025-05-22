@@ -145,10 +145,10 @@
     <None Include="SourceCode\System\Utility\String\FilePath\FilePath.inl">
       <Filter>ヘッダー ファイル</Filter>
     </None>
-    <None Include="SourceCode\Ggraphic\Shader\PMX\PMXShaderHeader.hlsli" />
+    <None Include="Data\Shader\PMX\PMXHeader.hlsli" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="SourceCode\Ggraphic\Shader\PMX\PMXBasicPixelShader.hlsl" />
-    <FxCompile Include="SourceCode\Ggraphic\Shader\PMX\PMXBasicVertexShader.hlsl" />
+    <FxCompile Include="Data\Shader\PMX\PMXVertex.hlsl" />
+    <FxCompile Include="Data\Shader\PMX\PMXPixel.hlsl" />
   </ItemGroup>
 </Project>

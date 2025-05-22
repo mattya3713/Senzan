@@ -187,12 +187,12 @@ void PMXRenderer::CreateGraphicsPipelineForPMX() {
 
 	// 頂点シェーダーの読み込み.
 	CompileShaderFromFile(
-		L"Data\\Shader\\PMX\\PMXBasicVertexShader.hlsl",
+		L"Data\\Shader\\PMX\\PMXVertex.hlsl",
 		"VS", "vs_5_0",
 		VSBlob.ReleaseAndGetAddressOf());
 
 	CompileShaderFromFile(
-		L"Data\\Shader\\PMX\\PMXBasicPixelShader.hlsl",
+		L"Data\\Shader\\PMX\\PMXPixel.hlsl",
 		"PS", "ps_5_0",
 		PSBlob.ReleaseAndGetAddressOf());
 

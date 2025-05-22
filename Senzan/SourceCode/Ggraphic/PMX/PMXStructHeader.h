@@ -227,8 +227,62 @@ namespace PMX {
 			, IKLimit				( 0.0f )
 			, IKLinks				{}
 		{}
-	}; 
+	}; 	
 	
+	struct BoneNode
+	{
+		int						BoneIndex;	// ボーンインデックス.
+		DirectX::XMFLOAT3		StartPos;	// ボーン基準点(回転中心).
+		std::vector<BoneNode*>	Children;	// 子ノード.
+
+		BoneNode()
+			: BoneIndex(0)
+			, StartPos(0.0f, 0.0f, 0.0f)
+			, Children{}
+		{
+		}
+	};
+
+	// モーションデータ.
+	struct VMDKeyFrame
+	{
+		char BoneName[15];				// ボーン名.
+		unsigned int FrameNo;			// フレーム番号(読込時は現在のフレーム位置を0とした相対位置).
+		DirectX::XMFLOAT3 Location;		// 位置.
+		DirectX::XMFLOAT4 Quaternion;	// 回転.
+		unsigned char Bezier[64];		// [4][4][4]  ベジェ補完パラメータ.
+
+		VMDKeyFrame()
+			: BoneName{}
+			, FrameNo(0)
+			, Location{}
+			, Quaternion{}
+			, Bezier{}
+		{
+		}
+	};
+
+	// キーフレーム構造体.
+	struct KeyFrame
+	{
+		unsigned int FrameNo;			// フレームナンバー(アニメーション開始からの経過時間).
+		DirectX::XMVECTOR Quaternion;	// クォータニオン.
+		DirectX::XMFLOAT2 p1, p2;		// ベジェの中間コントロールポイント.
+
+		KeyFrame(
+			unsigned int FrameNo,
+			const DirectX::XMVECTOR& q,
+			const DirectX::XMFLOAT2& ip1,
+			const DirectX::XMFLOAT2& ip2) :
+			FrameNo(FrameNo),
+			Quaternion(q),
+			p1(ip1),
+			p2(ip2)
+		{
+		}
+	};
+
+
 	enum class MorphType : uint8_t
 	{
 		Group,

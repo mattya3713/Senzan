@@ -92,7 +92,7 @@ private:
 	* @param	回転させたいボーンノード.
 	* @param    回転行列.
 	*******************************************/
-	//void RecursiveMatrixMultipy(BoneNode* node, const DirectX::XMMATRIX& mat);
+	void RecursiveMatrixMultipy(PMX::BoneNode* node, const DirectX::XMMATRIX& mat);
 
 	float _angle;//テスト用Y軸回転
 
@@ -143,12 +143,19 @@ private:
 	std::vector<PMX::MaterialForHLSL>		m_MaterialsForHLSL;	// GPUに送るマテリアル情報.
 
 
+	std::vector<PMX::Bone> m_Bones;
+	// ボーン関連.
+	std::vector<DirectX::XMMATRIX>	m_BoneMatrix;				// ボーン座標.
+	std::map<std::string, PMX::BoneNode> m_BoneNodeTable;		// ボーンの階層.
+
+	// アニメーション関連.
+	std::unordered_map<std::string, std::vector<PMX::KeyFrame>> m_MotionData;	// モーションデータ.
+	DWORD							m_StartTime;				// アニメーションの開始時間(ミリ秒).
+
+
 	std::vector<MyComPtr<ID3D12Resource>>	m_pTextureResource;	// 画像リソース.
 	std::vector<MyComPtr<ID3D12Resource>>	m_pSphResource;		// Sphリソース.
 	std::vector<MyComPtr<ID3D12Resource>>	m_pToonResource;	// トゥーンリソ－ス.
 
-
-
-	
 };
 

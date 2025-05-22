@@ -139,6 +139,8 @@ void DirectX12::UpdateSceneBuffer() {
 void DirectX12::BeginDraw()
 {
 	// DirectX処理.
+	m_pCmdAllocator->Reset();
+	m_pCmdList->Reset(m_pCmdAllocator.Get(), nullptr);
 	// バックバッファのインデックスを取得.
 	auto BBIdx = m_pSwapChain->GetCurrentBackBufferIndex();
 	auto Barrier = CD3DX12_RESOURCE_BARRIER::Transition(m_pBackBuffer[BBIdx].Get(),
@@ -180,10 +182,6 @@ void DirectX12::EndDraw()
 	m_pCmdQueue->ExecuteCommandLists(1, cmdlists);
 	// 待ち.
 	WaitForGPU();
-	// キューをクリア.
-	m_pCmdAllocator->Reset();
-	// 再びコマンドリストをためる準備.
-	m_pCmdList->Reset(m_pCmdAllocator.Get(), nullptr);
 }
 
 // スワップチェーンを取得.
