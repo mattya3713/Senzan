@@ -471,3 +471,6 @@ tools/.ai/
 # Common AI log names
 ai.log
 ai-debug.log
+
+# Archive files
+*.zip
