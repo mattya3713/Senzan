@@ -1,25 +1,25 @@
-#pragma once
+ï»¿#pragma once
 class ColliderBase;
 	
-// Õ“ËŒ‹‰Ê\‘¢‘Ì.
+// è¡çªçµæœæ§‹é€ ä½“.
 struct CollisionInfo
 {
-	// Õ“Ë‚ª”­¶‚µ‚½‚©‚Ç‚¤‚©.
+	// è¡çªãŒç™ºç”Ÿã—ãŸã‹ã©ã†ã‹.
 	bool IsHit = false;
 
-	// Õ“Ë–@ü.
+	// è¡çªæ³•ç·š.
 	DirectX::XMFLOAT3 Normal = {};
 
-	// ‚ß‚è‚İ‚Ì[‚³.
+	// ã‚ã‚Šè¾¼ã¿ã®æ·±ã•.
 	float PenetrationDepth = 0.0f;
 
-	// ÚG“_.
+	// æ¥è§¦ç‚¹.
 	DirectX::XMFLOAT3 ContactPoint = {};
 
-	// UŒ‚—Í.
+	// æ”»æ’ƒåŠ›.
 	float AttackAmount = 0.0f;
 
-	// Õ“Ë‚ÉŠÖ‚í‚Á‚½ƒRƒ‰ƒCƒ_[‚Ö‚Ìƒ|ƒCƒ“ƒ^.
+	// è¡çªã«é–¢ã‚ã£ãŸã‚³ãƒ©ã‚¤ãƒ€ãƒ¼ã¸ã®ãƒã‚¤ãƒ³ã‚¿.
 	const ColliderBase* ColliderA = nullptr;
 	const ColliderBase* ColliderB = nullptr;
 };

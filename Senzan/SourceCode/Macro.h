@@ -1,48 +1,48 @@
-#pragma once
-// ‰ğ•ú.
+ï»¿#pragma once
+// è§£æ”¾.
 #define SAFE_RELEASE(p)do{if(p!=nullptr){(p)->Release();(p)=nullptr;}}while(0)
 
-// ”jŠü.
+// ç ´æ£„.
 #define SAFE_DELETE(p)do{if(p!=nullptr){delete (p);(p)=nullptr;}}while(0)
 
-// ”z—ñ”jŠü.
+// é…åˆ—ç ´æ£„.
 #define SAFE_DELETE_ARRAY(p)do{if(p!=nullptr){delete[](p);(p) = nullptr;}}while(0)
 
-// D3DXMATRIX‚ğDirectX::XMMATRIX‚É•ÏŠ·.
+// D3DXMATRIXã‚’DirectX::XMMATRIXã«å¤‰æ›.
 inline DirectX::XMMATRIX D3DXMatrixToXMMatrix(const D3DXMATRIX & d3d9Matrix)
 {
-	// D3DXMATRIX‚ÌŠes‚Ìfloat—v‘f‚ğDirectX::XMVECTOR‚Æ‚µ‚Äƒ[ƒh‚·‚é
-	// XMMatrix‚Ís—Dæ‚Åƒf[ƒ^‚ğŠi”[‚·‚é
+	// D3DXMATRIXã®å„è¡Œã®floatè¦ç´ ã‚’DirectX::XMVECTORã¨ã—ã¦ãƒ­ãƒ¼ãƒ‰ã™ã‚‹.
+	// XMMatrixã¯è¡Œå„ªå…ˆã§ãƒ‡ãƒ¼ã‚¿ã‚’æ ¼ç´ã™ã‚‹.
 
 	DirectX::XMVECTOR Row0 = DirectX::XMVectorSet(d3d9Matrix._11, d3d9Matrix._12, d3d9Matrix._13, d3d9Matrix._14);
 	DirectX::XMVECTOR Row1 = DirectX::XMVectorSet(d3d9Matrix._21, d3d9Matrix._22, d3d9Matrix._23, d3d9Matrix._24);
 	DirectX::XMVECTOR Row2 = DirectX::XMVectorSet(d3d9Matrix._31, d3d9Matrix._32, d3d9Matrix._33, d3d9Matrix._34);
 	DirectX::XMVECTOR Row3 = DirectX::XMVectorSet(d3d9Matrix._41, d3d9Matrix._42, d3d9Matrix._43, d3d9Matrix._44);
 
-	// 4‚Â‚ÌXMVECTORsƒxƒNƒgƒ‹‚©‚çXMMATRIX‚ğ\’z‚·‚é
+	// 4ã¤ã®XMVECTORè¡Œãƒ™ã‚¯ãƒˆãƒ«ã‹ã‚‰XMMATRIXã‚’æ§‹ç¯‰ã™ã‚‹.
 	return DirectX::XMMATRIX(Row0, Row1, Row2, Row3);
 }
 
-// D3DXMATRIX‚ğDirectX::XMMATRIX‚É•ÏŠ·.
+// D3DXMATRIXã‚’DirectX::XMMATRIXã«å¤‰æ›.
 inline void XMMatrixToD3DXMatrix(D3DXMATRIX & outD3d9Matrix, const DirectX::XMMATRIX & xmMatrix)
 {
-	// XMMATRIX‚ÌŠesƒxƒNƒgƒ‹‚ğæ“¾.
+	// XMMATRIXã®å„è¡Œãƒ™ã‚¯ãƒˆãƒ«ã‚’å–å¾—.
 	DirectX::XMVECTOR Row0 = xmMatrix.r[0];
 	DirectX::XMVECTOR Row1 = xmMatrix.r[1];
 	DirectX::XMVECTOR Row2 = xmMatrix.r[2];
 	DirectX::XMVECTOR Row3 = xmMatrix.r[3];
 
-	// ŠesƒxƒNƒgƒ‹‚ğD3DXMATRIX‚Ìƒƒ‚ƒŠ—Ìˆæ‚ÉƒXƒgƒA‚·‚é.
+	// å„è¡Œãƒ™ã‚¯ãƒˆãƒ«ã‚’D3DXMATRIXã®ãƒ¡ãƒ¢ãƒªé ˜åŸŸã«ã‚¹ãƒˆã‚¢ã™ã‚‹.
 	DirectX::XMStoreFloat4(reinterpret_cast<DirectX::XMFLOAT4*>(&outD3d9Matrix.m[0]), Row0);
 	DirectX::XMStoreFloat4(reinterpret_cast<DirectX::XMFLOAT4*>(&outD3d9Matrix.m[1]), Row1);
 	DirectX::XMStoreFloat4(reinterpret_cast<DirectX::XMFLOAT4*>(&outD3d9Matrix.m[2]), Row2);
 	DirectX::XMStoreFloat4(reinterpret_cast<DirectX::XMFLOAT4*>(&outD3d9Matrix.m[3]), Row3);
 }
 
-// IMGUI“ú–{Œê‘Î‰.
+// IMGUIæ—¥æœ¬èªå¯¾å¿œ.
 #define IMGUI_JP(str) reinterpret_cast<const char*>(u8##str)
 
-// UIEditor‚Ég—pAƒiƒ“ƒoƒŠƒ“ƒOíœƒ}ƒNƒ.
+// UIEditorã«ä½¿ç”¨ã€ãƒŠãƒ³ãƒãƒªãƒ³ã‚°å‰Šé™¤ãƒã‚¯ãƒ­.
 #include <regex>
 inline std::string GetBaseName(const std::string& name)
 {

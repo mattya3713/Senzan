@@ -38,7 +38,7 @@ void Action::Update()
     // 回避ボタンが押されたら.
     if (VirtualPad::GetInstance().IsActionDown(VirtualPad::eGameAction::Dodge))
     {
-        // ジャスト回避に派生（ボスが近距離にいる場合のみ有効）
+        // ジャスト回避に派生（ボスが近距離にいる場合のみ有効）.
         if (m_pOwner->m_IsJustDodgeTiming)
         {
 
@@ -54,7 +54,7 @@ void Action::Update()
             }
             else
             {
-                // 遠距離なら通常回避にフォールバック
+                // 遠距離なら通常回避にフォールバック.
                 m_pOwner->ChangeState(PlayerState::eID::DodgeExecute);
             }
         }

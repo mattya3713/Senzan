@@ -11,7 +11,7 @@ EffectResource::~EffectResource() { m_pEffects.clear(); }
 
 bool EffectResource::Create()
 {
-    // 必要に応じてEffekseer側の初期化確認などを行う
+    // 必要に応じてEffekseer側の初期化確認などを行う.
     return true;
 }
 
@@ -20,17 +20,17 @@ bool EffectResource::LoadData()
     EffectResource& pI = GetInstance();
 
     try {
-        // 指定したディレクトリ内を再帰的に検索
+        // 指定したディレクトリ内を再帰的に検索.
         for (const auto& entry : std::filesystem::recursive_directory_iterator(EFFECT_FILE_PATH)) {
             const std::string extension = entry.path().extension().string();
 
-            // Effekseerの拡張子以外は無視
+            // Effekseerの拡張子以外は無視.
             if (extension != ".efkefc" && extension != ".efk") continue;
 
             const std::string fileName = entry.path().stem().string();
             const std::string filePath = entry.path().string();
 
-            // エフェクトの生成とロード
+            // エフェクトの生成とロード.
             auto effect = ::Effekseer::Effect::Create(
                 EffekseerManager::GetInstance().GetManager(),
                 reinterpret_cast<const char16_t*>(entry.path().u16string().c_str())

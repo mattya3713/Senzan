@@ -1,8 +1,8 @@
 ﻿#pragma once
 
-#include "..//BossAttackStateBase.h"
+#include "..//BossAttackStateBase.h".
 
-// ボスのパリィ（怯み）専用ステート
+// ボスのパリィ（怯み）専用ステート.
 class BossParryState : public BossAttackStateBase
 {
 public:
@@ -35,7 +35,7 @@ private:
     bool m_IsFastTiming = false;
     bool m_WithDelay = false;
     float m_DelayElapsed = 0.0f;
-    // 再生開始アニメと停止参照アニメ
+    // 再生開始アニメと停止参照アニメ.
     Boss::enBossAnim m_StartAnim = Boss::enBossAnim::none;
     Boss::enBossAnim m_StopRefAnim = Boss::enBossAnim::none;
 

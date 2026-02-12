@@ -7,13 +7,11 @@ PixelShaderBase::PixelShaderBase()
 {
 }
 
-//-------------------------------------------------------------------.
 
 PixelShaderBase::~PixelShaderBase()
 {
 }
 
-//-------------------------------------------------------------------.
 
 void PixelShaderBase::Init(ID3DBlob* pShaderBlob)
 {
@@ -30,14 +28,12 @@ void PixelShaderBase::Init(ID3DBlob* pShaderBlob)
 	}
 }
 
-//-------------------------------------------------------------------.
 
 void PixelShaderBase::SetPixelShader()
 {
 	DirectX11::GetInstance().GetContext()->PSSetShader(m_pPixelShader, nullptr, 0);
 }
 
-//-------------------------------------------------------------------.
 
 ID3D11PixelShader* PixelShaderBase::GetPixelShader() const
 {

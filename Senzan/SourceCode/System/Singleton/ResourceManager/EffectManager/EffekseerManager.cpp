@@ -19,7 +19,6 @@ EffekseerManager::EffekseerManager()
 	Initialize();
 }
 
-//-----------------------------------------------------------------------------------.
 
 EffekseerManager::~EffekseerManager()
 {
@@ -30,7 +29,6 @@ EffekseerManager::~EffekseerManager()
 	m_pRenderer.Reset();
 }
 
-//-----------------------------------------------------------------------------------.
 
 void EffekseerManager::UpdateHandle(::Effekseer::Handle handle)
 {
@@ -43,7 +41,6 @@ void EffekseerManager::UpdateHandle(::Effekseer::Handle handle)
 	m_pManager->EndUpdate();
 }
 
-//-----------------------------------------------------------------------------------.
 
 void EffekseerManager::RenderHandle(::Effekseer::Handle handle, CameraBase* pUseCamera)
 {
@@ -63,7 +60,6 @@ void EffekseerManager::RenderHandle(::Effekseer::Handle handle, CameraBase* pUse
 	m_pRenderer->EndRendering();
 }
 
-//-----------------------------------------------------------------------------------.
 
 void EffekseerManager::RenderHandleUI(::Effekseer::Handle handle)
 {
@@ -90,21 +86,18 @@ void EffekseerManager::RenderHandleUI(::Effekseer::Handle handle)
 	m_pRenderer->EndRendering();
 }
 
-//-----------------------------------------------------------------------------------.
 
 ::Effekseer::Vector3D EffekseerManager::ConvertToEfkVector3(const DirectX::XMFLOAT3& vector3Dx)
 {
 	return ::Effekseer::Vector3D(vector3Dx.x, vector3Dx.y, vector3Dx.z);
 }
 
-//-----------------------------------------------------------------------------------.
 
 DirectX::XMFLOAT3 EffekseerManager::ConvertToXMFloat3(const::Effekseer::Vector3D& vector3Efk)
 {
 	return DirectX::XMFLOAT3(vector3Efk.X, vector3Efk.Y, vector3Efk.Z);
 }
 
-//-----------------------------------------------------------------------------------.
 
 ::Effekseer::Matrix44 EffekseerManager::ConvertToEfkMatrix(const DirectX::XMMATRIX& matrixDx)
 {
@@ -130,11 +123,10 @@ DirectX::XMFLOAT3 EffekseerManager::ConvertToXMFloat3(const::Effekseer::Vector3D
 	return outMatrix;
 }
 
-//-----------------------------------------------------------------------------------.
 
 DirectX::XMMATRIX EffekseerManager::ConvertToXMMatrix(const::Effekseer::Matrix44& matrixEfk)
 {
-	// XMMATRIX の各行を構成するために XMVECTOR を作成
+	// XMMATRIX の各行を構成するために XMVECTOR を作成.
 	DirectX::XMVECTOR r0 = DirectX::XMVectorSet(
 		matrixEfk.Values[0][0], matrixEfk.Values[0][1],
 		matrixEfk.Values[0][2], matrixEfk.Values[0][3]);
@@ -154,14 +146,12 @@ DirectX::XMMATRIX EffekseerManager::ConvertToXMMatrix(const::Effekseer::Matrix44
 	return DirectX::XMMATRIX(r0, r1, r2, r3);
 }
 
-//-----------------------------------------------------------------------------------.
 
 const::Effekseer::ManagerRef EffekseerManager::GetManager() const
 {
 	return m_pManager;
 }
 
-//-----------------------------------------------------------------------------------.
 
 void EffekseerManager::SetBackgroundTexture(ID3D11ShaderResourceView* pSRV)
 {
@@ -169,15 +159,14 @@ void EffekseerManager::SetBackgroundTexture(ID3D11ShaderResourceView* pSRV)
 		return;
 	}
 
-	// DX11 専用の SetBackground を使用（SRV を直接渡す）
-	// deprecated警告を抑制
+	// DX11 専用の SetBackground を使用（SRV を直接渡す）.
+	// deprecated警告を抑制.
 #pragma warning(push)
 #pragma warning(disable: 4996)
 	m_pRenderer->SetBackground(pSRV);
 #pragma warning(pop)
 }
 
-//-----------------------------------------------------------------------------------.
 
 void EffekseerManager::ClearBackgroundTexture()
 {
@@ -189,7 +178,6 @@ void EffekseerManager::ClearBackgroundTexture()
 	}
 }
 
-//-----------------------------------------------------------------------------------.
 
 void EffekseerManager::Initialize()
 {

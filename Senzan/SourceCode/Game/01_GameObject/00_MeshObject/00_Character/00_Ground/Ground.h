@@ -1,9 +1,9 @@
-#pragma once
+Ôªø#pragma once
 
 #include "Game/01_GameObject/00_MeshObject/MeshObject.h"
 
 /*********************************************************
-*	ínñ ÉNÉâÉX
+*	Âú∞Èù¢„ÇØ„É©„Çπ
 **/
 class Ground
 	: public MeshObject

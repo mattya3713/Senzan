@@ -3,7 +3,7 @@
 #include "System/Utility/StateMachine/StateBase.h"
 #include "PlayerStateID.h"
 
-// TODO : 前方宣言でよい
+// TODO : 前方宣言でよい.
 //        が各ステートに書くのめんどくさいからinclude. 
 class Player;
 

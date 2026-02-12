@@ -64,7 +64,7 @@ void BossLaserState::Update()
     switch (m_State) {
     case enLaser::Charge:
         m_ChargeElapsed += dt;
-        // keep facing player while charging
+        // keep facing player while charging.
         FacePlayerYawContinuous();
         if (m_ChargeElapsed >= m_ChargeDuration || m_pOwner->IsAnimEnd(Boss::enBossAnim::LaserCharge)) {
             m_State = enLaser::Fire;
@@ -143,7 +143,7 @@ void BossLaserState::DrawImGui()
     CImGuiManager::Slider<float>(IMGUI_JP("範囲"), m_LaserRadius, 0.0f, 200.0f, true);
     CImGuiManager::Slider<float>(IMGUI_JP("射程"), m_LaserRange, 0.0f, 1000.0f, true);
 
-    // Debug controls for forcing state
+    // Debug controls for forcing state.
     if (ImGui::Button(IMGUI_JP("Force Charge"))) { m_State = enLaser::Charge; m_ChargeElapsed = 0.0f; }
     ImGui::SameLine();
     if (ImGui::Button(IMGUI_JP("Force Fire"))) { m_State = enLaser::Fire; m_FireElapsed = 0.0f; if (auto* c = m_pOwner->GetShoutCollider()) { c->SetActive(true); } }
@@ -152,7 +152,7 @@ void BossLaserState::DrawImGui()
     ImGui::SameLine();
     if (ImGui::Button(IMGUI_JP("Force Trans"))) { m_State = enLaser::Trans; }
     BossAttackStateBase::DrawImGui();
-    // collider debug
+    // collider debug.
     if (auto* col = m_pOwner->GetShoutCollider()) {
         ImGui::Separator();
         ImGui::Text(IMGUI_JP("Shout Collider: Active=%s Radius=%.2f"), col->GetActive() ? "ON" : "OFF", col->GetRadius());

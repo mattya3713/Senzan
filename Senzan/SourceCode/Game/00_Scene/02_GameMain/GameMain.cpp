@@ -35,21 +35,21 @@
 #include "System/Singleton/ImGui/CImGuiManager.h"
 #endif
 
-#include <algorithm> // std::min のために必要
+#include <algorithm> // std::min のために必要.
 
-// コンテニュー回数の静的変数定義
+// コンテニュー回数の静的変数定義.
 int GameMain::s_ContinueCount = 0;
 
-// コンテニュー回数に応じたBoss HP倍率を取得
+// コンテニュー回数に応じたBoss HP倍率を取得.
 float GameMain::GetBossHPMultiplier()
 {
 	switch (s_ContinueCount)
 	{
-	case 0:  return 1.0f;   // 100%
-	case 1:  return 0.9f;   // 90%
-	case 2:  return 0.8f;   // 80%
-	case 3:  return 0.6f;   // 60%
-	default: return 0.5f;   // 4回以降は50%
+	case 0:  return 1.0f;   // 100%.
+	case 1:  return 0.9f;   // 90%.
+	case 2:  return 0.8f;   // 80%.
+	case 3:  return 0.6f;   // 60%.
+	default: return 0.5f;   // 4回以降は50%.
 	}
 }
 
@@ -74,7 +74,7 @@ GameMain::GameMain()
 // デストラクタ.
 GameMain::~GameMain()
 {
-    // シーン終了時に CombatCoordinator の参照をクリア
+    // シーン終了時に CombatCoordinator の参照をクリア.
     CombatCoordinator::GetInstance().Clear();
 
     SoundManager::GetInstance().AllStop();
@@ -82,7 +82,7 @@ GameMain::~GameMain()
 
 void GameMain::Initialize()
 {
-    // コンテニュー回数に応じてBossのHPを設定
+    // コンテニュー回数に応じてBossのHPを設定.
     m_upBoss->SetHPMultiplier(GetBossHPMultiplier());
 
     // ライト設定.
@@ -97,7 +97,7 @@ void GameMain::Initialize()
     // 雪玉設定.
     SnowBallManager::GetInstance().Init();
 
-    // CombatCoordinator に Player と Boss の参照を設定
+    // CombatCoordinator に Player と Boss の参照を設定.
     CombatCoordinator::GetInstance().Initialize(m_upPlayer.get(), m_upBoss.get());
 
     // ポストエフェクトのキャンセル.
@@ -112,7 +112,7 @@ void GameMain::Initialize()
 
 void GameMain::Create()
 {
-    // フレームキャプチャのロールキャプチャを開始(Gameシーン開始から常に保存)
+    // フレームキャプチャのロールキャプチャを開始(Gameシーン開始から常に保存).
     FrameCaptureManager::GetInstance().StartRollingCapture(10, 60);
 }
 
@@ -120,19 +120,19 @@ void GameMain::Update()
 {
     auto& fcm = FrameCaptureManager::GetInstance();
     
-    // 巻き戻し完了後のシーンリロード要求をチェック
+    // 巻き戻し完了後のシーンリロード要求をチェック.
     if (fcm.ConsumeReloadRequest())
     {
-        // キャプチャ状態をリセットしてシーンをリロード
+        // キャプチャ状態をリセットしてシーンをリロード.
         fcm.ResetCapture();
         SceneManager::LoadScene(eList::GameMain, false);
         return;
     }
 
-    // 巻き戻し再生中はゲームロジックをスキップ（FrameCaptureManagerが描画を担当）
+    // 巻き戻し再生中はゲームロジックをスキップ（FrameCaptureManagerが描画を担当）.
     if (fcm.IsPlaying())
     {
-        // 巻き戻し再生の更新のみ実行
+        // 巻き戻し再生の更新のみ実行.
         fcm.Update(Time::GetInstance().GetDeltaTime());
         return;
     }
@@ -140,7 +140,7 @@ void GameMain::Update()
     Input::Update();
     if (m_upBoss->GetHP() <= 0 && !m_upUIEnding) {
         m_upUIEnding = std::make_shared<UIEnding>();
-        // エンディング画面ではキャプチャを停止
+        // エンディング画面ではキャプチャを停止.
         FrameCaptureManager::GetInstance().PauseRollingCapture();
         SoundManager::Stop("Main");
         SoundManager::Play("Ending");
@@ -148,7 +148,7 @@ void GameMain::Update()
     }
     else if ((m_upPlayer->GetHP() <= 0 || Time::GetInstance().IsTimerJustFinished()) && !m_upUIOver) {
         m_upUIOver = std::make_shared<UIGameOver>();
-        // コンテニュー画面ではキャプチャを停止（バッファに入れない）
+        // コンテニュー画面ではキャプチャを停止（バッファに入れない）.
         FrameCaptureManager::GetInstance().PauseRollingCapture();
         SoundManager::Stop("Main");
         SoundManager::Play("Over");
@@ -157,7 +157,7 @@ void GameMain::Update()
 
     if (m_upUIOver || m_upUIEnding)
     {
-        UIGameOver::Items selectedItem = UIGameOver::Items::End; // デフォルトは終了
+        UIGameOver::Items selectedItem = UIGameOver::Items::End; // デフォルトは終了.
         if (m_upUIOver) {
             m_upUIOver->Update();
             selectedItem = m_upUIOver->GetSelected();
@@ -171,23 +171,23 @@ void GameMain::Update()
             || Input::IsButtonDown(XInput::Key::B))
         {
             if (selectedItem == UIGameOver::Items::Continue) {
-                // コンテニュー選択 → 巻き戻し開始
+                // コンテニュー選択 → 巻き戻し開始.
                 SoundManager::GetInstance().Play("Decide");
                 SoundManager::GetInstance().SetVolume("Decide", 8000);
 
-                // 巻き戻し開始（FrameCaptureManagerが巻き戻し完了後にシーンをリセットする）
+                // 巻き戻し開始（FrameCaptureManagerが巻き戻し完了後にシーンをリセットする）.
                 FrameCaptureManager::GetInstance().SetPlaybackTriggerKey(true);
-                // コンテニュー回数をインクリメント（次回シーンロード時にBoss HPに反映）
+                // コンテニュー回数をインクリメント（次回シーンロード時にBoss HPに反映）.
                 IncrementContinueCount();
 
                 return;
             }
             else {
-                // 終了選択 → タイトルへ
+                // 終了選択 → タイトルへ.
                 SoundManager::GetInstance().Play("Decide");
                 SoundManager::GetInstance().SetVolume("Decide", 8000);
 
-                // タイトルへ戻る際にコンテニュー回数をリセット
+                // タイトルへ戻る際にコンテニュー回数をリセット.
                 ResetContinueCount();
 
                 SceneManager::LoadScene(eList::Title);
@@ -209,7 +209,7 @@ void GameMain::Update()
     m_upPlayer->SetTargetPos(m_upBoss.get()->GetPosition());
     m_upPlayer->Update();
 
-    // ポストエフェクト更新
+    // ポストエフェクト更新.
     PostEffectManager::GetInstance().Update(Time::GetInstance().GetDeltaTime());
 
     UIUpdate();
@@ -227,7 +227,7 @@ void GameMain::Update()
     
     ImGui::End();
 
-    // フレームキャプチャマネージャのデバッグUI
+    // フレームキャプチャマネージャのデバッグUI.
     FrameCaptureManager::GetInstance().DebugImGui();
 #endif
 }
@@ -245,7 +245,7 @@ void GameMain::LateUpdate()
 
 void GameMain::Draw()
 {
-    // 巻き戻し再生中はキャプチャフレームを描画
+    // 巻き戻し再生中はキャプチャフレームを描画.
     auto& fcm = FrameCaptureManager::GetInstance();
     if (fcm.IsPlaying())
     {
@@ -285,12 +285,12 @@ void GameMain::Draw()
 
 #if _DEBUG
     CollisionVisualizer::GetInstance().Draw();
-#endif // _DEBUG
+#endif // _DEBUG.
 }
 
 HRESULT GameMain::LoadData()
 {
-    return S_OK; // 成功を返す
+    return S_OK; // 成功を返す.
 }
 
 void GameMain::UIUpdate()

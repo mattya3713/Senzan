@@ -4,7 +4,6 @@
 #include "Game/01_GameObject/00_MeshObject/00_Character/02_Boss/BossMoveState/BossMoveState.h"
 
 
-
 BossIdolState::BossIdolState(Boss* owner)
 	: StateBase<Boss>(owner)
 	, m_AnimSpeed	(25.0f)
@@ -25,37 +24,37 @@ void BossIdolState::Enter()
 
 void BossIdolState::Update()
 {
-    // 1. ボスとプレイヤーの座標を取得
+    // 1. ボスとプレイヤーの座標を取得.
     const DirectX::XMFLOAT3& BossPosF = m_pOwner->GetPosition();
     DirectX::XMVECTOR BossPosXM = DirectX::XMLoadFloat3(&BossPosF);
 
     const DirectX::XMFLOAT3& PlayerPosF = m_pOwner->m_PlayerPos;
     DirectX::XMVECTOR PlayerPosXM = DirectX::XMLoadFloat3(&PlayerPosF);
 
-    // --------------------------------------------------------
-    // 2. プレイヤーの方を向く処理 (常に実行)
-    // --------------------------------------------------------
-    // ボスからプレイヤーへのベクトルを計算
+    // --------------------------------------------------------.
+    // 2. プレイヤーの方を向く処理 (常に実行).
+    // --------------------------------------------------------.
+    // ボスからプレイヤーへのベクトルを計算.
     DirectX::XMVECTOR LookAtVec = DirectX::XMVectorSubtract(PlayerPosXM, BossPosXM);
 
     float dx = DirectX::XMVectorGetX(LookAtVec);
     float dz = DirectX::XMVectorGetZ(LookAtVec);
 
-    // 前回の修正を反映：モデルが逆を向く場合は -dx, -dz にする
-    // もしこれで正解ならこのまま、まだ逆なら dx, dz に戻してください
+    // 前回の修正を反映：モデルが逆を向く場合は -dx, -dz にする.
+    // もしこれで正解ならこのまま、まだ逆なら dx, dz に戻してください.
     float angle_radian = std::atan2f(-dx, -dz);
 
     m_pOwner->SetRotationY(angle_radian);
-    // --------------------------------------------------------
+    // --------------------------------------------------------.
 
-    // 3. 距離の判定
+    // 3. 距離の判定.
     DirectX::XMVECTOR DistancePosXM = DirectX::XMVectorSubtract(PlayerPosXM, BossPosXM);
     float DistanceSq = DirectX::XMVectorGetX(DirectX::XMVector3LengthSq(DistancePosXM));
 
 
-    // 既に上で回転は計算しているので、initalAngleとして再利用可能
+    // 既に上で回転は計算しているので、initalAngleとして再利用可能.
     auto MoveState = std::make_shared<BossMoveState>(m_pOwner);
-    // MoveState->SetInitialAngle(angle_radian); // 必要であれば渡す
+    // MoveState->SetInitialAngle(angle_radian); // 必要であれば渡す.
 
     m_pOwner->GetStateMachine()->ChangeState(MoveState);
     return;
@@ -102,5 +101,5 @@ void BossIdolState::DrawBone()
 	}
 	else return;
 
-	// m_pColl->Draw(transform);
+	// m_pColl->Draw(transform);.
 }

@@ -15,16 +15,18 @@
 #ifdef _DEBUG
 #pragma comment( lib, "Effekseerd.lib" )
 #pragma comment( lib, "EffekseerRendererDX11d.lib" )
-#else//#ifdef _DEBUG
+#else//#ifdef _DEBUG.
 #pragma comment( lib, "Effekseer.lib" )
 #pragma comment( lib, "EffekseerRendererDX11.lib" )
-#endif//#ifdef _DEBUG
+#endif//#ifdef _DEBUG.
 
 class CameraBase;
 
-/******************************************************************
-*	EffekseerManager.
-******************************************************************/
+/**********************************************************************************
+* @author    : 未定.
+* @date      : 未定.
+* @brief     : EffekseerManager.
+**********************************************************************************/
 class EffekseerManager final
 	: public Singleton<EffekseerManager>
 {

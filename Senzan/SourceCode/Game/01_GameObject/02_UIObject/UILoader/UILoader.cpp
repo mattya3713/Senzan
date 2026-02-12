@@ -1,44 +1,43 @@
-#include "02_UIObject/UILoader/UILoader.h"
+ï»¿#include "02_UIObject/UILoader/UILoader.h"
 #include "FileManager/FileManager.h"
 #include "ResourceManager/SpriteManager/SpriteManager.h"
 
-// jsonŒ^‚ğì¬
+// jsonå‹ã‚’ä½œæˆ.
 using Json = nlohmann::json;
 
-//----------------------------------------------------------------.
 
 void UILoader::LoadFromJson(
 	const std::string& scenepath,
 	std::vector<std::shared_ptr<UIObject>>& uis)
 {
-	// JSON“Ç‚İ‚İ.
+	// JSONèª­ã¿è¾¼ã¿.
 	Json jsonData = FileManager::JsonLoad(scenepath);
 
-	// •Û‘¶‚³‚ê‚½UIƒf[ƒ^‚ğ“Ç‚İ‚İA“WŠJ.
+	// ä¿å­˜ã•ã‚ŒãŸUIãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿ã€å±•é–‹.
 	for (auto& [imageName, spriteArray] : jsonData.items()) {
-		// Šg’£q‚ª .json ‚È‚çƒXƒLƒbƒv.
+		// æ‹¡å¼µå­ãŒ .json ãªã‚‰ã‚¹ã‚­ãƒƒãƒ—.
 		std::string::size_type dotPos = imageName.find_last_of('.');
 		if (dotPos != std::string::npos) {
 			std::string ext = imageName.substr(dotPos);
 			if (ext == ".json" || ext == ".JSON") continue;
 		}
 
-		// ƒXƒvƒ‰ƒCƒgæ“¾.
+		// ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆå–å¾—.
 		std::shared_ptr<Sprite2D> pSprite = SpriteManager::GetSprite2D(GetBaseName(imageName));
 
 		if (!pSprite) {
-			MessageBoxA(NULL, ("ƒXƒvƒ‰ƒCƒg‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ: " + imageName).c_str(), "Error", MB_OK);
+			MessageBoxA(NULL, ("ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“: " + imageName).c_str(), "Error", MB_OK);
 			continue;
 		}
 
-		// ŠeUIƒCƒ“ƒXƒ^ƒ“ƒX‚ğ“WŠJ.
+		// å„UIã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å±•é–‹.
 		for (auto& value : spriteArray) {
 			std::shared_ptr<UIObject> ui = std::make_shared<UIObject>();
 
 			ui->AttachSprite(pSprite);
 			ui->SetUIName(imageName);
 
-			// Šeíî•ñ‚ğİ’è.
+			// å„ç¨®æƒ…å ±ã‚’è¨­å®š.
 			ui->SetPosition(DirectX::XMFLOAT3(value["Pos"]["x"], value["Pos"]["y"], value["Pos"]["z"]));
 			ui->SetColor(DirectX::XMFLOAT4(value["Color"]["x"], value["Color"]["y"], value["Color"]["z"], value["Color"]["a"]));
 			ui->SetAlpha(value["Alpha"]);
@@ -46,15 +45,15 @@ void UILoader::LoadFromJson(
 			ui->SetPivot(DirectX::XMFLOAT2(value["Pivot"]["x"], value["Pivot"]["y"]));
 			ui->SetRotation(DirectX::XMFLOAT3(value["Rotate"]["x"], value["Rotate"]["y"], value["Rotate"]["z"]));
 
-			// SpriteData‚Ìˆê•”‚àã‘‚«.
+			// SpriteDataã®ä¸€éƒ¨ã‚‚ä¸Šæ›¸ã.
 			pSprite->SetDrawSize(DirectX::XMFLOAT2(value["Disp"]["w"], value["Disp"]["h"]));
 
-			// ƒŠƒXƒg‚É’Ç‰Á.
+			// ãƒªã‚¹ãƒˆã«è¿½åŠ .
 			uis.push_back(ui);
 		}
 	}
 
-	// ZÀ•W‚ğŠî€‚Éƒ\[ƒg.
+	// Zåº§æ¨™ã‚’åŸºæº–ã«ã‚½ãƒ¼ãƒˆ.
 	std::sort(uis.begin(), uis.end(),
 		[](const std::shared_ptr<UIObject>& a,
 			const std::shared_ptr<UIObject>& b)

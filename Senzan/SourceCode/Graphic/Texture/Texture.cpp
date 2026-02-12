@@ -1,4 +1,4 @@
-#include "Texture.h"
+ï»¿#include "Texture.h"
 #include "Graphic/DirectX/DirectX11/DirectX11.h"
 
 Texture::Texture()
@@ -11,7 +11,6 @@ Texture::~Texture()
     SAFE_RELEASE(m_pTexture);
 }
 
-//-----------------------------------------------------------------------------.
 
 void Texture::Init(int width, int height, DXGI_FORMAT format, UINT bindFlags)
 {
@@ -30,11 +29,10 @@ void Texture::Init(int width, int height, DXGI_FORMAT format, UINT bindFlags)
     HRESULT result = DirectX11::GetInstance().GetDevice()->CreateTexture2D(&desc, nullptr, &m_pTexture);
     if (FAILED(result)) 
     {
-        assert(0 && "ƒeƒNƒXƒ`ƒƒ‚Ìì¬‚É¸”s");
+        assert(0 && "ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ä½œæˆã«å¤±æ•—");
     }
 }
 
-//-----------------------------------------------------------------------------.
 
 ID3D11Texture2D* Texture::GetTexture() const
 {

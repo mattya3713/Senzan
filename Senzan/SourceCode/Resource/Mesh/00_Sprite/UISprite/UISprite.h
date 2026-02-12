@@ -58,9 +58,9 @@ public:
 	{
 		bool operator()(const DirectX::XMFLOAT2& lhs, const DirectX::XMFLOAT2& rhs) const
 		{
-			// unordered_mapの動作に必要な等価演算子 (operator==) を定義します。
-			// floatの比較は、一般的には許容誤差 (epsilon) を使うべきですが、
-			// 簡略化のため、ここでは完全一致をチェックします。
+			// unordered_mapの動作に必要な等価演算子 (operator==) を定義します。.
+			// floatの比較は、一般的には許容誤差 (epsilon) を使うべきですが、.
+			// 簡略化のため、ここでは完全一致をチェックします。.
 			return lhs.x == rhs.x && lhs.y == rhs.y;
 		}
 	};
@@ -174,5 +174,5 @@ private:
 	std::string m_ResourceName;	// 使用している資源の名前.
 	DirectX::XMMATRIX	m_WorldMatrix;	// ワールド行列.
 	DirectX::XMFLOAT2 m_DrawSize;		// 表示幅、高さ.
-	DirectX::XMFLOAT4 m_Color;		// 色（R,G,B,A）
+	DirectX::XMFLOAT4 m_Color;		// 色（R,G,B,A）.
 };

@@ -1,12 +1,14 @@
-#pragma once
+ï»¿#pragma once
 class Texture;
 class RenderTargetView;
 class DepthStencilView;
 class ShaderResourceView;
 
-/***********************************************
-*	ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒgƒNƒ‰ƒX.
-***********************************************/
+/**********************************************************************************
+* @author    : æœªå®š.
+* @date      : æœªå®š.
+* @brief     : ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚¯ãƒ©ã‚¹.
+**********************************************************************************/
 class RenderTarget final
 {
 public:
@@ -14,14 +16,14 @@ public:
 	~RenderTarget();
 
 	/***************************************************
-	* @brief ‰Šú‰».
-	* @param width				F•.
-	* @param height				F‚‚³.
-	* @param colorFormat		FƒJƒ‰[ƒtƒH[ƒ}ƒbƒg.
-	* @param colorBindFlags		FƒJƒ‰[ƒeƒNƒXƒ`ƒƒ‚ÌƒoƒCƒ“ƒhƒtƒ‰ƒO.
-	* @param depthFormat		F[“xƒXƒeƒ“ƒVƒ‹ƒtƒH[ƒ}ƒbƒg.
-	* @param depthBindFlags		F[“xƒXƒeƒ“ƒVƒ‹‚ÌƒoƒCƒ“ƒhƒtƒ‰ƒO.
-	* @param clearColor			FƒNƒŠƒAƒJƒ‰[.
+	* @brief åˆæœŸåŒ–.
+	* @param width				ï¼šå¹….
+	* @param height				ï¼šé«˜ã•.
+	* @param colorFormat		ï¼šã‚«ãƒ©ãƒ¼ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ.
+	* @param colorBindFlags		ï¼šã‚«ãƒ©ãƒ¼ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ãƒã‚¤ãƒ³ãƒ‰ãƒ•ãƒ©ã‚°.
+	* @param depthFormat		ï¼šæ·±åº¦ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ.
+	* @param depthBindFlags		ï¼šæ·±åº¦ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ã®ãƒã‚¤ãƒ³ãƒ‰ãƒ•ãƒ©ã‚°.
+	* @param clearColor			ï¼šã‚¯ãƒªã‚¢ã‚«ãƒ©ãƒ¼.
 	***************************************************/
 	void Init(
 		int width,
@@ -34,28 +36,28 @@ public:
 
 
 	/***************************************************
-	* @brief ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒg‚ğƒZƒbƒg.
+	* @brief ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’ã‚»ãƒƒãƒˆ.
 	***************************************************/
 	void SetRenderTargets();
 
 
 	/***************************************************
-	* @brief ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒg‚ğƒNƒŠƒA.	
+	* @brief ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’ã‚¯ãƒªã‚¢.	
 	***************************************************/
 	void ClearRenderTarget();
 
 
 	/***************************************************
-	* @brief ƒVƒF[ƒ_[ƒŠƒ\[ƒXƒrƒ…[‚ğæ“¾.
+	* @brief ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒªã‚½ãƒ¼ã‚¹ãƒ“ãƒ¥ãƒ¼ã‚’å–å¾—.
 	***************************************************/
 	[[nodiscard]] ID3D11ShaderResourceView* GetShaderResourceView() const;
 private:
-	std::unique_ptr<Texture> m_pColorTextur;// ƒJƒ‰[ƒeƒNƒXƒ`ƒƒ.
-	std::unique_ptr<Texture> m_pDepthTextur;// [“xƒeƒNƒXƒ`ƒƒ.
+	std::unique_ptr<Texture> m_pColorTextur;// ã‚«ãƒ©ãƒ¼ãƒ†ã‚¯ã‚¹ãƒãƒ£.
+	std::unique_ptr<Texture> m_pDepthTextur;// æ·±åº¦ãƒ†ã‚¯ã‚¹ãƒãƒ£.
 
-	std::unique_ptr<RenderTargetView>		m_pRenderTargetView;	// ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒgƒrƒ…[.
-	std::unique_ptr<DepthStencilView>		m_pDepthStencilView;	// ƒfƒvƒXƒXƒeƒ“ƒVƒ‹ƒrƒ…[.
-	std::unique_ptr<ShaderResourceView>	m_pShaderResourceView;	// ƒVƒF[ƒ_[ƒŠƒ\[ƒXƒrƒ…[.
+	std::unique_ptr<RenderTargetView>		m_pRenderTargetView;	// ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãƒ“ãƒ¥ãƒ¼.
+	std::unique_ptr<DepthStencilView>		m_pDepthStencilView;	// ãƒ‡ãƒ—ã‚¹ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ãƒ“ãƒ¥ãƒ¼.
+	std::unique_ptr<ShaderResourceView>	m_pShaderResourceView;	// ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒªã‚½ãƒ¼ã‚¹ãƒ“ãƒ¥ãƒ¼.
 
-	DirectX::XMFLOAT4 m_ClearColor;// ƒNƒŠƒAƒJƒ‰[.
+	DirectX::XMFLOAT4 m_ClearColor;// ã‚¯ãƒªã‚¢ã‚«ãƒ©ãƒ¼.
 };

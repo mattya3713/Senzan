@@ -8,13 +8,11 @@ RectTransform::RectTransform()
 {
 }
 
-//-----------------------------------------------------------------------.
 
 RectTransform::~RectTransform()
 {
 }
 
-//-----------------------------------------------------------------------.
 
 const DirectX::XMFLOAT3 RectTransform::CalcAnchoredPosition()
 {
@@ -28,60 +26,52 @@ const DirectX::XMFLOAT3 RectTransform::CalcAnchoredPosition()
     float y = m_spTransform.Position.y + offsetY + offsetPivotY;
     float z = m_spTransform.Position.z;
 
-    // 新しい位置を計算
+    // 新しい位置を計算.
     return DirectX::XMFLOAT3(x, y, z);
 }
 
-//-----------------------------------------------------------------------.
 
 const Transform& RectTransform::GetTransform() const
 {
     return m_spTransform;
 }
 
-//-----------------------------------------------------------------------.
 
 void RectTransform::SetTransform(const Transform& transform)
 {
     m_spTransform = transform;
 }
 
-//-----------------------------------------------------------------------.
 
 const DirectX::XMFLOAT2& RectTransform::GetSize() const
 {
     return m_Size;
 }
 
-//-----------------------------------------------------------------------.
 
 void RectTransform::SetSize(const DirectX::XMFLOAT2& size)
 {
     m_Size = size;
 }
 
-//-----------------------------------------------------------------------.
 
 const DirectX::XMFLOAT2& RectTransform::GetAnchor() const
 {
     return m_Anchor;
 }
 
-//-----------------------------------------------------------------------.
 
 void RectTransform::SetAnchor(const DirectX::XMFLOAT2& anchor)
 {
     m_Anchor = anchor;
 }
 
-//-----------------------------------------------------------------------.
 
 const DirectX::XMFLOAT2& RectTransform::GetPivot() const
 {
     return m_Pivot;
 }
 
-//-----------------------------------------------------------------------.
 
 void RectTransform::SetPivot(const DirectX::XMFLOAT2& pivot)
 {

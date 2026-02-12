@@ -1,59 +1,61 @@
-#pragma once
+ï»¿#pragma once
 #include "System/Singleton/SingletonTemplate.h"
 #include "Resource/Mesh/01_Static/StaticMesh.h"
 #include "Resource/Mesh/02_Skin/SkinMesh.h"
 
-/************************************
-*	ƒƒbƒVƒ…ŠÇ—ƒNƒ‰ƒX.
-************************************/
+/**********************************************************************************
+* @author    : æœªå®š.
+* @date      : æœªå®š.
+* @brief     : ãƒ¡ãƒƒã‚·ãƒ¥ç®¡ç†ã‚¯ãƒ©ã‚¹.
+**********************************************************************************/
 class MeshManager final
 	: public Singleton<MeshManager>
 {
 private:
-	friend class Singleton<MeshManager>;// Singleton‚©‚ç‚ÌƒAƒNƒZƒX‚ğ‹–‰Â.
+	friend class Singleton<MeshManager>;// Singletonã‹ã‚‰ã®ã‚¢ã‚¯ã‚»ã‚¹ã‚’è¨±å¯.
 	MeshManager();
 public:
 
 	~MeshManager();
 
 	/*******************************************
-	* @brief ‘S‚Ä‚ÌƒƒbƒVƒ…‚ÌˆêŠ‡“Ç‚İ‚İ.
+	* @brief å…¨ã¦ã®ãƒ¡ãƒƒã‚·ãƒ¥ã®ä¸€æ‹¬èª­ã¿è¾¼ã¿.
 	*******************************************/
 	static bool LoadAllMeshes();
 
 
 	/************************************************
-	* @brief ƒXƒ^ƒeƒBƒbƒNƒƒbƒVƒ…‚ğæ“¾.
-	* @param nameFæ“¾‚µ‚½‚¢ƒXƒ^ƒeƒBƒbƒNƒƒbƒVƒ…‚Ì–¼‘O.
+	* @brief ã‚¹ã‚¿ãƒ†ã‚£ãƒƒã‚¯ãƒ¡ãƒƒã‚·ãƒ¥ã‚’å–å¾—.
+	* @param nameï¼šå–å¾—ã—ãŸã„ã‚¹ã‚¿ãƒ†ã‚£ãƒƒã‚¯ãƒ¡ãƒƒã‚·ãƒ¥ã®åå‰.
 	************************************************/
 	static  std::shared_ptr<StaticMesh> GetStaticMesh(const std::string& name);
 
 
 	/************************************************
-	* @brief ƒXƒLƒ“ƒƒbƒVƒ…‚ğæ“¾.
-	* @param nameFæ“¾‚µ‚½‚¢ƒXƒLƒ“ƒƒbƒVƒ…‚Ì–¼‘O.
+	* @brief ã‚¹ã‚­ãƒ³ãƒ¡ãƒƒã‚·ãƒ¥ã‚’å–å¾—.
+	* @param nameï¼šå–å¾—ã—ãŸã„ã‚¹ã‚­ãƒ³ãƒ¡ãƒƒã‚·ãƒ¥ã®åå‰.
 	************************************************/
 	static  std::shared_ptr<SkinMesh> GetSkinMesh(const std::string& name);
 
 
 	/************************************************
-	* @brief ƒXƒ^ƒeƒBƒbƒNƒƒbƒVƒ…‚ÌƒŠƒXƒg‚ğæ“¾.
+	* @brief ã‚¹ã‚¿ãƒ†ã‚£ãƒƒã‚¯ãƒ¡ãƒƒã‚·ãƒ¥ã®ãƒªã‚¹ãƒˆã‚’å–å¾—.
 	************************************************/
 	static std::vector<std::string> GetStaticMeshList();
 
 
 	/************************************************
-	* @brief ƒXƒLƒ“ƒƒbƒVƒ…‚ÌƒŠƒXƒg‚ğæ“¾.
+	* @brief ã‚¹ã‚­ãƒ³ãƒ¡ãƒƒã‚·ãƒ¥ã®ãƒªã‚¹ãƒˆã‚’å–å¾—.
 	************************************************/
 	static std::vector<std::string> GetSkinMeshList();
 
 private:
 	/**********************************************************************
-	* @brief ƒƒbƒVƒ…‚ÌˆêŠ‡“Ç‚İ‚İ.
-	* @tparam MeshTypeF“Ç‚İ‚ŞƒƒbƒVƒ…‚ÌŒ^iCStaticMesh,CSkinMeshj.
-	* @param[in]  directoryFilePath	F“Ç‚İ‚ŞƒfƒBƒŒƒNƒgƒŠ‚Ìƒtƒ@ƒCƒ‹ƒpƒX.
-	* @param[out] meshes			FŠi”[‚·‚éƒƒbƒVƒ…‚Ì•Ï”.
-	* @param[out] meshList			FƒƒbƒVƒ…ƒŠƒXƒg‚Ì•Ï”.
+	* @brief ãƒ¡ãƒƒã‚·ãƒ¥ã®ä¸€æ‹¬èª­ã¿è¾¼ã¿.
+	* @tparam MeshTypeï¼šèª­ã¿è¾¼ã‚€ãƒ¡ãƒƒã‚·ãƒ¥ã®å‹ï¼ˆCStaticMesh,CSkinMeshï¼‰.
+	* @param[in]  directoryFilePath	ï¼šèª­ã¿è¾¼ã‚€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹.
+	* @param[out] meshes			ï¼šæ ¼ç´ã™ã‚‹ãƒ¡ãƒƒã‚·ãƒ¥ã®å¤‰æ•°.
+	* @param[out] meshList			ï¼šãƒ¡ãƒƒã‚·ãƒ¥ãƒªã‚¹ãƒˆã®å¤‰æ•°.
 	**********************************************************************/
 	template<typename MeshType>
 	bool LoadMeshes(
@@ -61,9 +63,9 @@ private:
 		std::unordered_map<std::string, std::shared_ptr<MeshType>>& meshes,
 		std::vector<std::string>& meshList);
 private:
-	std::unordered_map<std::string, std::shared_ptr<StaticMesh>>	m_pStaticMeshes;// ƒXƒ^ƒeƒBƒbƒNƒƒbƒVƒ….
-	std::unordered_map<std::string, std::shared_ptr<SkinMesh>>		m_pSkinMeshes;	// ƒXƒLƒ“ƒƒbƒVƒ….
+	std::unordered_map<std::string, std::shared_ptr<StaticMesh>>	m_pStaticMeshes;// ã‚¹ã‚¿ãƒ†ã‚£ãƒƒã‚¯ãƒ¡ãƒƒã‚·ãƒ¥.
+	std::unordered_map<std::string, std::shared_ptr<SkinMesh>>		m_pSkinMeshes;	// ã‚¹ã‚­ãƒ³ãƒ¡ãƒƒã‚·ãƒ¥.
 
-	std::vector<std::string> m_StaticMeshList;	// ƒXƒ^ƒeƒBƒbƒNƒƒbƒVƒ…ƒŠƒXƒg.
-	std::vector<std::string> m_SkinMeshList;	// ƒXƒLƒ“ƒƒbƒVƒ…ƒŠƒXƒg.
+	std::vector<std::string> m_StaticMeshList;	// ã‚¹ã‚¿ãƒ†ã‚£ãƒƒã‚¯ãƒ¡ãƒƒã‚·ãƒ¥ãƒªã‚¹ãƒˆ.
+	std::vector<std::string> m_SkinMeshList;	// ã‚¹ã‚­ãƒ³ãƒ¡ãƒƒã‚·ãƒ¥ãƒªã‚¹ãƒˆ.
 };

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "../PlayerStateBase.h"
 #include "../PlayerStateID.h"
@@ -22,9 +22,9 @@ class JustDodge;
 
 namespace PlayerState {
 /**************************************************
-*	ƒvƒŒƒCƒ„[‚Ìó‘Ô‚ÌÅãˆÊ(Root).
-*   ŠeƒXƒe[ƒg‚ÌŠ—LŒ ‚Æg—pƒXƒe[ƒgØ‚è‘Ö‚¦‚ğ‚·‚é.
-*	’S“–:•£˜e –¢—ˆ.
+*	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®çŠ¶æ…‹ã®æœ€ä¸Šä½(Root).
+*   å„ã‚¹ãƒ†ãƒ¼ãƒˆã®æ‰€æœ‰æ¨©ã¨ä½¿ç”¨ã‚¹ãƒ†ãƒ¼ãƒˆåˆ‡ã‚Šæ›¿ãˆã‚’ã™ã‚‹.
+*	æ‹…å½“:æ·µè„‡ æœªæ¥.
 **/
 
 class Root final 
@@ -34,7 +34,7 @@ public:
     Root(Player* owner);
     ~Root();
 
-    // ƒXƒe[ƒgID‚Ìæ“¾.
+    // ã‚¹ãƒ†ãƒ¼ãƒˆIDã®å–å¾—.
     constexpr PlayerState::eID GetStateID() const override;
 
     void Enter() override;
@@ -43,47 +43,47 @@ public:
     void Draw() override;
     void Exit() override;
 
-    // ƒXƒe[ƒg‚Ì•ÏX.
+    // ã‚¹ãƒ†ãƒ¼ãƒˆã®å¤‰æ›´.
     void ChangeState(PlayerState::eID id);
 
 #pragma region GetStateRef
 
     //---System---.
-    std::reference_wrapper<PlayerStateBase> GetPauseStateRef();         // ƒ|[ƒYƒXƒe[ƒg‚Ìæ“¾.
-    std::reference_wrapper<PlayerStateBase> GetKnockBackStateRef();     // ƒXƒ^ƒ“ƒXƒe[ƒg‚Ìæ“¾.
-    std::reference_wrapper<PlayerStateBase> GetDeadStateRef();          // €–SƒXƒe[ƒg‚Ìæ“¾.
-    std::reference_wrapper<PlayerStateBase> GetSpecialAttackStateRef(); // •KE‹ZƒXƒe[ƒg‚Ìæ“¾.
+    std::reference_wrapper<PlayerStateBase> GetPauseStateRef();         // ãƒãƒ¼ã‚ºã‚¹ãƒ†ãƒ¼ãƒˆã®å–å¾—.
+    std::reference_wrapper<PlayerStateBase> GetKnockBackStateRef();     // ã‚¹ã‚¿ãƒ³ã‚¹ãƒ†ãƒ¼ãƒˆã®å–å¾—.
+    std::reference_wrapper<PlayerStateBase> GetDeadStateRef();          // æ­»äº¡ã‚¹ãƒ†ãƒ¼ãƒˆã®å–å¾—.
+    std::reference_wrapper<PlayerStateBase> GetSpecialAttackStateRef(); // å¿…æ®ºæŠ€ã‚¹ãƒ†ãƒ¼ãƒˆã®å–å¾—.
 
     //---Movement---.
-    std::reference_wrapper<PlayerStateBase> GetIdleStateRef();          // ‘Ò‹@ƒXƒe[ƒg‚Ìæ“¾.
-    std::reference_wrapper<PlayerStateBase> GetRunStateRef();           // ˆÚ“®ƒXƒe[ƒg‚Ìæ“¾.
+    std::reference_wrapper<PlayerStateBase> GetIdleStateRef();          // å¾…æ©Ÿã‚¹ãƒ†ãƒ¼ãƒˆã®å–å¾—.
+    std::reference_wrapper<PlayerStateBase> GetRunStateRef();           // ç§»å‹•ã‚¹ãƒ†ãƒ¼ãƒˆã®å–å¾—.
 
     //---Combat---.
-    std::reference_wrapper<PlayerStateBase> GetCombo0StateRef();        // UŒ‚1’i–ÚƒXƒe[ƒg‚Ìæ“¾.
-    std::reference_wrapper<PlayerStateBase> GetCombo1StateRef();        // UŒ‚2’i–ÚƒXƒe[ƒg‚Ìæ“¾.
-    std::reference_wrapper<PlayerStateBase> GetCombo2StateRef();        // UŒ‚3’i–ÚƒXƒe[ƒg‚Ìæ“¾.
-    std::reference_wrapper<PlayerStateBase> GetParryStateRef();         // ƒpƒŠƒBƒXƒe[ƒg‚Ìæ“¾.
+    std::reference_wrapper<PlayerStateBase> GetCombo0StateRef();        // æ”»æ’ƒ1æ®µç›®ã‚¹ãƒ†ãƒ¼ãƒˆã®å–å¾—.
+    std::reference_wrapper<PlayerStateBase> GetCombo1StateRef();        // æ”»æ’ƒ2æ®µç›®ã‚¹ãƒ†ãƒ¼ãƒˆã®å–å¾—.
+    std::reference_wrapper<PlayerStateBase> GetCombo2StateRef();        // æ”»æ’ƒ3æ®µç›®ã‚¹ãƒ†ãƒ¼ãƒˆã®å–å¾—.
+    std::reference_wrapper<PlayerStateBase> GetParryStateRef();         // ãƒ‘ãƒªã‚£ã‚¹ãƒ†ãƒ¼ãƒˆã®å–å¾—.
 
     //---Dodge---.
-    std::reference_wrapper<PlayerStateBase> GetDodgeExecuteStateRef();  // ‰ñ”ğƒXƒe[ƒg‚Ìæ“¾.
-    std::reference_wrapper<PlayerStateBase> GetJustDodgeStateRef();     // ƒWƒƒƒXƒg‰ñ”ğƒXƒe[ƒg‚Ìæ“¾.
+    std::reference_wrapper<PlayerStateBase> GetDodgeExecuteStateRef();  // å›é¿ã‚¹ãƒ†ãƒ¼ãƒˆã®å–å¾—.
+    std::reference_wrapper<PlayerStateBase> GetJustDodgeStateRef();     // ã‚¸ãƒ£ã‚¹ãƒˆå›é¿ã‚¹ãƒ†ãƒ¼ãƒˆã®å–å¾—.
 #pragma endregion
     
 private:
-    std::unique_ptr<Pause>          m_pPause;         // ƒ|[ƒYó‘Ô.  
-    std::unique_ptr<KnockBack>      m_pKnockBack;     // ƒXƒ^ƒ“ó‘Ô.
-    std::unique_ptr<Dead>           m_pDead;          // €–Só‘Ô.
-    std::unique_ptr<SpecialAttack>  m_pSpecialAttack; // •KE‹Zó‘Ô.
-    std::unique_ptr<Idle>           m_pIdle;		  // ‘Ò‹@ó‘Ô.
-    std::unique_ptr<Run>            m_pRun;		      // ‘–‚èó‘Ô.
-    std::unique_ptr<AttackCombo_0>  m_pCombo_0;       // UŒ‚1’i–Ú.
-    std::unique_ptr<AttackCombo_1>  m_pCombo_1;       // UŒ‚2’i–Ú.
-    std::unique_ptr<AttackCombo_2>  m_pCombo_2;       // UŒ‚3’i–Ú.
-    std::unique_ptr<Parry>          m_pParry;         // ƒpƒŠƒB.
-    std::unique_ptr<DodgeExecute>   m_pDodgeExecute;  // ‰ñ”ğó‘Ô.
-    std::unique_ptr<JustDodge>      m_pJustDodge;     // ƒWƒƒƒXƒg‰ñ”ğó‘Ô.
+    std::unique_ptr<Pause>          m_pPause;         // ãƒãƒ¼ã‚ºçŠ¶æ…‹.  
+    std::unique_ptr<KnockBack>      m_pKnockBack;     // ã‚¹ã‚¿ãƒ³çŠ¶æ…‹.
+    std::unique_ptr<Dead>           m_pDead;          // æ­»äº¡çŠ¶æ…‹.
+    std::unique_ptr<SpecialAttack>  m_pSpecialAttack; // å¿…æ®ºæŠ€çŠ¶æ…‹.
+    std::unique_ptr<Idle>           m_pIdle;		  // å¾…æ©ŸçŠ¶æ…‹.
+    std::unique_ptr<Run>            m_pRun;		      // èµ°ã‚ŠçŠ¶æ…‹.
+    std::unique_ptr<AttackCombo_0>  m_pCombo_0;       // æ”»æ’ƒ1æ®µç›®.
+    std::unique_ptr<AttackCombo_1>  m_pCombo_1;       // æ”»æ’ƒ2æ®µç›®.
+    std::unique_ptr<AttackCombo_2>  m_pCombo_2;       // æ”»æ’ƒ3æ®µç›®.
+    std::unique_ptr<Parry>          m_pParry;         // ãƒ‘ãƒªã‚£.
+    std::unique_ptr<DodgeExecute>   m_pDodgeExecute;  // å›é¿çŠ¶æ…‹.
+    std::unique_ptr<JustDodge>      m_pJustDodge;     // ã‚¸ãƒ£ã‚¹ãƒˆå›é¿çŠ¶æ…‹.
 
-    // Œ»İ‚Ìó‘Ô‚ğ•Û.
+    // ç¾åœ¨ã®çŠ¶æ…‹ã‚’ä¿æŒ.
     std::reference_wrapper<PlayerStateBase> m_CurrentActiveState;
 };
 }

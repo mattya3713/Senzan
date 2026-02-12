@@ -28,7 +28,7 @@ void BossSpinningState::Enter()
     m_pOwner->SetIsLoop(false);
     m_pOwner->SetAnimTime(0.0);
     m_pOwner->SetAnimSpeed(1.0);
-    // 初期は "Charge" を再生（下から順に Charge -> ChargeAttack -> ChargeToIdol）
+    // 初期は "Charge" を再生（下から順に Charge -> ChargeAttack -> ChargeToIdol）.
     m_pOwner->ChangeAnim(Boss::enBossAnim::Charge);
     m_List = enSpinning::Anim;
     m_IsSpun = false;
@@ -51,11 +51,11 @@ void BossSpinningState::Update()
         break;
 
     case enSpinning::Anim:
-        // start attack when charge animation ends or after charge time
+        // 溜めアニメ終了時または溜め時間経過後に攻撃を開始する.
         if (m_CurrentTime >= m_ChargeTime)
         {
             m_List = enSpinning::Attack;
-            // 攻撃アニメへ
+            // 攻撃アニメへ.
             m_pOwner->ChangeAnim(Boss::enBossAnim::ChargeAttack);
         }
         break;
@@ -78,24 +78,24 @@ void BossSpinningState::Update()
             SoundManager::GetInstance().SetVolume("Throw", 8000);
             m_SecondSlashed = true;
         }
-        // 攻撃フェーズの進行率 t in [0,1]
+        // 攻撃フェーズの進行率 t in [0,1].
         float phaseStart = m_ChargeTime;
         float phaseEnd = m_ChargeTime + m_AttackTime;
         float t = 0.0f;
         if (phaseEnd > phaseStart) t = (m_CurrentTime - phaseStart) / (phaseEnd - phaseStart);
         if (t < 0.0f) t = 0.0f; if (t > 1.0f) t = 1.0f;
 
-        // イージングで目標角度を求める
+        // イージングで目標角度を求める.
         float easedAngle = 0.0f;
         {
             DirectX::XMFLOAT3 start{ 0.0f, 0.0f, 0.0f };
             DirectX::XMFLOAT3 end{ 0.0f, m_RotateTotalDeg, 0.0f };
             DirectX::XMFLOAT3 out;
             MyEasing::UpdateEasing(m_EasingType, t, 1.0f, start, end, out);
-            easedAngle = out.y; // Y 成分
+            easedAngle = out.y; // Y 成分.
         }
 
-        // 差分回転を適用
+        // 差分回転を適用.
         float deltaDeg = easedAngle - m_LastEasedAngle;
         m_LastEasedAngle = easedAngle;
         if (m_pOwner && m_pOwner->GetTransform() && fabsf(deltaDeg) > 1e-6f) {
@@ -106,7 +106,7 @@ void BossSpinningState::Update()
         if (m_CurrentTime >= m_ChargeTime + m_AttackTime)
         {
             m_List = enSpinning::CoolDown;
-            // 攻撃終了から待機遷移用アニメ
+            // 攻撃終了から待機遷移用アニメ.
             m_pOwner->ChangeAnim(Boss::enBossAnim::ChargeToIdol);
         }
         break;
@@ -121,13 +121,13 @@ void BossSpinningState::Update()
     case enSpinning::Trans:
         if (!m_IsDebugStop)
         {
-            m_LastEasedAngle = 0.0f; // reset
+            m_LastEasedAngle = 0.0f; // reset.
             m_pOwner->GetStateMachine()->ChangeState(std::make_shared<BossIdolState>(m_pOwner));
         }
         break;
     }
 
-    // 基底 Update は先頭で呼んでいるためここでは不要
+    // 基底 Update は先頭で呼んでいるためここでは不要.
 }
 
 void BossSpinningState::LateUpdate()
@@ -156,7 +156,7 @@ void BossSpinningState::DrawImGui()
     ImGui::Begin(IMGUI_JP("BossSpinning State"));
     CImGuiManager::Slider<float>(IMGUI_JP("合計回転角度 (deg)"), m_RotateTotalDeg, 0.0f, 3600.0f, true);
 
-    // Easing selector
+    // Easing selector.
     static const char* easingNames[] = {
         "Liner","InSine","OutSine","InOutSine","InQuad","OutQuad","InOutQuad",
         "InCubic","OutCubic","InOutCubic","InQuart","OutQuart","InOutQuart",
@@ -172,7 +172,7 @@ void BossSpinningState::DrawImGui()
     ImGui::Separator();
     if (ImGui::Button(IMGUI_JP("読み込み (Enter またはボタン)"))) { LoadSettings(); }
 
-    // Enter キーで JSON を読み込む (既存の処理)
+    // Enter キーで JSON を読み込む (既存の処理).
     {
         static bool prevEnterDown = false;
         SHORT st = GetAsyncKeyState(VK_RETURN);
@@ -191,10 +191,10 @@ void BossSpinningState::DrawImGui()
 
 void BossSpinningState::LoadSettings()
 {
-    // Load base settings (this reads Data/Json/Boss/<file>)
+    // 基底クラスの設定を読み込む (Data/Json/Boss/<file> から読み込み).
     BossAttackStateBase::LoadSettings();
 
-    // Load additional fields from the same location as other boss states
+    // 他のボスステートと同じ場所から追加フィールドを読み込む.
     auto filePath = GetSettingsFileName();
     if (!filePath.is_absolute()) {
         auto dir = std::filesystem::current_path() / "Data" / "Json" / "Boss";

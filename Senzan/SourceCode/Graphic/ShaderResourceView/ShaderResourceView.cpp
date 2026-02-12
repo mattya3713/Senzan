@@ -1,4 +1,4 @@
-#include "ShaderResourceView.h"
+ï»¿#include "ShaderResourceView.h"
 #include "Graphic/DirectX/DirectX11/DirectX11.h"
 
 ShaderResourceView::ShaderResourceView()
@@ -11,15 +11,14 @@ ShaderResourceView::~ShaderResourceView()
     SAFE_RELEASE(m_pShaderResourceView);
 }
 
-//---------------------------------------------------------------------.
 
 void ShaderResourceView::Init(ID3D11Texture2D* pTexture)
 {
-    // ƒeƒNƒXƒ`ƒƒ‚©‚çDesc‚ğæ“¾.
+    // ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‹ã‚‰Descã‚’å–å¾—.
     D3D11_TEXTURE2D_DESC textureDesc = {};
     pTexture->GetDesc(&textureDesc);
 
-    // ƒVƒF[ƒ_[ƒŠƒ\[ƒXƒrƒ…[‚Ìì¬.
+    // ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒªã‚½ãƒ¼ã‚¹ãƒ“ãƒ¥ãƒ¼ã®ä½œæˆ.
     D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
     srvDesc.Format              = textureDesc.Format;
     srvDesc.ViewDimension       = D3D11_SRV_DIMENSION_TEXTURE2D;
@@ -28,24 +27,23 @@ void ShaderResourceView::Init(ID3D11Texture2D* pTexture)
     auto result = DirectX11::GetInstance().GetDevice()->CreateShaderResourceView(pTexture, &srvDesc, &m_pShaderResourceView);
     if (FAILED(result)) 
     {
-        assert(0 && "ƒVƒF[ƒ_[ƒŠƒ\[ƒXƒrƒ…[‚Ìì¬‚É¸”s");
+        assert(0 && "ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒªã‚½ãƒ¼ã‚¹ãƒ“ãƒ¥ãƒ¼ã®ä½œæˆã«å¤±æ•—");
     }
 }
 
 void ShaderResourceView::Init(const std::wstring pTexturePath)
 {
-    // ƒeƒNƒXƒ`ƒƒì¬.
+    // ãƒ†ã‚¯ã‚¹ãƒãƒ£ä½œæˆ.
     if (FAILED(D3DX11CreateShaderResourceViewFromFileW(
-        DirectX11::GetInstance().GetDevice(), pTexturePath.c_str(),//ƒeƒNƒXƒ`ƒƒƒtƒ@ƒCƒ‹–¼.
+        DirectX11::GetInstance().GetDevice(), pTexturePath.c_str(),//ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ•ã‚¡ã‚¤ãƒ«å.
         nullptr, nullptr,
         &m_pShaderResourceView,
         nullptr)))
     {
-        _ASSERT_EXPR(false, _T("ƒeƒNƒXƒ`ƒƒì¬¸”s"));
+        _ASSERT_EXPR(false, _T("ãƒ†ã‚¯ã‚¹ãƒãƒ£ä½œæˆå¤±æ•—"));
     }
 }
 
-//---------------------------------------------------------------------.
 
 ID3D11ShaderResourceView* ShaderResourceView::GetShaderResourceView() const
 {

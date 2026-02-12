@@ -1,4 +1,4 @@
-#include "DepthStencilView.h"
+ï»¿#include "DepthStencilView.h"
 #include "Graphic/DirectX/DirectX11/DirectX11.h"
 
 DepthStencilView::DepthStencilView()
@@ -11,26 +11,23 @@ DepthStencilView::~DepthStencilView()
     SAFE_RELEASE(m_pDepthStencilView);
 }
 
-//-------------------------------------------------------------------------.
 
 void DepthStencilView::Init(ID3D11Texture2D* pTexture)
 {
-    // ƒfƒvƒXƒXƒeƒ“ƒVƒ‹ƒrƒ…[‚Ìì¬.
+    // ãƒ‡ãƒ—ã‚¹ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ãƒ“ãƒ¥ãƒ¼ã®ä½œæˆ.
     auto result = DirectX11::GetInstance().GetDevice()->CreateDepthStencilView(pTexture, nullptr, &m_pDepthStencilView);
     if (FAILED(result))
     {
-        _ASSERT_EXPR(false, _T("ƒfƒvƒXƒXƒeƒ“ƒVƒ‹ƒrƒ…[ì¬Ž¸”s"));
+        _ASSERT_EXPR(false, _T("ãƒ‡ãƒ—ã‚¹ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ãƒ“ãƒ¥ãƒ¼ä½œæˆå¤±æ•—"));
     }
 }
 
-//-------------------------------------------------------------------------.
 
 void DepthStencilView::ClearDepthStencilView()
 {
     DirectX11::GetInstance().GetContext()->ClearDepthStencilView(m_pDepthStencilView, D3D11_CLEAR_DEPTH, 1.0, 0);
 }
 
-//-------------------------------------------------------------------------.
 
 ID3D11DepthStencilView* DepthStencilView::GetDepthStencilView()
 {

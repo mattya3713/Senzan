@@ -3,7 +3,7 @@
 
 namespace MyString 
 {
-	// Note: template implementations moved to header to avoid linkage issues.
+	// テンプレート実装はリンク問題回避のためヘッダに移動済み.
 
 	// 特定の行の値を取り出す.
 	std::string ExtractAmount(const std::string& str)
@@ -14,7 +14,7 @@ namespace MyString
 
 		// ','までの値部分とその後の型部分を分割.
 		if (std::getline(iss, valueStr, ',') && std::getline(iss, typeStr, ';')) {
-			// Trim possible trailing newline or spaces.
+			// 末尾の改行やスペースを除去する.
 			while (!typeStr.empty() && (typeStr.back() == '\n' || typeStr.back() == '\r' || typeStr.back() == ' '))
 				typeStr.pop_back();
 
@@ -81,9 +81,9 @@ namespace MyString
 	std::string UTF16ToUTF8(const std::u16string& UTF16)
 	{
 		if (UTF16.empty()) return std::string();
-		// Convert UTF-16 (char16_t) to UTF-8 via WideChar APIs by first converting to wchar_t buffer.
-		int wideCount = MultiByteToWideChar(CP_UTF8, 0, "", 0, nullptr, 0); // dummy to satisfy signatures (not used)
-		// reinterpret_cast from char16_t* to wchar_t* is not portable; convert via wstring
+		// char16_tからwchar_tバッファを経由してUTF-16からUTF-8へ変換する.
+		int wideCount = MultiByteToWideChar(CP_UTF8, 0, "", 0, nullptr, 0); // 未使用のダミー呼び出し.
+		// char16_t*からwchar_t*へのreinterpret_castは非移植的なためwstringを経由する.
 		std::wstring tmp;
 		tmp.resize(UTF16.size());
 		for (size_t i = 0; i < UTF16.size(); ++i) tmp[i] = static_cast<wchar_t>(UTF16[i]);
@@ -115,7 +115,7 @@ namespace MyString
 		std::wstring wstr(wlen, 0);
 		MultiByteToWideChar(codePage, 0, str.c_str(), -1, &wstr[0], wlen);
 
-		// MultiByteToWideChar includes null terminator in count; remove it for std::wstring correctness
+		// MultiByteToWideCharのカウントにはヌル終端が含まれるためstd::wstringの正当性のために除去する.
 		if (!wstr.empty() && wstr.back() == L'\0') wstr.pop_back();
 		return wstr;
 	}

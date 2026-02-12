@@ -1,13 +1,13 @@
-#pragma once
+ï»¿#pragma once
 #include "../Action.h"
 
 class Player;
 class ColliderBase;
 
 /**************************************************
-*	ƒvƒŒƒCƒ„[‚Ì‰ñ”ğ‚Ì‹¤’Êˆ—ƒXƒe[ƒg(Šî’ê).
-*   ‚±‚ÌƒXƒe[ƒg©‘Ì‚ªƒCƒ“ƒXƒ^ƒ“ƒX‰»‚³‚ê‚é‚±‚Æ‚Í‚È‚¢.
-*	’S“–:•£˜e –¢—ˆ.
+*	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å›é¿ã®å…±é€šå‡¦ç†ã‚¹ãƒ†ãƒ¼ãƒˆ(åŸºåº•).
+*   ã“ã®ã‚¹ãƒ†ãƒ¼ãƒˆè‡ªä½“ãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã•ã‚Œã‚‹ã“ã¨ã¯ãªã„.
+*	æ‹…å½“:æ·µè„‡ æœªæ¥.
 **/
 
 namespace PlayerState {
@@ -24,13 +24,13 @@ namespace PlayerState {
         virtual void Exit() override;
 
     private:
-        ColliderBase* m_pDamageDetectionCollider = nullptr; // ‰ñ”ğ‚ÉÁ‚·‚½‚ß‚Éƒ|ƒCƒ“ƒ^‚ğ•Û‚µ‚Ä‚¨‚­.
+        ColliderBase* m_pDamageDetectionCollider = nullptr; // å›é¿æ™‚ã«æ¶ˆã™ãŸã‚ã«ãƒã‚¤ãƒ³ã‚¿ã‚’ä¿æŒã—ã¦ãŠã.
 
     protected:
-        DirectX::XMFLOAT2   m_InputVec; // “ü—Í•ûŒü‚Ì•Û‘¶.
+        DirectX::XMFLOAT2   m_InputVec; // å…¥åŠ›æ–¹å‘ã®ä¿å­˜.
 
-        float               m_Distance; // ‰ñ”ğ‹——£.
-        float               m_MaxTime;  // ‰ñ”ğŠÔ.
-        float               m_currentTime;  // Œo‰ßŠÔ.
+        float               m_Distance; // å›é¿è·é›¢.
+        float               m_MaxTime;  // å›é¿æ™‚é–“.
+        float               m_currentTime;  // çµŒéæ™‚é–“.
     };
 }

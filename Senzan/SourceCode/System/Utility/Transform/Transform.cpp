@@ -4,7 +4,7 @@
 #include <DirectXMath.h>
 #include <cmath>
 //---------------------------------------------------------------------------------
-// ヘルパーメソッドの実装
+// ヘルパーメソッドの実装.
 //---------------------------------------------------------------------------------
 
 void Transform::SetPosition(const DirectX::XMFLOAT3& newPosition)
@@ -26,12 +26,12 @@ void Transform::SetRotationX(float X)
 
 void Transform::SetRotationY(float Y)
 {
-    // Snap yaw to desired value while preserving current pitch and roll.
-    // Construct target quaternion from current pitch (Rotation.x), desired yaw, and current roll (Rotation.z).
+    // ピッチとロールを保ちつつ、ヨーを目標値にスナップする.
+    // 現在のピッチ(Rotation.x)、目標ヨー、現在のロール(Rotation.z)からクォータニオンを構築.
     float desiredYaw = Y;
 
     const float twoPI = 2.0f * DirectX::XM_PI;
-    // Normalize desired yaw into [-PI, PI]
+    // 目標ヨーを[-PI, PI]の範囲に正規化する.
     desiredYaw = std::fmod(desiredYaw, twoPI);
     if (desiredYaw <= -DirectX::XM_PI) desiredYaw += twoPI;
     else if (desiredYaw > DirectX::XM_PI) desiredYaw -= twoPI;
@@ -39,7 +39,7 @@ void Transform::SetRotationY(float Y)
     DirectX::XMVECTOR currentQuat = DirectX::XMLoadFloat4(&Quaternion);
     DirectX::XMVECTOR targetQuat = DirectX::XMQuaternionRotationRollPitchYaw(Rotation.x, desiredYaw, Rotation.z);
 
-    // Ensure quaternion hemisphere matches to avoid 180deg long-path flips
+    // クォータニオンの半球を合わせて180度の長経路反転を防ぐ.
     float dot = DirectX::XMVectorGetX(DirectX::XMVector4Dot(currentQuat, targetQuat));
     if (dot < 0.0f)
     {
@@ -47,7 +47,7 @@ void Transform::SetRotationY(float Y)
     }
 
     DirectX::XMStoreFloat4(&Quaternion, DirectX::XMQuaternionNormalize(targetQuat));
-    // Synchronize Euler rotation from quaternion
+    // クォータニオンからオイラー角を同期する.
     UpdateRotationFromQuaternion();
 }
 
@@ -149,7 +149,7 @@ void Transform::RotateToDirection(const DirectX::XMFLOAT3& NormVecDirection)
 	{
 		// 回転角が180度 (ベクトルが反対).
 		// Y軸周りの180度回転の軸として、現在の右ベクトル（Y軸と前方ベクトルの外積）を使用.
-		DirectX::XMVECTOR v_up = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
+		DirectX::XMVECTOR v_up = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f);
 		DirectX::XMVECTOR v_right = DirectX::XMVector3Cross(v_current_forward, v_up);
 
 		// 回転軸と180度回転のクォータニオンを生成.
@@ -240,20 +240,20 @@ void Transform::UpdateRotationFromQuaternion()
 	DirectX::XMStoreFloat4(&qf, quat);
 
 	float roll, pitch, yaw;
-	// 2* (qy*qz + qw*qx)
+	// 2* (qy*qz + qw*qx).
 	float test = qf.y * qf.z + qf.w * qf.x;
 
-	if (test > 0.499f) // 北極での特異点 (y=90°)
+	if (test > 0.499f) // 北極での特異点 (y=90°).
 	{
-		roll = 2.0f * atan2f(qf.y, qf.w); // roll (z) の計算
+		roll = 2.0f * atan2f(qf.y, qf.w); // roll (z) の計算.
 		pitch = DirectX::XM_PIDIV2; // pitch (x) は π/2
-		yaw = 0.0f; // yaw (y) は 0
+		yaw = 0.0f; // yaw (y) は 0.
 	}
-	else if (test < -0.499f) // 南極での特異点 (y=-90°)
+	else if (test < -0.499f) // 南極での特異点 (y=-90°).
 	{
-		roll = -2.0f * atan2f(qf.y, qf.w); // roll (z) の計算
+		roll = -2.0f * atan2f(qf.y, qf.w); // roll (z) の計算.
 		pitch = -DirectX::XM_PIDIV2; // pitch (x) は -π/2
-		yaw = 0.0f; // yaw (y) は 0
+		yaw = 0.0f; // yaw (y) は 0.
 	}
 	else
 	{
@@ -261,15 +261,15 @@ void Transform::UpdateRotationFromQuaternion()
 		float sqy = qf.y * qf.y;
 		float sqz = qf.z * qf.z;
 
-		// roll (z)
+		// roll (z).
 		roll = atan2f(2.0f * qf.w * qf.z - 2.0f * qf.x * qf.y, 1.0f - 2.0f * sqz - 2.0f * sqx);
-		// pitch (x)
+		// ピッチ (x).
 		pitch = asinf(2.0f * test);
-		// yaw (y)
+		// ヨー (y).
 		yaw = atan2f(2.0f * qf.w * qf.y - 2.0f * qf.x * qf.z, 1.0f - 2.0f * sqy - 2.0f * sqx);
 	}
 
-	// 注意: オイラー角の順序が PITCH(X) -> YAW(Y) -> ROLL(Z) の順であると仮定しています。
+	// 注意: オイラー角の順序が PITCH(X) -> YAW(Y) -> ROLL(Z) の順であると仮定しています。.
 	Rotation = DirectX::XMFLOAT3(pitch, yaw, roll);
 }
 
@@ -280,7 +280,7 @@ void Transform::UpdateQuaternionFromRotation()
 	DirectX::XMStoreFloat4(&Quaternion, DirectX::XMQuaternionRotationRollPitchYawFromVector(rot));
 }
 
-// デバッグ用 ToString
+// デバッグ用 ToString.
 #if _DEBUG
 std::string Transform::ToString() const
 {

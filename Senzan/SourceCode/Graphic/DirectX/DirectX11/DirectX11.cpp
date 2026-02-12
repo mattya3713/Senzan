@@ -114,7 +114,7 @@ void DirectX11::SetRasterizerState(eRasterizerMode fill_cullingMode)
 
 	D3D11_RASTERIZER_DESC desc{};
 
-	// フィルモードの設定
+	// フィルモードの設定.
 	if (pI.IsOptionEnabled(fill_cullingMode, eRasterizerMode::Solid))
 	{
 		desc.FillMode = D3D11_FILL_SOLID;
@@ -125,10 +125,10 @@ void DirectX11::SetRasterizerState(eRasterizerMode fill_cullingMode)
 	}
 	else
 	{		
-		//Debug::GetInstance().Error("フィルモードを設定してください.");
+		//Debug::GetInstance().Error("フィルモードを設定してください.");.
 	}
 
-	// カリングモードの設定
+	// カリングモードの設定.
 	if (pI.IsOptionEnabled(fill_cullingMode , eRasterizerMode::None))
 	{
 		desc.CullMode = D3D11_CULL_NONE;
@@ -143,7 +143,7 @@ void DirectX11::SetRasterizerState(eRasterizerMode fill_cullingMode)
 	}
 	else
 	{
-		//Debug::GetInstance().Error("カリングモードを設定してください.");
+		//Debug::GetInstance().Error("カリングモードを設定してください.");.
 	}
 
 	// その他の設定.
@@ -294,7 +294,7 @@ HRESULT DirectX11::CreateAlphaBlendState()
 	//元素材のアルファに対する指定.
 	BlendDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;	//そのまま使用.
 	//重ねる素材のアルファに対する設定.
-	BlendDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;//何もしない。
+	BlendDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;//何もしない。.
 	//アルファのブレンドオプション.
 	BlendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;//ADD:加算合成.
 	//ピクセル毎の書き込みマスク.
@@ -408,8 +408,8 @@ HRESULT DirectX11::CreateColorBackBufferRTV()
 	if (FAILED(
 		m_pSwapChain->GetBuffer(
 		0,
-		__uuidof(ID3D11Texture2D),	//__uuidof:式に関連付けされたGUIDを取得
-		//         Texture2Dの唯一の物として扱う
+		__uuidof(ID3D11Texture2D),	//__uuidof:式に関連付けされたGUIDを取得.
+		//         Texture2Dの唯一の物として扱う.
 		(LPVOID*)&pBackBuffer_Tex)))	//(out)バックバッファテクスチャ.
 	{
 		_ASSERT_EXPR(false, _T("スワップチェインからバックバッファ取得失敗"));

@@ -14,8 +14,8 @@
 
 #include "Game/01_GameObject/00_MeshObject/00_Character/00_Ground/Ground.h"	// 地面Static.
 
-#include "Game//01_GameObject//00_MeshObject//00_Character//02_Boss//Boss.h"
-#include "Game//01_GameObject//00_MeshObject//00_Character//01_Player//Player.h"
+#include "Game//01_GameObject//00_MeshObject//00_Character//02_Boss//Boss.h".
+#include "Game//01_GameObject//00_MeshObject//00_Character//01_Player//Player.h".
 
 #include "Game/03_Collision/00_Core/01_Capsule/CapsuleCollider.h"
 #include "Game/01_GameObject/00_MeshObject/00_Character/02_Boss/BossAttackStateBase/BossSlashState/BossSlashState.h"
@@ -29,8 +29,7 @@
 #include "00_MeshObject/00_Character/04_BackGround/BackGround.h"
 
 
-
-#include <algorithm> // std::min のために必要
+#include <algorithm> // std::min のために必要.
 
 
 // コンストラクタ.
@@ -110,6 +109,6 @@ void LTestScene::Draw()
 
 HRESULT LTestScene::LoadData()
 {
-	// このメソッドは今回は使いませんが、SceneBaseの規定通りS_OKを返します。
+	// このメソッドは今回は使いませんが、SceneBaseの規定通りS_OKを返します。.
 	return S_OK;
 }

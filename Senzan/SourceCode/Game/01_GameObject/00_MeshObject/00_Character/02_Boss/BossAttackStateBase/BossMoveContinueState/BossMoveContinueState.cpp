@@ -15,9 +15,9 @@ void BossMoveContinueState::Enter()
 {
     m_Timer = 0.0f;
     m_EndTime = m_Duration;
-    // Use Boss API to change anim via state machine owner if allowed
-    // Boss::enBossAnim is private; use ChangeAnim by enum index if available
-    m_pOwner->ChangeAnim(Boss::enBossAnim::Run); // Changed animation to Run
+    // ボスAPIを使用してステートマシンオーナー経由でアニメを変更する.
+    // Boss::enBossAnimはprivateのため、使用可能であればenum番号でChangeAnimを呼ぶ.
+    m_pOwner->ChangeAnim(Boss::enBossAnim::Run); // アニメーションをRunに変更.
 }
 
 void BossMoveContinueState::Update()
@@ -25,7 +25,7 @@ void BossMoveContinueState::Update()
     float delta = m_pOwner->GetDelta();
     m_Timer += delta;
 
-    // Follow simplified BossMoveState movement phases for the duration of this state
+    // このステートの間、簡略化されたBossMoveStateの移動フェーズに従う.
     DirectX::XMVECTOR vBossPos = DirectX::XMLoadFloat3(&m_pOwner->GetPosition());
     DirectX::XMFLOAT3 playerPosF = m_pOwner->GetTargetPos();
     DirectX::XMVECTOR vTarget = DirectX::XMLoadFloat3(&playerPosF);
@@ -34,22 +34,22 @@ void BossMoveContinueState::Update()
     vToPlayer = DirectX::XMVectorSetY(vToPlayer, 0.0f);
     float distanceToPlayer = DirectX::XMVectorGetX(DirectX::XMVector3Length(vToPlayer));
 
-    // Use tunable members instead of local constants
+    // ローカル定数ではなく調整可能なメンバを使用する.
     const float STRAFE_RANGE = 20.0f;
 
-    // slightly increase rotation speed for snappier strafing
-    m_RotationSpeed = 0.4; // was 0.1
+    // ストレイフの応答性を上げるため回転速度をやや増加する.
+    m_RotationSpeed = 0.4; // 旧: 0.1.
 
     switch (m_Phase)
     {
     case MovePhase::Start:
-        // Immediately enter Run within this continue state
+        // このcontinueステート内で即座にRunに入る.
         m_pOwner->ChangeAnim(Boss::enBossAnim::Run);
         m_Phase = MovePhase::Run;
         break;
     case MovePhase::Run:
     {
-        // Use configurable forward move speed
+        // 設定可能な前方移動速度を使用する.
         float approachSpeed = m_MoveSpeed;
         DirectX::XMVECTOR vMoveDir = DirectX::XMVector3Normalize(vToPlayer);
         DirectX::XMVECTOR vNewPos = DirectX::XMVectorAdd(vBossPos, DirectX::XMVectorScale(vMoveDir, approachSpeed * delta));
@@ -116,7 +116,7 @@ void BossMoveContinueState::Update()
     break;
     }
 
-    // Face player every frame
+    // プレイヤーに毎フレーム向きを変える.
     DirectX::XMVECTOR vFinalBossPos = XMLoadFloat3(&m_pOwner->GetPosition());
     DirectX::XMVECTOR vLookAt = DirectX::XMVectorSubtract(vTarget, vFinalBossPos);
     float dx = DirectX::XMVectorGetX(vLookAt);
@@ -124,7 +124,7 @@ void BossMoveContinueState::Update()
     float angle = atan2f(dx, dz) + DirectX::XM_PI;
     m_pOwner->SetRotationY(angle);
 
-    // End this continue state when duration exceeded
+    // 持続時間を超えたらこのcontinueステートを終了する.
     if (m_Timer >= m_Duration)
     {
         m_pOwner->GetStateMachine()->ChangeState(std::make_shared<BossMoveState>(m_pOwner));
@@ -143,4 +143,3 @@ void BossMoveContinueState::Draw()
 void BossMoveContinueState::Exit()
 {
 }
-

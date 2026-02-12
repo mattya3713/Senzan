@@ -49,8 +49,8 @@ void AnimationTuningScene::Initialize()
 {
     m_spCamera = std::make_shared<LockOnCamera>(std::ref(*m_upPlayer), std::ref(*m_upBoss));
     // カメラ設定.
-    //m_spCamera->SetPosition(DirectX::XMFLOAT3(0.0f, 5.0f, -50.0f));
-    //m_spCamera->SetLook(DirectX::XMFLOAT3(0.0f, 2.0f, 5.0f));
+    //m_spCamera->SetPosition(DirectX::XMFLOAT3(0.0f, 5.0f, -50.0f));.
+    //m_spCamera->SetLook(DirectX::XMFLOAT3(0.0f, 2.0f, 5.0f));.
     CameraManager::GetInstance().SetCamera(m_spCamera);
 
     // ライト設定.
@@ -66,16 +66,16 @@ void AnimationTuningScene::Create()
 void AnimationTuningScene::Update()
 {
 #if _DEBUG
-    // ウィンドウとして独立させる
+    // ウィンドウとして独立させる.
     ImGui::Begin("d");
 
-    // 1. 基本的なFPS表示
+    // 1. 基本的なFPS表示.
     float fps = ImGui::GetIO().Framerate;
     float ms = 1000.0f / fps;
 
     ImGui::Text("Average: %.1f FPS (%.3f ms/frame)", fps, ms);
 
-    // 状態に応じた警告表示
+    // 状態に応じた警告表示.
     if (fps < 50.0f) {
         ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "Warning: Low FPS!");
     }
@@ -85,12 +85,12 @@ void AnimationTuningScene::Update()
 
     ImGui::Separator();
     ImGui::End();
-#endif // _DEBUG
+#endif // _DEBUG.
 
     Input::Update();
 
     m_upPlayer->SetTargetPos(m_upBoss.get()->GetPosition());
-    //m_upPlayer->Update();
+    //m_upPlayer->Update();.
     m_upBoss->Update();
 
 }
@@ -121,5 +121,5 @@ void AnimationTuningScene::Draw()
 
 HRESULT AnimationTuningScene::LoadData()
 {
-    return S_OK; // 成功を返す
+    return S_OK; // 成功を返す.
 }

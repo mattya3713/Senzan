@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "System/Singleton/Debug/Log/DebugLog.h"
 
 #include "../ColliderBase.h"
@@ -6,9 +6,9 @@
 class CollisionDetector;
 
 /**********************************************************************************
-* @author    : •£˜e –¢—ˆ.
+* @author    : æ·µè„‡ æœªæ¥.
 * @date      : 2025/10/5.
-* @brief     : ƒJƒvƒZƒ‹ƒRƒŠƒWƒ‡ƒ“.
+* @brief     : ã‚«ãƒ—ã‚»ãƒ«ã‚³ãƒªã‚¸ãƒ§ãƒ³.
 **********************************************************************************/
 
 class CapsuleCollider final
@@ -22,28 +22,28 @@ public:
 	void Update() override;
 
 
-	// Ž©g‚ÌŒ`ó‚ðŽæ“¾‚·‚é.
+	// è‡ªèº«ã®å½¢çŠ¶ã‚’å–å¾—ã™ã‚‹.
 	inline const eShapeType GetShapeType() const noexcept override { return eShapeType::Capsule; }
 
-	// ”¼Œa‚ÌŽæ“¾.
+	// åŠå¾„ã®å–å¾—.
 	inline float GetRadius() const noexcept override { return m_Radius; }
 
-	// ‚‚³‚ðŽæ“¾‚·‚é.
+	// é«˜ã•ã‚’å–å¾—ã™ã‚‹.
 	inline float GetHeight() const noexcept override { return m_Height; }
 
-	// ”¼Œa‚ðÝ’è‚·‚é.
+	// åŠå¾„ã‚’è¨­å®šã™ã‚‹.
 	inline void SetRadius(float Radius) noexcept override
 	{
 		float max_height = m_Height / 2.0f;
 
-		// Ý’è‚³‚ê‚½Radius (Radius) ‚ª‹–—e‚³‚ê‚éÅ‘åRadius‚ð’´‰ß‚·‚éê‡AÅ‘åRadius‚ÉC³.
+		// è¨­å®šã•ã‚ŒãŸRadius (Radius) ãŒè¨±å®¹ã•ã‚Œã‚‹æœ€å¤§Radiusã‚’è¶…éŽã™ã‚‹å ´åˆã€æœ€å¤§Radiusã«ä¿®æ­£.
 		if (Radius > max_height)
 		{
 			m_Radius = max_height;
 		}
 		else if (Radius < 0.0f)
 		{
-			// Radius‚ª•‰‚Ì’l‚É‚È‚ç‚È‚¢‚æ‚¤‚ÉƒK[ƒh.
+			// RadiusãŒè² ã®å€¤ã«ãªã‚‰ãªã„ã‚ˆã†ã«ã‚¬ãƒ¼ãƒ‰.
 			m_Radius = 0.0f;
 		}
 		else
@@ -51,12 +51,12 @@ public:
 			m_Radius = Radius;
 		}
 	}
-	// ‚‚³‚ðÝ’è‚·‚é.
+	// é«˜ã•ã‚’è¨­å®šã™ã‚‹.
 	inline void SetHeight(float Height) noexcept override
 	{
 		float min_height = 2.0f * m_Radius;
 
-		// Ý’è‚³‚ê‚½‚‚³ (Height) ‚ªÅ’á‚‚³‚ð‰º‰ñ‚éê‡AÅ’á‚‚³‚ÉC³.
+		// è¨­å®šã•ã‚ŒãŸé«˜ã• (Height) ãŒæœ€ä½Žé«˜ã•ã‚’ä¸‹å›žã‚‹å ´åˆã€æœ€ä½Žé«˜ã•ã«ä¿®æ­£.
 		if (Height < min_height)
 		{
 			m_Height = min_height;
@@ -67,7 +67,7 @@ public:
 		}
 	}
 
-	// Õ“Ë”»’è.
+	// è¡çªåˆ¤å®š.
 	CollisionInfo CheckCollision(const ColliderBase& other) const override;
 
 protected:
@@ -76,27 +76,26 @@ protected:
 	CollisionInfo DispatchCollision(const BoxCollider& other) const override;
 
 private:
-	// ƒJƒvƒZƒ‹‚Ì’†Sü•ª‚ÌI“_ P1 ‚ðuŒvŽZ‚µvŽæ“¾.
+	// ã‚«ãƒ—ã‚»ãƒ«ã®ä¸­å¿ƒç·šåˆ†ã®çµ‚ç‚¹ P1 ã‚’ã€Œè¨ˆç®—ã—ã€å–å¾—.
 	static DirectX::XMVECTOR GetCulcCapsuleSegmentStart(const CapsuleCollider* capsule);
 
-	// ƒJƒvƒZƒ‹‚Ì’†Sü•ª‚ÌI“_ P2 ‚ðuŒvŽZ‚µvŽæ“¾.
+	// ã‚«ãƒ—ã‚»ãƒ«ã®ä¸­å¿ƒç·šåˆ†ã®çµ‚ç‚¹ P2 ã‚’ã€Œè¨ˆç®—ã—ã€å–å¾—.
 	static DirectX::XMVECTOR GetCulcCapsuleSegmentEnd(const CapsuleCollider* capsule);
 
-	// “_ P ‚©‚çü•ª AB ‚Ö‚ÌÅ’Z‹——£‚Ì“ñæ‚ðuŒvŽZ‚µvŽæ“¾.
+	// ç‚¹ P ã‹ã‚‰ç·šåˆ† AB ã¸ã®æœ€çŸ­è·é›¢ã®äºŒä¹—ã‚’ã€Œè¨ˆç®—ã—ã€å–å¾—.
 	static float GetCulcClosestPtPointSegmentSq(DirectX::XMVECTOR p, DirectX::XMVECTOR a, DirectX::XMVECTOR b);
 
-	//  ü•ª AB ‚Æü•ª CD ‚ÌÅ’Z‹——£‚Ì“ñæ‚ðuŒvŽZ‚µvŽæ“¾.
+	//  ç·šåˆ† AB ã¨ç·šåˆ† CD ã®æœ€çŸ­è·é›¢ã®äºŒä¹—ã‚’ã€Œè¨ˆç®—ã—ã€å–å¾—.
 	static float GetCulcClosestPtSegmentSegmentSq(DirectX::XMVECTOR a, DirectX::XMVECTOR b, DirectX::XMVECTOR c, DirectX::XMVECTOR d);
 
 
-
 private:
-	float m_Radius; // ”¼Œa.
-	float m_Height;	// ‚‚³.
+	float m_Radius; // åŠå¾„.
+	float m_Height;	// é«˜ã•.
 
 public:
 
-	// ƒfƒoƒbƒO•`‰æ—pÝ’è.
+	// ãƒ‡ãƒãƒƒã‚°æç”»ç”¨è¨­å®š.
 	void SetDebugInfo() override;
 
 };

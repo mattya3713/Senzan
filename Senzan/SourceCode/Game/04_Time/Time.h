@@ -58,7 +58,7 @@ public:
 	* ************************************************************/
 	void SetWorldTimeScale(float NewTimeScale, float DurationSeconds, bool Override = false);
 
-	// アプリが非アクティブから復帰したときに呼ぶ。タイマーの基準をリセットして
+	// アプリが非アクティブから復帰したときに呼ぶ。タイマーの基準をリセットして.
 	// 大きなデルタが流れ込むのを防ぐ.
 	void ResetOnResume();
 
@@ -72,7 +72,7 @@ private:
 	Time& operator = (const Time& rhs)	= delete;
 private:
 
-	// use steady_clock for monotonic timing
+	// 単調増加の時間計測にsteady_clockを使用する.
 	std::chrono::time_point<std::chrono::steady_clock> m_PreviousTime;	// 前フレームの時間.
 
 	float m_TargetFrameTime;// 目標フレーム時間(秒).

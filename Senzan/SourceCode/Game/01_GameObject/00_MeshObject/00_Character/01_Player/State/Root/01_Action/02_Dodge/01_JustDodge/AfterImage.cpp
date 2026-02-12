@@ -16,7 +16,6 @@ AfterImage::~AfterImage()
 	Clear();
 }
 
-//------------------------------------------------------------------------------------.
 
 void AfterImage::AddImage(
 	const DirectX::XMFLOAT3& position,
@@ -38,7 +37,6 @@ void AfterImage::AddImage(
 	m_Images.push_back(data);
 }
 
-//------------------------------------------------------------------------------------.
 
 void AfterImage::Update(float deltaTime)
 {
@@ -62,7 +60,6 @@ void AfterImage::Update(float deltaTime)
 	}
 }
 
-//------------------------------------------------------------------------------------.
 
 void AfterImage::Draw(std::shared_ptr<SkinMesh> pSkinMesh, LPD3DXANIMATIONCONTROLLER pAnimCtrl)
 {
@@ -87,7 +84,7 @@ void AfterImage::Draw(std::shared_ptr<SkinMesh> pSkinMesh, LPD3DXANIMATIONCONTRO
 
 		// アルファ値を設定（黒みを加えるため、アルファを下げる）.
 		// 黒みは実際にはアルファ値を低くすることで表現.
-		// より正確な黒み表現にはシェーダー対応が必要だが、
+		// より正確な黒み表現にはシェーダー対応が必要だが、.
 		// 現状はアルファ値の調整で半透明の暗い残像を表現.
 		float darkAlpha = img.Alpha * (1.0f - m_Darkness * 0.5f);
 		pSkinMesh->SetGlobalAlpha(darkAlpha);
@@ -103,7 +100,6 @@ void AfterImage::Draw(std::shared_ptr<SkinMesh> pSkinMesh, LPD3DXANIMATIONCONTRO
 	DirectX11::GetInstance().SetAlphaBlend(false);
 }
 
-//------------------------------------------------------------------------------------.
 
 void AfterImage::Clear()
 {

@@ -9,7 +9,6 @@ VertexShaderBase::VertexShaderBase()
 {
 }
 
-//-----------------------------------------------------------------.
 
 VertexShaderBase::~VertexShaderBase()
 {
@@ -17,7 +16,6 @@ VertexShaderBase::~VertexShaderBase()
 	SAFE_RELEASE(m_pVertexShader);
 }
 
-//-----------------------------------------------------------------.
 
 void VertexShaderBase::Init(ID3DBlob* pShaderBlob)
 {
@@ -37,7 +35,7 @@ void VertexShaderBase::Init(ID3DBlob* pShaderBlob)
 	}
 
 	// 入力データを構成.
-	//ConfigInputLayout();
+	//ConfigInputLayout();.
 
 	// 入力データを作成.
 	result = DirectX11::GetInstance().GetDevice()->CreateInputLayout(
@@ -54,35 +52,30 @@ void VertexShaderBase::Init(ID3DBlob* pShaderBlob)
 	}
 }
 
-//-----------------------------------------------------------------.
 
 void VertexShaderBase::SetVertexShader()
 {
 	DirectX11::GetInstance().GetContext()->VSSetShader(m_pVertexShader, nullptr, 0);
 }
 
-//-----------------------------------------------------------------.
 
 void VertexShaderBase::SetInputLayout()
 {
 	DirectX11::GetInstance().GetContext()->IASetInputLayout(m_pInputLayout);
 }
 
-//-----------------------------------------------------------------.
 
 ID3D11VertexShader* VertexShaderBase::GetVertexShader() const
 {
     return m_pVertexShader;
 }
 
-//-----------------------------------------------------------------.
 
 ID3D11InputLayout* VertexShaderBase::GetInputLayout() const
 {
     return m_pInputLayout;
 }
 
-//-----------------------------------------------------------------.
 
 void VertexShaderBase::ConfigInputLayout(const std::vector<D3D11_INPUT_ELEMENT_DESC>& layout)
 {

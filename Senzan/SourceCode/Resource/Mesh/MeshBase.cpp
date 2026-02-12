@@ -1,4 +1,4 @@
-#include "MeshBase.h"
+ï»¿#include "MeshBase.h"
 #include "Graphic/DirectX/DirectX9/DirectX9.h"
 #include "Graphic/DirectX/DirectX11/DirectX11.h"
 #include "Graphic/Shader/Base/VertexShaderBase.h"
@@ -84,29 +84,29 @@ const std::string& MeshBase::GetResourceName() const
 
 void MeshBase::CalcWorldMatrix()
 {
-	// ƒ[ƒ‹ƒhs—ñAƒXƒP[ƒ‹s—ñA‰ñ“]s—ñA•½sˆÚ“®s—ñ.
+	// ãƒ¯ãƒ¼ãƒ«ãƒ‰è¡Œåˆ—ã€ã‚¹ã‚±ãƒ¼ãƒ«è¡Œåˆ—ã€å›è»¢è¡Œåˆ—ã€å¹³è¡Œç§»å‹•è¡Œåˆ—.
 	DirectX::XMMATRIX mScale, mRot, mTran;
 
-	// Šg‘åk¬s—ñì¬.
+	// æ‹¡å¤§ç¸®å°è¡Œåˆ—ä½œæˆ.
 	mScale = DirectX::XMMatrixScaling(
 		m_spTransform.Scale.x,
 		m_spTransform.Scale.y,
 		m_spTransform.Scale.z);
 
-	// •½sˆÚ“®s—ñì¬.
+	// å¹³è¡Œç§»å‹•è¡Œåˆ—ä½œæˆ.
 	mTran = DirectX::XMMatrixTranslation(
 		m_spTransform.Position.x,
 		m_spTransform.Position.y,
 		m_spTransform.Position.z);
 
-	// ŒÂ•Ê‚Ì‰ñ“]s—ñ‚ğŒvZ (D3DX‚©‚çXM‚Ö)
+	// å€‹åˆ¥ã®å›è»¢è¡Œåˆ—ã‚’è¨ˆç®— (D3DXã‹ã‚‰XMã¸).
 	DirectX::XMMATRIX mYaw, mPitch, mRoll;
-	mYaw = DirectX::XMMatrixRotationY(m_spTransform.Rotation.y); // Yaw (Y²)
-	mPitch = DirectX::XMMatrixRotationX(m_spTransform.Rotation.x); // Pitch (X²)
-	mRoll = DirectX::XMMatrixRotationZ(m_spTransform.Rotation.z); // Roll (Z²)
+	mYaw = DirectX::XMMatrixRotationY(m_spTransform.Rotation.y); // Yaw (Yè»¸).
+	mPitch = DirectX::XMMatrixRotationX(m_spTransform.Rotation.x); // Pitch (Xè»¸).
+	mRoll = DirectX::XMMatrixRotationZ(m_spTransform.Rotation.z); // Roll (Zè»¸).
 
-	// ‰ñ“]s—ñ‚ğ‡¬ (Yaw * Pitch * Roll ‚Ì‡)
-	// yD3DX‚©‚çXM‚Özs—ñæZ‚ğXMMatrixMultiply‚É’u‚«Š·‚¦
+	// å›è»¢è¡Œåˆ—ã‚’åˆæˆ (Yaw * Pitch * Roll ã®é †).
+	// ã€D3DXã‹ã‚‰XMã¸ã€‘è¡Œåˆ—ä¹—ç®—ã‚’XMMatrixMultiplyã«ç½®ãæ›ãˆ.
 	mRot = DirectX::XMMatrixMultiply(mYaw, mPitch);
 	mRot = DirectX::XMMatrixMultiply(mRot, mRoll);
 

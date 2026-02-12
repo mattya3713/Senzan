@@ -42,7 +42,7 @@ void BossMoveState::Enter()
 	m_pOwner->SetAnimSpeed(Move_Run_AnimSpeed);
 	m_pOwner->ChangeAnim(Boss::enBossAnim::IdolToRun);
 
-    // Load persisted settings
+    // 永続化された設定を読み込む。
     LoadSettings();
 }
 
@@ -50,7 +50,7 @@ void BossMoveState::Update()
 {
 	using namespace DirectX;
 
-	// === ImGui Debug Window ===
+	// === ImGui Debug Window ===.
 #if _DEBUG
     ImGui::Begin(IMGUI_JP("Boss Attack Debug"));
 
@@ -61,16 +61,16 @@ void BossMoveState::Update()
 
     ImGui::Separator();
     ImGui::Text(IMGUI_JP("=== Attack Settings ==="));
-    // 各攻撃の UI: 個別に IMGUI_JP マクロで日本語ラベルを指定（動的文字列に IMGUI_JP は使えないため）
-    // Distance view selector for ImGui (0:Near,1:Mid)
+    // 各攻撃の UI: 個別に IMGUI_JP マクロで日本語ラベルを指定（動的文字列に IMGUI_JP は使えないため）.
+    // Distance view selector for ImGui (0:Near,1:Mid).
     static int viewDistance = 0;
     const char* distLabels[] = { IMGUI_JP("近距離"), IMGUI_JP("中距離") };
     ImGui::Combo(IMGUI_JP("表示距離"), &viewDistance, distLabels, IM_ARRAYSIZE(distLabels));
 
-    // 合計での正規化表示用に現在表示している距離の割合を常に表示する
+    // 合計での正規化表示用に現在表示している距離の割合を常に表示する.
     int curDist = viewDistance;
 
-    // 表示用にパーセンテージに正規化しておく（UIは常に最新の割合を表示する）
+    // 表示用にパーセンテージに正規化しておく（UIは常に最新の割合を表示する）.
     float displayWeight[Count];
     {
         float sum = 0.0f;
@@ -85,7 +85,7 @@ void BossMoveState::Update()
         }
     }
 
-    // 重みが合計100を超えた場合、直前に操作したスライダー以外の値を調整して合計を100に収める（表示配列用）
+    // 重みが合計100を超えた場合、直前に操作したスライダー以外の値を調整して合計を100に収める（表示配列用）.
     auto normalizeDisplayWeights = [&](int changedIndex){
         float total = 0.0f;
         for (int k = 0; k < Count; ++k) total += displayWeight[k];
@@ -106,7 +106,7 @@ void BossMoveState::Update()
         {
             displayWeight[changedIndex] = 100.0f;
         }
-        // 再補正（丸め誤差対策）
+        // 再補正（丸め誤差対策）.
         float newTotal = 0.0f;
         for (int k = 0; k < Count; ++k) newTotal += displayWeight[k];
         if (newTotal > 100.0f + 1e-4f)
@@ -125,7 +125,7 @@ void BossMoveState::Update()
 
     bool anyDisplayChanged = false;
 
-    // 0: Jump（ジャンプ）
+    // 0: Jump（ジャンプ）.
     ImGui::PushID(0);
     ImGui::Checkbox(IMGUI_JP("ジャンプ"), &s_Enable[0]); ImGui::SameLine();
     ImGui::SetNextItemWidth(100);
@@ -138,7 +138,7 @@ void BossMoveState::Update()
     ImGui::SliderFloat(IMGUI_JP("CD"), &s_CooldownDefault[0], 0.0f, 10.0f);
     ImGui::PopID();
 
-    // 1: Shout（叫び）
+    // 1: Shout（叫び）.
     ImGui::PushID(1);
     ImGui::Checkbox(IMGUI_JP("叫び"), &s_Enable[1]); ImGui::SameLine();
     ImGui::SetNextItemWidth(100);
@@ -151,7 +151,7 @@ void BossMoveState::Update()
     ImGui::SliderFloat(IMGUI_JP("CD"), &s_CooldownDefault[1], 0.0f, 10.0f);
     ImGui::PopID();
 
-    // 2: Slash（通常）
+    // 2: Slash（通常）.
     ImGui::PushID(2);
     ImGui::Checkbox(IMGUI_JP("通常"), &s_Enable[2]); ImGui::SameLine();
     ImGui::SetNextItemWidth(100);
@@ -164,7 +164,7 @@ void BossMoveState::Update()
     ImGui::SliderFloat(IMGUI_JP("CD"), &s_CooldownDefault[2], 0.0f, 10.0f);
     ImGui::PopID();
 
-    // 3: Spinning（回転）
+    // 3: Spinning（回転）.
     ImGui::PushID(3);
     ImGui::Checkbox(IMGUI_JP("回転"), &s_Enable[3]); ImGui::SameLine();
     ImGui::SetNextItemWidth(100);
@@ -177,7 +177,7 @@ void BossMoveState::Update()
     ImGui::SliderFloat(IMGUI_JP("CD"), &s_CooldownDefault[3], 0.0f, 10.0f);
     ImGui::PopID();
 
-    // 4: Stomp（とびかかり）
+    // 4: Stomp（とびかかり）.
     ImGui::PushID(4);
     ImGui::Checkbox(IMGUI_JP("とびかかり"), &s_Enable[4]); ImGui::SameLine();
     ImGui::SetNextItemWidth(100);
@@ -190,7 +190,7 @@ void BossMoveState::Update()
     ImGui::SliderFloat(IMGUI_JP("CD"), &s_CooldownDefault[4], 0.0f, 10.0f);
     ImGui::PopID();
 
-    // 5: Throwing（岩投げ）
+    // 5: Throwing（岩投げ）.
     ImGui::PushID(5);
     ImGui::Checkbox(IMGUI_JP("岩投げ"), &s_Enable[5]); ImGui::SameLine();
     ImGui::SetNextItemWidth(100);
@@ -203,7 +203,7 @@ void BossMoveState::Update()
     ImGui::SliderFloat(IMGUI_JP("CD"), &s_CooldownDefault[5], 0.0f, 10.0f);
     ImGui::PopID();
 
-    // 6: レーザー
+    // 6: レーザー.
     ImGui::PushID(6);
     ImGui::Checkbox(IMGUI_JP("レーザー"), &s_Enable[6]); ImGui::SameLine();
     ImGui::SetNextItemWidth(100);
@@ -216,7 +216,7 @@ void BossMoveState::Update()
     ImGui::SliderFloat(IMGUI_JP("CD"), &s_CooldownDefault[6], 0.0f, 10.0f);
     ImGui::PopID();
 
-    // 7: MoveContinue (そのまま移動3秒)
+    // 7: MoveContinue (そのまま移動3秒).
     ImGui::PushID(7);
     ImGui::Checkbox(IMGUI_JP("そのまま移動(3s)"), &s_Enable[7]); ImGui::SameLine();
     ImGui::SetNextItemWidth(100);
@@ -229,7 +229,7 @@ void BossMoveState::Update()
     ImGui::SliderFloat(IMGUI_JP("CD"), &s_CooldownDefault[7], 0.0f, 10.0f);
     ImGui::PopID();
 
-    // Apply display changes back to internal weights (keep internal representation consistent with displayed percentages)
+    // 表示上の変更を内部の重みに反映する (表示パーセントと内部表現の一貫性を保つ).
     if (anyDisplayChanged)
     {
         for (int k = 0; k < Count; ++k)
@@ -241,10 +241,10 @@ void BossMoveState::Update()
     ImGui::Separator();
     ImGui::Text(IMGUI_JP("=== 強制攻撃 ==="));
     const char* attackNames[] = { IMGUI_JP("ランダム"), IMGUI_JP("ジャンプ"), IMGUI_JP("叫び"), IMGUI_JP("通常"), IMGUI_JP("回転"), IMGUI_JP("とびかかり"), IMGUI_JP("岩投げ"), IMGUI_JP("レーザー") };
-    // Use a display variable so the stored index isn't decremented every frame.
-    int displayForce = s_ForceAttackIndex + 1; // map internal -1..6 -> display 0..7
+    // 格納されたインデックスが毎フレーム減算されないよう表示用変数を使用する.
+    int displayForce = s_ForceAttackIndex + 1; // 内部 -1..6 -> 表示 0..7 に変換.
     ImGui::Combo(IMGUI_JP("強制攻撃"), &displayForce, attackNames, IM_ARRAYSIZE(attackNames));
-    s_ForceAttackIndex = displayForce - 1; // store back (-1 = Random, 0-6 = Each attack)
+    s_ForceAttackIndex = displayForce - 1; // 格納 (-1 = ランダム, 0-6 = 各攻撃).
 
     ImGui::Separator();
     XMFLOAT3 debugTargetPos = m_pOwner->GetTargetPos();
@@ -265,7 +265,7 @@ void BossMoveState::Update()
         SaveSettings();
     }
 
-    // Enter キーで読み込み (キー押下の立ち上がりで一度だけ実行)
+    // Enter キーで読み込み (キー押下の立ち上がりで一度だけ実行).
     {
         static bool prevEnterDown = false;
         SHORT st = GetAsyncKeyState(VK_RETURN);
@@ -282,31 +282,31 @@ void BossMoveState::Update()
 
 	float delta = m_pOwner-> GetDelta();
 
-	// Attack timer
+	// 攻撃タイマー.
 	m_Timer += delta;
 
-    // Decrease cooldowns
+    // クールダウンを減少させる.
     for (size_t i = 0; i < m_CooldownRemaining.size(); ++i)
     {
         m_CooldownRemaining[i] -= delta;
         if (m_CooldownRemaining[i] < 0.0f) m_CooldownRemaining[i] = 0.0f;
     }
 
-	// 1. Get position info
+	// 1. 位置情報を取得.
 	XMVECTOR vBossPos = XMLoadFloat3(&m_pOwner->GetPosition());
 	XMFLOAT3 playerPosF = m_pOwner->GetTargetPos();
 	XMVECTOR vTarget = XMLoadFloat3(&playerPosF);
 
-	// Direction vector and distance to player
+	// プレイヤーへの方向ベクトルと距離.
 	XMVECTOR vToPlayer = XMVectorSubtract(vTarget, vBossPos);
 	vToPlayer = XMVectorSetY(vToPlayer, 0.0f);
 	float distanceToPlayer = XMVectorGetX(XMVector3Length(vToPlayer));
 
 	constexpr float STRAFE_RANGE = 20.0f;
 
-	// --------------------------------------------------------
-	// 2. Phase-based movement and animation
-	// --------------------------------------------------------
+	// --------------------------------------------------------.
+	// 2. フェーズに基づく移動とアニメーション.
+	// --------------------------------------------------------.
 	switch (m_Phase)
 	{
 	case MovePhase::Start:
@@ -387,9 +387,9 @@ void BossMoveState::Update()
 	break;
 	}
 
-	// --------------------------------------------------------
-	// 3. Always face player
-	// --------------------------------------------------------
+	// --------------------------------------------------------.
+	// 3. プレイヤーの方を常に向く.
+	// --------------------------------------------------------.
 	XMVECTOR vFinalBossPos = XMLoadFloat3(&m_pOwner->GetPosition());
 	XMVECTOR vLookAt = XMVectorSubtract(vTarget, vFinalBossPos);
 	float dx = XMVectorGetX(vLookAt);
@@ -405,10 +405,10 @@ void BossMoveState::Update()
 
         auto pushCandidate = [&](int id, std::function<std::unique_ptr<StateBase<Boss>>() > factory, int distIndex){
             if (!s_Enable[id]) return;
-            // If on cooldown, skip
+            // If on cooldown, skip.
             if (m_CooldownRemaining[id] > 0.0f) return;
             float w = s_Weight[distIndex][id];
-            // apply repeat penalty
+            // 連続使用ペナルティを適用する.
             if (m_LastAttackId == id) w *= s_RepeatPenalty;
             if (w <= 0.0f) return;
             weighted.push_back({ factory, w, id });
@@ -511,12 +511,12 @@ void BossMoveState::LoadSettings()
     if (j.contains("MidRange")) s_MidRange = j["MidRange"].get<float>();
     for (int i = 0; i < Count; ++i)
     {
-        // JSON では英語 ID をキーに使う (Enable / Cooldown are per-attack)
+        // JSON では英語IDをキーに使用する (Enable / Cooldownは攻撃ごと).
         std::string keyEnable = std::string(s_AttackIds[i]) + "_Enable";
         std::string keyCD = std::string(s_AttackIds[i]) + "_Cooldown";
         if (j.contains(keyEnable)) s_Enable[i] = j[keyEnable].get<bool>();
         if (j.contains(keyCD)) s_CooldownDefault[i] = j[keyCD].get<float>();
-        // per-distance weights
+        // 距離別の重み.
         for (int d = 0; d < DistCount; ++d)
         {
             std::string keyWeight = std::string(s_AttackIds[i]) + "_" + std::string(s_DistanceIds[d]) + "_Weight";
@@ -532,14 +532,14 @@ void BossMoveState::SaveSettings() const
     j["AttackDelay"] = s_AttackDelay;
     j["NearRange"] = s_NearRange;
     j["MidRange"] = s_MidRange;
-    // 保存: Enable (per-attack), Cooldown (per-attack), Weight (per-distance per-attack)
+    // 保存: Enable (per-attack), Cooldown (per-attack), Weight (per-distance per-attack).
     for (int i = 0; i < Count; ++i)
     {
         std::string keyEnable = std::string(s_AttackIds[i]) + "_Enable";
         std::string keyCD = std::string(s_AttackIds[i]) + "_Cooldown";
         j[keyEnable] = s_Enable[i];
         j[keyCD] = s_CooldownDefault[i];
-        // per-distance normalize and write
+        // 距離別の正規化と書き込み.
         for (int d = 0; d < DistCount; ++d)
         {
             float sum = 0.0f;

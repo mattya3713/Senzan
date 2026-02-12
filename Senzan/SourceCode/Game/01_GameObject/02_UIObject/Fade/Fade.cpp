@@ -13,13 +13,11 @@ Fade::Fade()
     AttachSprite(SpriteManager::GetSprite2D("Black"));
 }
 
-//-------------------------------------------------------------------------.
 
 Fade::~Fade()
 {
 }
 
-//-------------------------------------------------------------------------.
 
 void Fade::Update()
 {
@@ -40,7 +38,6 @@ void Fade::Update()
     UIObject::Update();
 }
 
-//-------------------------------------------------------------------------.
 
 void Fade::Draw()
 {
@@ -49,7 +46,6 @@ void Fade::Draw()
     DirectX11::GetInstance().SetDepth(true);
 }
 
-//-------------------------------------------------------------------------.
 
 void Fade::StartFade(const FadeType type)
 {
@@ -71,7 +67,6 @@ const bool Fade::IsFading() const
     return m_IsStartFade;
 }
 
-//-------------------------------------------------------------------------.
 
 const bool Fade::IsFadeCompleted(const FadeType type) const
 {

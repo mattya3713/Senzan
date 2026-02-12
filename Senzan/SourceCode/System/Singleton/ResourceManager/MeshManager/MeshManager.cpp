@@ -14,13 +14,11 @@ MeshManager::MeshManager()
 {
 }
 
-//--------------------------------------------------------------------.
 
 MeshManager::~MeshManager()
 {
 }
 
-//--------------------------------------------------------------------.
 
 bool MeshManager::LoadAllMeshes()
 {
@@ -47,7 +45,6 @@ bool MeshManager::LoadAllMeshes()
 	return true;
 }
 
-//--------------------------------------------------------------------.
 
 std::shared_ptr<StaticMesh> MeshManager::GetStaticMesh(const std::string& name)
 {
@@ -59,7 +56,6 @@ std::shared_ptr<StaticMesh> MeshManager::GetStaticMesh(const std::string& name)
 	return nullptr;
 }
 
-//--------------------------------------------------------------------.
 
 std::shared_ptr<SkinMesh> MeshManager::GetSkinMesh(const std::string& name)
 {
@@ -71,21 +67,18 @@ std::shared_ptr<SkinMesh> MeshManager::GetSkinMesh(const std::string& name)
 	return nullptr;
 }
 
-//--------------------------------------------------------------------.
 
 std::vector<std::string> MeshManager::GetStaticMeshList()
 {
 	return GetInstance().m_StaticMeshList;
 }
 
-//--------------------------------------------------------------------.
 
 std::vector<std::string> MeshManager::GetSkinMeshList()
 {
 	return GetInstance().m_SkinMeshList;
 }
 
-//--------------------------------------------------------------------.
 
 template<typename MeshType>
 bool MeshManager::LoadMeshes(
@@ -117,7 +110,7 @@ bool MeshManager::LoadMeshes(
 
 	try
 	{
-		// ... (省略)
+		// ... (省略).
 		std::filesystem::recursive_directory_iterator dirIt(directoryFilePath), endIt;
 		std::for_each(dirIt, endIt, loadMesh);
 	}
@@ -131,4 +124,3 @@ bool MeshManager::LoadMeshes(
 }
 template bool MeshManager::LoadMeshes<StaticMesh>(const std::string&, std::unordered_map<std::string, std::shared_ptr<StaticMesh>>&, std::vector<std::string>&);
 template bool MeshManager::LoadMeshes<SkinMesh>(const std::string&, std::unordered_map<std::string, std::shared_ptr<SkinMesh>>&, std::vector<std::string>&);
-

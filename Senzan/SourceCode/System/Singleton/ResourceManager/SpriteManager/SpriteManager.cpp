@@ -15,13 +15,11 @@ SpriteManager::SpriteManager()
 {
 }
 
-//--------------------------------------------------------------------------.
 
 SpriteManager::~SpriteManager()
 {
 }
 
-//--------------------------------------------------------------------------.
 
 bool SpriteManager::LoadSprites()
 {
@@ -29,7 +27,6 @@ bool SpriteManager::LoadSprites()
 	if (LoadSprites2D() == false) { return false; }
 	return true;
 }
-//--------------------------------------------------------------------------.
 
 std::shared_ptr<Sprite2D> SpriteManager::GetSprite2D(const std::string& name)
 {
@@ -42,7 +39,6 @@ std::shared_ptr<Sprite2D> SpriteManager::GetSprite2D(const std::string& name)
 
 }
 
-//--------------------------------------------------------------------------.
 
 std::shared_ptr<Sprite3D> SpriteManager::GetSprite3D(const std::string& name)
 {
@@ -54,21 +50,18 @@ std::shared_ptr<Sprite3D> SpriteManager::GetSprite3D(const std::string& name)
 	return nullptr;
 }
 
-//--------------------------------------------------------------------------.
 
 std::vector<std::string> SpriteManager::GetSprite2DList()
 {
 	return GetInstance().m_Sprite2DList;
 }
 
-//--------------------------------------------------------------------------.
 
 std::vector<std::string> SpriteManager::GetSprite2D2List()
 {
 	return GetInstance().m_Sprite2D2List;
 }
 
-//--------------------------------------------------------------------------.
 
 bool SpriteManager::LoadSprites2D()
 {
@@ -103,7 +96,7 @@ bool SpriteManager::LoadSprites2D()
 	}
 	catch (const std::exception& e)
 	{
-		//_ASSERT_EXPR(false, e.what());
+		//_ASSERT_EXPR(false, e.what());.
 		return false;
 	}
 

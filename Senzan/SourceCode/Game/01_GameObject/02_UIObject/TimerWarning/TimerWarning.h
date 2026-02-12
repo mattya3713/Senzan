@@ -16,9 +16,9 @@ public:
     void Draw();
 
 private:
-    // ランダムスケールを再設定する関数
+    // ランダムスケールを再設定する関数.
     void SetRandomScales(bool high);
-    // ランダムスケールを再設定する関数
+    // ランダムスケールを再設定する関数.
     void SetRandomColors();
 private:
     struct ChildCircle {
@@ -31,14 +31,14 @@ private:
     std::shared_ptr<UIObject> m_pBaseUI;
     std::vector<ChildCircle> m_Circles;
 
-    // 演出用定数
+    // 演出用定数.
     const int m_CircleCount;
     const DirectX::XMFLOAT3 m_TargetPos;
     const DirectX::XMFLOAT2 m_TargetPivot;
 
-    float m_GlobalRotation; // 0.8以降で使用する回転値
+    float m_GlobalRotation; // 0.8以降で使用する回転値.
 
-    // アニメーション制御用
+    // アニメーション制御用.
     float m_Phase1AnimetionTimer;
     float m_Phase2AnimetionTimer;
     float m_Phase3AnimetionTimer;
@@ -50,7 +50,7 @@ private:
     float m_Phase2Time;
     float m_Phase3Time;
 
-    // フェーズ切り替わり検知用
+    // フェーズ切り替わり検知用.
     bool m_Phase1Triggered;
     bool m_Phase2Triggered;
     bool m_Phase3Triggered;

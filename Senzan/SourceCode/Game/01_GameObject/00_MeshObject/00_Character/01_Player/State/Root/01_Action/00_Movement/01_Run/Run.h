@@ -30,8 +30,8 @@ namespace PlayerState {
         void CalculateMoveVec();
 
     private:
-        // エフェクト関連
-        ::Effekseer::EffectRef m_DartEffect;      // エフェクトリソース
-        ::Effekseer::Handle m_EffectHandle = -1; // エフェクトハンドル
+        // エフェクト関連.
+        ::Effekseer::EffectRef m_DartEffect;      // エフェクトリソース.
+        ::Effekseer::Handle m_EffectHandle = -1; // エフェクトハンドル.
     };
 }

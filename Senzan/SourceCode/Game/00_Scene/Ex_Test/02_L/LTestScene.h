@@ -37,7 +37,7 @@ public:
 
 private:
 
-	std::shared_ptr<DirectionLight>		m_pLight;			// ライト
+	std::shared_ptr<DirectionLight>		m_pLight;			// ライト.
 	std::shared_ptr<CameraBase>			m_pCamera;			// カメラ.
 
 	std::unique_ptr<Ground>		m_pGround;

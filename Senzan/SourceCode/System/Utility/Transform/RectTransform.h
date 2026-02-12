@@ -6,9 +6,11 @@ public:
 	RectTransform();
 	~RectTransform();
 
-	/*************************************************************
-	* アンカーとピボットを考慮した座標を計算して返す.
-	*************************************************************/
+	/**********************************************************************************
+* @author    : 未定.
+* @date      : 未定.
+* @brief     : アンカーとピボットを考慮した座標を計算して返す.
+**********************************************************************************/
 	const DirectX::XMFLOAT3 CalcAnchoredPosition();
 
 public: // Getter、Setter.
@@ -52,5 +54,5 @@ private:
 	Transform	m_spTransform;
 	DirectX::XMFLOAT2	m_Size;		// 幅高さ.
 	DirectX::XMFLOAT2 m_Anchor;	// アンカー.
-	DirectX::XMFLOAT2 m_Pivot;	// ピボット
+	DirectX::XMFLOAT2 m_Pivot;	// ピボット.
 };

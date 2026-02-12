@@ -51,5 +51,4 @@ namespace PlayerState
         std::vector<ColliderWindow> m_ColliderWindows;  // 当たり判定設定.
     };
 
-} // namespace PlayerState
-
+} // namespace PlayerState.

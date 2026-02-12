@@ -72,7 +72,7 @@ CollisionInfo CapsuleCollider::DispatchCollision(const SphereCollider& other) co
 
     DirectX::XMVECTOR closest_p; // 線分上の最短点P (カプセル側の接触点).
 
-    // --- 最短点Pの計算（ClosestPtPointSegmentSqロジックから流用）---
+    // --- 最短点Pの計算（ClosestPtPointSegmentSqロジックから流用）---.
     DirectX::XMVECTOR ab = DirectX::XMVectorSubtract(p2, p1);
     DirectX::XMVECTOR ap = DirectX::XMVectorSubtract(q, p1);
 
@@ -81,11 +81,11 @@ CollisionInfo CapsuleCollider::DispatchCollision(const SphereCollider& other) co
     float f = DirectX::XMVectorGetX(DirectX::XMVector3LengthSq(ab)); // 線分 AB の長さの二乗.
 
     if (e <= 0.0f) {
-        // Aの外側 (P1が最短点)
+        // Aの外側 (P1が最短点).
         closest_p = p1;
     }
     else if (e >= f) {
-        // Bの外側 (P2が最短点)
+        // Bの外側 (P2が最短点).
         closest_p = p2;
     }
     else {
@@ -94,13 +94,13 @@ CollisionInfo CapsuleCollider::DispatchCollision(const SphereCollider& other) co
         closest_p = DirectX::XMVectorAdd(p1, DirectX::XMVectorScale(ab, t));
     }
 
-    // 最短ベクトル V = Q - P (球体の中心から線分上の最短点へ向かうベクトル)
+    // 最短ベクトル V = Q - P (球体の中心から線分上の最短点へ向かうベクトル).
     DirectX::XMVECTOR v_shortest = DirectX::XMVectorSubtract(q, closest_p);
 
-    // 距離の二乗
+    // 距離の二乗.
     float distSq = DirectX::XMVectorGetX(DirectX::XMVector3LengthSq(v_shortest));
 
-    // 許容距離（半径の合計）
+    // 許容距離（半径の合計）.
     const float requiredDistance = GetRadius() + other.GetRadius();
     const float requiredDistanceSq = requiredDistance * requiredDistance;
 
@@ -134,19 +134,19 @@ CollisionInfo CapsuleCollider::DispatchCollision(const CapsuleCollider& other) c
 {
     CollisionInfo info = {};
 
-    // 1. 自分の線分 P1, P2 の終点を計算 (線分 r = p2 - p1)
+    // 1. 自分の線分 P1, P2 の終点を計算 (線分 r = p2 - p1).
     const DirectX::XMVECTOR p1 = GetCulcCapsuleSegmentStart(this);
     const DirectX::XMVECTOR p2 = GetCulcCapsuleSegmentEnd(this);
 
-    // 2. 相手の線分 Q1, Q2 の終点を計算 (線分 s = q2 - q1)
+    // 2. 相手の線分 Q1, Q2 の終点を計算 (線分 s = q2 - q1).
     const DirectX::XMVECTOR q1 = GetCulcCapsuleSegmentStart(&other);
     const DirectX::XMVECTOR q2 = GetCulcCapsuleSegmentEnd(&other);
 
-    // --- 最短点 P と Q の計算ロジック（GetCulcClosestPtSegmentSegmentSqから流用） ---
+    // --- 最短点 P と Q の計算ロジック（GetCulcClosestPtSegmentSegmentSqから流用） ---.
 
-    const DirectX::XMVECTOR r = DirectX::XMVectorSubtract(p2, p1); // r = B - A
-    const DirectX::XMVECTOR s = DirectX::XMVectorSubtract(q2, q1); // s = D - C
-    const DirectX::XMVECTOR e = DirectX::XMVectorSubtract(p1, q1); // e = A - C
+    const DirectX::XMVECTOR r = DirectX::XMVectorSubtract(p2, p1); // r = B - A.
+    const DirectX::XMVECTOR s = DirectX::XMVectorSubtract(q2, q1); // s = D - C.
+    const DirectX::XMVECTOR e = DirectX::XMVectorSubtract(p1, q1); // e = A - C.
 
     const float a_val = DirectX::XMVectorGetX(DirectX::XMVector3Dot(r, r));
     const float e_val = DirectX::XMVectorGetX(DirectX::XMVector3Dot(r, s));
@@ -185,18 +185,18 @@ CollisionInfo CapsuleCollider::DispatchCollision(const CapsuleCollider& other) c
         }
     }
 
-    // 最短点 P(s) と Q(t) を計算
-    const DirectX::XMVECTOR closest_p = DirectX::XMVectorAdd(p1, DirectX::XMVectorScale(r, s_param)); // 自分の線分上の最短点
-    const DirectX::XMVECTOR closest_q = DirectX::XMVectorAdd(q1, DirectX::XMVectorScale(s, t_param)); // 相手の線分上の最短点
+    // 最短点 P(s) と Q(t) を計算.
+    const DirectX::XMVECTOR closest_p = DirectX::XMVectorAdd(p1, DirectX::XMVectorScale(r, s_param)); // 自分の線分上の最短点.
+    const DirectX::XMVECTOR closest_q = DirectX::XMVectorAdd(q1, DirectX::XMVectorScale(s, t_param)); // 相手の線分上の最短点.
 
-    // --- 衝突判定と情報計算 ---
+    // --- 衝突判定と情報計算 ---.
 
-    // 最短ベクトル V = Q - P (相手の最短点から自分の最短点へ向かうベクトル)
+    // 最短ベクトル V = Q - P (相手の最短点から自分の最短点へ向かうベクトル).
     DirectX::XMVECTOR v_shortest = DirectX::XMVectorSubtract(closest_p, closest_q);
 
     float distSq = DirectX::XMVectorGetX(DirectX::XMVector3LengthSq(v_shortest));
 
-    // 許容距離（半径の合計）
+    // 許容距離（半径の合計）.
     const float requiredDistance = GetRadius() + other.GetRadius();
     const float requiredDistanceSq = requiredDistance * requiredDistance;
 
@@ -215,7 +215,7 @@ CollisionInfo CapsuleCollider::DispatchCollision(const CapsuleCollider& other) c
         // 接触点: ２つの最短点を結ぶ線分の中点.
         DirectX::XMVECTOR v_contact_point = DirectX::XMVectorScale(DirectX::XMVectorAdd(closest_p, closest_q), 0.5f);
 
-        // XMFLOAT3 にストア
+        // XMFLOAT3 にストア.
         DirectX::XMStoreFloat3(&info.Normal, v_normal);
         DirectX::XMStoreFloat3(&info.ContactPoint, v_contact_point);
 
@@ -230,21 +230,21 @@ CollisionInfo CapsuleCollider::DispatchCollision(const CapsuleCollider& other) c
 CollisionInfo CapsuleCollider::DispatchCollision(const BoxCollider& other) const
 {
     CollisionInfo a = {};
-    // 1. 自分のカプセルの線分 P1, P2 の終点を計算
-      // const DirectX::XMVECTOR p1 = GetCulcCapsuleSegmentStart(this);
-      // const DirectX::XMVECTOR p2 = GetCulcCapsuleSegmentEnd(this);
+    // 1. 自分のカプセルの線分 P1, P2 の終点を計算.
+      // const DirectX::XMVECTOR p1 = GetCulcCapsuleSegmentStart(this);.
+      // const DirectX::XMVECTOR p2 = GetCulcCapsuleSegmentEnd(this);.
 
-      // 2. OBB（other）と線分（P1P2）の最短距離の二乗を計算する
-      // OBB-Segment の最短距離アルゴリズム（Boxのローカル空間への変換とクランプ）が必要です。
+      // 2. OBB（other）と線分（P1P2）の最短距離の二乗を計算する.
+      // OBB-Segment の最短距離アルゴリズム（Boxのローカル空間への変換とクランプ）が必要です。.
 
-      // const float distSq = 9999.0f; // OBB-Segment::ClosestPtSegmentOBBSq(...)
+      // const float distSq = 9999.0f; // OBB-Segment::ClosestPtSegmentOBBSq(...).
 
-      // 3. 判定: 最短距離がカプセルの半径の二乗以下なら衝突
-      // const float requiredRadius = GetRadius();
+      // 3. 判定: 最短距離がカプセルの半径の二乗以下なら衝突.
+      // const float requiredRadius = GetRadius();.
 
-      // return distSq <= (requiredRadius * requiredRadius);
+      // return distSq <= (requiredRadius * requiredRadius);.
 
-      // 💡 Boxとの判定ロジックが未実装のため、一旦 false を返す
+      // 💡 Boxとの判定ロジックが未実装のため、一旦 false を返す.
     return a;
 }
 
@@ -253,7 +253,7 @@ DirectX::XMVECTOR CapsuleCollider::GetCulcCapsuleSegmentStart(const CapsuleColli
 {
     const float radius = capsule->GetRadius();
     const float height = capsule->GetHeight();
-    // 線分長さは (height - 2 * radius)。負の値にならないようにクランプする。
+    // 線分長さは (height - 2 * radius)。負の値にならないようにクランプする。.
     float segment_length = height - 2.0f * radius;
     if (segment_length < 0.0f) segment_length = 0.0f;
     const float half_segment_length = segment_length * 0.5f;
@@ -269,14 +269,14 @@ DirectX::XMVECTOR CapsuleCollider::GetCulcCapsuleSegmentStart(const CapsuleColli
         DirectX::XMMATRIX mat_no_scale = DirectX::XMMatrixRotationQuaternion(rotation);
         mat_no_scale = DirectX::XMMatrixMultiply(mat_no_scale, DirectX::XMMatrixTranslationFromVector(translation));
 
-        // PositionOffset を親の回転で回転させてから中心に加算する
+        // PositionOffset を親の回転で回転させてから中心に加算する.
         DirectX::XMVECTOR v_offset = DirectX::XMLoadFloat3(&capsule->m_PositionOffset);
-        // mat_no_scale は回転と位置を含む行列だが回転のみの行列を作成してオフセットを回転させる
+        // mat_no_scale は回転と位置を含む行列だが回転のみの行列を作成してオフセットを回転させる.
         DirectX::XMMATRIX mat_rotation = DirectX::XMMatrixRotationQuaternion(rotation);
         DirectX::XMVECTOR v_rotated_offset = DirectX::XMVector3TransformNormal(v_offset, mat_rotation);
         DirectX::XMVECTOR v_center = DirectX::XMVectorAdd(translation, v_rotated_offset);
 
-        // ローカル座標 (0, -half_segment_length, 0) を回転だけ適用してワールドに変換し、中心に加算する
+        // ローカル座標 (0, -half_segment_length, 0) を回転だけ適用してワールドに変換し、中心に加算する.
         DirectX::XMVECTOR v_local_start = DirectX::XMVectorSet(0.0f, -half_segment_length, 0.0f, 0.0f);
         DirectX::XMVECTOR v_rotated_local_start = DirectX::XMVector3TransformNormal(v_local_start, mat_rotation);
         return DirectX::XMVectorAdd(v_center, v_rotated_local_start);
@@ -292,7 +292,7 @@ DirectX::XMVECTOR CapsuleCollider::GetCulcCapsuleSegmentEnd(const CapsuleCollide
 {
     const float radius = capsule->GetRadius();
     const float height = capsule->GetHeight();
-    // 線分長さは (height - 2 * radius)。負の値にならないようにクランプする。
+    // 線分長さは (height - 2 * radius)。負の値にならないようにクランプする。.
     float segment_length = height - 2.0f * radius;
     if (segment_length < 0.0f) segment_length = 0.0f;
     const float half_segment_length = segment_length * 0.5f;
@@ -308,13 +308,13 @@ DirectX::XMVECTOR CapsuleCollider::GetCulcCapsuleSegmentEnd(const CapsuleCollide
         DirectX::XMMATRIX mat_no_scale = DirectX::XMMatrixRotationQuaternion(rotation);
         mat_no_scale = DirectX::XMMatrixMultiply(mat_no_scale, DirectX::XMMatrixTranslationFromVector(translation));
 
-        // PositionOffset を親の回転で回転させてから中心に加算する
+        // PositionOffset を親の回転で回転させてから中心に加算する.
         DirectX::XMVECTOR v_offset = DirectX::XMLoadFloat3(&capsule->m_PositionOffset);
         DirectX::XMMATRIX mat_rotation = DirectX::XMMatrixRotationQuaternion(rotation);
         DirectX::XMVECTOR v_rotated_offset = DirectX::XMVector3TransformNormal(v_offset, mat_rotation);
         DirectX::XMVECTOR v_center = DirectX::XMVectorAdd(translation, v_rotated_offset);
 
-        // ローカル座標 (0, +half_segment_length, 0) を回転だけ適用してワールドに変換し、中心に加算する
+        // ローカル座標 (0, +half_segment_length, 0) を回転だけ適用してワールドに変換し、中心に加算する.
         DirectX::XMVECTOR v_local_end = DirectX::XMVectorSet(0.0f, half_segment_length, 0.0f, 0.0f);
         DirectX::XMVECTOR v_rotated_local_end = DirectX::XMVector3TransformNormal(v_local_end, mat_rotation);
         return DirectX::XMVectorAdd(v_center, v_rotated_local_end);
@@ -327,8 +327,8 @@ DirectX::XMVECTOR CapsuleCollider::GetCulcCapsuleSegmentEnd(const CapsuleCollide
 // 点 P から線分 AB への最短距離の二乗を「計算し」取得.
 float CapsuleCollider::GetCulcClosestPtPointSegmentSq(DirectX::XMVECTOR p, DirectX::XMVECTOR a, DirectX::XMVECTOR b)
 {
-    DirectX::XMVECTOR ab = DirectX::XMVectorSubtract(b, a); // 線分 AB のベクトル
-    DirectX::XMVECTOR ap = DirectX::XMVectorSubtract(p, a); // 点 A から点 P へのベクトル
+    DirectX::XMVECTOR ab = DirectX::XMVectorSubtract(b, a); // 線分 AB のベクトル.
+    DirectX::XMVECTOR ap = DirectX::XMVectorSubtract(p, a); // 点 A から点 P へのベクトル.
 
     // ap を ab に投影し、スカラー値 e (Dot(ap, ab)) を求める.
     float e = DirectX::XMVectorGetX(DirectX::XMVector3Dot(ap, ab));
@@ -386,7 +386,7 @@ float CapsuleCollider::GetCulcClosestPtSegmentSegmentSq(
         // s=0 (点A)に固定して t を解く.
         s_param = 0.0f;
 
-        // t を [0, 1] にクランプ
+        // t を [0, 1] にクランプ.
         if (f_val < EPSILON) {
             t_param = 0.0f; // 線分 CD が点に近い場合.
         }
@@ -460,7 +460,7 @@ void CapsuleCollider::SetDebugInfo()
 
     std::shared_ptr<const Transform> spParentTransform = m_wpTransform.lock();
 
-    // 親Transform から回転と位置を取得し、スケールを除いた行列を作成
+    // 親Transform から回転と位置を取得し、スケールを除いた行列を作成.
     DirectX::XMMATRIX mat_parent_world = spParentTransform
         ? spParentTransform->GetWorldMatrix()
         : DirectX::XMMatrixIdentity();

@@ -30,12 +30,12 @@ void Combat::Enter()
 
     m_IsComboAccepted = false; 
 
-	// clear collider windows by default
+	// デフォルトでコライダーウィンドウをクリアする.
 	m_ColliderWindows.clear();
-	// Ensure attack collider is disabled on enter
+	// 進入時に攻撃判定を無効化する.
 	if (m_pOwner) m_pOwner->SetAttackColliderActive(false);
 
-	// Allow derived states to load their settings on enter
+	// 派生ステートが進入時に設定を読み込めるようにする.
 	LoadSettings();
 }
 
@@ -43,7 +43,7 @@ void Combat::Update()
 {
 	Action::Update();
 
-	// 時間を先に更新してからウィンドウ判定
+	// 時間を先に更新してからウィンドウ判定.
 	if (m_pOwner) {
 		m_currentTime += m_pOwner->GetDelta();
 	}
@@ -55,7 +55,7 @@ void Combat::LateUpdate()
 {
 	Action::LateUpdate();
 
-	// Keep facing the move direction while in combat if a move vector is set
+	// 移動ベクトルが設定されている間、戦闘中は移動方向を向き続ける.
 	if (m_pOwner)
 	{
 		const DirectX::XMFLOAT3& mv = m_pOwner->m_MoveVec;
@@ -89,7 +89,7 @@ void Combat::LoadSettings()
     if (fileName == "") return;
 
     try {
-    //C:\Users\green\source\C++\Senzan\Senzan\Data\Json\Player\AttackCombo
+    //C:\Users\green\source\C++\Senzan\Senzan\Data\Json\Player\AttackCombo.
         std::filesystem::path filePath = std::filesystem::current_path() / fileName;
         if (std::filesystem::exists(filePath)) {
             json j = FileManager::JsonLoad(filePath);
@@ -113,10 +113,10 @@ void Combat::LoadSettings()
 
 void Combat::AddColliderWindow(float start, float duration)
 {
-	// normalize incoming values
+	// 受け取った値を正規化する.
 	if (start < 0.0f) start = 0.0f;
 	if (duration < 0.0f) duration = 0.0f;
-	// ensure flags are initialized
+	// フラグが初期化されていることを保証する.
 	ColliderWindow w;
 	w.Start = start;
 	w.Duration = duration;
@@ -165,12 +165,11 @@ void Combat::RenderColliderWindowsUI(const char* title)
 
 	if (ImGui::Button(IMGUI_JP("ウィンドウを追加"))) { m_ColliderWindows.push_back({0.0f, 0.1f}); }
 
-	// Provide a convenience button to re-enter the current state (calls derived Enter)
+	// 現在のステートに再入場するための簡易ボタン (派生のEnterを呼び出す).
 	if (ImGui::Button(IMGUI_JP("リセットして再実行"))) {
-		// Call Enter on this state instance (virtual -> derived override will be invoked)
+		// このステートインスタンスのEnterを呼び出す (仮想 -> 派生のオーバーライドが呼ばれる).
 		this->Enter();
 	}
 }
 
 } // PlayerState.
-

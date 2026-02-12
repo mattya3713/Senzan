@@ -41,13 +41,11 @@ XInput::XInput(DWORD padId)
 {				
 }
 
-//----------------------------------------------------------------.
 
 XInput::~XInput()
 {
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::Update()
 {
@@ -64,7 +62,6 @@ bool XInput::Update()
 	return UpdateStatus();
 }
 
-//----------------------------------------------------------------.
 
 void XInput::EndProc()
 {
@@ -80,7 +77,6 @@ void XInput::EndProc()
 	}
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsDown(const Key key)
 {
@@ -90,7 +86,6 @@ bool XInput::IsDown(const Key key)
 	return IsKeyCore(gamePad,m_State) && !IsKeyCore(gamePad,m_PastState);
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsUp(const Key key)
 {
@@ -100,7 +95,6 @@ bool XInput::IsUp(const Key key)
 	return !IsKeyCore(gamePad, m_State) && IsKeyCore(gamePad, m_PastState);
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsRepeat(const Key key)
 {
@@ -110,7 +104,6 @@ bool XInput::IsRepeat(const Key key)
 	return IsKeyCore(gamePad,m_State) && IsKeyCore(gamePad, m_PastState);
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsLStickDirectionDown(StickState dir, const bool isFirstPress)
 {
@@ -124,7 +117,6 @@ bool XInput::IsLStickDirectionDown(StickState dir, const bool isFirstPress)
 	return (m_LStickState == dir) && (m_PastLStickState != dir);
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsRStickDirectionDown(StickState dir, const bool isFirstPress)
 {
@@ -138,7 +130,6 @@ bool XInput::IsRStickDirectionDown(StickState dir, const bool isFirstPress)
 	return (m_RStickState == dir) && (m_PastRStickState != dir);
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsLStickDirectionUp()
 {
@@ -146,7 +137,6 @@ bool XInput::IsLStickDirectionUp()
 	return (m_LStickState == StickState::None) && (m_PastLStickState != StickState::None);
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsRStickDirectionUp()
 {
@@ -154,7 +144,6 @@ bool XInput::IsRStickDirectionUp()
 	return (m_RStickState == StickState::None) && (m_PastRStickState != StickState::None);
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsLStickDirectionRepeat(StickState dir)
 {
@@ -162,7 +151,6 @@ bool XInput::IsLStickDirectionRepeat(StickState dir)
 	return (m_LStickState == dir) && (m_PastLStickState == dir);
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsRStickDirectionRepeat(StickState dir)
 {
@@ -170,21 +158,18 @@ bool XInput::IsRStickDirectionRepeat(StickState dir)
 	return (m_RStickState == dir) && (m_PastRStickState == dir);
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsLStickActive(const float deadZone)
 {
 	return IsOutsideDeadZone(deadZone, GetLThumb_Clamp());
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsRStickActive(const float deadZone)
 {
 	return IsOutsideDeadZone(deadZone, GetRThumb_Clamp());
 }
 
-//----------------------------------------------------------------.
 
 const BYTE XInput::GetLTriggerRaw() const
 {
@@ -206,7 +191,6 @@ const float XInput::GetRightTrigger() const
 	return static_cast<float>(m_State.Gamepad.bRightTrigger) / 255.0f;
 }
 
-//----------------------------------------------------------------.
 
 const DirectX::XMFLOAT2 XInput::GetLStickDirection() const
 {
@@ -219,12 +203,12 @@ const DirectX::XMFLOAT2 XInput::GetLStickDirection() const
 	{
 		if (x > 0)
 		{
-			// デッドゾーンを差し引き、[0, 32767-DEADZONE] を [0, 1.0] に正規化
+			// デッドゾーンを差し引き、[0, 32767-DEADZONE] を [0, 1.0] に正規化.
 			result.x = (x - DEADZONE) * INVERSE_RANGE;
 		}
-		else // x < 0
+		else // x < 0.
 		{
-			// マイナス方向のデッドゾーンを考慮し、[-1.0, 0] に正規化
+			// マイナス方向のデッドゾーンを考慮し、[-1.0, 0] に正規化.
 			result.x = (x + DEADZONE) * INVERSE_RANGE;
 		}
 	}
@@ -236,7 +220,7 @@ const DirectX::XMFLOAT2 XInput::GetLStickDirection() const
 		{
 			result.y = (y - DEADZONE) * INVERSE_RANGE;
 		}
-		else // y < 0
+		else // y < 0.
 		{
 			result.y = (y + DEADZONE) * INVERSE_RANGE;
 		}
@@ -244,7 +228,6 @@ const DirectX::XMFLOAT2 XInput::GetLStickDirection() const
 
 	return result;
 }
-//----------------------------------------------------------------.
 
 const DirectX::XMFLOAT2 XInput::GetRStickDirection() const
 {
@@ -257,12 +240,12 @@ const DirectX::XMFLOAT2 XInput::GetRStickDirection() const
 	{
 		if (x > 0)
 		{
-			// デッドゾーンを差し引き、[0, 32767-DEADZONE] を [0, 1.0] に正規化
+			// デッドゾーンを差し引き、[0, 32767-DEADZONE] を [0, 1.0] に正規化.
 			result.x = (x - DEADZONE) * INVERSE_RANGE;
 		}
-		else // x < 0
+		else // x < 0.
 		{
-			// マイナス方向のデッドゾーンを考慮し、[-1.0, 0] に正規化
+			// マイナス方向のデッドゾーンを考慮し、[-1.0, 0] に正規化.
 			result.x = (x + DEADZONE) * INVERSE_RANGE;
 		}
 	}
@@ -274,7 +257,7 @@ const DirectX::XMFLOAT2 XInput::GetRStickDirection() const
 		{
 			result.y = (y - DEADZONE) * INVERSE_RANGE;
 		}
-		else // y < 0
+		else // y < 0.
 		{
 			result.y = (y + DEADZONE) * INVERSE_RANGE;
 		}
@@ -283,21 +266,18 @@ const DirectX::XMFLOAT2 XInput::GetRStickDirection() const
 	return result;
 }
 
-//----------------------------------------------------------------.
 
 const DirectX::XMFLOAT2 XInput::GetLThumb() const
 {	
 	return DirectX::XMFLOAT2(GetLThumbX(), GetLThumbY());
 }
 
-//----------------------------------------------------------------.
 
 const float XInput::GetLThumbX() const
 {
 	return static_cast<float>(m_State.Gamepad.sThumbLX);
 }
 
-//----------------------------------------------------------------.
 
 const float XInput::GetLThumbY() const
 {
@@ -347,21 +327,18 @@ const float XInput::GetRThumbY_Clamp() const
 	return GetRThumb_Clamp().y;
 }
 
-//----------------------------------------------------------------.
 
 const DirectX::XMFLOAT2 XInput::GetRThumb() const
 {
 	return DirectX::XMFLOAT2(GetRThumbX(), GetRThumbY());
 }
 
-//----------------------------------------------------------------.
 
 const float XInput::GetRThumbX() const
 {
 	return static_cast<float>(m_State.Gamepad.sThumbRX);
 }
 
-//----------------------------------------------------------------.
 
 const float XInput::GetRThumbY() const
 {
@@ -411,21 +388,18 @@ const float XInput::GetLThumbY_Clamp() const
 	return GetLThumb_Clamp().y;
 }
 
-//----------------------------------------------------------------.
 
 const DWORD XInput::GetPadID() const
 {
 	return m_PadID;
 }
 
-//----------------------------------------------------------------.
 
 const bool XInput::IsConnect() const
 {
 	return m_IsConnect;
 }
 
-//----------------------------------------------------------------.
 
 const bool XInput::SetVibration(const WORD& leftMotorSpd, const WORD& rightMotorSpd)
 {
@@ -442,7 +416,6 @@ const bool XInput::SetVibration(const WORD& leftMotorSpd, const WORD& rightMotor
 	return XInputSetState(m_PadID,&m_Vibration) == ERROR_SUCCESS;
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::UpdateStatus()
 {
@@ -456,14 +429,12 @@ bool XInput::UpdateStatus()
 	return false;
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsKeyCore(WORD gamePad, const XINPUT_STATE& state)
 {
 	return (state.Gamepad.wButtons & gamePad) != 0;
 }
 
-//----------------------------------------------------------------.
 
 WORD XInput::GenerateGamePadValue(const Key key)
 {
@@ -473,21 +444,19 @@ WORD XInput::GenerateGamePadValue(const Key key)
 	return KEY_TABLE[(int)key];
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsOutsideDeadZone(const float& deadZone, const DirectX::XMFLOAT2& stickSlope)
 {
 	DirectX::XMVECTOR v_direction = DirectX::XMLoadFloat2(&stickSlope);
 	DirectX::XMVECTOR v_length_sq = DirectX::XMVector2LengthSq(v_direction);
 
-	// 4. 結果をfloatに戻す
+	// 4. 結果をfloatに戻す.
 	float length_sq;
 	DirectX::XMStoreFloat(&length_sq, v_length_sq);
 
 	return length_sq > deadZone;
 }
 
-//----------------------------------------------------------------.
 
 bool XInput::IsStickInput(const DirectX::XMFLOAT2& useStickDir, StickState& state)
 {	

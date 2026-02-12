@@ -38,7 +38,7 @@ Sprite2D::~Sprite2D()
         SAFE_RELEASE(vertexBuffer.second);
     }
 
-    //SAFE_RELEASE(m_pVertexBuffer);
+    //SAFE_RELEASE(m_pVertexBuffer);.
     SAFE_RELEASE(m_pConstantBuffer);
 }
 
@@ -91,7 +91,7 @@ void Sprite2D::Render()
         //ワールド行列を渡す.
         DirectX::XMMATRIX m = m_WorldMatrix;
 
-        // 【D3DXからXMへ】行列の転置をXMMatrixTransposeに置き換え
+        // 【D3DXからXMへ】行列の転置をXMMatrixTransposeに置き換え.
         m = DirectX::XMMatrixTranspose(m);
         cb.mWorld = m;
         
@@ -356,7 +356,7 @@ void Sprite2D::CalcWorldMatrix()
     DirectX::XMMATRIX	mTrans, mRot, mScale;
 
     // 拡縮行列を計算.
-    // 【D3DXからXMへ】D3DXMatrixScaling -> XMMatrixScaling
+    // 【D3DXからXMへ】D3DXMatrixScaling -> XMMatrixScaling.
     mScale = DirectX::XMMatrixScaling(
         transform.Scale.x,
         transform.Scale.y,
@@ -364,27 +364,27 @@ void Sprite2D::CalcWorldMatrix()
 
     // 回転行列を計算.
     DirectX::XMMATRIX mYaw, mPitch, mRoll;
-    // 【D3DXからXMへ】D3DXMatrixRotation* -> XMMatrixRotation*
+    // 【D3DXからXMへ】D3DXMatrixRotation* -> XMMatrixRotation*.
     mYaw = DirectX::XMMatrixRotationY(transform.Rotation.y);
     mPitch = DirectX::XMMatrixRotationX(transform.Rotation.x);
     mRoll = DirectX::XMMatrixRotationZ(transform.Rotation.z);
 
-    // 【D3DXからXMへ】行列乗算をXMMatrixMultiplyに置き換え
+    // 【D3DXからXMへ】行列乗算をXMMatrixMultiplyに置き換え.
     mRot = DirectX::XMMatrixMultiply(mYaw, mPitch);
     mRot = DirectX::XMMatrixMultiply(mRot, mRoll);
-    // mRot = mYaw * mPitch * mRoll; (演算子オーバーロードに依存しない形式)
+    // mRot = mYaw * mPitch * mRoll; (演算子オーバーロードに依存しない形式).
 
 
     // 平行行列を計算.
     DirectX::XMFLOAT3 anchoredPosition = m_pRectTransform->CalcAnchoredPosition();
-    // 【D3DXからXMへ】D3DXMatrixTranslation -> XMMatrixTranslation
+    // 【D3DXからXMへ】D3DXMatrixTranslation -> XMMatrixTranslation.
     mTrans = DirectX::XMMatrixTranslation(
         anchoredPosition.x,
         anchoredPosition.y,
         anchoredPosition.z);
 
-    // 【D3DXからXMへ】ワールド行列の合成
-    // m_WorldMatrix = mScale * mRot * mTrans; の代替
+    // 【D3DXからXMへ】ワールド行列の合成.
+    // m_WorldMatrix = mScale * mRot * mTrans; の代替.
     DirectX::XMMATRIX mWorldTemp = DirectX::XMMatrixMultiply(mScale, mRot);
     m_WorldMatrix = DirectX::XMMatrixMultiply(mWorldTemp, mTrans);
 }

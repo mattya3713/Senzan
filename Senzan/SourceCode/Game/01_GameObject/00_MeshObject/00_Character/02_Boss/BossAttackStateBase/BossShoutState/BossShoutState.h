@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "..//BossAttackStateBase.h"
+#include "..//BossAttackStateBase.h".
 #include "Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.h"
 
 /************************************************************************************
@@ -43,13 +43,13 @@ private:
 	float m_ShoutDamage = 10.0f;     // ダメージ量.
 	float m_ShoutRadius = 180.0f;     // 範囲半径.
 	float m_KnockBackPower = 15.0f;  // ノックバック力.
-    // 叫び判定が広がる時間（秒）。ステート中に半径が 0 -> m_ShoutRadius へ線形補間される
+    // 叫び判定が広がる時間（秒）。ステート中に半径が 0 -> m_ShoutRadius へ線形補間される.
     float m_ShoutExpandTime = 1.0f;
-    // ランタイム用: 経過時間と開始半径
+    // ランタイム用: 経過時間と開始半径.
     float m_ShoutElapsed = 0.0f;
     float m_ShoutStartRadius = 0.0f;
 
-    // エフェクト関連: 一度だけ発火させるためのフラグと設定
+    // エフェクト関連: 一度だけ発火させるためのフラグと設定.
     bool m_EffectPlayed = false;
     DirectX::XMFLOAT3 m_EffectOffset = DirectX::XMFLOAT3(0.0f, 15.0f, 0.0f);
     float m_EffectScale = 10.0f;

@@ -20,7 +20,7 @@ public:
 	virtual void LateUpdate() {}
 	virtual void Draw() {}
 	virtual void Exit() {}
-    // ステート遷移を許可するか（デフォルトは許可）
+    // ステート遷移を許可するか（デフォルトは許可）.
     virtual bool CanChangeState() const { return true; }
 private:
 	void SetOwner(FSM_Owner* pOwner) { m_pOwner = pOwner; }

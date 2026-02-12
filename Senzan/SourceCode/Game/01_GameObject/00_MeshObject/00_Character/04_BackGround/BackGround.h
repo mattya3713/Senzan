@@ -1,9 +1,9 @@
-#pragma once
+ï»¿#pragma once
 
-#include "Game//01_GameObject//00_MeshObject//MeshObject.h"
+#include "Game//01_GameObject//00_MeshObject//MeshObject.h".
 
 /*********************************************************************
-*	‹ó‚É‰æ‘œ‚ğ“ü‚ê‚éƒNƒ‰ƒX.
+*	ç©ºã«ç”»åƒã‚’å…¥ã‚Œã‚‹ã‚¯ãƒ©ã‚¹.
 **/
 
 class BackGround

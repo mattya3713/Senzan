@@ -2,7 +2,7 @@
 #include "02_UIObject/UILoader/UILoader.h"
 
 #include "Graphic/DirectX/DirectX11/DirectX11.h"
-#include "Game//04_Time//Time.h"
+#include "Game//04_Time//Time.h".
 #include "Math/Easing/Easing.h"
 
 namespace {
@@ -30,13 +30,11 @@ Select::Select()
 	Create();
 }
 
-//----------------------------------------------------------------.
 
 Select::~Select()
 {
 }
 
-//----------------------------------------------------------------.
 
 void Select::Create() 
 {
@@ -64,7 +62,7 @@ void Select::Create()
 
 				float len = sqrtf(v.x * v.x + v.y * v.y + v.z * v.z);
 
-				// ゼロ除算ガード
+				// ゼロ除算ガード.
 				if (len > 0.0001f) {
 					info.moveDir = { v.x / len, v.y / len, v.z / len };
 				}
@@ -81,7 +79,6 @@ void Select::Create()
 	}
 }
 
-//----------------------------------------------------------------.
 
 void Select::Update()
 {
@@ -164,13 +161,11 @@ void Select::Update()
 	}
 }
 
-//----------------------------------------------------------------.
 
 void Select::LateUpdate()
 {
 }
 
-//----------------------------------------------------------------.
 
 void Select::Draw()
 {
@@ -184,7 +179,6 @@ void Select::Draw()
 	}
 }
 
-//----------------------------------------------------------------.
 
 void Select::IsSelect(DirectX::XMFLOAT3 pos)
 {
@@ -213,7 +207,6 @@ void Select::IsSelect(DirectX::XMFLOAT3 pos)
 	m_Rate = m_StartRate;
 }
 
-//----------------------------------------------------------------.
 
 bool Select::IsHiddenUI(const std::string& name)
 {

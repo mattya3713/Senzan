@@ -130,8 +130,8 @@ protected:
 	DirectX::XMFLOAT3 m_ShakeOffset; 
 	float			  m_Distance;
 
-	DirectX::XMFLOAT3 m_ForwardVec; // カメラの前方ベクトル
-	DirectX::XMFLOAT3 m_RightVec;   // カメラの右方ベクトル
+	DirectX::XMFLOAT3 m_ForwardVec; // カメラの前方ベクトル.
+	DirectX::XMFLOAT3 m_RightVec;   // カメラの右方ベクトル.
 
 	DirectX::XMMATRIX m_View;		//　ビュー(カメラ)行列.
 	DirectX::XMMATRIX m_Proj;		//　プロジェクション(射影)行列.

@@ -26,7 +26,7 @@ enum class eList
 	AnimationTuning,
 	
 	UIEditor,
-#endif // _DEBUG
+#endif // _DEBUG.
 
 	MAX,
 };
@@ -68,7 +68,7 @@ private:
 		default: return "Unknown";
 		}
 	}
-#endif // _DEBUG
+#endif // _DEBUG.
 
 private:
 
@@ -83,5 +83,5 @@ private:
 #if _DEBUG
 	eList m_CurrentSceneID;
 	eList m_DebugFirstScene;	// デバッグ時に最初に起動させるシーン.
-#endif // _DEBUG
+#endif // _DEBUG.
 };

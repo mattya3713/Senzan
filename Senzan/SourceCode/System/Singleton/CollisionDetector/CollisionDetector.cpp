@@ -14,7 +14,7 @@ void CollisionDetector::ExecuteCollisionDetection()
     }
     m_PendingResponses.clear();
 
-    // 2. コライダーリストの総当たりチェック
+    // 2. コライダーリストの総当たりチェック.
     for (size_t i = 0; i < m_Colliders.size(); ++i)
     {
         for (size_t j = i + 1; j < m_Colliders.size(); ++j)
@@ -34,10 +34,10 @@ void CollisionDetector::ExecuteCollisionDetection()
             bool is_pattern2 = (group_a & eCollisionGroup::BossPress) != eCollisionGroup::None &&
                 (group_b & eCollisionGroup::Press) != eCollisionGroup::None;
 
-            // パターン1 または パターン2 の時に実行
+            // パターン1 または パターン2 の時に実行.
             if (is_pattern1 || is_pattern2)
             {
-                // 衝突後の処理
+                // 衝突後の処理.
                 int i = 0;
                 i++;
             }

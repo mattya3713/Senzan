@@ -1,32 +1,32 @@
-#pragma once
+ï»¿#pragma once
 /**************************************************
-*	ƒvƒŒƒCƒ„[‚ÌƒXƒe[ƒgIDƒNƒ‰ƒX.
-*	’S“– : •£˜e –¢—ˆ.
+*	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ã‚¹ãƒ†ãƒ¼ãƒˆIDã‚¯ãƒ©ã‚¹.
+*	æ‹…å½“ : æ·µè„‡ æœªæ¥.
 **/
 namespace PlayerState {
 enum class eID
 {
-    None = 0, // –¢‰Šú‰»A‚Ü‚½‚Í–³Œø‚ÈƒXƒe[ƒgID.
+    None = 0, // æœªåˆæœŸåŒ–ã€ã¾ãŸã¯ç„¡åŠ¹ãªã‚¹ãƒ†ãƒ¼ãƒˆID.
 
     // System.
-    Pause,         // System/Pause          : ˆê’â~.
-    KnockBack,     // System/KnockBack      : ”íƒ_ƒƒmƒbƒNƒoƒbƒO.
-    Dead,          // System/Dead           : €–S
-    SpecialAttack, // System/SpecialAttack  : •KE‹Z.
+    Pause,         // System/Pause          : ä¸€æ™‚åœæ­¢.
+    KnockBack,     // System/KnockBack      : è¢«ãƒ€ãƒ¡ãƒãƒƒã‚¯ãƒãƒƒã‚°.
+    Dead,          // System/Dead           : æ­»äº¡
+    SpecialAttack, // System/SpecialAttack  : å¿…æ®ºæŠ€.
 
-    // Gameplay/Movement.
-    Idle,          // Gameplay/Movement/Idle: –³‘€ì.
-    Run,           // Gameplay/Movement/Run : ‘–‚è.
+    // ã‚²ãƒ¼ãƒ ãƒ—ãƒ¬ã‚¤/ç§»å‹•.
+    Idle,          // Gameplay/Movement/Idle: ç„¡æ“ä½œ.
+    Run,           // Gameplay/Movement/Run : èµ°ã‚Š.
 
-    // Gameplay/Dodge.
-    DodgeExecute,  // Gameplay/Dodge/DodgeExecute   : ’Êí‰ñ”ğ.
-    JustDodge,     // Gameplay/Dodge/JustDodge      : ƒWƒƒƒXƒg‰ñ”ğ.
+    // ã‚²ãƒ¼ãƒ ãƒ—ãƒ¬ã‚¤/å›é¿.
+    DodgeExecute,  // Gameplay/Dodge/DodgeExecute   : é€šå¸¸å›é¿.
+    JustDodge,     // Gameplay/Dodge/JustDodge      : ã‚¸ãƒ£ã‚¹ãƒˆå›é¿.
 
-    // Gameplay/Combat.
-    AttackCombo_0, // Gameplay/Combat/AttackCombo_0 : UŒ‚ˆê’iŠK–Ú.
-    AttackCombo_1, // Gameplay/Combat/AttackCombo_1 : UŒ‚“ñ’iŠK–Ú.
-    AttackCombo_2, // Gameplay/Combat/AttackCombo_2 : UŒ‚O’iŠK–Ú.
-    Parry,         // Gameplay/Combat/Parry         : ƒWƒƒƒXƒgƒK[ƒh.
+    // ã‚²ãƒ¼ãƒ ãƒ—ãƒ¬ã‚¤/æˆ¦é—˜.
+    AttackCombo_0, // Gameplay/Combat/AttackCombo_0 : æ”»æ’ƒä¸€æ®µéšç›®.
+    AttackCombo_1, // Gameplay/Combat/AttackCombo_1 : æ”»æ’ƒäºŒæ®µéšç›®.
+    AttackCombo_2, // Gameplay/Combat/AttackCombo_2 : æ”»æ’ƒä¸‰æ®µéšç›®.
+    Parry,         // Gameplay/Combat/Parry         : ã‚¸ãƒ£ã‚¹ãƒˆã‚¬ãƒ¼ãƒ‰.
 
     _Max
 };

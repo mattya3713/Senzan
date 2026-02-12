@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 //基底クラス.
-#include "System//Utility//StateMachine//StateBase.h"
+#include "System//Utility//StateMachine//StateBase.h".
 #include "Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.h"
 
 
@@ -42,7 +42,7 @@ public:
 	void DrawBone();
 
 private:
-	//	std::shared_ptr<CapsuleCollider> m_pColl;
+	//	std::shared_ptr<CapsuleCollider> m_pColl;.
 
 	int							m_AnimNo;	//アニメーション番号.
 	double						m_AnimSpeed;// アニメーション速度.

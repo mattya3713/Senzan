@@ -1,9 +1,9 @@
 ﻿#include "BossSlashState.h"
 
-#include "Game//04_Time//Time.h"
-#include "Game//01_GameObject//00_MeshObject//00_Character//02_Boss//Boss.h"
-#include "Game//01_GameObject//00_MeshObject//00_Character//01_Player//Player.h"
-#include "..//..//BossMoveState//BossMoveState.h" // 攻撃後の遷移先
+#include "Game//04_Time//Time.h".
+#include "Game//01_GameObject//00_MeshObject//00_Character//02_Boss//Boss.h".
+#include "Game//01_GameObject//00_MeshObject//00_Character//01_Player//Player.h".
+#include "..//..//BossMoveState//BossMoveState.h" // 攻撃後の遷移先.
 #include "Resource\\Mesh\\02_Skin\\SkinMesh.h"
 
 #include "System/Singleton/ImGui/CImGuiManager.h"
@@ -86,7 +86,7 @@ void BossSlashState::Update()
         break;
 
     case BossSlashState::enList::SlashIdol:
-        // Idol遷移も時間で統一（余韻用に固定）
+        // Idol遷移も時間で統一（余韻用に固定）.
         if (m_TransitionOnAnimEnd_Exit)
         {
             if (m_pOwner->IsAnimEnd(Boss::enBossAnim::SlashToIdol))
@@ -129,7 +129,7 @@ void BossSlashState::Draw()
 void BossSlashState::Exit()
 {
     BossAttackStateBase::Exit();
-	// window 制御のコライダーを確実にOFF
+	// window 制御のコライダーを確実にOFF.
 	m_pOwner->SetColliderActiveByName("boss_Hand_R", false);
 }
 
@@ -144,7 +144,7 @@ void BossSlashState::DrawImGui()
     ImGui::Begin(IMGUI_JP("ボス斬撃設定"));
     ImGui::Separator();
 
-    // オフセットは ColliderWindow で管理するため、ここでは基底クラスのImGuiのみ呼ぶ
+    // オフセットは ColliderWindow で管理するため、ここでは基底クラスのImGuiのみ呼ぶ.
     BossAttackStateBase::DrawImGui();
     ImGui::End();
 #endif
@@ -152,12 +152,12 @@ void BossSlashState::DrawImGui()
 
 void BossSlashState::LoadSettings()
 {
-    // 基底の読み込みのみ
+    // 基底の読み込みのみ.
     BossAttackStateBase::LoadSettings();
 }
 
 void BossSlashState::SaveSettings() const
 {
-    // 基底の保存のみ
+    // 基底の保存のみ.
     BossAttackStateBase::SaveSettings();
 }

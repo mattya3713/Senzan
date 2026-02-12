@@ -1,9 +1,11 @@
 ﻿#pragma once
 #include <DirectXMath.h>
 
-/**************************************************
-*	ゲームオブジェクトクラス.
-**************************************************/
+/**********************************************************************************
+* @author    : 未定.
+* @date      : 未定.
+* @brief     : ゲームオブジェクトクラス.
+**********************************************************************************/
 class GameObject
 {
 public:
@@ -25,7 +27,6 @@ public:
 	// sharedのMove.
 	inline void SetTransform(std::shared_ptr<Transform>&& transformPtr) { m_spTransform = std::move(transformPtr); }
 	
-	//----------------------------------------.
 	// 座標を取得.
 	inline const DirectX::XMFLOAT3& GetPosition() const noexcept { return m_spTransform->Position; }
 	inline float GetPositionX() const noexcept { return m_spTransform->Position.x; }
@@ -47,7 +48,6 @@ public:
 	void AddPositionZ(float Z);
 
 
-	//----------------------------------------.
 	// 回転を取得.
 	inline const DirectX::XMFLOAT3& GetRotation() const noexcept { return m_spTransform->Rotation; }
 	inline float GetRotationX() const noexcept { return m_spTransform->Rotation.x; }
@@ -64,7 +64,6 @@ public:
 	void SetRotationAroundAxis(const DirectX::XMFLOAT3& Axis, float Angle);
 
 
-	//----------------------------------------.
 	// 拡縮を取得.
 	inline const DirectX::XMFLOAT3& GetScale() const noexcept { return m_spTransform->Scale; }
 	inline float GetScaleX() const noexcept { return m_spTransform->Scale.x; }

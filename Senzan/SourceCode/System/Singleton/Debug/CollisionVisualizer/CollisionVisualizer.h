@@ -7,14 +7,13 @@
 #include <wrl/client.h>
 #include <DirectXMath.h>
 #include <D3D11.h>
-#include <D3DX11async.h> // D3DX11CompileFromFile のため
+#include <D3DX11async.h> // D3DX11CompileFromFile のため.
 #include <cassert>
 
 #include "Game/03_Collision/00_Core/ColliderBase.h"
 
 class DirectX11;
 class CameraManager;
-
 
 
 // インスタンスデータ.
@@ -93,16 +92,16 @@ private:
     // このフレームで描画するリスト.
     std::vector<DebugColliderInfo> m_DebugInfoQueue;
 
-    // 形状タイプ（eShapeType）をキーにして、リソースを保持するマップ
+    // 形状タイプ（eShapeType）をキーにして、リソースを保持するマップ.
     std::map<ColliderBase::eShapeType, ShapeData> m_ShapeResources;
 
-    // 共通リソース
+    // 共通リソース.
     Microsoft::WRL::ComPtr<ID3D11Buffer>    m_ConstantBuffer;
     Microsoft::WRL::ComPtr<ID3D11VertexShader>  m_VertexShader;
     Microsoft::WRL::ComPtr<ID3D11PixelShader>   m_PixelShader;
     Microsoft::WRL::ComPtr<ID3D11InputLayout>   m_InputLayout;
 
-    // **インスタンス描画用**
+    // **インスタンス描画用**.
     Microsoft::WRL::ComPtr<ID3D11Buffer> m_InstanceBuffer;
-    size_t m_InstanceBufferSize = 0; // 現在確保されているインスタンスバッファのバイトサイズ
+    size_t m_InstanceBufferSize = 0; // 現在確保されているインスタンスバッファのバイトサイズ.
 };

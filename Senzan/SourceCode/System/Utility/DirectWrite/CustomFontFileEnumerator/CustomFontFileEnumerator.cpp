@@ -15,21 +15,18 @@ CustomFontFileEnumerator::~CustomFontFileEnumerator()
 	m_pFactory->Release();
 }
 
-//-----------------------------------------------------------------------------------------.
 
 IFACEMETHODIMP CustomFontFileEnumerator::QueryInterface(REFIID iid, void** ppvObject)
 {
 	return S_OK;
 }
 
-//-----------------------------------------------------------------------------------------.
 
 IFACEMETHODIMP_(ULONG) CustomFontFileEnumerator::AddRef()
 {
 	return InterlockedIncrement(&m_RefCount);
 }
 
-//-----------------------------------------------------------------------------------------.
 
 ULONG __stdcall CustomFontFileEnumerator::Release()
 {
@@ -41,7 +38,6 @@ ULONG __stdcall CustomFontFileEnumerator::Release()
 	return newCount;
 }
 
-//-----------------------------------------------------------------------------------------.
 
 IFACEMETHODIMP CustomFontFileEnumerator::MoveNext(OUT BOOL* hasCurrentFile)
 {
@@ -57,7 +53,6 @@ IFACEMETHODIMP CustomFontFileEnumerator::MoveNext(OUT BOOL* hasCurrentFile)
 	}
 }
 
-//-----------------------------------------------------------------------------------------.
 
 IFACEMETHODIMP CustomFontFileEnumerator::GetCurrentFontFile(OUT IDWriteFontFile** fontFile)
 {

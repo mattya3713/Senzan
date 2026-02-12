@@ -29,7 +29,7 @@ class Parry;
 class Dodge;
 class DodgeExecute;
 class JustDodge;
-class Combat; // forward declare Combat so Player can friend it
+class Combat; // forward declare Combat so Player can friend it.
 }
 
 
@@ -87,10 +87,10 @@ public:
 Player();
 virtual ~Player() override;
 
-// Set just-dodge timing flag (used by Scene to propagate enemy just-windows)
+// ジャスト回避タイミングフラグの設定 (シーンから敵のジャストウィンドウを伝達する用).
 void SetIsJustDodgeTiming(bool v) { m_IsJustDodgeTiming = v; }
 
-    // Allow external managers to cancel the player's attack collider
+    // 外部マネージャからプレイヤーの攻撃判定を無効化する.
     void CancelAttackCollider() { SetAttackColliderActive(false); }
 
 virtual void Update() override;
@@ -138,7 +138,7 @@ private:
 
 protected:
 
-	// 攻撃判定のActive
+	// 攻撃判定のActive.
 	inline void SetAttackColliderActive(bool Active) const noexcept { if (m_pAttackCollider) m_pAttackCollider->SetActive(Active); }
 	inline void SetDamageColliderActive(bool Active) const noexcept { if (m_pDamageCollider) m_pDamageCollider->SetActive(Active); }
 	inline void SetParryColliderActive(bool Active) const noexcept { if (m_pParryCollider) m_pParryCollider->SetActive(Active); }
@@ -190,18 +190,18 @@ protected:
     bool                m_IsSpecial; // 無敵状態かどうか.
 
 
-	// ジャスト回避エフェクト（ステートに依存せず Player が管理）
+	// ジャスト回避エフェクト（ステートに依存せず Player が管理）.
 	std::unique_ptr<JustDodgeEffect> m_pJustDodgeEffect;
 
 public:
-	// ジャスト回避エフェクトを開始する（JustDodge ステートから呼び出す）
+	// ジャスト回避エフェクトを開始する（JustDodge ステートから呼び出す）.
     void StartJustDodgeEffect(const DirectX::XMFLOAT3& startPos, const DirectX::XMFLOAT3& targetPos, float scale = 1.0f, float duration = 1.0f, float extraDistance = 0.0f);
 
-    // アニメーションコントローラを取得（分身描画用）
+    // アニメーションコントローラを取得（分身描画用）.
     LPD3DXANIMATIONCONTROLLER GetAnimationController() const { return m_pAnimCtrl; }
 
 protected:
-	//--- Debug: force state 再入場用 ---.
+	//--- デバッグ: ステート強制再入場用 ---.
 	PlayerState::eID    m_DebugForcedState;     // None == 無効.
 	bool                m_DebugRepeatOnExit;
 	bool                m_DebugWasInForcedState;

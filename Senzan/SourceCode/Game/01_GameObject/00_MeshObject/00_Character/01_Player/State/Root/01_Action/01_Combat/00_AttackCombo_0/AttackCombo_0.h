@@ -33,5 +33,4 @@ public:
 private:    
 };
 
-} // namespace PlayerState
-
+} // namespace PlayerState.

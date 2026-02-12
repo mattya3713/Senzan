@@ -22,13 +22,11 @@ Loader::Loader()
 {
 }
 
-//-------------------------------------------------------------------.
 
 Loader::~Loader()
 {
 }
 
-//-------------------------------------------------------------------.
 
 void Loader::LoadData()
 {
@@ -55,7 +53,6 @@ void Loader::LoadData()
 	}
 }
 
-//-------------------------------------------------------------------.
 
 void Loader::Update()
 {
@@ -74,7 +71,6 @@ void Loader::Update()
 	}
 }
 
-//-------------------------------------------------------------------.
 
 void Loader::Draw()
 {
@@ -93,7 +89,6 @@ void Loader::Draw()
 	DirectX11::GetInstance().Present();
 }
 
-//-------------------------------------------------------------------.
 
 void Loader::StartLoading()
 {
@@ -103,7 +98,6 @@ void Loader::StartLoading()
 	m_IsLoadResult.emplace_back(std::async(std::launch::async, &Loader::LoadEffects, this));
 }
 
-//-------------------------------------------------------------------.
 
 const bool Loader::IsLoadCompletion()
 {
@@ -116,33 +110,29 @@ const bool Loader::IsLoadCompletion()
 	return true;
 }
 
-//-------------------------------------------------------------------.
 
 bool Loader::LoadGraphicsAssets()
 {
 	return ResourceManager::LoadMesh();
 }
 
-//-------------------------------------------------------------------.
 
 bool Loader::LoadSounds()
 {
 	return ResourceManager::LoadSounds();
 }
 
-//-------------------------------------------------------------------.
 
 bool Loader::LoadEffects()
 {
 	return ResourceManager::LoadEffects();
 }
 
-//-------------------------------------------------------------------.
 
 void Loader::LineInit(std::shared_ptr<UIObject> obje)
 {
-	// アルファをマイナス値で初期化することで「出現までの待機時間」とする
-	// m_LineGenerateRateを使って待ち時間の幅を調節
+	// アルファをマイナス値で初期化することで「出現までの待機時間」とする.
+	// m_LineGenerateRateを使って待ち時間の幅を調節.
 	obje->SetAlpha(1.0f);
 	obje->SetScaleY(m_LineInitTickness);
 	obje->SetScaleX(3.0f);

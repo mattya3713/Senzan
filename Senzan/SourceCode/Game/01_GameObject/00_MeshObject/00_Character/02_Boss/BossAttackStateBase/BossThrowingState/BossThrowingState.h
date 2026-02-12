@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "..//BossAttackStateBase.h"
+#include "..//BossAttackStateBase.h".
 
 #include "00_MeshObject/00_Character/02_Boss/BossIdolState/BossIdolState.h"
 
@@ -32,7 +32,7 @@ public:
     // PlayerのParry成功時硬直させたいアニメーションとタイミング.
     std::pair<Boss::enBossAnim, float> GetParryAnimPair() override;
 
-    // ImGui と設定の読み書き
+    // ImGui と設定の読み書き.
     void DrawImGui() override;
     void LoadSettings() override;
     void SaveSettings() const override;
@@ -42,7 +42,6 @@ private:
 private:
     enThrowing m_List;
     bool m_IsLaunched;
-    float m_BallHeight;   // 発射高さオフセット
-    float m_BallSpeed;    // 弾速（SnowBallへ渡す）
+    float m_BallHeight;   // 発射高さオフセット.
+    float m_BallSpeed;    // 弾速（SnowBallへ渡す）.
 };
-

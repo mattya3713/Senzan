@@ -22,7 +22,7 @@ bool BossAttackStateBase::UpdateColliderWindows(float prevTime, float currentTim
     {
         if (window.IsEnd) { continue; }
 
-        // ジャストタイム判定更新（開始時間 - JustTime ～ 開始時間 の間 true）
+        // ジャストタイム判定更新（開始時間 - JustTime ～ 開始時間 の間 true）.
         float justWindowStart = window.Start - window.JustTime;
         if (window.JustTime > 0.0f && currentTime >= justWindowStart && currentTime < window.Start)
         {
@@ -34,13 +34,13 @@ bool BossAttackStateBase::UpdateColliderWindows(float prevTime, float currentTim
             window.IsJustWindow = false;
         }
 
-        // Activation: for OneShot windows, activate only when crossing the start time
+        // 有効化: OneShotウィンドウでは開始時間を跨いだ時のみ有効化する.
         if (!window.IsAct)
         {
             bool shouldActivate = false;
             if (window.OneShot)
             {
-                // Activate only when prevTime < Start <= currentTime
+                // prevTime < Start <= currentTime を満たす場合のみ有効化する.
                 if (prevTime < window.Start && currentTime >= window.Start && !window.OneShotTriggered)
                 {
                     shouldActivate = true;
@@ -55,7 +55,7 @@ bool BossAttackStateBase::UpdateColliderWindows(float prevTime, float currentTim
             if (shouldActivate)
             {
                 m_pOwner->SetColliderActiveByName(window.BoneName, true);
-                // apply current state collider settings to the activated collider so UI changes take effect
+                // UIでの変更を反映するため、現在のステートのコライダー設定を有効化されたコライダーに適用する.
                 ColliderBase* targetCol = nullptr;
                 if (window.BoneName == "boss_Hand_R") targetCol = m_pOwner->GetSlashCollider();
                 else if (window.BoneName == "boss_pSphere28") targetCol = m_pOwner->GetStompCollider();
@@ -63,30 +63,30 @@ bool BossAttackStateBase::UpdateColliderWindows(float prevTime, float currentTim
                 else if (window.BoneName == "boss_Spinning") targetCol = m_pOwner->GetSpinningCollider();
                 else if (window.BoneName == "boss_Laser") targetCol = m_pOwner->GetLaserCollider();
                 if (targetCol) {
-                    // Use virtual setters so Sphere/Box/Capsule implementations receive values
+                    // 仮想セッターを使用してSphere/Box/Capsule実装に値を渡す.
                     targetCol->SetRadius(m_ColliderWidth);
                     targetCol->SetHeight(m_ColliderHeight);
                     targetCol->SetAttackAmount(m_AttackAmount);
-                    // Also apply initial offset
+                    // 初期オフセットも適用する.
                     targetCol->SetPositionOffset(window.Offset);
                 }
                 window.IsAct = true;
             }
         }
-        // ジャスト時の1回演出: IsJustWindow が true になった瞬間に実行
+        // ジャスト時の1回演出: IsJustWindow が true になった瞬間に実行.
         if (window.IsJustWindow && !window.JustPlayed)
         {
-            // プレイヤーまたはボス固有の演出をここで実行する。
-            // 例: UI の Parry_Flash を画面上に表示させる
+            // プレイヤーまたはボス固有の演出をここで実行する。.
+            // 例: UI の Parry_Flash を画面上に表示させる.
             if (m_pOwner)
             {
-                // ボスの頭のワールド位置を取得して画面座標に変換して UI 表示
+                // ボスの頭のワールド位置を取得して画面座標に変換して UI 表示.
                 DirectX::XMFLOAT3 headPos{0.0f, 0.0f, 0.0f};
-                // Bone 名が設定されていれば、試しに Mesh からボーン位置を取得
+                // Bone 名が設定されていれば、試しに Mesh からボーン位置を取得.
                 if (!m_pOwner->GetResourceName().empty()) {
-                    // Boss のメッシュからボーン位置取得 API がある場合は使用する
+                    // Boss のメッシュからボーン位置取得 API がある場合は使用する.
                 }
-                // とりあえず画面中央上寄せで表示
+                // とりあえず画面中央上寄せで表示.
                 DirectX::XMFLOAT2 screenPos{ WND_WF * 0.5f, WND_HF * 0.5f };
                 auto charPtr = dynamic_cast<Character*>(m_pOwner);
                 if (charPtr)
@@ -99,8 +99,8 @@ bool BossAttackStateBase::UpdateColliderWindows(float prevTime, float currentTim
             window.JustPlayed = true;
         }
 
-        // 当たり判定が有効な間、毎フレームオフセットを更新
-        // ColliderBase::GetPosition()が親の回転を自動適用するため、ローカルオフセットをそのまま設定
+        // 当たり判定が有効な間、毎フレームオフセットを更新.
+        // ColliderBase::GetPosition()が親の回転を自動適用するため、ローカルオフセットをそのまま設定.
         if (window.IsAct && !window.IsEnd)
         {
             ColliderBase* targetCol = nullptr;
@@ -110,13 +110,13 @@ bool BossAttackStateBase::UpdateColliderWindows(float prevTime, float currentTim
             else if (window.BoneName == "boss_Spinning") targetCol = m_pOwner->GetSpinningCollider();
             else if (window.BoneName == "boss_Laser") targetCol = m_pOwner->GetLaserCollider();
             if (targetCol) {
-                // ColliderBase provides SetPositionOffset; call on base pointer so all collider types are supported
+                // ColliderBaseのSetPositionOffsetを基底ポインタで呼び出し全コライダー型に対応する.
                 targetCol->SetPositionOffset(window.Offset.x, window.Offset.y, window.Offset.z);
                 targetCol->SetDebugInfo();
             }
         }
 
-        // Deactivation: for OneShot, deactivate after the next frame (i.e., when currentTime > Start)
+        // 無効化: OneShotの場合、次フレーム以降(currentTime > Start)に無効化する.
         if (!window.IsEnd)
         {
             if (window.IsAct && currentTime >= (window.Start + window.Duration))
@@ -131,7 +131,7 @@ bool BossAttackStateBase::UpdateColliderWindows(float prevTime, float currentTim
 
 DirectX::XMFLOAT3 BossAttackStateBase::ComputeMovementEndPos(const MovementWindow& mv, const DirectX::XMFLOAT3& startPos, const DirectX::XMFLOAT3& targetPos) const
 {
-    // デフォルト実装: ターゲット方向に対して Speed * Duration * Distance だけ移動する
+    // デフォルト実装: ターゲット方向に対して Speed * Duration * Distance だけ移動する.
     DirectX::XMVECTOR start_v = DirectX::XMLoadFloat3(&startPos);
     DirectX::XMVECTOR target_v = DirectX::XMLoadFloat3(&targetPos);
     DirectX::XMVECTOR dir_v = DirectX::XMVectorSubtract(target_v, start_v);
@@ -151,11 +151,11 @@ void BossAttackStateBase::Enter()
 {
     LoadSettings();
     m_CurrentTime = 0.0f;
-    // Reset previous time so UpdateColliderWindows sees a fresh time window on re-entry
-    // Use a negative value to ensure prevTime < Start for OneShot activations that begin at t=0
+    // 再入場時にUpdateColliderWindowsが正しい時間窓を検出できるよう前フレーム時間をリセットする.
+    // t=0開始のOneShotが確実に有効化されるように負の値を使用する.
     m_PrevTime = -1.0f;
     
-    // ウィンドウフラグをリセット
+    // ウィンドウフラグをリセット.
     for (auto& window : m_ColliderWindows)
     {
         window.Reset();
@@ -169,7 +169,7 @@ void BossAttackStateBase::Enter()
         eff.Reset();
     }
     
-    // 全ての攻撃コライダーを最初に非アクティブにする
+    // 全ての攻撃コライダーを最初に非アクティブにする.
     if (m_pOwner)
     {
         m_pOwner->SetColliderActiveByName("boss_Hand_R", false);
@@ -177,7 +177,7 @@ void BossAttackStateBase::Enter()
         m_pOwner->SetColliderActiveByName("boss_Shout", false);
         m_pOwner->SetColliderActiveByName("boss_Spinning", false);
 
-        // 攻撃開始時にプレイヤー方向を向く（デフォルトで有効）
+        // 攻撃開始時にプレイヤー方向を向く（デフォルトで有効）.
         if (m_AutoFaceOnEnter)
         {
             FacePlayerInstantYaw();
@@ -219,11 +219,11 @@ void BossAttackStateBase::FacePlayerYawContinuous()
 
 void BossAttackStateBase::Update()
 {
-    // デバッグ用の ImGui を表示
+    // デバッグ用の ImGui を表示.
     DrawImGui();
 
-    // デバッグ停止フラグが立っている場合は Update の残り処理をスキップして
-    // ステート遷移を発生させないようにする。
+    // デバッグ停止フラグが立っている場合は Update の残り処理をスキップして.
+    // ステート遷移を発生させないようにする。.
     if (m_IsDebugStop)
     {
         return;
@@ -253,19 +253,19 @@ void BossAttackStateBase::UpdateBaseLogic(float dt)
     m_AnimSpeed = currentAnimSpeed;
     m_pOwner->SetAnimSpeed(currentAnimSpeed);
 
-    // 当たり判定更新 (共通ヘルパーを使用)
+    // 当たり判定更新 (共通ヘルパーを使用).
     bool anyJust = UpdateColliderWindows(m_PrevTime, m_CurrentTime, m_ColliderWindows);
     m_PrevTime = m_CurrentTime;
     if (m_pOwner) {
         m_pOwner->SetAnyAttackJustWindow(anyJust);
     }
 
-    // エフェクト再生更新
+    // エフェクト再生更新.
     for (auto& eff : m_EffectWindows)
     {
         if (!eff.IsPlayed && m_CurrentTime >= eff.Start)
         {
-            // エフェクトを再生
+            // エフェクトを再生.
             if (m_pOwner)
             {
                 m_pOwner->PlayEffect(eff.EffectName, eff.Offset, eff.Scale);
@@ -313,14 +313,14 @@ void BossAttackStateBase::UpdateBaseLogic(float dt)
                 mv.Initialized = true;
                 mv.LastEasedPos = mv.StartPos;
 
-                // 追加: 方向オフセットが有効なら、プレイヤー方向に対して指定角度だけ回転させた方向を EndPos とする
+                // 追加: 方向オフセットが有効なら、プレイヤー方向に対して指定角度だけ回転させた方向を EndPos とする.
                 if (mv.UseDirectionOffset)
                 {
-                    // プレイヤー方向ベクトル（XZ）
+                    // プレイヤー方向ベクトル（XZ）.
                     DirectX::XMVECTOR pos_v = DirectX::XMLoadFloat3(&mv.StartPos);
                     DirectX::XMVECTOR target_v = DirectX::XMLoadFloat3(&pos_target);
                     DirectX::XMVECTOR dir = DirectX::XMVectorSubtract(target_v, pos_v);
-                    // XZ 平面に投影
+                    // XZ 平面に投影.
                     DirectX::XMFLOAT3 fdir; DirectX::XMStoreFloat3(&fdir, dir);
                     DirectX::XMFLOAT3 dir_xz = { fdir.x, 0.0f, fdir.z };
                     DirectX::XMVECTOR v_dir_xz = DirectX::XMLoadFloat3(&dir_xz);
@@ -328,11 +328,11 @@ void BossAttackStateBase::UpdateBaseLogic(float dt)
                     if (len_dir > EPSILON_E6)
                     {
                         DirectX::XMVECTOR dir_n = DirectX::XMVector3Normalize(v_dir_xz);
-                        // 回転角をラジアンで作成
+                        // 回転角をラジアンで作成.
                         float rad = DirectX::XMConvertToRadians(mv.DirectionOffsetDeg);
                         DirectX::XMVECTOR rot = DirectX::XMQuaternionRotationAxis(DirectX::XMVectorSet(0,1,0,0), rad);
                         DirectX::XMVECTOR rotated = DirectX::XMVector3Rotate(dir_n, rot);
-                        // EndPos = StartPos + rotated * (Speed * Duration * Distance)
+                        // 終了位置 = 開始位置 + 回転済みベクトル * (速度 * 持続時間 * 距離).
                         DirectX::XMVECTOR move_amount = DirectX::XMVectorScale(rotated, mv.Speed * mv.Duration * mv.Distance);
                         DirectX::XMVECTOR end_pos_v = DirectX::XMVectorAdd(pos_v, move_amount);
                         DirectX::XMFLOAT3 fend; DirectX::XMStoreFloat3(&fend, end_pos_v);
@@ -393,9 +393,9 @@ void BossAttackStateBase::Exit()
 
 void BossAttackStateBase::DrawImGui()
 {
-    // ImGui を用いた攻撃パラメータ編集パネル
-    // このパネルからダメージ、当たり判定サイズ、フェーズ毎のアニメ速度
-    // などのパラメータを調整できます。実行時のみの編集用です。
+    // ImGui を用いた攻撃パラメータ編集パネル.
+    // このパネルからダメージ、当たり判定サイズ、フェーズ毎のアニメ速度.
+    // などのパラメータを調整できます。実行時のみの編集用です。.
 #if _DEBUG
 	if (!ImGui::Begin(IMGUI_JP("Boss Attack State"))) {
 		ImGui::End();
@@ -404,17 +404,17 @@ void BossAttackStateBase::DrawImGui()
 
     ImGui::Checkbox(IMGUI_JP("ストップ"), &m_IsDebugStop);
 
-    // 攻撃力
+    // 攻撃力.
     ImGui::SliderFloat(IMGUI_JP("攻撃力"), &m_AttackAmount, 0.0f, 9999.0f);
 
-    // 当たり判定サイズ
+    // 当たり判定サイズ.
     ImGui::SliderFloat(IMGUI_JP("判定半径"), &m_ColliderWidth, 0.0f, 100.0f);
     ImGui::SliderFloat(IMGUI_JP("判定高さ"), &m_ColliderHeight, 0.0f, 100.0f);
 
-    // ボーン名表示
+    // ボーン名表示.
     ImGui::Text(IMGUI_JP("追従ボーン: %s"), m_AttackBoneName.empty() ? "None" : m_AttackBoneName.c_str());
 
-    // ステートの時間設定
+    // ステートの時間設定.
     ImGui::SliderFloat(IMGUI_JP("ステート全体の長さ"), &m_EndTime, 0.0f, 10.0f);
     ImGui::SliderFloat(IMGUI_JP("チャージ時間"), &m_ChargeTime, 0.0f, 10.0f);
     ImGui::SliderFloat(IMGUI_JP("攻撃時間"), &m_AttackTime, 0.0f, 10.0f);
@@ -436,18 +436,18 @@ void BossAttackStateBase::DrawImGui()
     ImGui::Text(IMGUI_JP("現在の経過時間: %.3f 秒"), m_CurrentTime);
     ImGui::Text(IMGUI_JP("現在フェーズ: %s"), phase);
 
-    // 遷移制御: 各フェーズでアニメ終了か時間かで遷移するか選択
+    // 遷移制御: 各フェーズでアニメ終了か時間かで遷移するか選択.
     ImGui::Separator();
     ImGui::Text(IMGUI_JP("遷移条件"));
     ImGui::Checkbox(IMGUI_JP("溜め(Charge)フェーズ: アニメ終了で遷移"), &m_TransitionOnAnimEnd_Charge);
     ImGui::Checkbox(IMGUI_JP("攻撃(Attack)フェーズ: アニメ終了で遷移"), &m_TransitionOnAnimEnd_Attack);
     ImGui::Checkbox(IMGUI_JP("余韻(Exit)フェーズ: アニメ終了で遷移"), &m_TransitionOnAnimEnd_Exit);
 
-    // コライダーウィンドウ編集
+    // コライダーウィンドウ編集.
     ImGui::Separator();
     ImGui::Text(IMGUI_JP("当たり判定ウィンドウ"));
     
-    // デバッグ: ボスの回転情報を表示
+    // デバッグ: ボスの回転情報を表示.
     if (m_pOwner)
     {
         const auto& quat = m_pOwner->GetTransform()->Quaternion;
@@ -460,10 +460,10 @@ void BossAttackStateBase::DrawImGui()
     {
         auto &w = m_ColliderWindows[i];
         ImGui::PushID((int)i);
-        // 開始時刻／継続時間
+        // 開始時刻／継続時間.
         ImGui::DragFloat(IMGUI_JP("開始時刻 (秒)"), &w.Start, 0.01f, 0.0f, m_EndTime);
         ImGui::DragFloat(IMGUI_JP("継続時間 (秒)"), &w.Duration, 0.01f, 0.0f, m_EndTime);
-        // オフセット編集（Bossのローカル座標系: X=横, Y=上, Z=前方）
+        // オフセット編集（Bossのローカル座標系: X=横, Y=上, Z=前方）.
         float offset[3] = { w.Offset.x, w.Offset.y, w.Offset.z };
         if (ImGui::DragFloat3(IMGUI_JP("オフセット (横/上/前)"), offset, 0.5f, -500.0f, 500.0f)) {
             w.Offset.x = offset[0];
@@ -471,14 +471,14 @@ void BossAttackStateBase::DrawImGui()
             w.Offset.z = offset[2];
         }
         
-        // デバッグ: 回転後のオフセットを表示
+        // デバッグ: 回転後のオフセットを表示.
         if (m_pOwner && w.IsAct && !w.IsEnd)
         {
             float yaw = m_pOwner->GetTransform()->Rotation.y;
 
-            // XMMatrixRotationY と一致: (-sin(y), 0, cos(y))
+            // XMMatrixRotationY と一致: (-sin(y), 0, cos(y)).
             DirectX::XMVECTOR v_forward = DirectX::XMVectorSet(-sinf(yaw), 0.0f, cosf(yaw), 0.0f);
-            DirectX::XMVECTOR v_up = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
+            DirectX::XMVECTOR v_up = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f);
             DirectX::XMVECTOR v_right = DirectX::XMVector3Cross(v_up, v_forward);
 
             DirectX::XMVECTOR v_worldOffset = DirectX::XMVectorAdd(
@@ -499,7 +499,7 @@ void BossAttackStateBase::DrawImGui()
             ImGui::Text(IMGUI_JP("回転後オフセット: (%.2f, %.2f, %.2f)"), rotated.x, rotated.y, rotated.z);
         }
         
-        // ボーン名編集
+        // ボーン名編集.
         char buf[128];
 #ifdef _MSC_VER
         strncpy_s(buf, sizeof(buf), w.BoneName.c_str(), _TRUNCATE);
@@ -509,11 +509,11 @@ void BossAttackStateBase::DrawImGui()
         if (ImGui::InputText(IMGUI_JP("ボーン名"), buf, sizeof(buf))) {
             w.BoneName = std::string(buf);
         }
-        // ジャストタイム編集
+        // ジャストタイム編集.
         ImGui::DragFloat(IMGUI_JP("ジャストタイム (秒)"), &w.JustTime, 0.01f, 0.0f, 5.0f);
         ImGui::SameLine();
         ImGui::Checkbox(IMGUI_JP("ワンショット"), &w.OneShot);
-        // ジャスト判定状態表示
+        // ジャスト判定状態表示.
         ImGui::Text(IMGUI_JP("ジャスト判定: %s"), w.IsJustWindow ? "ON" : "OFF");
         ImGui::SameLine();
         if (ImGui::Button(IMGUI_JP("削除"))) { m_ColliderWindows.erase(m_ColliderWindows.begin() + i); ImGui::PopID(); break; }
@@ -522,7 +522,7 @@ void BossAttackStateBase::DrawImGui()
     }
     if (ImGui::Button(IMGUI_JP("ウィンドウを追加"))) { ColliderWindow nw; nw.Start = 0.0f; nw.Duration = 0.1f; nw.BoneName = ""; m_ColliderWindows.push_back(nw); }
 
-    // 移動ウィンドウ編集
+    // 移動ウィンドウ編集.
     ImGui::Separator();
     ImGui::Text(IMGUI_JP("移動ウィンドウ"));
     for (size_t i = 0; i < m_MovementWindows.size(); ++i)
@@ -534,8 +534,8 @@ void BossAttackStateBase::DrawImGui()
         ImGui::DragFloat(IMGUI_JP("継続時間 (秒)"), &mv.Duration, 0.01f, 0.0f, m_EndTime);
         ImGui::SameLine();
         ImGui::DragFloat(IMGUI_JP("速度"), &mv.Speed, 0.1f, 0.0f, 1000.0f);
-        //ImGui::SameLine(); 
-        // Easing 選択
+        //ImGui::SameLine();.
+        // イージング選択.
         int easing_idx = static_cast<int>(mv.EasingType);
         const char* easing_names[] = {
             "Liner","InSine","OutSine","InOutSine","InQuad","OutQuad","InOutQuad",
@@ -548,7 +548,7 @@ void BossAttackStateBase::DrawImGui()
             mv.EasingType = static_cast<MyEasing::Type>(easing_idx);
         }
         ImGui::SameLine();
-        // 移動量係数の編集
+        // 移動量係数の編集.
         ImGui::PushItemWidth(100);
         ImGui::DragFloat(IMGUI_JP("距離"), &mv.Distance, 0.01f, 0.0f, 1000.0f);
         ImGui::PushItemWidth(100);
@@ -566,7 +566,7 @@ void BossAttackStateBase::DrawImGui()
     }
     if (ImGui::Button(IMGUI_JP("移動ウィンドウを追加"))) { MovementWindow mv; mv.Start = 0.0f; mv.Duration = 0.2f; mv.Speed = 10.0f; m_MovementWindows.push_back(mv); }
 
-    // Load / Save ボタン
+    // 読み込み / 保存ボタン.
     if (ImGui::Button(IMGUI_JP("Load"))) {
         try {
             LoadSettings();
@@ -598,7 +598,7 @@ void BossAttackStateBase::LoadSettings()
         filePath = std::filesystem::current_path() / "Data" / "Json" / "Boss" / filePath;
     }
     if (!std::filesystem::exists(filePath)) return;
-    // 読み込み前に既存ウィンドウ設定をクリアして重複を防ぐ
+    // 読み込み前に既存ウィンドウ設定をクリアして重複を防ぐ.
     m_ColliderWindows.clear();
     m_MovementWindows.clear();
     json j = FileManager::JsonLoad(filePath);
@@ -626,13 +626,13 @@ void BossAttackStateBase::LoadSettings()
                 w.Start = entry["start"].get<float>();
                 w.Duration = entry["duration"].get<float>();
                 if (entry.contains("BoneName")) w.BoneName = entry["BoneName"].get<std::string>();
-                // オフセット読み込み
+                // オフセット読み込み.
                 if (entry.contains("offset") && entry["offset"].is_array() && entry["offset"].size() >= 3) {
                     w.Offset.x = entry["offset"][0].get<float>();
                     w.Offset.y = entry["offset"][1].get<float>();
                     w.Offset.z = entry["offset"][2].get<float>();
                 }
-                // ジャストタイム読み込み
+                // ジャストタイム読み込み.
                 if (entry.contains("justTime")) {
                     w.JustTime = entry["justTime"].get<float>();
                 }
@@ -658,7 +658,7 @@ void BossAttackStateBase::LoadSettings()
                 if (entry.contains("distance")) {
                     mv.Distance = entry["distance"].get<float>();
                 }
-                // 互換性: 旧フォーマットの "reverse" を読めるようにする
+                // 互換性: 旧フォーマットの "reverse" を読めるようにする.
                 if (entry.contains("use_direction_offset")) {
                     mv.UseDirectionOffset = entry["use_direction_offset"].get<bool>();
                 }
@@ -669,7 +669,7 @@ void BossAttackStateBase::LoadSettings()
                     bool rev = entry["reverse"].get<bool>();
                     if (rev) {
                         mv.UseDirectionOffset = true;
-                        // 旧 reverse の意味は 180deg 回転に等しい
+                        // 旧 reverse の意味は 180deg 回転に等しい.
                         mv.DirectionOffsetDeg = 180.0f;
                     }
                 }
@@ -756,7 +756,7 @@ nlohmann::json BossAttackStateBase::SerializeSettings() const
         e["start"] = w.Start;
         e["duration"] = w.Duration;
         e["BoneName"] = w.BoneName;
-        // 保存時にオフセットとジャストタイムも書き出す
+        // 保存時にオフセットとジャストタイムも書き出す.
         e["offset"] = { w.Offset.x, w.Offset.y, w.Offset.z };
         e["justTime"] = w.JustTime;
         e["oneShot"] = w.OneShot;
@@ -789,7 +789,7 @@ void BossAttackStateBase::SetNextAttackCansel()
 {
     for (auto& window : m_ColliderWindows)
     {
-        // まだアクティブになっていない、かつ開始時刻が現在時刻以降のウィンドウをキャンセル
+        // まだアクティブになっていない、かつ開始時刻が現在時刻以降のウィンドウをキャンセル.
         if (!window.IsAct && !window.IsEnd && window.Start >= m_CurrentTime)
         {
             window.IsEnd = true;
@@ -797,4 +797,3 @@ void BossAttackStateBase::SetNextAttackCansel()
         }
     }
 }
-

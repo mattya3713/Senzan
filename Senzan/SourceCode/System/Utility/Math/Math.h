@@ -28,9 +28,9 @@ namespace MyMath {
 	inline float NormalizeAngleDegrees(float angle);
 
 	/*************************************************************
-	* @brief	3Dベクトルを水平成分(XZ)のみで正規化し、2Dベクトルとして返す。
-	* @return	正規化された2Dベクトル (DirectX::XMFLOAT2)。
-	* @param[in]	vec	：正規化したい3Dベクトル。
+* @brief	3Dベクトルを水平成分(XZ)のみで正規化し、2Dベクトルとして返す。.
+* @return	正規化された2Dベクトル (DirectX::XMFLOAT2)。.
+* @param[in]	vec	：正規化したい3Dベクトル。.
 	* ************************************************************/
 	inline DirectX::XMFLOAT2 NormalizeVector3To2D(const DirectX::XMFLOAT3& vec)
 	{
@@ -118,4 +118,3 @@ namespace MyMath {
 		const float& speed = 0.1f);
 }
 #include "Math.inl"
-

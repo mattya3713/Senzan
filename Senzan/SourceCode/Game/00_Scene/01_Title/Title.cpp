@@ -59,4 +59,3 @@ void Title::Draw()
 {
 	m_pUI->Draw();
 }
-

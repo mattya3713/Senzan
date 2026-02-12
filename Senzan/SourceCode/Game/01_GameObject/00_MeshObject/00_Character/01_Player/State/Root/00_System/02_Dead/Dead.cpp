@@ -1,4 +1,4 @@
-#include "Dead.h"
+ï»¿#include "Dead.h"
 
 #include "Game/01_GameObject/00_MeshObject/00_Character/01_Player/Player.h"
 #include "System/Singleton/ImGui/CImGuiManager.h"
@@ -12,7 +12,7 @@ Dead::~Dead()
 {
 }
 
-// ID‚ÌŽæ“¾.
+// IDã®å–å¾—.
 constexpr PlayerState::eID Dead::GetStateID() const
 {
 	return PlayerState::eID::Dead;
@@ -20,33 +20,33 @@ constexpr PlayerState::eID Dead::GetStateID() const
 
 void Dead::Enter()
 {
-	// Ž€–SƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÝ’è
+	// æ­»äº¡ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨­å®š.
 	m_pOwner->SetIsLoop(false);
 	m_pOwner->SetAnimTime(0.0);
-	m_pOwner->SetAnimSpeed(1.0f); // •K—v‚É‰ž‚¶‚Ä’²®
+	m_pOwner->SetAnimSpeed(1.0f); // å¿…è¦ã«å¿œã˜ã¦èª¿æ•´.
 	m_pOwner->ChangeAnim(Player::eAnim::Dead);
 
-	// Ž€–Sƒtƒ‰ƒO‚ÌƒZƒbƒg
+	// æ­»äº¡ãƒ•ãƒ©ã‚°ã®ã‚»ãƒƒãƒˆ.
 	m_pOwner->m_IsDead = true;
 }
 
 void Dead::Update()
 {
-	// ƒAƒjƒ[ƒVƒ‡ƒ“I—¹‚Å‰½‚©ˆ—i—áFƒŠƒXƒ|[ƒ“‚âƒQ[ƒ€ƒI[ƒo[‰æ–Ê‚Öj
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†ã§ä½•ã‹å‡¦ç†ï¼ˆä¾‹ï¼šãƒªã‚¹ãƒãƒ¼ãƒ³ã‚„ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼ç”»é¢ã¸ï¼‰.
 	if (m_pOwner->IsAnimEnd(Player::eAnim::Dead))
 	{
-		// •K—v‚È‚çƒXƒe[ƒg‘JˆÚ‚âˆ—‚ð’Ç‰Á
+		// å¿…è¦ãªã‚‰ã‚¹ãƒ†ãƒ¼ãƒˆé·ç§»ã‚„å‡¦ç†ã‚’è¿½åŠ .
 	}
 }
 
 void Dead::LateUpdate()
 {
-	// Ž€–S’†‚ÍˆÚ“®‚â“ü—Í‚ð–³Œø‰»
+	// æ­»äº¡ä¸­ã¯ç§»å‹•ã‚„å…¥åŠ›ã‚’ç„¡åŠ¹åŒ–.
 }
 
 void Dead::Draw()
 {
-	// ƒfƒoƒbƒO•\Ž¦
+	// ãƒ‡ãƒãƒƒã‚°è¡¨ç¤º.
 	ImGui::Begin("Dead State Debug");
 	ImGui::Text("Player is Dead");
 	ImGui::End();
@@ -54,7 +54,7 @@ void Dead::Draw()
 
 void Dead::Exit()
 {
-	// Ž€–Sƒtƒ‰ƒO‰ðœ
+	// æ­»äº¡ãƒ•ãƒ©ã‚°è§£é™¤.
 	m_pOwner->m_IsDead = false;
 }
 } // PlayerState.

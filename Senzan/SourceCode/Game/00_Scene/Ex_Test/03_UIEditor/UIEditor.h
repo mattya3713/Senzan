@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "../../00_Base/SceneBase.h"
 #include "02_UIObject/UIObject.h"
@@ -18,61 +18,61 @@ public:
 
 	HRESULT LoadData();
 private:
-	// ‘I‘ğ‚µ‚½ƒV[ƒ“‚ÌUI‚ğ“Ç‚İ‚İ
+	// é¸æŠã—ãŸã‚·ãƒ¼ãƒ³ã®UIã‚’èª­ã¿è¾¼ã¿.
 	void SelectSceneLoad(const std::string& sceneName);
-	// Œ»İƒV[ƒ“‚ÌUIî•ñ‚ğ•Û‘¶
+	// ç¾åœ¨ã‚·ãƒ¼ãƒ³ã®UIæƒ…å ±ã‚’ä¿å­˜.
 	HRESULT SaveScene();
-	// ƒL[“ü—Íˆ—
+	// ã‚­ãƒ¼å…¥åŠ›å‡¦ç†.
 	void KeyInput();
 
 	//-------------------------------------------
-	//	ImGuig—pŠÖ”
+	//	ImGuiä½¿ç”¨é–¢æ•°.
 	//-------------------------------------------
-	// ƒV[ƒ“‘I‘ğŠÖ”
+	// ã‚·ãƒ¼ãƒ³é¸æŠé–¢æ•°.
 	void ImGuiSelectScene();
-	// UIƒŠƒXƒgŒŸõŠÖ”
+	// UIãƒªã‚¹ãƒˆæ¤œç´¢é–¢æ•°.
 	void ImGuiSearchUI();
-	// SpriteManager‚©‚çUI‚ğ’Ç‰Á
+	// SpriteManagerã‹ã‚‰UIã‚’è¿½åŠ .
 	void AddDeleteSprite();
-	// –¼‘O•ÏX‚ğs‚¤
+	// åå‰å¤‰æ›´ã‚’è¡Œã†.
 	void RenameUIObjects();
 
-	// À•W’²®ŠÖ”(‘I‘ğ‚³‚ê‚½UIObect)
+	// åº§æ¨™èª¿æ•´é–¢æ•°(é¸æŠã•ã‚ŒãŸUIObect).
 	void ImGuiPosEdit(std::shared_ptr<UIObject> object);
-	// ZÀ•W‚ğŒ³‚Éƒ\[ƒg‚·‚éŠÖ”(‘I‘ğ‚³‚ê‚½UIObect)
+	// Zåº§æ¨™ã‚’å…ƒã«ã‚½ãƒ¼ãƒˆã™ã‚‹é–¢æ•°(é¸æŠã•ã‚ŒãŸUIObect).
 	void SortBySpritePosZ(std::shared_ptr<UIObject> object);
-	// î•ñ’²®ŠÖ”(‘I‘ğ‚³‚ê‚½UIObect)
+	// æƒ…å ±èª¿æ•´é–¢æ•°(é¸æŠã•ã‚ŒãŸUIObect).
 	void ImGuiInfoEdit(std::shared_ptr<UIObject> object);
-	// ‚»‚Ì‘¼‚Ìî•ñ’²®ŠÖ”(‘I‘ğ‚³‚ê‚½UIObect)
+	// ãã®ä»–ã®æƒ…å ±èª¿æ•´é–¢æ•°(é¸æŠã•ã‚ŒãŸUIObect).
 	void ImGuiEtcInfoEdit(std::shared_ptr<UIObject> object);
 
 	void TriggeHgihLight();
 	void HighLightUI(std::shared_ptr<UIObject> object);
 private:
 	std::string m_CurrentSceneName;
-	bool m_MoveAny;	// UIî•ñ•ÏX‚Ì—L–³.
+	bool m_MoveAny;	// UIæƒ…å ±å¤‰æ›´ã®æœ‰ç„¡.
 
-	// ‰æ‘œî•ñƒŠƒXƒg
-	std::vector<std::string> m_SpriteDataList;	// ƒXƒvƒ‰ƒCƒgî•ñ‚ğ‚Ü‚Æ‚ß‚é”z—ñ
-	std::vector<DirectX::XMFLOAT3> m_SpritePosList;	// ƒXƒvƒ‰ƒCƒgÀ•W‚ğ‚Ü‚Æ‚ß‚é”z—ñ
+	// ç”»åƒæƒ…å ±ãƒªã‚¹ãƒˆ.
+	std::vector<std::string> m_SpriteDataList;	// ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆæƒ…å ±ã‚’ã¾ã¨ã‚ã‚‹é…åˆ—.
+	std::vector<DirectX::XMFLOAT3> m_SpritePosList;	// ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆåº§æ¨™ã‚’ã¾ã¨ã‚ã‚‹é…åˆ—.
 
-	std::vector<std::shared_ptr<UIObject>> m_pUIs;				// UIƒNƒ‰ƒX
-	std::vector<std::shared_ptr<Sprite2D>> m_pSprite2Ds;		// Sprite2DƒNƒ‰ƒX
+	std::vector<std::shared_ptr<UIObject>> m_pUIs;				// UIã‚¯ãƒ©ã‚¹.
+	std::vector<std::shared_ptr<Sprite2D>> m_pSprite2Ds;		// Sprite2Dã‚¯ãƒ©ã‚¹.
 
-	std::string m_ScenePath;	// Œ»İ‚ÌƒV[ƒ“ƒpƒX
+	std::string m_ScenePath;	// ç¾åœ¨ã®ã‚·ãƒ¼ãƒ³ãƒ‘ã‚¹.
 
-	float	m_DragValue;				// ’²®’l
-	int		m_SelectedUIIndex;			// ‘I‘ğ’†UI‚ÌƒCƒ“ƒfƒbƒNƒX
-	char	m_SearchBuffer[64] = "";	// ŒŸõ—pƒoƒbƒtƒ@
+	float	m_DragValue;				// èª¿æ•´å€¤.
+	int		m_SelectedUIIndex;			// é¸æŠä¸­UIã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹.
+	char	m_SearchBuffer[64] = "";	// æ¤œç´¢ç”¨ãƒãƒƒãƒ•ã‚¡.
 	
-	int		m_SpriteSelectedUIIndex;	// ‘I‘ğ’†’Ç‰Á‰Â”\UI‚ÌƒCƒ“ƒfƒbƒNƒX
-	char	m_SpriteSearchBuffer[64] = "";	// ŒŸõ—pƒoƒbƒtƒ@
-	std::string m_SelectedSpriteName;	// ‘I‘ğ‚³‚ê‚½UI–¼
+	int		m_SpriteSelectedUIIndex;	// é¸æŠä¸­è¿½åŠ å¯èƒ½UIã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹.
+	char	m_SpriteSearchBuffer[64] = "";	// æ¤œç´¢ç”¨ãƒãƒƒãƒ•ã‚¡.
+	std::string m_SelectedSpriteName;	// é¸æŠã•ã‚ŒãŸUIå.
 
-	// ƒ}ƒEƒX‘€ì—p‚Ì•Ï”
-	DirectX::XMFLOAT2 m_OffsetPos;	// ƒ}ƒEƒXÀ•W‚Æ‰æ‘œÀ•W‚ÌƒYƒŒ•â³’l
-	bool m_DoDrag;				// ƒhƒ‰ƒbƒO’†
-	bool m_MovedSpritePos;		// ‰æ‘œÀ•W‚ª•ÏX‚³‚ê‚½Û‚Ìƒtƒ‰ƒO
+	// ãƒã‚¦ã‚¹æ“ä½œç”¨ã®å¤‰æ•°.
+	DirectX::XMFLOAT2 m_OffsetPos;	// ãƒã‚¦ã‚¹åº§æ¨™ã¨ç”»åƒåº§æ¨™ã®ã‚ºãƒ¬è£œæ­£å€¤.
+	bool m_DoDrag;				// ãƒ‰ãƒ©ãƒƒã‚°ä¸­.
+	bool m_MovedSpritePos;		// ç”»åƒåº§æ¨™ãŒå¤‰æ›´ã•ã‚ŒãŸéš›ã®ãƒ•ãƒ©ã‚°.
 
 	float	m_HighlightTime;
 };

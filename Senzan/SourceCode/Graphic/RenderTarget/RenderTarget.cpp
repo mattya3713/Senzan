@@ -1,4 +1,4 @@
-#include "RenderTarget.h"
+ï»¿#include "RenderTarget.h"
 #include "Graphic/DirectX/DirectX11/DirectX11.h"
 #include "Graphic/Texture/Texture.h"
 #include "Graphic/RenderTargetView/RenderTargetView.h"
@@ -19,7 +19,6 @@ RenderTarget::~RenderTarget()
 {
 }
 
-//-----------------------------------------------------.
 
 void RenderTarget::Init(
     int width,
@@ -32,15 +31,14 @@ void RenderTarget::Init(
 {
     m_ClearColor = clearColor;
 
-    m_pColorTextur->Init(width, height, colorFormat, colorBindFlags);   // ƒJƒ‰[ƒeƒNƒXƒ`ƒƒ‚Ì‰Šú‰».
-    m_pDepthTextur->Init(width, height, depthFormat, depthBindFlags);   // [“xƒeƒNƒXƒ`ƒƒ‚Ì‰Šú‰».
+    m_pColorTextur->Init(width, height, colorFormat, colorBindFlags);   // ã‚«ãƒ©ãƒ¼ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®åˆæœŸåŒ–.
+    m_pDepthTextur->Init(width, height, depthFormat, depthBindFlags);   // æ·±åº¦ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®åˆæœŸåŒ–.
 
-    m_pRenderTargetView->Init(m_pColorTextur->GetTexture());            // ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒgƒrƒ…[‚Ì‰Šú‰».
-    m_pDepthStencilView->Init(m_pDepthTextur->GetTexture());            // [“xƒXƒeƒ“ƒVƒ‹ƒrƒ…[‚Ì‰Šú‰».
-    m_pShaderResourceView->Init(m_pColorTextur->GetTexture());          // ƒVƒF[ƒ_[ƒŠƒ\[ƒXƒrƒ…[‚Ì‰Šú‰».
+    m_pRenderTargetView->Init(m_pColorTextur->GetTexture());            // ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãƒ“ãƒ¥ãƒ¼ã®åˆæœŸåŒ–.
+    m_pDepthStencilView->Init(m_pDepthTextur->GetTexture());            // æ·±åº¦ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ãƒ“ãƒ¥ãƒ¼ã®åˆæœŸåŒ–.
+    m_pShaderResourceView->Init(m_pColorTextur->GetTexture());          // ã‚·ã‚§ãƒ¼ãƒ€ãƒ¼ãƒªã‚½ãƒ¼ã‚¹ãƒ“ãƒ¥ãƒ¼ã®åˆæœŸåŒ–.
 }
 
-//-----------------------------------------------------.
 
 void RenderTarget::SetRenderTargets()
 {
@@ -53,7 +51,6 @@ void RenderTarget::SetRenderTargets()
         pDepthStencilView);
 }
 
-//-----------------------------------------------------.
 
 void RenderTarget::ClearRenderTarget()
 {
@@ -61,7 +58,6 @@ void RenderTarget::ClearRenderTarget()
     m_pDepthStencilView->ClearDepthStencilView();
 }
 
-//-----------------------------------------------------.
 
 ID3D11ShaderResourceView* RenderTarget::GetShaderResourceView() const
 {

@@ -28,9 +28,9 @@ public:
 	void Clear();
 
     // パリィ成功を通知（Playerから呼び出される）.
-    // withDelay = true の場合、ボスのパリィはアニメ再生後に delay 秒待機する挙動になる。
+    // withDelay = true の場合、ボスのパリィはアニメ再生後に delay 秒待機する挙動になる。.
     void OnParrySuccess(bool withDelay = false);
-    // Called when player enters SpecialAttack state to coordinate boss behavior
+    // プレイヤーが必殺技ステートに入った時にボス側の挙動を調整する.
     void Enter();
 
 	// パリィ成功時のカメラ演出が完了したか.
@@ -39,28 +39,28 @@ public:
 
     // ジャスト回避開始.
     // @param TimeScale: 使用されるワールド時間スケール (0.0 ~ 1.0 の値推奨).
-    // Note: この関数はボス側の攻撃判定を無効化し、
+    // Note: この関数はボス側の攻撃判定を無効化し、.
     //       ワールド時間スケールを変更します (Time::SetWorldTimeScale を使用).
     void StartJustDodge(float TimeScale);
     // ジャスト回避終了: ワールド時間スケールを 1.0 に戻し、ロックオンを復帰します.
     void EndJustDodge();
-    // ボスの攻撃判定を全てオフにする（プレイヤー側からのユーティリティ）
+    // ボスの攻撃判定を全てオフにする（プレイヤー側からのユーティリティ）.
     void DisableBossAttackColliders();
 
     // ボスへダメージ.
     void DamageToBoss(float DamageAmount);
-    // Notification that the last parried object was a snowball
+    // パリィされた対象が雪玉だったことを通知する.
     void NotifyParriedBySnowball();
     bool WasLastParriedBySnowball() const;
     void ClearLastParriedFlag();
 
     void HitSpecialAttackToBoss();
-    // ボスの前方向を取得
+    // ボスの前方向を取得.
     DirectX::XMFLOAT3 GetBossForward() const;
-    // ボスをダウンさせる（SpecialAttack終了時）
+    // ボスをダウンさせる（SpecialAttack終了時）.
     void ForceBossDown();
-    // Entrypoints to control Player from external callers (Manager-level hooks)
-    // These provide a simple interface to trigger player-side effects from CombatCoordinator.
+    // 外部呼び出し元からプレイヤーを制御するためのエントリーポイント (マネージャレベルのフック).
+    // CombatCoordinatorからプレイヤー側のエフェクトを発動するための簡易インターフェース.
     void StartPlayerJustDodge(float TimeScale);
     void EndPlayerJustDodge();
     void CancelPlayerAttackCollider();

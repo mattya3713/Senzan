@@ -9,12 +9,12 @@
 #include <string>
 
 ////ステートマシンクラスの前方宣言.
-//template<typename FSM_Owner> class StateMachine;
+//template<typename FSM_Owner> class StateMachine;.
 
-//=====================================================================
+//=====================================================================.
 // ボスクラスにプレイヤーの位置を入手させるためにここに前方宣言を書く.
 // Update関数の中にプレイヤーのポジションを設定する.
-//=====================================================================
+//=====================================================================.
 
 class SlashState;        //斬撃ステートクラス.
 
@@ -28,7 +28,7 @@ class ShoutState;        //叫び攻撃ステートクラス.
 class BossIdolState;        //待機状態.
 class BossMoveState;        //左右移動動状態.
 class BossAttackStateBase;  //攻撃ベースクラス.
-class BossStompState;       //踏みつけ攻撃
+class BossStompState;       //踏みつけ攻撃.
 class BossSlashState;       //斬る攻撃.
 class BossChargeSlashState; //溜め攻撃.
 class BossShoutState;       //叫び攻撃.
@@ -46,9 +46,11 @@ class BossSpecialDamageState;
 
 class SkinMesh;
 
-/***********************************************************************
-*    ボスキャラクラス.
-**/
+/**********************************************************************************
+* @author    : 未定.
+* @date      : 未定.
+* @brief     : ボスキャラクラス.
+**********************************************************************************/
 class Boss
     : public Character
 {
@@ -111,14 +113,14 @@ public:
 Boss();
 ~Boss() override;
 
-// HPを倍率で設定（コンテニュー時に使用）
+// HPを倍率で設定（コンテニュー時に使用）.
 void SetHPMultiplier(float multiplier);
 
 void SetAnyAttackJustWindow(bool v) { m_IsAnyAttackJustWindow = v; }
     bool IsAnyAttackJustWindow() const { return m_IsAnyAttackJustWindow; }
 
-    // パリィ被弾通知（外部から呼び出す）。
-    // withDelay=true の場合、指定秒数だけパリィ後に次フェーズへ移行する挙動になる。
+    // パリィ被弾通知（外部から呼び出す）。.
+    // withDelay=true の場合、指定秒数だけパリィ後に次フェーズへ移行する挙動になる。.
     void OnParried();
     void OnParried(bool withDelay);
 
@@ -127,12 +129,12 @@ void SetAnyAttackJustWindow(bool v) { m_IsAnyAttackJustWindow = v; }
     // パリィ被弾フラグを取得.
     bool IsParried() const { return m_IsParried; }
 
-    // パリィ時にアニメーションを停止する秒数を取得
+    // パリィ時にアニメーションを停止する秒数を取得.
     std::pair<Boss::enBossAnim, float> GetParryPauseSeconds() const { return m_ParryPauseSeconds; }
 
-    // パリィで再生するアニメと停止（参照）するアニメ番号を返す
-    // first  = 再生開始アニメ
-    // second = パリィで停止させたいアニメ（参照用）
+    // パリィで再生するアニメと停止（参照）するアニメ番号を返す.
+    // first  = 再生開始アニメ.
+    // second = パリィで停止させたいアニメ（参照用）.
     virtual void GetParryAnimPair();
 
     void Update() override;
@@ -149,7 +151,7 @@ void SetAnyAttackJustWindow(bool v) { m_IsAnyAttackJustWindow = v; }
 
     void Hit(float damage);
 
-    // 文字列でコライダーを操作できるようにする
+    // 文字列でコライダーを操作できるようにする.
     void SetColliderActiveByName(const std::string& name, bool active);
 
 
@@ -181,25 +183,25 @@ protected:
     ColliderBase* GetStompCollider() const;
     //叫び攻撃.
     ColliderBase* GetShoutCollider() const;
-    // 回転攻撃用コライダー
+    // 回転攻撃用コライダー.
     ColliderBase* GetSpinningCollider() const;
-    // レーザー攻撃用コライダー
+    // レーザー攻撃用コライダー.
     ColliderBase* GetLaserCollider() const;
 
-    // 統合された攻撃コライダー（各ステートがボーンを指定して使用）
+    // 統合された攻撃コライダー（各ステートがボーンを指定して使用）.
     ColliderBase* GetAttackCollider() const { return m_spAttackCollider; }
 
     /*************************************************************
-    * @brief	ボスのワールド行列と掛け合わせてボーンのワールド行列を作成し、
+* @brief	ボスのワールド行列と掛け合わせてボーンのワールド行列を作成し、.
     *           指定コライダーの位置オフセットと外部 Transform ポインタを更新.
     *           回転情報が必要ない場合は updateRotation=false を渡してください。
     *           rotationOffset を渡すとボーン回転へ追加の回転を適用できます。
     * @param[in]	boneName	：取得するボーン名.
     * @param[in]	collider	：更新対象のコライダー.
     * @param[in]	outTransform：ワールド Transform を格納するキャッシュ参照.
-    * @param[in]	updateRotation：true の場合 outTransform の回転/スケールも更新する（デフォルト true）
-    * @param[in]	rotationOffset：ボーン回転に乗算するクォータニオン回転オフセット（デフォルト: 単位クォータニオン）
-    * @return	true = 成功, false = 取得失敗または引数不正
+* @param[in]	updateRotation：true の場合 outTransform の回転/スケールも更新する（デフォルト true）.
+* @param[in]	rotationOffset：ボーン回転に乗算するクォータニオン回転オフセット（デフォルト: 単位クォータニオン）.
+* @return	true = 成功, false = 取得失敗または引数不正.
     * ************************************************************/
     bool UpdateColliderFromBone(
         const std::string& boneName,
@@ -233,23 +235,22 @@ protected:
     ColliderBase* m_pSpinningCollider;
     ColliderBase* m_pLaserCollider;
 
-    // runtime flag indicating any attack's just window is active
+    // 攻撃のジャストウィンドウがアクティブかを示す実行時フラグ.
     bool m_IsAnyAttackJustWindow = false;
 
     // パリィ被弾フラグ.
     bool m_IsParried = false;
 
-    // パリィ時にアニメーションを停止する秒数（デザインで手打ち可）
+    // パリィ時にアニメーションを停止する秒数（デザインで手打ち可）.
     std::pair<Boss::enBossAnim, float> m_ParryPauseSeconds = {};
 
-    // 統合された攻撃コライダー（各ステートがボーンを指定）
+    // 統合された攻撃コライダー（各ステートがボーンを指定）.
     ColliderBase* m_spAttackCollider = nullptr;
-    std::string m_AttackBoneName;  // 現在追従するボーン名
-    LPD3DXFRAME m_pAttackBoneFrame = nullptr;  // ボーンフレームキャッシュ
-    Transform m_AttackBoneWorldTransform;      // ワールドTransformキャッシュ
+    std::string m_AttackBoneName;  // 現在追従するボーン名.
+    LPD3DXFRAME m_pAttackBoneFrame = nullptr;  // ボーンフレームキャッシュ.
+    Transform m_AttackBoneWorldTransform;      // ワールドTransformキャッシュ.
 
-    // エフェクトハンドルは Character 側で管理する（Character::PlayEffect を使用）
+    // エフェクトハンドルは Character 側で管理する（Character::PlayEffect を使用）.
 
     bool m_IslockOnPlayer = true;
 };
-

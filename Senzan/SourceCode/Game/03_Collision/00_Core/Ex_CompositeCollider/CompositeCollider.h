@@ -1,12 +1,12 @@
-#pragma once
+ï»¿#pragma once
 #include <vector>
 #include <memory>
 #include "../ColliderBase.h"
 
 /**********************************************************************************
-* @author    : •£˜e –¢—ˆ.
+* @author    : æ·µè„‡ æœªæ¥.
 * @date      : 2025/11/20.
-* @brief     : •¡”‚ÌCollider‚ğƒ‰ƒbƒv‚µAˆê‚Â‚Æ‚µ‚Äˆµ‚¤.
+* @brief     : è¤‡æ•°ã®Colliderã‚’ãƒ©ãƒƒãƒ—ã—ã€ä¸€ã¤ã¨ã—ã¦æ‰±ã†.
 * @pattern   : Composite.
 **********************************************************************************/
 
@@ -17,7 +17,7 @@ public:
 
     inline void Update() override{ for (auto& collider : m_Colliders) collider->Update(); }
 
-    // Œ`ó‚Ì’Ç‰Á (Š—LŒ ‚ğˆÚ“®‚·‚é‚½‚ß unique_ptr ‚ğ„§).
+    // å½¢çŠ¶ã®è¿½åŠ  (æ‰€æœ‰æ¨©ã‚’ç§»å‹•ã™ã‚‹ãŸã‚ unique_ptr ã‚’æ¨å¥¨).
     void AddCollider(std::unique_ptr<ColliderBase> collider) {
         m_Colliders.push_back(std::move(collider));
     }
@@ -36,6 +36,6 @@ protected:
     CollisionInfo DispatchCollision(const BoxCollider& other) const override { return CollisionInfo(); }
 
 private:
-    // “–‚½‚è”»’èƒŠƒXƒg.
+    // å½“ãŸã‚Šåˆ¤å®šãƒªã‚¹ãƒˆ.
     std::vector<std::unique_ptr<ColliderBase>> m_Colliders;
 };

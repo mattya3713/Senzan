@@ -18,7 +18,7 @@
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dx10.lib")	//「D3DX～」の定義使用時に必要.
 
-// ラスタライザのフィルモード
+// ラスタライザのフィルモード.
 enum class eRasterizerMode : uint8_t
 {
 	Solid = 1 << 0,	// 面で塗りつぶす.

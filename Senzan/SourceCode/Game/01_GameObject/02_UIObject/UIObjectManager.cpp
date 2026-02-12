@@ -11,13 +11,11 @@ UIObjectManager::UIObjectManager()
 {
 }
 
-//---------------------------------------------------------------------------.
 
 UIObjectManager::~UIObjectManager()
 {
 }
 
-//---------------------------------------------------------------------------.
 
 void UIObjectManager::Update()
 {
@@ -35,7 +33,6 @@ void UIObjectManager::Update(const std::string& sceneName)
     }
 }
 
-//---------------------------------------------------------------------------.
 
 void UIObjectManager::Draw()
 {
@@ -49,7 +46,6 @@ void UIObjectManager::Draw()
     DirectX11::GetInstance().SetDepth(true);
 }
 
-//---------------------------------------------------------------------------.
 
 void UIObjectManager::Draw(const std::string& sceneName)
 {
@@ -63,7 +59,6 @@ void UIObjectManager::Draw(const std::string& sceneName)
     DirectX11::GetInstance().SetDepth(true);
 }
 
-//---------------------------------------------------------------------------.
 
 void UIObjectManager::AllUpdate()
 {
@@ -76,7 +71,6 @@ void UIObjectManager::AllUpdate()
     }
 }
 
-//---------------------------------------------------------------------------.
 
 void UIObjectManager::AllDraw()
 {
@@ -93,14 +87,12 @@ void UIObjectManager::AllDraw()
     DirectX11::GetInstance().SetDepth(true);
 }
 
-//---------------------------------------------------------------------------.
 
 void UIObjectManager::AddUIObject(const std::shared_ptr<UIObject>& pUIObject)
 {
     m_pUIObjects.emplace_back(pUIObject);
 }
 
-//---------------------------------------------------------------------------.
 
 void UIObjectManager::RemoveUIObject(const int index)
 {
@@ -109,21 +101,18 @@ void UIObjectManager::RemoveUIObject(const int index)
     m_pUIObjects.erase(m_pUIObjects.begin() + index);    
 }
 
-//---------------------------------------------------------------------------.
 
 const std::vector<std::shared_ptr<UIObject>>& UIObjectManager::GetAllUIObject() const
 {
     return m_pUIObjects;
 }
 
-//---------------------------------------------------------------------------.
 
 const std::vector<std::shared_ptr<UIObject>>& UIObjectManager::GetAllUIObject(const std::string& sceneName) const
 {
     return m_pActiveUIObjects.at(sceneName);
 }
 
-//---------------------------------------------------------------------------.
 
 void UIObjectManager::AllUnLoadUI()
 {
@@ -131,7 +120,6 @@ void UIObjectManager::AllUnLoadUI()
     m_pActiveUIObjects.clear();
 }
 
-//---------------------------------------------------------------------------.
 
 void UIObjectManager::UnLoadUI(const std::string& sceneName)
 {
@@ -139,7 +127,6 @@ void UIObjectManager::UnLoadUI(const std::string& sceneName)
     m_pActiveUIObjects.at(sceneName).clear();
 }
 
-//---------------------------------------------------------------------------.
 
 const int UIObjectManager::SortLayer(const int& selectID)
 {    

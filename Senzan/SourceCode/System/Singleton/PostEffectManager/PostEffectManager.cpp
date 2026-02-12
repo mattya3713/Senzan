@@ -8,11 +8,11 @@ namespace {
     constexpr char PS_FILE_PATH[] = "Data\\Shader\\Monochrome\\MonochromePS.hlsl";
     constexpr char VS_FILE_PATH[] = "Data\\Shader\\Monochrome\\MonochromeVS.hlsl";
     
-    // 新規: ブラー用 runtime PS
+    // 新規: ブラー用 runtime PS.
     constexpr char BLUR_RUNTIME_PS[] = "Data\\Shader\\Blur\\GaussianBlurRuntime.hlsl";
 }
 
-// Render an external SRV through post effects and output to backbuffer.
+// 外部SRVをポストエフェクトを通してレンダリングしバックバッファに出力する.
 void PostEffectManager::RenderSRVWithPostEffects(ID3D11ShaderResourceView* srcSRV, int srcW, int srcH, bool forceFullGray)
 {
     if (!srcSRV) return;
@@ -20,16 +20,16 @@ void PostEffectManager::RenderSRVWithPostEffects(ID3D11ShaderResourceView* srcSR
     auto ctx = dx.GetContext();
 
     // We'll render the provided SRV into our blur / accumulation pipeline similar to DrawToBackBuffer.
-    // First, if blur is requested, run blur passes using srcSRV as input into m_BlurRTV[0]/[1].
+    // まず、ブラーが要求されている場合、srcSRVを入力としてm_BlurRTV[0]/[1]にブラーパスを実行する.
     ID3D11ShaderResourceView* finalSRV = srcSRV;
 
     if (m_BlurEnabled && m_BlurSRV[0] && m_BlurSRV[1])
     {
-        // Unbind to avoid RTV/SRV race
+        // RTV/SRV競合を避けるためにアンバインドする
         ID3D11ShaderResourceView* nullsrvs[8] = { nullptr };
         ctx->PSSetShaderResources(0, 8, nullsrvs);
 
-        // Horizontal pass -> m_BlurRTV[0]
+        // 水平パス -> m_BlurRTV[0].
         ctx->OMSetRenderTargets(1, &m_BlurRTV[0], nullptr);
         ctx->IASetInputLayout(nullptr);
         ctx->IASetVertexBuffers(0, 0, nullptr, nullptr, nullptr);
@@ -47,7 +47,7 @@ void PostEffectManager::RenderSRVWithPostEffects(ID3D11ShaderResourceView* srcSR
         ctx->PSSetSamplers(0, 1, &m_Sampler);
         ctx->Draw(4, 0);
 
-        // Vertical pass -> m_BlurRTV[1]
+        // 垂直パス -> m_BlurRTV[1].
         ctx->PSSetShaderResources(0, 8, nullsrvs);
         ctx->OMSetRenderTargets(1, &m_BlurRTV[1], nullptr);
         ctx->PSSetShader(m_pBlurPixelShader->GetPixelShader(), nullptr, 0);
@@ -64,7 +64,7 @@ void PostEffectManager::RenderSRVWithPostEffects(ID3D11ShaderResourceView* srcSR
         ctx->PSSetShaderResources(0, 8, nullsrvs);
     }
 
-    // Motion blur accumulation if enabled
+    // モーションブラー蓄積（有効時）.
     if (m_MotionBlurEnabled && m_AccumRTV && m_AccumSRV && m_pBlendPixelShader)
     {
         if (!m_IsAccumInitialized)
@@ -75,7 +75,7 @@ void PostEffectManager::RenderSRVWithPostEffects(ID3D11ShaderResourceView* srcSR
             ctx->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
             ctx->VSSetShader(m_pVertexShader->GetVertexShader(), nullptr, 0);
             ctx->PSSetShader(m_pPixelShader->GetPixelShader(), nullptr, 0);
-            ctx->PSSetShaderResources(0, 1, &m_SceneSRV); // use current scene SRV as base
+            ctx->PSSetShaderResources(0, 1, &m_SceneSRV); // 現在のシーンSRVをベースとして使用.
             ctx->PSSetSamplers(0, 1, &m_Sampler);
             ctx->Draw(4, 0);
             m_IsAccumInitialized = true;
@@ -112,7 +112,7 @@ void PostEffectManager::RenderSRVWithPostEffects(ID3D11ShaderResourceView* srcSR
         }
     }
 
-    // Finally, output finalSRV to backbuffer
+    // 最終的にfinalSRVをバックバッファに出力する.
     ID3D11RenderTargetView* rtv = dx.GetBackBufferRTV();
     ctx->OMSetRenderTargets(1, &rtv, dx.GetBackBufferDSV());
 
@@ -123,8 +123,8 @@ void PostEffectManager::RenderSRVWithPostEffects(ID3D11ShaderResourceView* srcSR
     ctx->VSSetShader(m_pVertexShader->GetVertexShader(), nullptr, 0);
     ctx->PSSetShader(m_pPixelShader->GetPixelShader(), nullptr, 0);
 
-    // If caller requested a forced full-screen gray or global grayscale flag is enabled,
-    // temporarily force the circle-gray CB to cover the whole screen so the monochrome shader outputs gray.
+    // If caller requested a forced full-screen gray or global grayscale flag is enabled,.
+    // モノクロシェーダがグレーを出力するよう、円形グレーCBを全画面に一時的に強制する.
     bool prevCircleActive = m_CircleEffectActive;
     float prevCircleRadius = m_CircleRadius;
     bool prevIsExpanding = m_IsExpanding;
@@ -132,8 +132,8 @@ void PostEffectManager::RenderSRVWithPostEffects(ID3D11ShaderResourceView* srcSR
     if (forceFullGray || m_IsGray)
     {
         m_CircleEffectActive = true;
-        m_IsExpanding = true; // ensure shader uses expanding branch (gray inside)
-        // large radius ensures full-screen effect regardless of aspect
+        m_IsExpanding = true; // シェーダが拡張分岐（内側グレー）を使用する.
+        // アスペクト比に関係なく全画面エフェクトになるよう大きな半径を設定する.
         m_CircleRadius = 1000.0f;
         changedCB = true;
     }
@@ -141,7 +141,7 @@ void PostEffectManager::RenderSRVWithPostEffects(ID3D11ShaderResourceView* srcSR
     UpdateConstantBuffer();
     ctx->PSSetConstantBuffers(0, 1, &m_CircleGrayCB);
 
-    // Debug log: report gray/force state and circle radius
+    // デバッグログ: グレー/強制状態と円の半径を報告する
     {
         std::stringstream ss;
         ss << "PostEffect: RenderSRVWithPostEffects forceFullGray=" << (forceFullGray?1:0)
@@ -155,7 +155,7 @@ void PostEffectManager::RenderSRVWithPostEffects(ID3D11ShaderResourceView* srcSR
     ctx->PSSetSamplers(0, 1, &m_Sampler);
     ctx->Draw(4, 0);
 
-    // restore circle effect state if we modified it
+    // 変更した場合、円エフェクトの状態を復元する.
     if (changedCB)
     {
         m_CircleEffectActive = prevCircleActive;
@@ -295,7 +295,7 @@ void PostEffectManager::Initialize()
     m_pPixelShader->Init(pBlob);
     SAFE_RELEASE(pErrorBlob);
 
-    // ブラー用 PS を runtime HLSL からコンパイル
+    // ブラー用 PS を runtime HLSL からコンパイル.
     ID3DBlob* pBlurBlob = nullptr;
     ID3DBlob* pBlurErr = nullptr;
     ShaderCompile(new std::string(BLUR_RUNTIME_PS), "PSMain", "ps_5_0", pBlurBlob, pBlurErr);
@@ -303,7 +303,7 @@ void PostEffectManager::Initialize()
     SAFE_RELEASE(pBlurBlob);
     SAFE_RELEASE(pBlurErr);
 
-    // 定数バッファの作成
+    // 定数バッファの作成.
     D3D11_BUFFER_DESC cbDesc{};
     cbDesc.ByteWidth = sizeof(CircleGrayBuffer);
     cbDesc.Usage = D3D11_USAGE_DYNAMIC;
@@ -311,7 +311,7 @@ void PostEffectManager::Initialize()
     cbDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
     dev->CreateBuffer(&cbDesc, nullptr, &m_CircleGrayCB);
 
-    // ブラー用 CB
+    // ブラー用 CB.
     D3D11_BUFFER_DESC blurCbDesc{};
     blurCbDesc.ByteWidth = sizeof(BlurCB);
     blurCbDesc.Usage = D3D11_USAGE_DYNAMIC;
@@ -319,7 +319,7 @@ void PostEffectManager::Initialize()
     blurCbDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
     dev->CreateBuffer(&blurCbDesc, nullptr, &m_BlurCB);
 
-    // ブラー用 ping-pong テクスチャ
+    // ブラー用 ping-pong テクスチャ.
     D3D11_TEXTURE2D_DESC blurTd = {};
     blurTd.Width = WND_W;
     blurTd.Height = WND_H;
@@ -337,7 +337,7 @@ void PostEffectManager::Initialize()
         dev->CreateShaderResourceView(m_BlurTex[i], nullptr, &m_BlurSRV[i]);
     }
 
-    // accumulation target for simple motion blur
+    // モーションブラー用の蓄積ターゲット.
     D3D11_TEXTURE2D_DESC accTd = {};
     accTd.Width = WND_W;
     accTd.Height = WND_H;
@@ -351,18 +351,18 @@ void PostEffectManager::Initialize()
     dev->CreateRenderTargetView(m_AccumTex, nullptr, &m_AccumRTV);
     dev->CreateShaderResourceView(m_AccumTex, nullptr, &m_AccumSRV);
 
-    // blend pixel shader (simple lerp) - compile runtime same as blur
+    // blend pixel shader (simple lerp) - compile runtime same as blur.
     ID3DBlob* pBlendBlob = nullptr;
     ID3DBlob* pBlendErr = nullptr;
-    // reusing GaussianBlurRuntime.hlsl is fine if entrypoint provided; otherwise create simple file
+    // GaussianBlurRuntime.hlslの再利用はエントリーポイントが提供されれば問題ない; そうでなければ単純なファイルを作成.
     ShaderCompile(new std::string(BLUR_RUNTIME_PS), "PSMain", "ps_5_0", pBlendBlob, pBlendErr);
     m_pBlendPixelShader->Init(pBlendBlob);
     SAFE_RELEASE(pBlendBlob);
     SAFE_RELEASE(pBlendErr);
 
-    // blend CB
+    // blend CB.
     D3D11_BUFFER_DESC blendCbDesc{};
-    blendCbDesc.ByteWidth = sizeof(float) * 4; // padding
+    blendCbDesc.ByteWidth = sizeof(float) * 4; // パディング.
     blendCbDesc.Usage = D3D11_USAGE_DYNAMIC;
     blendCbDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
     blendCbDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
@@ -400,16 +400,16 @@ void PostEffectManager::DrawToBackBuffer()
     // 【重要】MSAAバッファをResolvedバッファに集約.
     ctx->ResolveSubresource(m_SceneResolvedTex, 0, m_SceneMSAATex, 0, DXGI_FORMAT_R8G8B8A8_UNORM);
 
-    // ブラーが有効なら ping-pong で 2 パス（横→縦）
+    // ブラーが有効なら ping-pong で 2 パス（横→縦）.
     ID3D11ShaderResourceView* finalSRV = m_SceneSRV;
 
     if (m_BlurEnabled && m_BlurSRV[0] && m_BlurSRV[1])
     {
-        // Unbind shader resources slots to avoid RTV/SRV race
+        // RTV/SRV競合を避けるためにシェーダリソーススロットをアンバインドする
         ID3D11ShaderResourceView* nullsrvs[8] = { nullptr };
         ctx->PSSetShaderResources(0, 8, nullsrvs);
 
-        // 1) 横 -> m_BlurRTV[0]
+        // 1) 横 -> m_BlurRTV[0].
         ctx->OMSetRenderTargets(1, &m_BlurRTV[0], nullptr);
         ctx->IASetInputLayout(nullptr);
         ctx->IASetVertexBuffers(0, 0, nullptr, nullptr, nullptr);
@@ -418,7 +418,7 @@ void PostEffectManager::DrawToBackBuffer()
         ctx->VSSetShader(m_pVertexShader->GetVertexShader(), nullptr, 0);
         ctx->PSSetShader(m_pBlurPixelShader->GetPixelShader(), nullptr, 0);
 
-        // use radius factor to exaggerate offsets
+        // 半径係数を使用してオフセットを誇張する.
         float texW = (float)WND_W / std::max(1.0f, m_BlurRadiusFactor);
         float texH = (float)WND_H / std::max(1.0f, m_BlurRadiusFactor);
         UpdateBlurCB(texW, texH, true);
@@ -428,7 +428,7 @@ void PostEffectManager::DrawToBackBuffer()
         ctx->PSSetSamplers(0, 1, &m_Sampler);
         ctx->Draw(4, 0);
 
-        // 2) 縦 -> m_BlurRTV[1]
+        // 2) 縦 -> m_BlurRTV[1].
         ctx->PSSetShaderResources(0, 8, nullsrvs);
         ctx->OMSetRenderTargets(1, &m_BlurRTV[1], nullptr);
         ctx->PSSetShader(m_pBlurPixelShader->GetPixelShader(), nullptr, 0);
@@ -446,10 +446,10 @@ void PostEffectManager::DrawToBackBuffer()
         ctx->PSSetShaderResources(0, 8, nullsrvs);
     }
 
-    // 簡易モーションブラー: accumulation を行う
+    // 簡易モーションブラー: accumulation を行う.
     if (m_MotionBlurEnabled && m_AccumRTV && m_AccumSRV && m_pBlendPixelShader)
     {
-        // if accumulation not initialized, copy current resolved into accumulation
+        // if accumulation not initialized, copy current resolved into accumulation.
         if (!m_IsAccumInitialized)
         {
             ctx->OMSetRenderTargets(1, &m_AccumRTV, nullptr);
@@ -465,7 +465,7 @@ void PostEffectManager::DrawToBackBuffer()
         }
         else
         {
-            // Blend: render to accumulation using PSBlend (prev in t1)
+            // ブレンド: PSBlendを使用して蓄積ターゲットにレンダリングする (前フレームはt1).
             ID3D11ShaderResourceView* prevSRV = m_AccumSRV;
             ctx->OMSetRenderTargets(1, &m_AccumRTV, nullptr);
             ctx->IASetInputLayout(nullptr);
@@ -474,7 +474,7 @@ void PostEffectManager::DrawToBackBuffer()
             ctx->VSSetShader(m_pVertexShader->GetVertexShader(), nullptr, 0);
             ctx->PSSetShader(m_pBlendPixelShader->GetPixelShader(), nullptr, 0);
 
-            // set CB blend factor
+            // CBブレンド係数を設定する.
             D3D11_MAPPED_SUBRESOURCE mapped;
             if (SUCCEEDED(ctx->Map(m_BlendCB, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped)))
             {
@@ -485,18 +485,18 @@ void PostEffectManager::DrawToBackBuffer()
             }
             ctx->PSSetConstantBuffers(1, 1, &m_BlendCB);
 
-            // current is in t0, prev in t1
+            // 現在フレームはt0、前フレームはt1.
             ctx->PSSetShaderResources(0, 1, &m_SceneSRV);
             ctx->PSSetShaderResources(1, 1, &prevSRV);
             ctx->PSSetSamplers(0, 1, &m_Sampler);
             ctx->Draw(4, 0);
 
-            // unbind prev
+            // 前フレームをアンバインドする.
             ID3D11ShaderResourceView* nullsrvs[2] = { nullptr, nullptr };
             ctx->PSSetShaderResources(0, 2, nullsrvs);
         }
 
-        // use accumulation as final SRV
+        // 蓄積結果を最終SRVとして使用する.
         finalSRV = m_AccumSRV;
     }
 
@@ -512,7 +512,7 @@ void PostEffectManager::DrawToBackBuffer()
     ctx->VSSetShader(m_pVertexShader->GetVertexShader(), nullptr, 0);
     ctx->PSSetShader(m_pPixelShader->GetPixelShader(), nullptr, 0);
 
-    // 定数バッファを更新してセット
+    // 定数バッファを更新してセット.
     UpdateConstantBuffer();
     ctx->PSSetConstantBuffers(0, 1, &m_CircleGrayCB);
 
@@ -549,9 +549,9 @@ void PostEffectManager::Update(float deltaTime)
 
     switch (m_EffectPhase)
     {
-    case 0: // 広がりフェーズ
+    case 0: // 広がりフェーズ.
         m_IsExpanding = true;
-        m_CircleRadius = (m_EffectTimer / m_ExpandDuration) * 1.5f;  // 0 -> 1.5
+        m_CircleRadius = (m_EffectTimer / m_ExpandDuration) * 1.5f;  // 0 -> 1.5.
         if (m_EffectTimer >= m_ExpandDuration)
         {
             m_CircleRadius = 1.5f;
@@ -560,7 +560,7 @@ void PostEffectManager::Update(float deltaTime)
         }
         break;
 
-    case 1: // 維持フェーズ
+    case 1: // 維持フェーズ.
         m_CircleRadius = 1.5f;
         if (m_EffectTimer >= m_HoldDuration)
         {
@@ -569,9 +569,9 @@ void PostEffectManager::Update(float deltaTime)
         }
         break;
 
-    case 2: // 戻りフェーズ（中心から通常色が広がる）
+    case 2: // 戻りフェーズ（中心から通常色が広がる）.
         m_IsExpanding = false;
-        m_CircleRadius = (m_EffectTimer / m_ShrinkDuration) * 1.5f;  // 0 -> 1.5（中心から広がる）
+        m_CircleRadius = (m_EffectTimer / m_ShrinkDuration) * 1.5f;  // 0 -> 1.5（中心から広がる）.
         if (m_EffectTimer >= m_ShrinkDuration)
         {
             m_CircleRadius = 1.5f;

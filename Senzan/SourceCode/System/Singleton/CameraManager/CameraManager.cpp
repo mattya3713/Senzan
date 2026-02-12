@@ -22,7 +22,7 @@ CameraManager::~CameraManager()
 // カメラを揺らす.
 void CameraManager::ShakeCamera(float duration, float magnitude)
 {
-	// 既に揺れている場合でも、新しいシェイクで上書きする。
+	// 既に揺れている場合でも、新しいシェイクで上書きする。.
 	m_ShakeDuration = duration;
 	m_ShakeMagnitude = magnitude;
 }

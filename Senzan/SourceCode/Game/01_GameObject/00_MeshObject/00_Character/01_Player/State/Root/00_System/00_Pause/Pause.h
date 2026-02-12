@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 #include "../System.h"
 
 class Player;
 
 /**************************************************
-*	ƒvƒŒƒCƒ„[‚Ìƒ|[ƒY‚ÌƒXƒe[ƒg(”h¶).
-*	’S“–:•£˜e –¢—ˆ.
+*	ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒãƒ¼ã‚ºã®ã‚¹ãƒ†ãƒ¼ãƒˆ(æ´¾ç”Ÿ).
+*	æ‹…å½“:æ·µè„‡ æœªæ¥.
 **/
 
 namespace PlayerState {
@@ -15,7 +15,7 @@ namespace PlayerState {
         Pause(Player* owner);
         ~Pause();
 
-        // ID‚Ìæ“¾.
+        // IDã®å–å¾—.
         constexpr PlayerState::eID GetStateID() const override;
 
         void Enter() override;

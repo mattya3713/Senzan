@@ -14,13 +14,11 @@ UIObject::UIObject()
 {
 }
 
-//----------------------------------------------------------------.
 
 UIObject::~UIObject()
 {
 }
 
-//----------------------------------------------------------------.
 
 void UIObject::Update()
 {
@@ -31,7 +29,6 @@ void UIObject::LateUpdate()
 {
 }
 
-//----------------------------------------------------------------.
 
 void UIObject::Draw()
 {
@@ -52,7 +49,6 @@ void UIObject::Draw()
 	}
 }
 
-//----------------------------------------------------------------.
 
 void UIObject::AttachSprite(const std::shared_ptr<Sprite2D>& pSprite)
 {
@@ -62,21 +58,18 @@ void UIObject::AttachSprite(const std::shared_ptr<Sprite2D>& pSprite)
 	m_DrawSize	= pSprite->GetRectTransform()->GetSize();
 }
 
-//----------------------------------------------------------------.
 
 std::shared_ptr<Sprite2D> UIObject::GetSprite()
 {
     return m_pSprite.lock();
 }
 
-//----------------------------------------------------------------.
 
 void UIObject::DetachSprite()
 {
 	m_pSprite.reset();
 }
 
-//----------------------------------------------------------------.
 
 const DirectX::XMFLOAT3 UIObject::GetPositionWithAnchorPivot() const
 {
@@ -87,28 +80,24 @@ const DirectX::XMFLOAT3 UIObject::GetPositionWithAnchorPivot() const
 	return Axis::ZERO;
 }
 
-//----------------------------------------------------------------.
 
 const DirectX::XMFLOAT2& UIObject::GetAnchor() const
 {
 	return m_Anchor;
 }
 
-//----------------------------------------------------------------.
 
 void UIObject::SetAnchor(const DirectX::XMFLOAT2& anchor)
 {
 	m_Anchor = anchor;
 }
 
-//----------------------------------------------------------------.
 
 const DirectX::XMFLOAT2& UIObject::GetPivot() const
 {
 	return m_Pivot;
 }
 
-//----------------------------------------------------------------.
 
 void UIObject::SetPivot(const DirectX::XMFLOAT2& pivot)
 {
@@ -120,63 +109,54 @@ const DirectX::XMFLOAT2& UIObject::GetDrawSize() const
 	return m_DrawSize;
 }
 
-//----------------------------------------------------------------.
 
 void UIObject::SetDrawSize(const DirectX::XMFLOAT2& drawSize)
 {
 	m_DrawSize = drawSize;
 }
 
-//----------------------------------------------------------------.
 
 const DirectX::XMFLOAT4& UIObject::GetColor() const
 {
 	return m_Color;
 }
 
-//----------------------------------------------------------------.
 
 void UIObject::SetColor(const DirectX::XMFLOAT4& color)
 {
 	m_Color = color;
 }
 
-//----------------------------------------------------------------.
 
 const float& UIObject::GetAlpha() const
 {
 	return m_Color.w;
 }
 
-//----------------------------------------------------------------.
 
 void UIObject::SetAlpha(const float& alpha)
 {
 	m_Color.w = alpha;
 }
 
-//----------------------------------------------------------------.
 
 const UIObject::UIType& UIObject::GetUIType() const
 {
 	return m_UIType;
 }
 
-//----------------------------------------------------------------.
 
 const int& UIObject::GetLayer() const
 {
 	return m_Layer;
 }
 
-//----------------------------------------------------------------.
 
 void UIObject::SetLayer(const int& layer)
 {
 	m_Layer = layer;
 }
 
-//----------------------------------------------------------------.
 
 const std::string UIObject::GetResourceName() const
 {
@@ -187,14 +167,12 @@ const std::string UIObject::GetResourceName() const
 	return std::string("Non");
 }
 
-//----------------------------------------------------------------.
 
 const std::string& UIObject::GetUIName() const
 {
 	return m_UIName;
 }
 
-//----------------------------------------------------------------.
 
 void UIObject::SetUIName(const std::string& name)
 {

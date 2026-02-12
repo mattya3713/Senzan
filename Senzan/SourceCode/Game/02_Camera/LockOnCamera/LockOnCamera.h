@@ -52,7 +52,7 @@ public:
     void EndSpecialCamera();
     // 必殺技カメラ演出中か.
     bool IsSpecialCameraActive() const { return m_CameraMode == eCameraMode::Special; }
-    // 最終ポーズカメラ開始（プレイヤーの左下から見上げる）
+    // 最終ポーズカメラ開始（プレイヤーの左下から見上げる）.
     void StartFinalPoseCamera();
 
     // 設定の保存/読み込み
@@ -80,19 +80,19 @@ private:
     // パリィカメラ演出用.
     eCameraMode m_CameraMode = eCameraMode::Normal;
     float m_ParryTime = 0.0f;           // パリィ演出経過時間.
-    // パリィ演出時間を3フェーズに分割:
-    // m_ParryPhaseInDuration: カメラが目標地点へ移動する時間
-    // m_ParryHoldDuration: 目標地点で留まる時間
-    // m_ParryOutDuration: 元に戻る時間
+    // パリィ演出時間を3フェーズに分割:.
+    // m_ParryPhaseInDuration: カメラが目標地点へ移動する時間.
+    // m_ParryHoldDuration: 目標地点で留まる時間.
+    // m_ParryOutDuration: 元に戻る時間.
     float m_ParryPhaseInDuration = 0.3f;
     float m_ParryHoldDuration = 0.2f;
     float m_ParryOutDuration = 0.3f;
     float m_ParryHeightOffset = 1.0f;   // パリィ時の低い高さ.
     float m_ParryLookOffset = 6.0f;     // パリィ時の注視点高さ（見上げる）.
     float m_ParryDistance = 8.0f;       // パリィ時の距離（近づく）.
-    // パリィ時の移動オフセット（ワールド単位）
-    // m_ParryHorizontalOffset: プレイヤーの左右方向へのオフセット（正は右）
-    // m_ParryForwardOffset: プレイヤーの前方（ボス方向）への追加前進距離（正は前）
+    // パリィ時の移動オフセット（ワールド単位）.
+    // m_ParryHorizontalOffset: プレイヤーの左右方向へのオフセット（正は右）.
+    // m_ParryForwardOffset: プレイヤーの前方（ボス方向）への追加前進距離（正は前）.
     float m_ParryHorizontalOffset = 0.0f;
     float m_ParryForwardOffset = 0.0f;
 
@@ -108,27 +108,27 @@ private:
 
     // 必殺技カメラ演出用.
     float m_SpecialLookLerp = 1.0f;     // 必殺技時の注視点補間（1.0=ボス完全ロック）.
-    DirectX::XMFLOAT3 m_SpecialFixedCameraPos = { 0.0f, 0.0f, 0.0f }; // 発動時の固定カメラ位置
-    DirectX::XMFLOAT3 m_SpecialFixedLookPos = { 0.0f, 0.0f, 0.0f };   // 発動時の固定注視点
+    DirectX::XMFLOAT3 m_SpecialFixedCameraPos = { 0.0f, 0.0f, 0.0f }; // 発動時の固定カメラ位置.
+    DirectX::XMFLOAT3 m_SpecialFixedLookPos = { 0.0f, 0.0f, 0.0f };   // 発動時の固定注視点.
     
-    // 必殺技カメラ弧移動用
-    float m_SpecialArcAngle = 0.0f;       // 現在の弧の角度
-    float m_SpecialArcRadius = 20.0f;     // ボスからの距離
-    float m_SpecialArcHeight = 8.0f;      // カメラの高さ
+    // 必殺技カメラ弧移動用.
+    float m_SpecialArcAngle = 0.0f;       // 現在の弧の角度.
+    float m_SpecialArcRadius = 20.0f;     // ボスからの距離.
+    float m_SpecialArcHeight = 8.0f;      // カメラの高さ.
     float m_SpecialArcSpeed = 0.8f;       // 弧移動の速度（ラジアン/秒）
     
-    // 最終ポーズカメラ用
-    bool m_IsFinalPoseCamera = false;     // 最終ポーズカメラ中か
-    float m_FinalPoseLeftOffset = 5.0f;   // 左オフセット
-    float m_FinalPoseDownOffset = 2.0f;   // 下オフセット
-    float m_FinalPoseBackOffset = 3.0f;   // 後ろオフセット
-    float m_FinalPoseLookUpOffset = 3.0f; // 注視点高さオフセット
+    // 最終ポーズカメラ用.
+    bool m_IsFinalPoseCamera = false;     // 最終ポーズカメラ中か.
+    float m_FinalPoseLeftOffset = 5.0f;   // 左オフセット.
+    float m_FinalPoseDownOffset = 2.0f;   // 下オフセット.
+    float m_FinalPoseBackOffset = 3.0f;   // 後ろオフセット.
+    float m_FinalPoseLookUpOffset = 3.0f; // 注視点高さオフセット.
 
     // FOV control for parry and special effects (radians).
-    // Defaults: 50deg and 40deg in radians
-    float m_DefaultFOV = 0.872664626f; // 50deg
-    float m_ParryFOV = 0.698131700f;   // 40deg
-    float m_CurrentFOV = 0.872664626f; // current active FOV
+    // Defaults: 50deg and 40deg in radians.
+    float m_DefaultFOV = 0.872664626f; // 50deg.
+    float m_ParryFOV = 0.698131700f;   // 40deg.
+    float m_CurrentFOV = 0.872664626f; // current active FOV.
     
     // Getter/Setter for FOV
     void SetDefaultFOV(float radians) { m_DefaultFOV = radians; }
@@ -136,6 +136,6 @@ private:
     void SetParryFOV(float radians) { m_ParryFOV = radians; }
     float GetParryFOV() const { return m_ParryFOV; }
 
-    // パリィが雪玉由来かを示すフラグ（雪玉のときはXZを固定してYのみ更新）
+    // パリィが雪玉由来かを示すフラグ（雪玉のときはXZを固定してYのみ更新）.
     bool m_ParryBySnowball = false;
 };

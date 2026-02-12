@@ -106,7 +106,7 @@ void MattyaTestScene::LateUpdate()
 
 void MattyaTestScene::Draw()
 {
-    // モーションブラー用のポスト処理を使うか
+    // モーションブラー用のポスト処理を使うか.
     bool useMotion = PostEffectManager::GetInstance().IsMotionBlurEnabled();
     if (useMotion) PostEffectManager::GetInstance().BeginSceneRender();
 
@@ -128,5 +128,5 @@ void MattyaTestScene::Draw()
 
 HRESULT MattyaTestScene::LoadData()
 {
-	return S_OK; // 成功を返す
+	return S_OK; // 成功を返す.
 }

@@ -57,7 +57,7 @@ Boss::Boss()
 {
 	AttachMesh(MeshManager::GetInstance().GetSkinMesh("boss"));
 
-	//DirectX::XMFLOAT3 pos = { 0.05f, 10.0f, 20.05f };
+	//DirectX::XMFLOAT3 pos = { 0.05f, 10.0f, 20.05f };.
 	DirectX::XMFLOAT3 pos = { 0.05f, 0.05f, 20.05f };
 	DirectX::XMFLOAT3 scale = { 7.0f,7.0f,7.0f};
 	DirectX::XMFLOAT3 Rotation = { 0.0f,0.0f,0.0f };
@@ -203,7 +203,7 @@ void Boss::GetParryAnimPair()
 {
     if (m_State && m_State->m_pCurrentState)
     {
-        // BossAttackStateBase へキャストして設定を取得する
+        // BossAttackStateBase へキャストして設定を取得する.
         auto attackBase = std::dynamic_pointer_cast<BossAttackStateBase>(m_State->m_pCurrentState);
         if (attackBase)
         {
@@ -220,7 +220,7 @@ void Boss::Update()
 	m_State->Update();
 
 #if _DEBUG
-    // デバッグ用: ImGui で任意のボスステートに切り替えられるボタン群
+    // デバッグ用: ImGui で任意のボスステートに切り替えられるボタン群.
     if (ImGui::Begin(IMGUI_JP("Boss Debug")))
     {
         const char* state_labels[] = {
@@ -325,10 +325,10 @@ void Boss::OnParried(bool withDelay)
 
     m_IsParried = true;
 
-    // 全ての攻撃コライダーを無効化 (パリィ成功時も攻撃判定を消す)
+    // 全ての攻撃コライダーを無効化 (パリィ成功時も攻撃判定を消す).
     OffAttackCollider();
 
-    // BossParryStateへ遷移（遅延フラグと遅延秒を渡す）
+    // BossParryStateへ遷移（遅延フラグと遅延秒を渡す）.
     m_State->ChangeState(std::make_shared<BossParryState>(this, withDelay));
 }
 
@@ -380,7 +380,7 @@ void Boss::SetNextAttackCansel()
 {
     if (m_State && m_State->m_pCurrentState)
     {
-        // BossAttackStateBase へキャストして設定を取得する
+        // BossAttackStateBase へキャストして設定を取得する.
         auto attackBase = std::dynamic_pointer_cast<BossAttackStateBase>(m_State->m_pCurrentState);
         if (attackBase)
         {
@@ -417,10 +417,10 @@ void Boss::HandleDamageDetection()
 			{
                 bool IsEffectBack = false;
 
-					// プレイヤーがボスの後方（ボスの前方ベクトルとの内積が負）から攻撃していたらダメージを1.4倍にする
+					// プレイヤーがボスの後方（ボスの前方ベクトルとの内積が負）から攻撃していたらダメージを1.4倍にする.
 					float damageToApply = info.AttackAmount;
 					
-                    // ボス中心からプレイヤー方向ベクトルを計算（Y成分は無視）
+                    // ボス中心からプレイヤー方向ベクトルを計算（Y成分は無視）.
                     DirectX::XMFLOAT3 bossPos = GetPosition();
                     DirectX::XMFLOAT3 playerPos = otherCollider->GetPosition();
                     DirectX::XMVECTOR vBossToPlayer = DirectX::XMVectorSubtract(DirectX::XMLoadFloat3(&playerPos), DirectX::XMLoadFloat3(&bossPos));
@@ -428,13 +428,13 @@ void Boss::HandleDamageDetection()
                     if (!DirectX::XMVector3NearEqual(vBossToPlayer, DirectX::XMVectorZero(), DirectX::XMVectorReplicate(1e-6f)))
                     {
                         vBossToPlayer = DirectX::XMVector3Normalize(vBossToPlayer);
-                        // ボスの前方ベクトル
+                        // ボスの前方ベクトル.
                         DirectX::XMFLOAT3 fwd = m_spTransform->GetForward();
                         DirectX::XMVECTOR vFwd = DirectX::XMLoadFloat3(&fwd);
                         vFwd = DirectX::XMVectorSetY(vFwd, 0.0f);
                         vFwd = DirectX::XMVector3Normalize(vFwd);
                         float dot = DirectX::XMVectorGetX(DirectX::XMVector3Dot(vFwd, vBossToPlayer));
-                        // 内積が負なら後方からの攻撃
+                        // 内積が負なら後方からの攻撃.
                         if (dot < 0.0f)
                         {
                             SoundManager::Play("Damage_Back");
@@ -546,7 +546,7 @@ ColliderBase* Boss::GetLaserCollider() const
 
 void Boss::SetColliderActiveByName(const std::string& name, bool active)
 {
-	// NOTE: 文字列は typo を避けるため定数化推奨
+	// NOTE: 文字列は typo を避けるため定数化推奨.
 	if (name == "boss_Hand_R")
 	{
 		if (auto* col = GetSlashCollider()) col->SetActive(active);
@@ -595,7 +595,7 @@ bool Boss::UpdateColliderFromBone(
         if (updateRotation) {
             DirectX::XMVECTOR b_pos, b_quat, b_scale;
             DirectX::XMMatrixDecompose(&b_scale, &b_quat, &b_pos, bossWorldMatrix);
-            // apply rotation offset if provided
+            // 回転オフセットが指定されている場合は適用する.
             DirectX::XMVECTOR q_bone = b_quat;
             DirectX::XMVECTOR q_offset = DirectX::XMLoadFloat4(&rotationOffset);
             DirectX::XMVECTOR q_result = DirectX::XMQuaternionMultiply(q_offset, q_bone);
@@ -616,7 +616,7 @@ bool Boss::UpdateColliderFromBone(
     DirectX::XMMatrixDecompose(&v_final_scale, &v_final_quat, &v_final_pos, bone_world_matrix);
     DirectX::XMStoreFloat3(&outTransform.Position, v_final_pos);
     if (updateRotation) {
-        // apply rotation offset
+        // 回転オフセットを適用する.
         DirectX::XMVECTOR q_bone = v_final_quat;
         DirectX::XMVECTOR q_offset = DirectX::XMLoadFloat4(&rotationOffset);
         DirectX::XMVECTOR q_result = DirectX::XMQuaternionMultiply(q_offset, q_bone);
@@ -625,6 +625,6 @@ bool Boss::UpdateColliderFromBone(
         outTransform.UpdateRotationFromQuaternion();
     }
 
-    // オフセットは各ステートの ColliderWindow で管理
+    // オフセットは各ステートの ColliderWindow で管理.
     return true;
 }

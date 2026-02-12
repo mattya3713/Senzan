@@ -4,9 +4,11 @@
 #include "Mouse\Mouse.h"
 #include "XInput\XInput.h"
 
-/********************************************************
-*	入力機のラッパークラス.
-********************************************************/
+/**********************************************************************************
+* @author    : 未定.
+* @date      : 未定.
+* @brief     : 入力機のラッパークラス.
+**********************************************************************************/
 
 class Input final
 	: public Singleton<Input>
@@ -308,7 +310,6 @@ public:// コントローラー.
 	************************************************************/
 	static const bool IsLStickDirectionDown(const XInput::StickState dir, const bool isFirstPress = false, const int id = 0);
 	static const bool IsRStickDirectionDown(const XInput::StickState dir, const bool isFirstPress = false, const int id = 0);
-
 
 
 	/************************************************************

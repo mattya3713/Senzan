@@ -29,7 +29,7 @@ void Idle::Enter()
 {
 	Movement::Enter();
 
-	// 待機状態では移動ベクトルをクリア（攻撃後の向きが残らないように）
+	// 待機状態では移動ベクトルをクリア（攻撃後の向きが残らないように）.
 	m_pOwner->m_MoveVec = {};
 
 	m_pOwner->SetIsLoop(true);

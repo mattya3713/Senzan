@@ -44,10 +44,10 @@ public: // Getter／Setter.
 		return m_pMesh;
 	};
 
-	// Get currently set alpha for attached mesh (1.0 = opaque).
+	// アタッチ中のメッシュの透明度を取得 (1.0 = 不透明).
 	float GetAlpha() const;
 
-	// Set object-local alpha (multiplies mesh alpha). 1.0 = opaque.
+	// オブジェクトローカルの透明度の設定. 1.0 = 不透明.
 	void SetAlpha(float alpha);
 
 	// ライト有無フラグを設定.
@@ -136,6 +136,5 @@ protected:
 	double					m_AnimTimer; // アニメタイマー (経過時間).
 	bool					m_Isloop; 	// ループフラグ.
 	DirectX::XMFLOAT3			m_BonePos; // ボーン位置.
-	float m_ObjectAlpha; // object-local alpha (1.0 = opaque)
+	float m_ObjectAlpha; // オブジェクトローカルの透明度 (1.0 = 不透明).
 };
-

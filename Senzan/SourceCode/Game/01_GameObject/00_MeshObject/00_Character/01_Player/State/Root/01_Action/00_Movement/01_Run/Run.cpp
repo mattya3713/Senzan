@@ -21,7 +21,7 @@ Run::Run(Player* owner)
     , m_DartEffect(nullptr)
     , m_EffectHandle(-1)
 {
-    // ResourceManagerからエフェクトを取得
+    // ResourceManagerからエフェクトを取得.
     m_DartEffect = ResourceManager::GetEffect("Dart");
 }
 
@@ -43,7 +43,7 @@ void Run::Enter()
     m_pOwner->SetAnimSpeed(RUN_ANIM_SPEED);
     m_pOwner->ChangeAnim(Player::eAnim::Run);
 
-    // エフェクトを再生
+    // エフェクトを再生.
     if (m_DartEffect != nullptr)
     {
         auto manager = EffekseerManager::GetInstance().GetManager();
@@ -59,12 +59,12 @@ void Run::Update()
     // 移動ベクトルの算出.
     CalculateMoveVec();
 
-    // エフェクトの更新と位置追従
+    // エフェクトの更新と位置追従.
     if (m_EffectHandle != -1)
     {
         EffekseerManager::GetInstance().UpdateHandle(m_EffectHandle);
         
-        // エフェクトの位置をプレイヤーに追従
+        // エフェクトの位置をプレイヤーに追従.
         auto manager = EffekseerManager::GetInstance().GetManager();
         DirectX::XMFLOAT3 pos = m_pOwner->GetPosition();
         manager->SetLocation(m_EffectHandle, pos.x, pos.y, pos.z);
@@ -77,7 +77,7 @@ void Run::LateUpdate()
     
     m_pOwner->AddPosition(m_pOwner->m_MoveVec.x, 0.f, m_pOwner->m_MoveVec.y);
 
-    // エフェクトの描画
+    // エフェクトの描画.
     if (m_EffectHandle != -1)
     {
         auto* camera = CameraManager::GetInstance().GetCurrentCamera().get();
@@ -94,7 +94,7 @@ void Run::Exit()
 {
     Movement::Exit();
 
-    // エフェクトを停止
+    // エフェクトを停止.
     if (m_EffectHandle != -1)
     {
         auto manager = EffekseerManager::GetInstance().GetManager();

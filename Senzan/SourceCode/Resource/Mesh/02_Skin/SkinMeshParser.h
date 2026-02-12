@@ -1,10 +1,10 @@
-/***************************************************************************************************
+﻿/***************************************************************************************************
 *	SkinMeshCode Version 2.40
 *	LastUpdate	: 2024/06/14.
 **/
 #pragma once
 
-//�x���ɂ��ẴR�[�h���͂𖳌��ɂ���B4005�F�Ē�`.
+//警告についてのコード分析を無効にする。4005：再定義.
 #pragma warning( disable : 4005 )
 
 #include <D3D9.h>
@@ -14,11 +14,11 @@
 #include <vector>
 
 //---------------------------------------------------------------------------------
-// D3DX �\���́iD3DXPARSER �����ł� D3DX �ˑ��^�j
-// D3DXPARSER �� D3DXFRAME/D3DXMESHCONTAINER �Ɉˑ����邽�߁A���̒�`�� D3DX �̂��̂��g�p
+// D3DX 構造体（D3DXPARSER 内部での D3DX 依存型）.
+// D3DXPARSER は D3DXFRAME/D3DXMESHCONTAINER に依存するため、その定義は D3DX のものを使用
 typedef struct _MYFRAME : public D3DXFRAME
 {
-	// D3DXPARSER �� UpdateFrameMatrices �� D3DXMATRIX ���g�p���邽�߁A���̃����o�� D3DXMATRIX �̂܂܎c��
+	// D3DXPARSER の UpdateFrameMatrices が D3DXMATRIX を使用するため、このメンバは D3DXMATRIX のまま残す.
 	D3DXMATRIX CombinedTransformationMatrix;
 	struct SKIN_PARTS_MESH* pPartsMesh;
 } MYFRAME, * LPMYFRAME;
@@ -26,11 +26,11 @@ typedef struct _MYFRAME : public D3DXFRAME
 typedef struct _MYMESHCONTAINER : public D3DXMESHCONTAINER
 {
 	LPDIRECT3DTEXTURE9* ppTextures;
-	DWORD				Weight;				//�d�݂̌��i�d�݂Ƃ͒��_�ւ̉e���B�j.
-	DWORD				BoneNum;			//�{�[���̐�.
-	LPD3DXBUFFER		pBoneBuffer;		//�{�[���E�e�[�u��.
-	DirectX::XMMATRIX** ppBoneMatrix;		//�S�Ẵ{�[���̃��[���h�s��̐擪�|�C���^.
-	DirectX::XMMATRIX* pBoneOffsetMatrices;//�t���[���Ƃ��Ẵ{�[���̃��[���h�s��̃|�C���^.
+	DWORD				Weight;				//重みの個数（重みとは頂点への影響。）.
+	DWORD				BoneNum;			//ボーンの数.
+	LPD3DXBUFFER		pBoneBuffer;		//ボーン・テーブル.
+	DirectX::XMMATRIX** ppBoneMatrix;		//全てのボーンのワールド行列の先頭ポインタ.
+	DirectX::XMMATRIX* pBoneOffsetMatrices;//フレームとしてのボーンのワールド行列のポインタ.
 
 	_MYMESHCONTAINER()
 		: D3DXMESHCONTAINER()
@@ -45,24 +45,24 @@ typedef struct _MYMESHCONTAINER : public D3DXMESHCONTAINER
 } MYMESHCONTAINER, * LPMYMESHCONTAINER;
 
 
-//==================================================================================================
+//==================================================================================================.
 //
-//	�J�X�^���\���̒�`
+//	カスタム構造体定義.
 //
-//==================================================================================================
+//==================================================================================================.
 
-//�I���W�i���@�}�e���A���\����.
+//オリジナル　マテリアル構造体.
 struct MY_SKINMATERIAL
 {
 	TCHAR Name[110];
-	DirectX::XMFLOAT4	Ambient;			//�A���r�G���g.
-	DirectX::XMFLOAT4	Diffuse;			//�f�B�t���[�Y.
-	DirectX::XMFLOAT4	Specular;			//�X�y�L����.
-	DirectX::XMFLOAT4	Emissive;			//�G�~�b�V�u.
-	float		SpecularPower;		//�X�y�L�����p���[.
-	TCHAR		TextureName[512];	//�e�N�X�`���[�t�@�C����.
+	DirectX::XMFLOAT4	Ambient;			//アンビエント.
+	DirectX::XMFLOAT4	Diffuse;			//ディフューズ.
+	DirectX::XMFLOAT4	Specular;			//スペキュラ.
+	DirectX::XMFLOAT4	Emissive;			//エミッシブ.
+	float		SpecularPower;		//スペキュラパワー.
+	TCHAR		TextureName[512];	//テクスチャーファイル名.
 	ID3D11ShaderResourceView* pTexture;
-	DWORD		NumFace;	//���̃}�e���A���ł���|���S����.
+	DWORD		NumFace;	//そのマテリアルであるポリゴン数.
 
 	MY_SKINMATERIAL()
 		: Name()
@@ -78,19 +78,19 @@ struct MY_SKINMATERIAL
 	}
 	~MY_SKINMATERIAL()
 	{
-		// SAFE_RELEASE �� D3D11 �̃}�N���Ɖ���
-		// pTexture �� D3D11 �� SRV �̂��߁A�ύX�Ȃ�
-		// SAFE_RELEASE(pTexture); // �w�b�_�[�ł͐錾�̂�
+		// SAFE_RELEASE は D3D11 のマクロと仮定.
+		// pTexture は D3D11 の SRV のため、変更なし.
+		// SAFE_RELEASE(pTexture); // ヘッダーでは宣言のみ.
 	}
 };
 
-//�{�[���\����.
+//ボーン構造体.
 struct BONE
 {
-	DirectX::XMMATRIX	mBindPose;		//�����|�[�Y�i�����ƕς��Ȃ��j.
-	DirectX::XMMATRIX	mNewPose;		//���݂̃|�[�Y�i���̓s�x�ς��j.
-	DWORD		NumChild;		//�q�̐�.
-	int			ChildIndex[50];	//�����̎q��"�C���f�b�N�X"50�܂�.
+	DirectX::XMMATRIX	mBindPose;		//初期ポーズ（ずっと変わらない）.
+	DirectX::XMMATRIX	mNewPose;		//現在のポーズ（その都度変わる）.
+	DWORD		NumChild;		//子の数.
+	int			ChildIndex[50];	//自分の子の"インデックス"50個まで.
 	char		Name[256];
 
 	BONE()
@@ -103,7 +103,7 @@ struct BONE
 	}
 };
 
-//�p�[�c���b�V���\����.
+//パーツメッシュ構造体.
 struct SKIN_PARTS_MESH
 {
 	DWORD				NumVert;
@@ -111,17 +111,17 @@ struct SKIN_PARTS_MESH
 	DWORD				NumUV;
 	DWORD				NumMaterial;
 	MY_SKINMATERIAL* pMaterial;
-	char				TextureFileName[8][256];	//�e�N�X�`���[�t�@�C����(8���܂�).
+	char				TextureFileName[8][256];	//テクスチャーファイル名(8枚まで).
 	bool				EnableTexture;
 
 	ID3D11Buffer* pVertexBuffer;
 	ID3D11Buffer** ppIndexBuffer;
 
-	//�{�[��.
+	//ボーン.
 	int		NumBone;
 	BONE* pBoneArray;
 
-	bool	EnableBones;	//�{�[���̗L���t���O.
+	bool	EnableBones;	//ボーンの有無フラグ.
 
 	SKIN_PARTS_MESH()
 		: NumVert()
@@ -140,14 +140,14 @@ struct SKIN_PARTS_MESH
 	}
 };
 
-//==================================================================================================
+//==================================================================================================.
 //
-//	ID3DXAllocateHierarchy �h���N���X.
+//	ID3DXAllocateHierarchy 派生クラス.
 //
-//==================================================================================================
+//==================================================================================================.
 
-//X�t�@�C�����̃A�j���[�V�����K�w��ǂ݉����Ă����N���X��h��������.
-//	ID3DXAllocateHierarchy�͔h�����邱�Ƒz�肵�Đ݌v����Ă���.
+//Xファイル内のアニメーション階層を読み下してくれるクラスを派生させる.
+//	ID3DXAllocateHierarchyは派生すること想定して設計されている.
 class MY_HIERARCHY final
 	: public ID3DXAllocateHierarchy
 {
@@ -163,17 +163,17 @@ public:
 	STDMETHOD(DestroyMeshContainer)(THIS_ LPD3DXMESHCONTAINER);
 };
 
-//==================================================================================================
+//==================================================================================================.
 //
-//	�p�[�T�[�N���X.
+//	パーサークラス.
 //
-//==================================================================================================
+//==================================================================================================.
 class D3DXPARSER final
 {
 public:
-	//�ő�{�[����.
+	//最大ボーン数.
 	static constexpr int MAX_BONES = 255;
-	//�ő�A�j���[�V�����Z�b�g��.
+	//最大アニメーションセット数.
 	static constexpr int MAX_ANIM_SET = 100;
 
 public:
@@ -183,12 +183,10 @@ public:
 	HRESULT LoadMeshFromX(LPDIRECT3DDEVICE9, LPCTSTR fileName);
 	HRESULT AllocateBoneMatrix(LPD3DXMESHCONTAINER);
 	HRESULT AllocateAllBoneMatrices(LPD3DXFRAME);
-	// LPD3DXMATRIX �� D3DXPARSER �����ŕK�v
+	// LPD3DXMATRIX は D3DXPARSER 内部で必要.
 	VOID UpdateFrameMatrices(LPD3DXFRAME, LPD3DXMATRIX);
 
-	//--------------------------------------.
-	//	�擾�֐�. (�߂�l�� XM �݊��^�ɏC��)
-	//--------------------------------------.
+	//	取得関数. (戻り値を XM 互換型に修正).
 	int GetNumVertices(MYMESHCONTAINER* pContainer);
 	int GetNumFaces(MYMESHCONTAINER* pContainer);
 	int GetNumMaterials(MYMESHCONTAINER* pContainer);
@@ -213,24 +211,24 @@ public:
 	DirectX::XMMATRIX GetNewPose(MYMESHCONTAINER* pContainer, int BoneIndex);
 	LPCSTR GetBoneName(MYMESHCONTAINER* pContainer, int BoneIndex);
 
-	//���b�V���R���e�i���擾����.
+	//メッシュコンテナを取得する.
 	LPD3DXMESHCONTAINER GetMeshContainer(LPD3DXFRAME pFrame);
 
-	//�A�j���[�V�����Z�b�g�̐؂�ւ�. (LPD3DXANIMATIONCONTROLLER �� D3DX �ˑ��̂܂�)
+	//アニメーションセットの切り替え. (LPD3DXANIMATIONCONTROLLER は D3DX 依存のまま).
 	void ChangeAnimSet(int Index, LPD3DXANIMATIONCONTROLLER pAC);
-	//�A�j���[�V�����Z�b�g�̐؂�ւ�(�J�n�t���[���w��\��).
+	//アニメーションセットの切り替え(開始フレーム指定可能版).
 	void ChangeAnimSet_StartPos(int Index, double StartFramePos, LPD3DXANIMATIONCONTROLLER pAC);
 
-	//�A�j���[�V������~���Ԃ��擾.
+	//アニメーション停止時間を取得.
 	double GetAnimPeriod(int Index);
-	//�A�j���[�V���������擾.
+	//アニメーション数を取得.
 	int GetAnimMax(LPD3DXANIMATIONCONTROLLER pAC);
 
-	//�w�肵���{�[�����(���W�E�s��)���擾����֐�.
+	//指定したボーン情報(座標・行列)を取得する関数.
 	bool GetMatrixFromBone(LPCSTR BoneName, DirectX::XMMATRIX* pOutMat);
 	bool GetPosFromBone(LPCSTR BoneName, DirectX::XMFLOAT3* pOutPos);
 
-	//�ꊇ�������.
+	//一括解放処理.
 	HRESULT Release();
 
 public:
@@ -238,7 +236,7 @@ public:
 	MY_HIERARCHY* m_pHierarchy;
 	LPD3DXFRAME		m_pFrameRoot;
 
-	// D3DX �ˑ��̂܂�
-	LPD3DXANIMATIONCONTROLLER	m_pAnimController;			//�f�t�H���g�ň��.
+	// D3DX 依存のまま.
+	LPD3DXANIMATIONCONTROLLER	m_pAnimController;			//デフォルトで一つ.
 	LPD3DXANIMATIONSET			m_pAnimSet[MAX_ANIM_SET];
 };

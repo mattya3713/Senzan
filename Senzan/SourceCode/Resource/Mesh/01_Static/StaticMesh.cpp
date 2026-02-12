@@ -147,16 +147,16 @@ void StaticMesh::Render()
 		// カメラ位置.		
 		cb.CameraPos = DirectX::XMFLOAT4(CameraManager::GetInstance().GetPosition().x, CameraManager::GetInstance().GetPosition().y, CameraManager::GetInstance().GetPosition().z, 0.0f);
 
-		// ライト方向の計算をD3DXからXMへ移行
-		// 1. ライト方向を取得し、XMVECTORにロード
+		// ライト方向の計算をD3DXからXMへ移行.
+		// 1. ライト方向を取得し、XMVECTORにロード.
 		DirectX::XMFLOAT3 lightDirF3 = LightManager::GetDirectionLight()->GetDirection();
 		DirectX::XMVECTOR vLightDirXM = DirectX::XMLoadFloat3(&lightDirF3);
 
-		// 2. XMVECTORで正規化を実行 (D3DXVec4Normalize -> XMVector3Normalize)
-		// 方向ベクトルは3成分で正規化
+		// 2. XMVECTORで正規化を実行 (D3DXVec4Normalize -> XMVector3Normalize).
+		// 方向ベクトルは3成分で正規化.
 		vLightDirXM = DirectX::XMVector3Normalize(vLightDirXM);
 
-		// 3. 正規化されたXMVECTORをcb.vLightDir (XMFLOAT4) にストア
+		// 3. 正規化されたXMVECTORをcb.vLightDir (XMFLOAT4) にストア.
 		DirectX::XMStoreFloat4(&cb.vLightDir, vLightDirXM);
 
 		// ライトを使用するか.
@@ -431,9 +431,9 @@ HRESULT StaticMesh::CreateMaterials()
 				_TRUNCATE);
 
 			LPTSTR filename = TexFilename_w;
-#else//#ifdef UNICODE
+#else//#ifdef UNICODE.
 			LPTSTR filename = d3dxMaterials[No].pTextureFilename;
-#endif//#ifdef UNICODE
+#endif//#ifdef UNICODE.
 
 			// テクスチャありのフラグを立てる.
 			m_EnableTexture = true;
@@ -663,28 +663,28 @@ void StaticMesh::RenderMesh(DirectX::XMMATRIX& mWorld, DirectX::XMMATRIX& mView,
 		// コンスタントバッファ(メッシュ用).
 		CBUFFER_PER_MESH cb;
 
-		// 1. ワールド行列の転置
-		// D3DXMatrixTranspose(&cb.mW, &cb.mW) の代替
+		// 1. ワールド行列の転置.
+		// D3DXMatrixTranspose(&cb.mW, &cb.mW) の代替.
 		cb.mW = DirectX::XMMatrixTranspose(mWorld);
 
-		// 2. WVP行列の計算と転置
-		// DirectX::XMMATRIX mWVP = mWorld * mView * mProj; の代替
+		// 2. WVP行列の計算と転置.
+		// DirectX::XMMATRIX mWVP = mWorld * mView * mProj; の代替.
 		DirectX::XMMATRIX mWVP_temp = DirectX::XMMatrixMultiply(mWorld, mView);
 		mWVP_temp = DirectX::XMMatrixMultiply(mWVP_temp, mProj);
 
-		// D3DXMatrixTranspose(&mWVP, &mWVP) の代替
+		// D3DXMatrixTranspose(&mWVP, &mWVP) の代替.
 		DirectX::XMMATRIX mWVP = DirectX::XMMatrixTranspose(mWVP_temp);
 		cb.mWVP = mWVP;
 
-		// 3. WLP行列の計算と転置
+		// 3. WLP行列の計算と転置.
 		DirectX::XMMATRIX lightView = LightManager::GetDirectionLight()->GetViewMatrix();
 		DirectX::XMMATRIX lightProj = LightManager::GetDirectionLight()->GetProjectionMatrix();
 
-		// DirectX::XMMATRIX mWLP = mWorld * lightView * lightProj; の代替
+		// DirectX::XMMATRIX mWLP = mWorld * lightView * lightProj; の代替.
 		DirectX::XMMATRIX mWLP_temp = DirectX::XMMatrixMultiply(mWorld, lightView);
 		mWLP_temp = DirectX::XMMatrixMultiply(mWLP_temp, lightProj);
 
-		// D3DXMatrixTranspose(&mWLP, &mWLP) の代替
+		// D3DXMatrixTranspose(&mWLP, &mWLP) の代替.
 		DirectX::XMMATRIX mWLP = DirectX::XMMatrixTranspose(mWLP_temp);
 		cb.mWLVP = mWLP;
 
@@ -698,7 +698,7 @@ void StaticMesh::RenderMesh(DirectX::XMMATRIX& mWorld, DirectX::XMMATRIX& mView,
 		m_pContext11->Unmap(m_pCBufferPerMesh, 0);
 	}
 
-	// (以下、D3D11 APIおよびD3DX由来のメッシュアクセスは変更なし)
+	// (以下、D3D11 APIおよびD3DX由来のメッシュアクセスは変更なし).
 
 	m_pContext11->VSSetConstantBuffers(0, 1, &m_pCBufferPerMesh);
 	m_pContext11->PSSetConstantBuffers(0, 1, &m_pCBufferPerMesh);
@@ -778,11 +778,11 @@ void StaticMesh::RenderMehDepsh(DirectX::XMMATRIX& mWorld, DirectX::XMMATRIX& mV
 
 	// ワールドライトビュープロジェクション行列を渡す.
 
-	// 【D3DXからXMへ】行列乗算をXMMatrixMultiplyに置き換え
+	// 【D3DXからXMへ】行列乗算をXMMatrixMultiplyに置き換え.
 	DirectX::XMMATRIX mWLP_temp = DirectX::XMMatrixMultiply(mWorld, mView);
 	mWLP_temp = DirectX::XMMatrixMultiply(mWLP_temp, mProj);
 
-	// 【D3DXからXMへ】行列の転置をXMMatrixTransposeに置き換え
+	// 【D3DXからXMへ】行列の転置をXMMatrixTransposeに置き換え.
 	DirectX::XMMATRIX mWLP = DirectX::XMMatrixTranspose(mWLP_temp);
 
 	// バッファ内のデータの書き換え開始時にMap.
@@ -793,7 +793,7 @@ void StaticMesh::RenderMehDepsh(DirectX::XMMATRIX& mWorld, DirectX::XMMATRIX& mV
 	{
 		// コンスタントバッファ(メッシュ用).
 		Shadow::CBUFFER cb;
-		cb.mWLP = mWLP; // XMMATRIXをそのまま代入
+		cb.mWLP = mWLP; // XMMATRIXをそのまま代入.
 
 		memcpy_s(
 			pData.pData,	// コピー先のバッファ.
@@ -817,7 +817,7 @@ void StaticMesh::RenderMehDepsh(DirectX::XMMATRIX& mWorld, DirectX::XMMATRIX& mV
 		D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	// 頂点バッファをセット.
-	// D3DXのアクセスはそのまま維持 (環境全体を合わせないため)
+	// D3DXのアクセスはそのまま維持 (環境全体を合わせないため).
 	UINT stride = m_Model.pMesh->GetNumBytesPerVertex();
 	UINT offset = 0;
 	m_pContext11->IASetVertexBuffers(
@@ -826,7 +826,7 @@ void StaticMesh::RenderMehDepsh(DirectX::XMMATRIX& mWorld, DirectX::XMMATRIX& mV
 	// 属性の数だけ、それぞれの属性のインデックスバッファを描画.
 	for (DWORD No = 0; No < m_NumAttr; No++)
 	{
-		// D3DXのアクセスはそのまま維持 (環境全体を合わせないため)
+		// D3DXのアクセスはそのまま維持 (環境全体を合わせないため).
 		// 使用されていないマテリアル対策.
 		if (m_pMaterials[m_AttrID[No]].dwNumFace == 0) {
 			continue;
@@ -858,7 +858,7 @@ void StaticMesh::RenderMehDepsh(DirectX::XMMATRIX& mWorld, DirectX::XMMATRIX& mV
 		m_pContext11->VSSetConstantBuffers(1, 1, &m_pCBufferPerMaterial);
 		m_pContext11->PSSetConstantBuffers(1, 1, &m_pCBufferPerMaterial);
 
-		// テクスチャをシェーダに渡す. (変更なし)
+		// テクスチャをシェーダに渡す. (変更なし).
 		if (m_pMaterials[m_AttrID[No]].pTexture != nullptr) {
 			// テクスチャがあるとき.
 			m_pContext11->PSSetSamplers(0, 1, &m_pSampleLinear);
@@ -872,7 +872,7 @@ void StaticMesh::RenderMehDepsh(DirectX::XMMATRIX& mWorld, DirectX::XMMATRIX& mV
 		}
 
 		// プリミティブ(ポリゴン)をレンダリング.
-		// D3DXのアクセスはそのまま維持 (環境全体を合わせないため)
+		// D3DXのアクセスはそのまま維持 (環境全体を合わせないため).
 		m_pContext11->DrawIndexed(
 			m_pMaterials[m_AttrID[No]].dwNumFace * 3, 0, 0);
 	}
@@ -888,26 +888,26 @@ float StaticMesh::GetModelRadius()
 		Microsoft::WRL::ComPtr<IDirect3DVertexBuffer9> pVB = nullptr;
 		void* pVertices = nullptr;
 
-		// 頂点バッファを取得 (D3D9 APIを維持)
+		// 頂点バッファを取得 (D3D9 APIを維持).
 		MyAssert::IsFailed(_T("頂点バッファの取得に失敗"), &ID3DXMesh::GetVertexBuffer, *m_Model.pMesh, pVB.GetAddressOf());
 
-		// メッシュの頂点バッファをロックする (D3D9 APIを維持)
+		// メッシュの頂点バッファをロックする (D3D9 APIを維持).
 		MyAssert::IsFailed(_T("頂点バッファのロックに失敗"), &IDirect3DVertexBuffer9::Lock, pVB.Get(), 0, 0, &pVertices, 0);
 
-		// ---------------------------------------------------------------------------------
+		// ---------------------------------------------------------------------------------.
 		// D3DXComputeBoundingSphereのカスタム置き換えロジック (XMVectorMin/Maxを使用)
-		// ---------------------------------------------------------------------------------
+		// ---------------------------------------------------------------------------------.
 
-		// 頂点情報のサイズを取得. (D3DXGetFVFVertexSizeの代わりに、XMで走査)
-		// ここでは、頂点データがXMFLOAT3から始まっており、全体のストライドは16バイトであると仮定
-		// (元のコードの * 16 の部分を基に)
-		UINT stride = D3DXGetFVFVertexSize(GetMesh()->GetFVF()); // D3DXGetFVFVertexSizeは計算関数ではないためそのまま維持
-		// もしD3DXGetFVFVertexSizeを使いたくない場合、ここでは stride = 16; などと手動で指定が必要です。
+		// 頂点情報のサイズを取得. (D3DXGetFVFVertexSizeの代わりに、XMで走査).
+		// ここでは、頂点データがXMFLOAT3から始まっており、全体のストライドは16バイトであると仮定.
+		// (元のコードの * 16 の部分を基に).
+		UINT stride = D3DXGetFVFVertexSize(GetMesh()->GetFVF()); // D3DXGetFVFVertexSizeは計算関数ではないためそのまま維持.
+		// もしD3DXGetFVFVertexSizeを使いたくない場合、ここでは stride = 16; などと手動で指定が必要です。.
 
-		// 頂点の数を取得
+		// 頂点の数を取得.
 		DWORD numVertices = GetMesh()->GetNumVertices();
 
-		// 最小・最大位置を追跡するためのXMVECTOR
+		// 最小・最大位置を追跡するためのXMVECTOR.
 		DirectX::XMVECTOR vMin = DirectX::XMVectorSet(std::numeric_limits<float>::max(), std::numeric_limits<float>::max(), std::numeric_limits<float>::max(), 1.0f);
 		DirectX::XMVECTOR vMax = DirectX::XMVectorSet(std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest(), 1.0f);
 
@@ -916,15 +916,15 @@ float StaticMesh::GetModelRadius()
 		for (DWORD i = 0; i < numVertices; ++i)
 		{
 			// 頂点情報のアドレスから座標(XMFLOAT3)のアドレスを読み取る.
-			// (元のコードの * 16 の部分は stride の乗算に置き換え)
+			// (元のコードの * 16 の部分は stride の乗算に置き換え).
 			const DirectX::XMFLOAT3* posFloat = reinterpret_cast<const DirectX::XMFLOAT3*>(pCurrentVertex);
 
-			// XMVECTORにロードし、最小・最大値を更新 (SIMD演算)
+			// XMVECTORにロードし、最小・最大値を更新 (SIMD演算).
 			DirectX::XMVECTOR vPos = DirectX::XMLoadFloat3(posFloat);
 			vMin = DirectX::XMVectorMin(vMin, vPos);
 			vMax = DirectX::XMVectorMax(vMax, vPos);
 
-			// 次の頂点へ移動
+			// 次の頂点へ移動.
 			pCurrentVertex += stride;
 		}
 
@@ -933,18 +933,18 @@ float StaticMesh::GetModelRadius()
 		DirectX::XMVECTOR vDiff = DirectX::XMVectorSubtract(vMax, vCenter);
 		DirectX::XMVECTOR vRadius = DirectX::XMVector3Length(vDiff);
 
-		// 結果をメンバー変数にストア
-		// D3DXVECTOR3 out; -> m_CenterPosition (XMFLOAT3) へのストア
+		// 結果をメンバー変数にストア.
+		// D3DXVECTOR3 out; -> m_CenterPosition (XMFLOAT3) へのストア.
 		DirectX::XMStoreFloat3(&m_CenterPosition, vCenter);
 		DirectX::XMStoreFloat(&m_OriginalRadius, vRadius);
 
 
-		//メッシュの頂点バッファをアンロックする (D3D9 APIを維持)
+		//メッシュの頂点バッファをアンロックする (D3D9 APIを維持).
 		if (pVB.Get() != nullptr) {
 			pVB->Unlock();
 		}
 
-		// 冗長なループとD3DXの呼び出しは削除
+		// 冗長なループとD3DXの呼び出しは削除.
 		/* 削除されたコード
 		BYTE* vertexData = static_cast<BYTE*>(pVertices);
 		std::vector<DirectX::XMFLOAT3> Vpos;
@@ -967,4 +967,3 @@ float StaticMesh::GetModelRadius()
 	m_Radius = m_OriginalRadius * (std::max)(m_spTransform.Scale.x, (std::max)(m_spTransform.Scale.y, m_spTransform.Scale.z));
 	return m_Radius;
 }
-

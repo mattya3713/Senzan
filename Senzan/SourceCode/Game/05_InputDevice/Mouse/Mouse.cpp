@@ -15,13 +15,11 @@ Mouse::Mouse()
 {					
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 Mouse::~Mouse()
 {
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void Mouse::Update()
 {
@@ -47,7 +45,6 @@ void Mouse::Update()
 
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void Mouse::CenterMouseCursor()
 {
@@ -73,13 +70,12 @@ void Mouse::CenterMouseCursor()
 	GetInstance().m_NowClientMousePoint.y = centerY;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void Mouse::WrapCursorInScreen()
 {
     Mouse& pI = GetInstance();
 
-    // 画面の解像度を取得
+    // 画面の解像度を取得.
     int screenWidth = GetSystemMetrics(SM_CXSCREEN);
     int screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
@@ -103,7 +99,6 @@ void Mouse::WrapCursorInScreen()
 	SetCursorPos(newCursorPosX, newCursorPosY);
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 bool Mouse::IsCursorInWindow()
 {
@@ -128,7 +123,6 @@ bool Mouse::IsCursorInWindow()
 	return isWithinX && isWithinY;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 bool Mouse::IsCursorInRegion(const DirectX::XMFLOAT2& position, const DirectX::XMFLOAT2& size)
 {
@@ -138,14 +132,12 @@ bool Mouse::IsCursorInRegion(const DirectX::XMFLOAT2& position, const DirectX::X
 		pI.m_NowClientMousePoint.y >= position.y && pI.m_NowClientMousePoint.y <= position.y + size.y;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void Mouse::SethWnd(HWND hWnd)
 {
 	GetInstance().m_hWnd = hWnd;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 DirectX::XMFLOAT2 Mouse::GetCursorPosition()
 {
@@ -156,7 +148,6 @@ DirectX::XMFLOAT2 Mouse::GetCursorPosition()
     return DirectX::XMFLOAT2(x, y);
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 DirectX::XMFLOAT2 Mouse::GetClientCursorPosition()
 {
@@ -167,7 +158,6 @@ DirectX::XMFLOAT2 Mouse::GetClientCursorPosition()
 	return DirectX::XMFLOAT2(x, y);
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 DirectX::XMFLOAT2 Mouse::GetPastCursorPosition()
 {
@@ -178,7 +168,6 @@ DirectX::XMFLOAT2 Mouse::GetPastCursorPosition()
     return DirectX::XMFLOAT2(x, y);
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 DirectX::XMFLOAT2 Mouse::GetPastClientCursorPosition()
 {
@@ -198,49 +187,42 @@ DirectX::XMFLOAT2 Mouse::GetClientCursorDelta()
 	return DirectX::XMFLOAT2(x, y);
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 int& Mouse::GetWheelDirection()
 {
 	return GetInstance().m_WheelDirection;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void Mouse::SetWheelDirection(const int& direction)
 {
 	GetInstance().m_WheelDirection = direction;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 bool& Mouse::IsCenterMouseCursor()
 {
 	return GetInstance().m_IsCenterMouseCursor;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void Mouse::SetCenterMouseCursor(const bool& isCenter)
 {
 	GetInstance().m_IsCenterMouseCursor = isCenter;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 bool& Mouse::IsMouseGrab()
 {
     return GetInstance().m_IsGrab;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void Mouse::SetMouseGrab(const bool& isGrab)
 {
     GetInstance().m_IsGrab = isGrab;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void Mouse::SetShowCursor(const bool& isShowCursor)
 {

@@ -32,13 +32,11 @@ ULTSparkle::ULTSparkle(std::shared_ptr<UIObject> pObje)
     Create();
 }
 
-//----------------------------------------------------------------.
 
 ULTSparkle::~ULTSparkle()
 {
 }
 
-//----------------------------------------------------------------.
 
 void ULTSparkle::Create()
 {
@@ -46,7 +44,6 @@ void ULTSparkle::Create()
     m_pMainSparkle->SetScale({ 0.0f,0.0f,0.0f });
 }
 
-//----------------------------------------------------------------.
 
 void ULTSparkle::DoPeakAnim()
 {
@@ -55,7 +52,6 @@ void ULTSparkle::DoPeakAnim()
 
 }
 
-//----------------------------------------------------------------.
 
 void ULTSparkle::SetULTGaugeStatus(bool isMax, DirectX::XMFLOAT3 pos, DirectX::XMFLOAT2 size)
 {
@@ -64,7 +60,6 @@ void ULTSparkle::SetULTGaugeStatus(bool isMax, DirectX::XMFLOAT3 pos, DirectX::X
     m_GaugeY = { pos.y - (size.y / 2),pos.y + (size.y / 2) };
 }
 
-//----------------------------------------------------------------.
 
 void ULTSparkle::UpDateParticles(float dt)
 {
@@ -90,11 +85,11 @@ void ULTSparkle::UpDateParticles(float dt)
             SparkleParticle particle;
             particle.ui = pNewUI;
 
-            // ランダム方向（-1 ～ 1）
+            // ランダム方向（-1 ～ 1）.
             float dirX = MyRand::GetRandomPercentage(-m_ParticlesAngle, m_ParticlesAngle);
             float dirY = MyRand::GetRandomPercentage(-m_ParticlesAngle, m_ParticlesAngle);
 
-            // 正規化
+            // 正規化.
             float len = sqrtf(dirX * dirX + dirY * dirY);
             if (len != 0.0f)
             {
@@ -102,7 +97,7 @@ void ULTSparkle::UpDateParticles(float dt)
                 dirY /= len;
             }
 
-            // 速度（調整用）
+            // 速度（調整用）.
             float speed = MyRand::GetRandomPercentage(0.0f, m_ParticlesSpead);
 
             particle.velocity = { dirX * speed, dirY * speed };
@@ -117,13 +112,13 @@ void ULTSparkle::UpDateParticles(float dt)
         auto& particle = *it;
         auto& pUI = particle.ui;
 
-        // ---- 移動 ----
+        // ---- 移動 ----.
         auto pos = pUI->GetPosition();
         pos.x += particle.velocity.x * dt;
         pos.y += particle.velocity.y * dt;
         pUI->SetPosition(pos);
 
-        // ---- フェード ----
+        // ---- フェード ----.
         float alpha = pUI->GetAlpha();
         alpha -= m_ParticlesDecAlpha * dt;
         pUI->SetAlpha(alpha);
@@ -140,7 +135,6 @@ void ULTSparkle::UpDateParticles(float dt)
     }
 }
 
-//----------------------------------------------------------------.
 
 void ULTSparkle::Update()
 {
@@ -200,24 +194,22 @@ void ULTSparkle::Update()
     m_pMainSparkle->Update();
 }
 
-//----------------------------------------------------------------.
 
 void ULTSparkle::LateUpdate()
 {
 }
 
-//----------------------------------------------------------------.
 
 void ULTSparkle::Draw()
 {
     DirectX11::GetInstance().SetDepth(false);
 
-    // パーティクルを全部描画
+    // パーティクルを全部描画.
     for (auto& part : m_Particles) {
         part.ui->Draw();
     }
 
-    // 主張演出を描画
+    // 主張演出を描画.
     m_pMainSparkle->Draw();
 
     DirectX11::GetInstance().SetDepth(true);

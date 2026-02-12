@@ -21,7 +21,7 @@ BossThrowingState::~BossThrowingState()
 
 void BossThrowingState::Enter()
 {
-	// プレイヤーの方を向く
+	// プレイヤーの方を向く.
 	DirectX::XMFLOAT3 BossPosF = m_pOwner->GetPosition();
 	DirectX::XMFLOAT3 PlayerPosF = m_pOwner->m_PlayerPos;
 
@@ -30,9 +30,9 @@ void BossThrowingState::Enter()
 	float angle_radian = std::atan2f(dx, dz) + DirectX::XM_PI;
 	m_pOwner->SetRotationY(angle_radian);
 
-	// アニメーション開始
+	// アニメーション開始.
 	m_pOwner->SetAnimSpeed(2.0);
-	m_pOwner->ChangeAnim(Boss::enBossAnim::LaserCharge); // 投擲用の溜め
+	m_pOwner->ChangeAnim(Boss::enBossAnim::LaserCharge); // 投擲用の溜め.
 
 	m_IsLaunched = false;
 	m_List = enThrowing::None;
@@ -53,7 +53,7 @@ void BossThrowingState::Update()
 	case enThrowing::Anim:
 		if (m_pOwner->IsAnimEnd(Boss::enBossAnim::LaserCharge))
 		{
-			m_pOwner->ChangeAnim(Boss::enBossAnim::Laser); // 投げる瞬間のアニメ
+			m_pOwner->ChangeAnim(Boss::enBossAnim::Laser); // 投げる瞬間のアニメ.
 			m_List = enThrowing::Attack;
             SoundManager::GetInstance().Play("Throw");
             SoundManager::GetInstance().SetVolume("Throw", 9000);
@@ -63,11 +63,11 @@ void BossThrowingState::Update()
 	case enThrowing::Attack:
 		if (!m_IsLaunched)
 		{
-			// 発射位置を調整（ボスの手元の高さ）
+			// 発射位置を調整（ボスの手元の高さ）.
 			DirectX::XMFLOAT3 startPos = m_pOwner->GetPosition();
 			startPos.y += m_BallHeight;
 
-			// 雪玉発射
+			// 雪玉発射.
 			SnowBallManager::GetInstance().Spawn(m_pOwner->GetTargetPos(), startPos);
 			m_IsLaunched = true;
 		}
@@ -88,7 +88,7 @@ void BossThrowingState::Update()
 		break;
 
 	case enThrowing::Trans:
-		// 次の行動（アイドル）へ
+		// 次の行動（アイドル）へ.
 		m_pOwner->GetStateMachine()->ChangeState(std::make_shared<BossIdolState>(m_pOwner));
 		break;
 	}
@@ -146,4 +146,3 @@ void BossThrowingState::SaveSettings() const
     auto filePath = srcDir / GetSettingsFileName();
     FileManager::JsonSave(filePath, j);
 }
-

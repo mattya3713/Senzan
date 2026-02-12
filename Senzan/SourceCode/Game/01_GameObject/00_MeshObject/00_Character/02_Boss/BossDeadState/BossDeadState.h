@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "System/Utility/StateMachine/StateBase.h"
 
 class Boss;
@@ -14,15 +14,15 @@ public:
 	BossDeadState(Boss* owner);
 	~BossDeadState();
 
-	//Å‰‚É“ü‚é.
+	//æœ€åˆã«å…¥ã‚‹.
 	void Enter() override;
-	//“®ì.
+	//å‹•ä½œ.
 	void Update() override;
-	//‚©‚©‚È‚­‚Ä‚¢‚¢.
+	//ã‹ã‹ãªãã¦ã„ã„.
 	void LateUpdate() override;
-	//•`‰æ.
+	//æç”».
 	void Draw() override;
-	//I‚í‚é‚Æ‚«‚Éˆê‰ñ‚¾‚¯“ü‚é.
+	//çµ‚ã‚ã‚‹ã¨ãã«ä¸€å›ã ã‘å…¥ã‚‹.
 	void Exit() override;
 
 private:

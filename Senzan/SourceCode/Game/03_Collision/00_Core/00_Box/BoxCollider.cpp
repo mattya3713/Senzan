@@ -83,4 +83,3 @@ void BoxCollider::SetDebugInfo()
 
     visualizer.RegisterCollider(info);
 }
-

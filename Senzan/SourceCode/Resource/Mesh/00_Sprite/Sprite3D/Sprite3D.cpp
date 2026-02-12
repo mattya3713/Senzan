@@ -42,8 +42,8 @@ Sprite3D::~Sprite3D()
 }
 
 //初期化.
-//	ID3D11Device* pDevice11 外部で作成して持ってくる。
-//	ID3D11DeviceContext* pContext11 外部で作成して持ってくる。
+//	ID3D11Device* pDevice11 外部で作成して持ってくる。.
+//	ID3D11DeviceContext* pContext11 外部で作成して持ってくる。.
 HRESULT Sprite3D::Init(
 	DirectX11& pDx11,
 	LPCTSTR lpFileName,
@@ -94,10 +94,10 @@ void Sprite3D::Release()
 	m_pDevice11 = nullptr;
 }
 
-//===========================================================
+//===========================================================.
 //	HLSLファイルを読み込みシェーダを作成する.
 //	HLSL: High Level Shading Language の略.
-//===========================================================
+//===========================================================.
 HRESULT Sprite3D::CreateShader()
 {
 	ID3DBlob* pCompiledShader = nullptr;
@@ -106,7 +106,7 @@ HRESULT Sprite3D::CreateShader()
 #ifdef _DEBUG
 	uCompileFlag =
 		D3D10_SHADER_DEBUG | D3D10_SHADER_SKIP_OPTIMIZATION;
-#endif//#ifdef _DEBUG
+#endif//#ifdef _DEBUG.
 
 	//HLSLからバーテックスシェーダのブロブを作成.
 	if (FAILED(
@@ -254,7 +254,7 @@ HRESULT Sprite3D::CreateModel()
 	//板ポリ(四角形)の頂点を作成.
 	VERTEX vertices[]=
 	{
-		//頂点座標(x,y,z)				 UV座標(u,v)
+		//頂点座標(x,y,z)				 UV座標(u,v).
 		DirectX::XMFLOAT3(-w,-h, 0.0f ), DirectX::XMFLOAT2( 0.0f,    v ),	//頂点１(左下).
 		DirectX::XMFLOAT3(-w, h, 0.0f ), DirectX::XMFLOAT2( 0.0f, 0.0f ),	//頂点２(左上).
 		DirectX::XMFLOAT3( w,-h, 0.0f ), DirectX::XMFLOAT2(    u,    v ),	//頂点３(右下).
@@ -340,29 +340,29 @@ void Sprite3D::Render()
 	DirectX::XMMATRIX	mTrans, mRot, mScale;
 
 	//拡大縮小行列.
-	// 【D3DXからXMへ】
+	// 【D3DXからXMへ】.
 	mScale = DirectX::XMMatrixScaling(
 		m_Scale.x, m_Scale.y, m_Scale.z);
 
 	//回転行列.
 	DirectX::XMMATRIX mYaw, mPitch, mRoll;
-	// 【D3DXからXMへ】
+	// 【D3DXからXMへ】.
 	mYaw = DirectX::XMMatrixRotationY(m_Rotation.y);
 	mPitch = DirectX::XMMatrixRotationX(m_Rotation.x);
 	mRoll = DirectX::XMMatrixRotationZ(m_Rotation.z);
 
-	// 【D3DXからXMへ】行列乗算をXMMatrixMultiplyに置き換え
+	// 【D3DXからXMへ】行列乗算をXMMatrixMultiplyに置き換え.
 	mRot = DirectX::XMMatrixMultiply(mYaw, mPitch);
 	mRot = DirectX::XMMatrixMultiply(mRot, mRoll);
 
 	//平行行列（平行移動）.
-	// 【D3DXからXMへ】
+	// 【D3DXからXMへ】.
 	mTrans = DirectX::XMMatrixTranslation(
 		m_Position.x, m_Position.y, m_Position.z);
 
 	//ワールド座標変換.
 	//重要: 拡縮行列 * 回転行列 * 平行行列.
-	// 【D3DXからXMへ】行列乗算をXMMatrixMultiplyに置き換え
+	// 【D3DXからXMへ】行列乗算をXMMatrixMultiplyに置き換え.
 	DirectX::XMMATRIX mWorldTemp = DirectX::XMMatrixMultiply(mScale, mRot);
 	mWorld = DirectX::XMMatrixMultiply(mWorldTemp, mTrans);
 
@@ -371,15 +371,15 @@ void Sprite3D::Render()
 		DirectX::XMMATRIX CancelRotation = CameraManager::GetInstance().GetViewMatrix();//ビュー行列.
 
 		// 【D3DXからXMへ】行列成分アクセスをXMVectorSet/Storeに置き換え
-		// ビュー行列から回転成分のみを抽出するため、平行移動成分をゼロにする
+		// ビュー行列から回転成分のみを抽出するため、平行移動成分をゼロにする.
 		CancelRotation.r[3] = DirectX::XMVectorSet(0.0f, 0.0f, 0.0f, 1.0f);
 
 		// CancelRotationの逆行列を求めます.
-		// 【D3DXからXMへ】
+		// 【D3DXからXMへ】.
 		DirectX::XMVECTOR Determinant;
 		CancelRotation = DirectX::XMMatrixInverse(&Determinant, CancelRotation);
 
-		// 行列乗算をXMMatrixMultiplyに置き換え
+		// 行列乗算をXMMatrixMultiplyに置き換え.
 		mWorld = DirectX::XMMatrixMultiply(CancelRotation, mWorld);
 	}
 
@@ -396,17 +396,17 @@ void Sprite3D::Render()
 		0, D3D11_MAP_WRITE_DISCARD, 0, &pData)))
 	{
 		//ワールド,ビュー,プロジェクション行列を渡す.
-		// 【D3DXからXMへ】行列乗算をXMMatrixMultiplyに置き換え
+		// 【D3DXからXMへ】行列乗算をXMMatrixMultiplyに置き換え.
 		DirectX::XMMATRIX m = DirectX::XMMatrixMultiply(mWorld, CameraManager::GetInstance().GetViewProjMatrix());
 
-		// 【D3DXからXMへ】行列を転置する
+		// 【D3DXからXMへ】行列を転置する.
 		m = DirectX::XMMatrixTranspose(m);
 		cb.mWVP = m;
 
-		//カラー. (変更なし)
+		//カラー. (変更なし).
 		cb.vColor = DirectX::XMFLOAT4(1.0f, 1.0f, 1.0f, m_Alpha);
 
-		//テクスチャ座標. (変更なし)
+		//テクスチャ座標. (変更なし).
 		cb.vUV.x = m_SpriteState.Stride.w / m_SpriteState.Base.w
 			* static_cast<float>(m_PatternNo.x);
 		cb.vUV.y = m_SpriteState.Stride.h / m_SpriteState.Base.h
@@ -418,7 +418,7 @@ void Sprite3D::Render()
 		m_pContext11->Unmap(m_pConstantBuffer, 0);
 	}
 
-	// (以降のレンダリングパイプライン設定は変更なし)
+	// (以降のレンダリングパイプライン設定は変更なし).
 
 	//このコンスタントバッファをどのシェーダで使うか？.
 	m_pContext11->VSSetConstantBuffers(0, 1, &m_pConstantBuffer);

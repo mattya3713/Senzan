@@ -20,7 +20,7 @@ public:
     constexpr PlayerState::eID GetStateID() const override;
 
     // 設定項目設置パス.
-    // 親クラスの戻り値の型と一致させる（トップレベル const を削除）。
+    // 親クラスの戻り値の型と一致させる（トップレベル const を削除）。.
     std::string GetSettingsFileName() const override {
         return "Data\\Json\\Player\\AttackCombo\\AttackCombo_2.json";
     }
@@ -34,4 +34,4 @@ public:
 private:
 };
 
-} // namespace PlayerState
+} // namespace PlayerState.

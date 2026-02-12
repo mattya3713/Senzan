@@ -30,7 +30,6 @@ DirectWrite::~DirectWrite()
 	m_pDWriteFactory->UnregisterFontCollectionLoader(m_pFontCollectionLoader.Get());	
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 bool DirectWrite::DrawString(
 	const std::string str, 
@@ -78,7 +77,7 @@ bool DirectWrite::DrawString(
 	// 影を描画する場合.
 	if (isShadow)
 	{
-		// 影の描画
+		// 影の描画.
 		m_pRenderTarget->DrawTextLayout(
 			D2D1::Point2F(points.x - m_FontData.ShadowOffset.x, points.y - m_FontData.ShadowOffset.y),
 			m_pTextLayout.Get(),
@@ -87,17 +86,16 @@ bool DirectWrite::DrawString(
 	}
 
 
-	// 描画処理
+	// 描画処理.
 	m_pRenderTarget->DrawTextLayout(points, m_pTextLayout.Get(), m_pBrush.Get(), options);
 
-	// 描画の終了
+	// 描画の終了.
 	result = m_pRenderTarget->EndDraw();
 	assert(SUCCEEDED(result) && "描画に失敗");
 
 	return true;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 bool DirectWrite::DrawString(
 	const std::string str, 
@@ -132,7 +130,7 @@ bool DirectWrite::DrawString(
 
 	if (m_IsDrawOutline) 
 	{
-		// 描画領域を可視化（赤枠を描画）
+		// 描画領域を可視化（赤枠を描画）.
 		Microsoft::WRL::ComPtr<ID2D1SolidColorBrush> rectBrush;
 		m_pRenderTarget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Red), &rectBrush);
 		m_pRenderTarget->DrawRectangle(rect, rectBrush.Get());
@@ -172,14 +170,12 @@ bool DirectWrite::DrawString(
 	return true;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::BeginSetting()
 {
 	m_IsSetting = true;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::EndSetting()
 {
@@ -190,7 +186,6 @@ void DirectWrite::EndSetting()
 	}
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 HRESULT DirectWrite::SetFontData(const FontData& data)
 {
@@ -228,7 +223,6 @@ HRESULT DirectWrite::SetFontData(const FontData& data)
 	return S_OK;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 const std::wstring DirectWrite::GetFontName(const int num)
 {
@@ -241,175 +235,150 @@ const std::wstring DirectWrite::GetFontName(const int num)
 	return m_FontNameList[num];
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 const std::vector<std::wstring>& DirectWrite::GetFontNames() const
 {
 	return m_FontNameList;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 const std::wstring& DirectWrite::GetFont() const
 {
 	return m_FontData.Font;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::SetFont(const std::wstring& font)
 {
 	m_FontData.Font = font;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 const DWRITE_FONT_WEIGHT DirectWrite::GetWeight() const
 {
 	return m_FontData.FontWeight;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::SetWeight(const DWRITE_FONT_WEIGHT weight)
 {
 	m_FontData.FontWeight = weight;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 const DWRITE_FONT_STYLE DirectWrite::GetStyle() const
 {
 	return m_FontData.FontStyle;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::SetStyle(const DWRITE_FONT_STYLE style)
 {
 	m_FontData.FontStyle = style;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 const DWRITE_FONT_STRETCH DirectWrite::GetStretch() const
 {
 	return m_FontData.FontStretch;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::SetStretch(const DWRITE_FONT_STRETCH stretch)
 {
 	m_FontData.FontStretch = stretch;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 const FLOAT DirectWrite::GetSize() const
 {
 	return m_FontData.FontSize;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::SetSize(const FLOAT size)
 {
 	m_FontData.FontSize = size;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 const DWRITE_TEXT_ALIGNMENT DirectWrite::GetTextAlignment() const
 {
 	return m_FontData.TextAlignment;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::SetTextAlignment(const DWRITE_TEXT_ALIGNMENT textAlignment)
 {
 	m_FontData.TextAlignment = textAlignment;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 const DWRITE_PARAGRAPH_ALIGNMENT DirectWrite::GetParagraphAlignment() const
 {
 	return m_FontData.ParagraphAlignment;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::SetParagraphAlignment(const DWRITE_PARAGRAPH_ALIGNMENT paragraphAlignment)
 {
 	m_FontData.ParagraphAlignment = paragraphAlignment;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 const D2D1_COLOR_F DirectWrite::GetColor() const
 {
 	return m_FontData.Color;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::SetColor(const D2D1_COLOR_F color)
 {
 	m_FontData.Color = color;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 const D2D1_COLOR_F DirectWrite::GetShadowColor() const
 {
 	return m_FontData.ShadowColor;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::SetShadowColor(const D2D1_COLOR_F color)
 {
 	m_FontData.ShadowColor = color;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 const D2D1_POINT_2F DirectWrite::GetShadowOffset() const
 {
 	return m_FontData.ShadowOffset;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::SetShadowOffset(const D2D1_POINT_2F offset)
 {
 	m_FontData.ShadowOffset = offset;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::SetAngle(const float& angle)
 {
 	m_Angle = angle;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::SetPivot(const DirectX::XMFLOAT2& pivot)
 {
 	m_Pivot = pivot;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 void DirectWrite::SetIsDrawOutline(const bool& isDrawOutline)
 {
 	m_IsDrawOutline = isDrawOutline;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 bool DirectWrite::Init()
 {
@@ -473,7 +442,6 @@ bool DirectWrite::Init()
 	return true;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 HRESULT DirectWrite::LoadFonts()
 {
@@ -493,7 +461,6 @@ HRESULT DirectWrite::LoadFonts()
 	return S_OK;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 HRESULT DirectWrite::GetFontFamilyName(IDWriteFontCollection* pCustomFontCollection, const WCHAR* pLocale)
 {
@@ -552,7 +519,6 @@ HRESULT DirectWrite::GetFontFamilyName(IDWriteFontCollection* pCustomFontCollect
 	return S_OK;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 HRESULT DirectWrite::GetAllFontFamilyName(IDWriteFontCollection* pCustomFontCollection)
 {
@@ -602,17 +568,16 @@ HRESULT DirectWrite::GetAllFontFamilyName(IDWriteFontCollection* pCustomFontColl
 	return S_OK;
 }
 
-//--------------------------------------------------------------------------------------------------.
 
 std::wstring DirectWrite::GetFontFileNameWithoutExtension(const std::wstring& filePath)
 {
-	// 末尾から検索してファイル名と拡張子の位置を取得
+	// 末尾から検索してファイル名と拡張子の位置を取得.
 	size_t start	= filePath.find_last_of(L"/\\") + 1;
 	size_t end		= filePath.find_last_of(L'.');
 
-	// ファイル名を取得
+	// ファイル名を取得.
 	std::wstring fileNameWithoutExtension = filePath.substr(start, end - start);
 
-	// ファイル名を返す
+	// ファイル名を返す.
 	return fileNameWithoutExtension;
 }

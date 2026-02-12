@@ -84,7 +84,7 @@ void SphereCollider::SetDebugInfo()
     DirectX::XMStoreFloat4x4(&info.WorldMatrix, mat_debug_world);
 
     // 半径を Data0.x に設定.
-    // (デバッグメッシュが単位半径を想定している場合、この値でスケーリングを行う)
+    // (デバッグメッシュが単位半径を想定している場合、この値でスケーリングを行う).
     info.Data0 = DirectX::XMFLOAT4(m_Radius, 0.0f, 0.0f, 0.0f);
     info.Data1 = DirectX::XMFLOAT4(0.0f, 0.0f, 0.0f, 0.0f);
 

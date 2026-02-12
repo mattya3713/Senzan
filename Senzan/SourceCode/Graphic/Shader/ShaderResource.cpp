@@ -12,41 +12,35 @@ ShaderResource::ShaderResource()
     Init();
 }
 
-//---------------------------------------------------------------------------------------.
 
 ShaderResource::~ShaderResource()
 {
 }
 
-//---------------------------------------------------------------------------------------.
 
 const std::unique_ptr<VertexShaderBase>& ShaderResource::GetVSShadowMapStaticMesh()
 {
     return m_pVSShadowMapStaticMesh;
 }
 
-//---------------------------------------------------------------------------------------.
 
 const std::unique_ptr<PixelShaderBase>& ShaderResource::GetPSShadowMapStaticMesh()
 {
     return m_pPSShadowMapStaticMesh;
 }
 
-//---------------------------------------------------------------------------------------.
 
 const std::unique_ptr<VertexShaderBase>& ShaderResource::GetVSShadowMapSkinMesh()
 {
     return m_pVSShadowMapSkinMesh;
 }
 
-//---------------------------------------------------------------------------------------.
 
 const std::unique_ptr<PixelShaderBase>& ShaderResource::GetPSShadowMapSkinMesh()
 {
     return m_pPSShadowMapSkinMesh;
 }
 
-//---------------------------------------------------------------------------------------.
 
 void ShaderResource::Init()
 {

@@ -1,14 +1,14 @@
-#include "CImGuiManager.h"
+ï»¿#include "CImGuiManager.h"
 #include "Graphic/DirectX/DirectX11/DirectX11.h"
 #include <utility>
 
-//g—p‚µ‚Ä‚¢‚éƒtƒHƒ“ƒg.
-constexpr char FONT_FILE_PATH[] = "Data//ImGui//Font//NotoSansJP-SemiBold.ttf";
-//ƒtƒHƒ“ƒgƒTƒCƒY.
+//ä½¿ç”¨ã—ã¦ã„ã‚‹ãƒ•ã‚©ãƒ³ãƒˆ.
+constexpr char FONT_FILE_PATH[] = "Data//ImGui//Font//NotoSansJP-SemiBold.ttf";.
+//ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º.
 constexpr float FONT_SIZE = 18.f;
-// ƒOƒ‰ƒt‚âUI—v‘f‚È‚Ç‚É‚¨‚¢‚ÄA“¯‚¶ƒ‰ƒCƒ“ã‚Å­‚µ‚¸‚ç‚µ‚Ä•\¦‚·‚é‚½‚ß‚ÌƒIƒtƒZƒbƒg’li100ƒsƒNƒZƒ‹j
-// constexpr ‚ğg‚¤‚±‚Æ‚ÅAƒRƒ“ƒpƒCƒ‹‚É’è”‚Æ‚µ‚Äˆµ‚í‚êAÅ“K‰»‚³‚ê‚é
-constexpr float SAMALINE_OFFSET = 100.f;    //ImGui::SameLine‚ÌƒIƒtƒZƒbƒg’l.
+// ã‚°ãƒ©ãƒ•ã‚„UIè¦ç´ ãªã©ã«ãŠã„ã¦ã€åŒã˜ãƒ©ã‚¤ãƒ³ä¸Šã§å°‘ã—ãšã‚‰ã—ã¦è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤ï¼ˆ100ãƒ”ã‚¯ã‚»ãƒ«ï¼‰.
+// constexpr ã‚’ä½¿ã†ã“ã¨ã§ã€ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«æ™‚ã«å®šæ•°ã¨ã—ã¦æ‰±ã‚ã‚Œã€æœ€é©åŒ–ã•ã‚Œã‚‹.
+constexpr float SAMALINE_OFFSET = 100.f;    //ImGui::SameLineã®ã‚ªãƒ•ã‚»ãƒƒãƒˆå€¤.
 
 CImGuiManager::CImGuiManager()
 {
@@ -20,7 +20,7 @@ CImGuiManager::~CImGuiManager()
 
 }
 
-//ƒCƒ“ƒXƒ^ƒ“ƒX‚É‚±‚ê‚ğæ‚É‘‚­.
+//ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹æ™‚ã«ã“ã‚Œã‚’å…ˆã«æ›¸ã.
 CImGuiManager* CImGuiManager::GetInstance()
 {
     static CImGuiManager Instance;
@@ -32,37 +32,37 @@ HRESULT CImGuiManager::Init(HWND hWnd)
     ImGui::CreateContext();
 
     ImGuiIO& io = ImGui::GetIO();
-    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;   //ƒhƒbƒLƒ“ƒO‚ğ—LŒø‚É‚·‚é.
-    //ƒ}ƒ‹ƒ`ƒrƒ…[ƒ|[ƒg(•¡”‚ÌƒEƒBƒ“ƒhƒE)‚Æƒvƒ‰ƒbƒgƒtƒH[ƒ€ƒEƒBƒ“ƒhƒE‚Ì—LŒø‰».
-    //‚­‚í‚µ‚¢‚â‚­
-    //ImGui‚Ìƒ}ƒ‹ƒ`ƒrƒ…[ƒ|[ƒg‹@”\‚ğ—LŒø‰»(UI‚ğ•¡”ƒEƒBƒ“ƒhƒE‚Æ‚µ‚Ä•\¦‰Â”\‚É‚·‚é).
-    // ‚à‚¤­‚µ‚­‚í‚µ‚­‘‚­
-    //•¡”ƒEƒBƒ“ƒhƒE•\¦‚ğ—LŒø‰».
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;   //ãƒ‰ãƒƒã‚­ãƒ³ã‚°ã‚’æœ‰åŠ¹ã«ã™ã‚‹.
+    //ãƒãƒ«ãƒãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ(è¤‡æ•°ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦)ã¨ãƒ—ãƒ©ãƒƒãƒˆãƒ•ã‚©ãƒ¼ãƒ ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æœ‰åŠ¹åŒ–.
+    //ãã‚ã—ã„ã‚„ã.
+    //ImGuiã®ãƒãƒ«ãƒãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆæ©Ÿèƒ½ã‚’æœ‰åŠ¹åŒ–(UIã‚’è¤‡æ•°ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¨ã—ã¦è¡¨ç¤ºå¯èƒ½ã«ã™ã‚‹).
+    // ã‚‚ã†å°‘ã—ãã‚ã—ãæ›¸ã.
+    //è¤‡æ•°ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦è¡¨ç¤ºã‚’æœ‰åŠ¹åŒ–.
     io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; //EnableMulti-Viewport / Platform Windows
-    //‘O‚ÌƒtƒŒ[ƒ€‚©‚çŒo‰ßŠÔ‚ğİ’è(•b’PˆÊ)B‚±‚±‚Å‚ÍA1ƒtƒŒ[ƒ€ = 1/60•b (=60FPS‚ğ‘z’è).
+    //å‰ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã‹ã‚‰çµŒéæ™‚é–“ã‚’è¨­å®š(ç§’å˜ä½)ã€‚ã“ã“ã§ã¯ã€1ãƒ•ãƒ¬ãƒ¼ãƒ  = 1/60ç§’ (=60FPSã‚’æƒ³å®š).
     io.DeltaTime = 1.f / 60.f;    //time elapsed since the previous frame (in seconds).
-    io.DisplaySize.x = WND_W;   //‰¡‚Ì‰æ‘œƒTƒCƒY.
-    io.DisplaySize.y = WND_H;   //c‚Ì‰æ‘œƒTƒCƒY.
+    io.DisplaySize.x = WND_W;   //æ¨ªã®ç”»åƒã‚µã‚¤ã‚º.
+    io.DisplaySize.y = WND_H;   //ç¸¦ã®ç”»åƒã‚µã‚¤ã‚º.
 
-    //ƒtƒHƒ“ƒg‚ğ“Ç‚İ‚Ş.
-    // io.Fonts->AddFontFromFileTTF ŠÖ”‚ğg‚Á‚ÄATrueTypeƒtƒHƒ“ƒgiTTFjƒtƒ@ƒCƒ‹‚©‚ç“ú–{Œê‘Î‰‚ÌƒtƒHƒ“ƒg‚ğ’Ç‰Á‚·‚éB
+    //ãƒ•ã‚©ãƒ³ãƒˆã‚’èª­ã¿è¾¼ã‚€.
+    // io.Fonts->AddFontFromFileTTF é–¢æ•°ã‚’ä½¿ã£ã¦ã€TrueTypeãƒ•ã‚©ãƒ³ãƒˆï¼ˆTTFï¼‰ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰æ—¥æœ¬èªå¯¾å¿œã®ãƒ•ã‚©ãƒ³ãƒˆã‚’è¿½åŠ ã™ã‚‹ã€‚.
     ImFont* font = io.Fonts->AddFontFromFileTTF(
-        FONT_FILE_PATH,                         //“Ç‚İ‚ŞƒtƒHƒ“ƒgƒtƒ@ƒCƒ‹‚ÌƒpƒX(—á: "fonts/MSGothic.ttc" ‚È‚Ç)
-        FONT_SIZE,                              //ƒtƒHƒ“ƒgƒTƒCƒY(ƒsƒNƒZƒ‹’PˆÊ)
-        NULL,                                   //ƒtƒHƒ“ƒgİ’è(NULL‚ÅƒfƒtƒHƒ‹ƒgİ’è‚ğg—p).
-        io.Fonts->GetGlyphRangesJapanese());    //“ú–{Œê‚Ì•¶šƒZƒbƒg(‚Ğ‚ç‚ª‚ÈEƒJƒ^ƒJƒiEŠ¿š)‚ğŠÜ‚ŞƒOƒŠƒt”ÍˆÍ‚ğæ“¾‚µ‚Äİ’è/
+        FONT_FILE_PATH,                         //èª­ã¿è¾¼ã‚€ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹(ä¾‹: "fonts/MSGothic.ttc" ãªã©)
+        FONT_SIZE,                              //ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º(ãƒ”ã‚¯ã‚»ãƒ«å˜ä½).
+        NULL,                                   //ãƒ•ã‚©ãƒ³ãƒˆè¨­å®š(NULLã§ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆè¨­å®šã‚’ä½¿ç”¨).
+        io.Fonts->GetGlyphRangesJapanese());    //æ—¥æœ¬èªã®æ–‡å­—ã‚»ãƒƒãƒˆ(ã²ã‚‰ãŒãªãƒ»ã‚«ã‚¿ã‚«ãƒŠãƒ»æ¼¢å­—)ã‚’å«ã‚€ã‚°ãƒªãƒ•ç¯„å›²ã‚’å–å¾—ã—ã¦è¨­å®š/
 
-    //Setup Dear ImGui style
-    //ImGui::StyleColorsDark();
-    //UI‚Ì•¶š‚ğ•F‚É‚·‚é.
+    //Setup Dear ImGui style.
+    //ImGui::StyleColorsDark();.
+    //UIã®æ–‡å­—ã‚’é»’è‰²ã«ã™ã‚‹.
     ImGui::StyleColorsDark();
-    //ƒXƒ^ƒCƒ‹İ’è‚ÉƒAƒNƒZƒX‚·‚é‚½‚ß‚ÌQÆ‚ğæ“¾.
+    //ã‚¹ã‚¿ã‚¤ãƒ«è¨­å®šã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ãŸã‚ã®å‚ç…§ã‚’å–å¾—.
     ImGuiStyle& style = ImGui::GetStyle();
-    //ƒ}ƒ‹ƒ`ƒrƒ…[ƒ|[ƒg(Platform Windows)‚ª—LŒø‚Èê‡‚É’Ç‰ÁƒXƒ^ƒCƒ‹‚ğİ’è.
+    //ãƒãƒ«ãƒãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆ(Platform Windows)ãŒæœ‰åŠ¹ãªå ´åˆã«è¿½åŠ ã‚¹ã‚¿ã‚¤ãƒ«ã‚’è¨­å®š.
     if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
     {
-        style.WindowRounding = 0.f;                 //ƒEƒBƒ“ƒhƒE‚ÌŠp‚ÌŠÛ‚İ‚ğƒ[ƒ‚É(lŠp‚­)‚·‚é.
-        style.Colors[ImGuiCol_WindowBg].w = 1.f;    //ƒEƒBƒ“ƒhƒE”wŒi‚Ì“§–¾“x‚ğ1(Š®‘S‚É•s“§–¾)‚É‚·‚é.
+        style.WindowRounding = 0.f;                 //ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®è§’ã®ä¸¸ã¿ã‚’ã‚¼ãƒ­ã«(å››è§’ã)ã™ã‚‹.
+        style.Colors[ImGuiCol_WindowBg].w = 1.f;    //ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦èƒŒæ™¯ã®é€æ˜åº¦ã‚’1(å®Œå…¨ã«ä¸é€æ˜)ã«ã™ã‚‹.
     }
     
     if (ImGui_ImplWin32_Init(hWnd) == false) { return E_FAIL; };
@@ -78,7 +78,7 @@ void CImGuiManager::Relese()
     ImGui::DestroyContext();
 }
 
-//ƒtƒŒ[ƒ€‚Ìİ’è.
+//ãƒ•ãƒ¬ãƒ¼ãƒ ã®è¨­å®š.
 void CImGuiManager::NewFrameSetting()
 {
     ImGui_ImplDX11_NewFrame();
@@ -86,10 +86,10 @@ void CImGuiManager::NewFrameSetting()
     ImGui::NewFrame();
 }
 
-//•`‰æ.
+//æç”».
 void CImGuiManager::Render()
 {
-    //ImGuiIOŒ^‚Ìio‚ğvoid‚Æ‚µ‚Äg—pH
+    //ImGuiIOå‹ã®ioã‚’voidã¨ã—ã¦ä½¿ç”¨ï¼Ÿ.
     ImGuiIO& io = ImGui::GetIO(); (void)io;
 
     ImGui::Render();
@@ -103,7 +103,7 @@ void CImGuiManager::Render()
     }
 }
 
-//“ü—Íƒ{ƒbƒNƒX•\¦.
+//å…¥åŠ›ãƒœãƒƒã‚¯ã‚¹è¡¨ç¤º.
 template<typename T>
 bool CImGuiManager::Input(const char* label,
     T& value,
@@ -113,20 +113,20 @@ bool CImGuiManager::Input(const char* label,
     const char* format,
     ImGuiInputTextFlags flags)
 {
-    //ƒ‰ƒxƒ‹‚Ì•¶š—ñ‚ğì¬.
+    //ãƒ©ãƒ™ãƒ«ã®æ–‡å­—åˆ—ã‚’ä½œæˆ.
     const std::string newlabel = "##" + std::string(label);
 
-    //ƒ‰ƒxƒ‹İ’è‚ª—LŒø‚È‚çƒ‰ƒxƒ‹‚ğ•\¦.
+    //ãƒ©ãƒ™ãƒ«è¨­å®šãŒæœ‰åŠ¹ãªã‚‰ãƒ©ãƒ™ãƒ«ã‚’è¡¨ç¤º.
     if (isLabel == true)
     {
-        //ƒ‰ƒxƒ‹(ƒeƒLƒXƒg)‚ğ•\¦‚·‚é.
+        //ãƒ©ãƒ™ãƒ«(ãƒ†ã‚­ã‚¹ãƒˆ)ã‚’è¡¨ç¤ºã™ã‚‹.
         ImGui::Text(label);
-        //ƒ‰ƒxƒ‹‚ÆƒXƒ‰ƒCƒ_[‚ğ“¯‚¶s‚É”z’u‚·‚é‚½‚ß‚É‰¡•À‚Ñ‚É‚·‚é.
-        //SAMALINE_OFFSET‚¾‚¯‰E‚É‚¸‚ç‚µ‚Ä•\¦.
+        //ãƒ©ãƒ™ãƒ«ã¨ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã‚’åŒã˜è¡Œã«é…ç½®ã™ã‚‹ãŸã‚ã«æ¨ªä¸¦ã³ã«ã™ã‚‹.
+        //SAMALINE_OFFSETã ã‘å³ã«ãšã‚‰ã—ã¦è¡¨ç¤º.
         ImGui::SameLine(SAMALINE_OFFSET);
     }
 
-    // intŒ^‚Å•\¦.
+    // intå‹ã§è¡¨ç¤º.
     if constexpr (std::is_same_v<T, int>) 
     {
         return ImGui::InputInt(newlabel.c_str(),
@@ -135,7 +135,7 @@ bool CImGuiManager::Input(const char* label,
             static_cast<int>(stepFast),
             flags);
     }
-    // floatŒ^‚Å•\¦.
+    // floatå‹ã§è¡¨ç¤º.
     else if constexpr (std::is_same_v<T, float>) 
     {
         return ImGui::InputFloat(newlabel.c_str(),
@@ -145,7 +145,7 @@ bool CImGuiManager::Input(const char* label,
             format,
             flags);
     }
-    // doubleŒ^‚Å•\¦.
+    // doubleå‹ã§è¡¨ç¤º.
     else if constexpr (std::is_same_v<T, double>) 
     {
         return ImGui::InputDouble(newlabel.c_str(),
@@ -155,32 +155,32 @@ bool CImGuiManager::Input(const char* label,
             format,
             flags);
     }
-    // D3DXVECTOR2Œ^‚Å•\¦.
+    // D3DXVECTOR2å‹ã§è¡¨ç¤º.
     else if constexpr (std::is_same_v<T, D3DXVECTOR2>) 
     {
-        //D3DXVECTOR2Œ^‚ğg—p‚·‚é‚Æ‚«‚ÌInputŠÖ”.
+        //D3DXVECTOR2å‹ã‚’ä½¿ç”¨ã™ã‚‹ã¨ãã®Inputé–¢æ•°.
         return ImGui::InputFloat2(newlabel.c_str(),
             &value.x,
             format,
             flags);
     }
-    // D3DXVECTOR3Œ^‚Å•\¦.
+    // D3DXVECTOR3å‹ã§è¡¨ç¤º.
     else if constexpr (std::is_same_v<T, D3DXVECTOR3>) 
     {
-        //D3DXVECTOR3Œ^‚ğg—p‚·‚é‚Æ‚«‚ÌInputŠÖ”.
+        //D3DXVECTOR3å‹ã‚’ä½¿ç”¨ã™ã‚‹ã¨ãã®Inputé–¢æ•°.
         return ImGui::InputFloat3(newlabel.c_str(),
             &value.x,
             format,
             flags);
     }
-    // stringŒ^‚Å•\¦.
+    // stringå‹ã§è¡¨ç¤º.
     else if constexpr (std::is_same_v<T, std::string>) 
     {
         char buffer[256];
         strncpy_s(buffer,
             value.c_str(),
             sizeof(buffer));
-        //std::string‚ğg—p‚·‚é‚Æ‚«‚ÌInputŠÖ”.
+        //std::stringã‚’ä½¿ç”¨ã™ã‚‹ã¨ãã®Inputé–¢æ•°.
         if (ImGui::InputText(newlabel.c_str(),
             buffer,
             sizeof(buffer)))
@@ -234,24 +234,24 @@ template bool CImGuiManager::Input<std::string>(const char*,
     const char*,
     ImGuiInputTextFlags);
 
-//ƒXƒ‰ƒCƒ_[‚Ì•\¦.
+//ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®è¡¨ç¤º.
 template<typename T>
 void CImGuiManager::Slider(const char* label, T& value, T valueMin, T valueMax, bool isLabel)
 {
-    //ƒ‰ƒxƒ‹‚Ì•¶š—ñ‚ğì¬.
+    //ãƒ©ãƒ™ãƒ«ã®æ–‡å­—åˆ—ã‚’ä½œæˆ.
     const std::string newlabel = "##" + std::string(label);
 
-    //ƒ‰ƒxƒ‹İ’è‚ª—LŒø‚È‚çƒ‰ƒxƒ‹‚ğ•\¦.
+    //ãƒ©ãƒ™ãƒ«è¨­å®šãŒæœ‰åŠ¹ãªã‚‰ãƒ©ãƒ™ãƒ«ã‚’è¡¨ç¤º.
     if (isLabel == true)
     {
-        //ƒ‰ƒxƒ‹(ƒeƒLƒXƒg)‚ğ•\¦‚·‚é.
+        //ãƒ©ãƒ™ãƒ«(ãƒ†ã‚­ã‚¹ãƒˆ)ã‚’è¡¨ç¤ºã™ã‚‹.
         ImGui::Text(label);
-        //ƒ‰ƒxƒ‹‚ÆƒXƒ‰ƒCƒ_[‚ğ“¯‚¶s‚É”z’u‚·‚é‚½‚ß‚É‰¡•À‚Ñ‚É‚·‚é.
-        //SAMALINE_OFFSET‚¾‚¯‰E‚É‚¸‚ç‚µ‚Ä•\¦.
+        //ãƒ©ãƒ™ãƒ«ã¨ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã‚’åŒã˜è¡Œã«é…ç½®ã™ã‚‹ãŸã‚ã«æ¨ªä¸¦ã³ã«ã™ã‚‹.
+        //SAMALINE_OFFSETã ã‘å³ã«ãšã‚‰ã—ã¦è¡¨ç¤º.
         ImGui::SameLine(SAMALINE_OFFSET);
     }
 
-    //intŒ^‚Å•\¦.
+    //intå‹ã§è¡¨ç¤º.
     if constexpr (std::is_same_v<T, int>)
     {
         ImGui::SliderInt(
@@ -260,7 +260,7 @@ void CImGuiManager::Slider(const char* label, T& value, T valueMin, T valueMax, 
             valueMin,
             valueMax);
     }
-    //floatŒ^‚Å•\¦
+    //floatå‹ã§è¡¨ç¤º.
     else if constexpr (std::is_same_v<T, float>)
     {
         ImGui::SliderFloat(
@@ -282,20 +282,20 @@ template void CImGuiManager::Slider<float>(const char*,
     float,
     bool);
 
-//ƒRƒ“ƒ{ƒ{ƒbƒNƒX.
+//ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹.
 std::string CImGuiManager::Combo(const char* Label,
     std::string& NowItem,
     const std::vector<std::string>& List,
     bool isLabel,
     float space)
 {
-    //‘I‘ğ’†‚ÌƒŠƒXƒg‚Ì—v‘f”Ô†.
+    //é¸æŠä¸­ã®ãƒªã‚¹ãƒˆã®è¦ç´ ç•ªå·.
     int No = 0;
 
-    //ƒŠƒXƒg‚ÌÅ‘å”‚ğæ“¾.
+    //ãƒªã‚¹ãƒˆã®æœ€å¤§æ•°ã‚’å–å¾—.
     const int List_Max = static_cast<int>(List.size());
 
-    //Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚éList‚Ì—v‘f”Ô†‚ğ•Û‘¶.
+    //ç¾åœ¨é¸æŠã•ã‚Œã¦ã„ã‚‹Listã®è¦ç´ ç•ªå·ã‚’ä¿å­˜.
     for (int i = 0; i < List_Max; ++i)
     {
         if (List[i] == NowItem)
@@ -305,31 +305,31 @@ std::string CImGuiManager::Combo(const char* Label,
         }
     }
 
-    //ƒ‰ƒxƒ‹İ’è‚ª—LŒø‚È‚çƒeƒLƒXƒg‚ğ•\¦.
+    //ãƒ©ãƒ™ãƒ«è¨­å®šãŒæœ‰åŠ¹ãªã‚‰ãƒ†ã‚­ã‚¹ãƒˆã‚’è¡¨ç¤º.
     if (isLabel == true)
     {
         ImGui::Text(Label);
         ImGui::SameLine(space);
     }
 
-    //ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚Ì•\¦.
+    //ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã®è¡¨ç¤º.
     if (ImGui::BeginCombo(std::string("##" + std::string(Label)).c_str(),
         NowItem.c_str()))
     {
         const int Size = static_cast<int>(List.size());
         for (int i = 0; i < Size; ++i)
         {
-            //‘I‘ğó‘Ô‚ğæ“¾.
+            //é¸æŠçŠ¶æ…‹ã‚’å–å¾—.
             bool is_Selected = (NowItem == List[i]);
 
-            //‘I‘ğ’†‚ÌƒŠƒXƒg‚Ì—v‘f”Ô†‚ğXV‚·‚é.
+            //é¸æŠä¸­ã®ãƒªã‚¹ãƒˆã®è¦ç´ ç•ªå·ã‚’æ›´æ–°ã™ã‚‹.
             if (ImGui::Selectable(List[i].c_str(),
                 is_Selected))
             {
                 No = i;
             }
 
-            //‘I‘ğ‚³‚ê‚½List‚ÉƒtƒH[ƒJƒX‚ğİ’è.
+            //é¸æŠã•ã‚ŒãŸListã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®š.
             if (is_Selected)
             {
                 ImGui::SetItemDefaultFocus();
@@ -340,19 +340,19 @@ std::string CImGuiManager::Combo(const char* Label,
     return NowItem = List[No];
 }
 
-//ƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚Ì•\¦.
+//ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã®è¡¨ç¤º.
 bool CImGuiManager::CheckBox(
     const char* label,
     bool& flag,
     bool isLabel)
 {
-    //ƒ‰ƒxƒ‹İ’è‚ª—LŒø‚È‚çƒeƒLƒXƒg‚ğ•\¦.
+    //ãƒ©ãƒ™ãƒ«è¨­å®šãŒæœ‰åŠ¹ãªã‚‰ãƒ†ã‚­ã‚¹ãƒˆã‚’è¡¨ç¤º.
     if (isLabel == true)
     {
-        //ƒ‰ƒxƒ‹(ƒeƒLƒXƒg)‚ğ•\¦‚·‚é.
+        //ãƒ©ãƒ™ãƒ«(ãƒ†ã‚­ã‚¹ãƒˆ)ã‚’è¡¨ç¤ºã™ã‚‹.
         ImGui::Text(label);
-        //ƒ‰ƒxƒ‹‚ÆƒXƒ‰ƒCƒ_[‚ğ“¯‚¶s‚É”z’u‚·‚é‚½‚ß‚É‰¡•À‚Ñ‚É‚·‚é.
-        //SAMALINE_OFFSET‚¾‚¯‰E‚É‚¸‚ç‚µ‚Ä•\¦.
+        //ãƒ©ãƒ™ãƒ«ã¨ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã‚’åŒã˜è¡Œã«é…ç½®ã™ã‚‹ãŸã‚ã«æ¨ªä¸¦ã³ã«ã™ã‚‹.
+        //SAMALINE_OFFSETã ã‘å³ã«ãšã‚‰ã—ã¦è¡¨ç¤º.
         ImGui::SameLine(SAMALINE_OFFSET);
     }
     return ImGui::Checkbox(
@@ -360,7 +360,7 @@ bool CImGuiManager::CheckBox(
         &flag);
 }
 
-//ƒOƒ‰ƒt‚ğ•\¦.
+//ã‚°ãƒ©ãƒ•ã‚’è¡¨ç¤º.
 void CImGuiManager::Graph(
     const char* Label,
     std::vector<float>& Data,

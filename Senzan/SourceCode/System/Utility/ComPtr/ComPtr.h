@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <wrl\\client.h>
-#include <utility> // std::swap を使用するためにインクルード
+#include <utility> // std::swap を使用するためにインクルード.
 
 template <typename T>
 class MyComPtr {
@@ -89,7 +89,7 @@ public:
     // 現在のポインタを解放し、そのアドレスを返す.
     T** ReleaseAndGetAddressOf() {
         if (m_ptr) { m_ptr->Release(); }
-        m_ptr = nullptr; // nullptr に設定
+        m_ptr = nullptr; // nullptr に設定.
         return &m_ptr;
     }
 

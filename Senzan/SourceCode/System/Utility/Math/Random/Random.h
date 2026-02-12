@@ -21,7 +21,7 @@ namespace MyRand
     inline float GetRandomPercentage(float Min, float Max)
     {
         static std::random_device dev{};
-        static std::mt19937 rnd{ dev() }; // エンジンは static で使い回す
+        static std::mt19937 rnd{ dev() }; // エンジンは static で使い回す.
 
         // もし Min > Max だったらエラーになるので、安全のために std::min/max を使う
         float low = std::min(Min, Max);

@@ -36,7 +36,6 @@ CameraBase::~CameraBase()
 {
 }
 
-//---------------------------------------------------------------------.
 
 // ビューとプロジェクションの更新.
 void CameraBase::ViewAndProjectionUpdate()
@@ -45,7 +44,6 @@ void CameraBase::ViewAndProjectionUpdate()
 	ProjectionUpdate();
 }
 
-//---------------------------------------------------------------------.
 
 bool CameraBase::IsPointInFrustum(const DirectX::XMFLOAT3& point)
 {
@@ -62,7 +60,6 @@ bool CameraBase::IsPointInFrustum(const DirectX::XMFLOAT3& point)
 	return true;
 }
 
-//---------------------------------------------------------------------.
 
 bool CameraBase::VFCulling(const DirectX::XMFLOAT3& Position, const float radius)
 {
@@ -73,7 +70,7 @@ bool CameraBase::VFCulling(const DirectX::XMFLOAT3& Position, const float radius
 	{
 		DirectX::XMVECTOR vPlane = DirectX::XMLoadFloat4(&plane);
 		float distance = DirectX::XMVectorGetX(DirectX::XMPlaneDotCoord(vPlane, vPosition));
-		if (distance < -radius) // 半径を考慮して視錐台の外かチェック
+		if (distance < -radius) // 半径を考慮して視錐台の外かチェック.
 		{
 			return false;
 		}
@@ -81,39 +78,34 @@ bool CameraBase::VFCulling(const DirectX::XMFLOAT3& Position, const float radius
 	return true;
 }
 
-//---------------------------------------------------------------------.
 
 const DirectX::XMFLOAT3& CameraBase::GetPosition() const
 {
 	return m_spTransform.Position;
 }
 
-//---------------------------------------------------------------------.
 
 void CameraBase::SetPosition(const DirectX::XMFLOAT3& Position)
 {
 	m_spTransform.Position = Position;
 }
 
-//---------------------------------------------------------------------.
 
 const DirectX::XMFLOAT3& CameraBase::GetLook() const
 {
 	return m_LookPos;
 }
 
-//---------------------------------------------------------------------.
 
 void CameraBase::SetLook(const DirectX::XMFLOAT3& look)
 {
 	m_LookPos = look;
 }
 
-//---------------------------------------------------------------------.
 
 const DirectX::XMFLOAT3 CameraBase::GetLookDirection()
 {
-	// XMVector3NormalizeはXMVECTORを返すため、XMStoreFloat3でXMFLOAT3に変換
+	// XMVector3NormalizeはXMVECTORを返すため、XMStoreFloat3でXMFLOAT3に変換.
 	DirectX::XMVECTOR vLook = DirectX::XMLoadFloat3(&m_LookPos);
 	DirectX::XMVECTOR vPosition = DirectX::XMLoadFloat3(&m_spTransform.Position);
 	DirectX::XMVECTOR vDirection = DirectX::XMVector3Normalize(DirectX::XMVectorSubtract(vLook, vPosition));
@@ -123,49 +115,42 @@ const DirectX::XMFLOAT3 CameraBase::GetLookDirection()
 	return direction;
 }
 
-//---------------------------------------------------------------------.
 
 const DirectX::XMMATRIX& CameraBase::GetViewMatrix() const
 {
 	return m_View;
 }
 
-//---------------------------------------------------------------------.
 
 const DirectX::XMMATRIX& CameraBase::GetProjMatrix() const
 {
 	return m_Proj;
 }
 
-//---------------------------------------------------------------------.
 
 const DirectX::XMMATRIX CameraBase::GetViewProjMatrix() const
 {
 	return m_View * m_Proj;
 }
 
-//---------------------------------------------------------------------.
 
 const DirectX::XMFLOAT3 CameraBase::GetForwardVec() const
 {
 	return m_spTransform.GetForward();
 }
 
-//---------------------------------------------------------------------.
 
 const DirectX::XMFLOAT3 CameraBase::GetRightVec() const
 {
 	return m_spTransform.GetRight();
 }
 
-//---------------------------------------------------------------------.
 
 const float& CameraBase::GetYaw() const
 {
 	return m_Yaw;
 }
 
-//---------------------------------------------------------------------.
 
 const float& CameraBase::GetPitch() const
 {
@@ -178,8 +163,6 @@ void CameraBase::SetShakeOffset(const DirectX::XMFLOAT3& offset)
 	m_ShakeOffset = offset;
 }
 
-
-//---------------------------------------------------------------------.
 
 void CameraBase::ViewUpdate()
 {
@@ -196,11 +179,10 @@ void CameraBase::ViewUpdate()
 	m_ShakeOffset = { 0.0f, 0.0f, 0.0f };
 }
 
-//---------------------------------------------------------------------.
 
 void CameraBase::ProjectionUpdate()
 {
-	// DirectXMathの関数でプロジェクション行列を更新
+	// DirectXMathの関数でプロジェクション行列を更新.
 	m_Proj = DirectX::XMMatrixPerspectiveFovLH(
         g_FOV_ANGLE_RAD,
 		ASPECT,
@@ -218,7 +200,6 @@ float CameraBase::GetFOV() const
     return g_FOV_ANGLE_RAD;
 }
 
-//---------------------------------------------------------------------.
 
 void CameraBase::CalculateMoveVector()
 {
@@ -244,7 +225,6 @@ void CameraBase::CalculateMoveVector()
 	DirectX::XMStoreFloat3(&m_spTransform.Position, v_new_camera_pos);
 }
 
-//---------------------------------------------------------------------.
 
 std::vector<DirectX::XMFLOAT4> CameraBase::CalcFrustum()
 {
@@ -268,7 +248,7 @@ std::vector<DirectX::XMFLOAT4> CameraBase::CalcFrustum()
 	DirectX::XMVECTOR v_plane_near = v_col3;
 	DirectX::XMVECTOR v_plane_far = DirectX::XMVectorSubtract(v_col4, v_col3);
 
-	// 各平面ベクトルを正規化
+	// 各平面ベクトルを正規化.
 	v_plane_left = DirectX::XMPlaneNormalize(v_plane_left);
 	v_plane_right = DirectX::XMPlaneNormalize(v_plane_right);
 	v_plane_bottom = DirectX::XMPlaneNormalize(v_plane_bottom);

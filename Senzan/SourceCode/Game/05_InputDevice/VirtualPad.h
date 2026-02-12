@@ -33,7 +33,7 @@ public:
         Pause,
         SpecialAttack,
 
-        // 軸入力用コンポーネント
+        // 軸入力用コンポーネント.
         Move_Axis_X,
         Move_Axis_Y,
         Camera_X,
@@ -48,14 +48,14 @@ public:
         Move,
     };
 
-    // アクションのタイプ（ボタンか軸か）。
+    // アクションのタイプ（ボタンか軸か）。.
     enum class eActionType
     {
         Button,
         Axis
     };
 
-    // 入力ソースを表す構造体。
+    // 入力ソースを表す構造体。.
     // キーボード/マウス/コントローラ等の情報を保持します。
     struct InputSource
     {
@@ -70,11 +70,11 @@ public:
             ControllerTriggerAxis
         };
 
-        eSourceType Type;                        // 入力ソースの種類
-        int KeyCode = 0;                         // キーコード（キーボード用）
-        XInput::Key ControllerKey = XInput::Key::None; // コントローラボタン
+        eSourceType Type;                        // 入力ソースの種類.
+        int KeyCode = 0;                         // キーコード（キーボード用）.
+        XInput::Key ControllerKey = XInput::Key::None; // コントローラボタン.
 
-        XInput::StickState StickState = XInput::StickState::None; // スティック状態
+        XInput::StickState StickState = XInput::StickState::None; // スティック状態.
 
         enum class eStickTarget
         {
@@ -85,21 +85,21 @@ public:
             RightTrigger
         };
 
-        eStickTarget StickTarget = eStickTarget::None; // スティックの対象
+        eStickTarget StickTarget = eStickTarget::None; // スティックの対象.
         
-        float Scale = 1.0f;                       // 入力スケール（軸系で使用）
+        float Scale = 1.0f;                       // 入力スケール（軸系で使用）.
     };
 
-    // アクションにバインドされた入力群を表す構造体。
+    // アクションにバインドされた入力群を表す構造体。.
     struct ActionBinding
     {
-        eActionType Type = eActionType::Button;   // アクションタイプ
-        std::vector<InputSource> Sources;         // バインドされた入力ソース一覧
+        eActionType Type = eActionType::Button;   // アクションタイプ.
+        std::vector<InputSource> Sources;         // バインドされた入力ソース一覧.
     };
 
 public:
     // アクション -> バインディングのマップ.
-    // 外部から直接参照する必要があるためメンバとして公開しています。
+    // 外部から直接参照する必要があるためメンバとして公開しています。.
     std::map<eGameAction, ActionBinding> m_KeyMap;
 
 public:
@@ -107,14 +107,14 @@ public:
 
     /**********************************************************
     * @brief 指定アクションが押された瞬間かを返す.
-    * @param action 判定するゲームアクション
+* @param action 判定するゲームアクション.
     **********************************************************/
     bool IsActionPress(eGameAction action) const;
 
     /**********************************************************
     * @brief 指定アクションが押されているかを返す（入力バッファ対応）.
-    * @param action 判定するゲームアクション
-    * @param inputBufferTime バッファ時間（秒）
+* @param action 判定するゲームアクション.
+* @param inputBufferTime バッファ時間（秒）.
     **********************************************************/
     bool IsActionDown(eGameAction action, float inputBufferTime = 0.0f) const;
 
@@ -125,8 +125,8 @@ public:
 
     /**********************************************************
     * @brief 軸入力の取得.
-    * @param axisType 取得する軸タイプ
-    * @return 2D軸値（X, Y）
+* @param axisType 取得する軸タイプ.
+* @return 2D軸値（X, Y）.
     **********************************************************/
     DirectX::XMFLOAT2 GetAxisInput(eGameAxisAction axisType) const;
 

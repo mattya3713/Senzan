@@ -11,7 +11,7 @@
 #include <typeinfo>
 
 namespace MyString {
-	// Helper to provide human-readable type names for ToString.
+	// 型名を人間が読める文字列で返すヘルパー.
 	template<typename T>
 	inline const char* TypeName() { return typeid(T).name(); }
 	template<>
@@ -32,7 +32,7 @@ namespace MyString {
 	std::string ToString(const T& value)
 	{
 		std::ostringstream ss;
-		// Append value and a readable type tag so ExtractAmount can parse it.
+		// 値と型タグを付加してExtractAmountでパースできる形式にする.
 		if constexpr (std::is_same_v<T, bool>) {
 			ss << (value ? "true" : "false");
 		} else {
@@ -78,7 +78,7 @@ namespace MyString {
 
 	/**********************************************************
 	* @brief 指定したコードページでエンコードされたstringをwstringに変換.
-	* @param[in] str		：変換したい文字列。
+	* @param[in] str		：変換したい文字列。.
 	* @param[in] codePage	：変換元のコードページ（例: CP_UTF8, CP_ACP）.
 	* @return 変換後のwstring.
 	**********************************************************/

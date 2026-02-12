@@ -20,10 +20,10 @@ MeshObject::MeshObject()
 }
 
 
-// Set object alpha
+// オブジェクトアルファの設定.
 void MeshObject::SetAlpha(float alpha)
 {
-    // clamp
+    // クランプする.
     if (alpha < 0.0f) alpha = 0.0f;
     if (alpha > 1.0f) alpha = 1.0f;
     m_ObjectAlpha = alpha;
@@ -34,13 +34,11 @@ float MeshObject::GetAlpha() const
     return m_ObjectAlpha;
 }
 
-//------------------------------------------------------------------------------------.
 
 MeshObject::~MeshObject()
 {
 }
 
-//------------------------------------------------------------------------------------.
 
 void MeshObject::Update()
 {
@@ -51,7 +49,6 @@ void MeshObject::LateUpdate()
 {
 }
 
-//------------------------------------------------------------------------------------.
 
 void MeshObject::Draw()
 {
@@ -89,12 +86,12 @@ void MeshObject::Draw()
 		bool useAlpha = (appliedAlpha < 0.999f);
 		if (useAlpha) DirectX11::GetInstance().SetAlphaBlend(true);
 
-		// Apply object alpha to mesh, render, then restore previous alpha
+		// オブジェクトアルファをメッシュに適用し、描画後に元のアルファを復元する.
 		skinMesh->SetGlobalAlpha(appliedAlpha);
 
 		skinMesh->Render(m_pAnimCtrl);
 
-		// Restore previous alpha
+		// 元のアルファを復元する.
 		skinMesh->SetGlobalAlpha(prevAlpha);
 
 		if (useAlpha) DirectX11::GetInstance().SetAlphaBlend(false);
@@ -102,7 +99,6 @@ void MeshObject::Draw()
 	}
 }
 
-//------------------------------------------------------------------------------------.
 
 void MeshObject::DrawDepth()
 {
@@ -132,7 +128,6 @@ void MeshObject::DrawDepth()
 
 }
 
-//------------------------------------------------------------------------------------.
 
 void MeshObject::AttachMesh(const std::shared_ptr<MeshBase>& pMesh)
 {
@@ -160,14 +155,12 @@ void MeshObject::AttachMesh(const std::shared_ptr<MeshBase>& pMesh)
 	}
 }
 
-//------------------------------------------------------------------------------------.
 
 void MeshObject::DetachMesh()
 {
 	m_pMesh.reset();
 }
 
-//------------------------------------------------------------------------------------.
 
 const std::string MeshObject::GetResourceName() const
 {
@@ -178,7 +171,6 @@ const std::string MeshObject::GetResourceName() const
 	return "None";
 }
 
-//------------------------------------------------------------------------------------.
 
 void MeshObject::SetIsLight(const bool& isLight)
 {
@@ -234,7 +226,6 @@ void MeshObject::IsLoopAnimTimeSet()
     }
 }
 
-//------------------------------------------------------------------------------------.
 
 HRESULT MeshObject::FindVerticesOnPoly(LPD3DXMESH pMesh, DWORD dwPolyIndex, DirectX::XMFLOAT3* pVertices)
 {

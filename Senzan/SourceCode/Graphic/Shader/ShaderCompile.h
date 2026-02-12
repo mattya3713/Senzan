@@ -10,7 +10,7 @@ static bool ShaderCompile(const std::string* filePath, const char* funcName, con
 
 #ifdef _DEBUG
 	uCompileFlag = D3D10_SHADER_DEBUG | D3D10_SHADER_SKIP_OPTIMIZATION;
-#endif//#ifdef _DEBUG
+#endif//#ifdef _DEBUG.
 
 	//HLSLからバーテックスシェーダのブロブを作成.
 	auto result = D3DX11CompileFromFile(

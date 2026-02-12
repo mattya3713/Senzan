@@ -4,7 +4,7 @@
 #include "Game/05_InputDevice/Input.h"
 #include "Game/03_Collision/Sprite/SpriteCollider.h"
 #include "Graphic/DirectX/DirectX11/DirectX11.h"
-#include "Game//04_Time//Time.h"
+#include "Game//04_Time//Time.h".
 #include "Singleton/SceneManager/SceneManager.h"
 #include "ResourceManager/ResourceManager.h"
 
@@ -23,36 +23,33 @@ UIEditor::~UIEditor()
 {
 }
 
-//-----------------------------------------------------------------------.
 
 void UIEditor::Create()
 {
 	SelectSceneLoad("Title");
 }
 
-//-----------------------------------------------------------------------.
 
 HRESULT UIEditor::LoadData()
 {
 	return E_NOTIMPL;
 }
 
-//-----------------------------------------------------------------------.
 
 void UIEditor::Initialize()
 {
 }
 
 
-//=============================================================================
+//=============================================================================.
 //		更新処理.
-//=============================================================================
+//=============================================================================.
 void UIEditor::Update()
 {
-	// キー入力
+	// キー入力.
 	KeyInput();
 
-	// シーンを選択する
+	// シーンを選択する.
 	ImGuiSelectScene();
 
 	//--------------------------------------------------------------
@@ -107,13 +104,11 @@ void UIEditor::Update()
 	ImGui::End();
 }
 
-//-----------------------------------------------------------------------.
 
 void UIEditor::LateUpdate() 
 {
 }
 
-//-----------------------------------------------------------------------.
 
 void UIEditor::KeyInput()
 {
@@ -122,9 +117,9 @@ void UIEditor::KeyInput()
 	if (GetAsyncKeyState(VK_SPACE) && 0x8000) { m_DragValue *= 0.001f; }
 }
 
-//=============================================================================
+//=============================================================================.
 //		描画処理.
-//=============================================================================
+//=============================================================================.
 void UIEditor::Draw()
 {
 	if (m_pUIs.empty()) { return; }
@@ -209,7 +204,6 @@ void UIEditor::SelectSceneLoad(const std::string& sceneName)
 		});
 }
 
-//-----------------------------------------------------------------------.
 
 HRESULT UIEditor::SaveScene()
 {
@@ -250,7 +244,6 @@ HRESULT UIEditor::SaveScene()
 	return S_OK;
 }
 
-//-----------------------------------------------------------------------.
 
 void UIEditor::SortBySpritePosZ(std::shared_ptr<UIObject> object)
 {
@@ -289,7 +282,6 @@ void UIEditor::SortBySpritePosZ(std::shared_ptr<UIObject> object)
 	m_MovedSpritePos = false;
 }
 
-//-----------------------------------------------------------------------.
 
 void UIEditor::ImGuiSelectScene()
 {
@@ -410,7 +402,6 @@ void UIEditor::ImGuiSearchUI()
 	}
 }
 
-//-----------------------------------------------------------------------.
 
 void UIEditor::AddDeleteSprite()
 {
@@ -471,7 +462,6 @@ void UIEditor::AddDeleteSprite()
 	}
 }
 
-//-----------------------------------------------------------------------.
 
 void UIEditor::RenameUIObjects()
 {
@@ -537,7 +527,6 @@ void UIEditor::ImGuiPosEdit(std::shared_ptr<UIObject> object)
 	}
 }
 
-//-----------------------------------------------------------------------.
 
 void UIEditor::ImGuiInfoEdit(std::shared_ptr<UIObject> object)
 {
@@ -598,14 +587,12 @@ void UIEditor::ImGuiEtcInfoEdit(std::shared_ptr<UIObject> object)
 	}
 }
 
-//-----------------------------------------------------------------------.
 
 void UIEditor::TriggeHgihLight()
 {
 	m_HighlightTime = 30.f * Time::GetInstance().GetDeltaTime();
 }
 
-//-----------------------------------------------------------------------.
 
 void UIEditor::HighLightUI(std::shared_ptr<UIObject> object)
 {

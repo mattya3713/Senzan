@@ -16,7 +16,7 @@
 #include "SceneManager/SceneManager.h" 
 #include "Game/05_InputDevice/Input.h"
 
-#include <algorithm> // std::min のために必要
+#include <algorithm> // std::min のために必要.
 
 // コンストラクタ.
 MemeuTestScene::MemeuTestScene()
@@ -110,7 +110,7 @@ void MemeuTestScene::Draw()
 
 HRESULT MemeuTestScene::LoadData()
 {
-	// ここで実際のロード処理を行うか、Create()に集約されているのであればE_NOTIMPLのままでもよい
+	// ここで実際のロード処理を行うか、Create()に集約されているのであればE_NOTIMPLのままでもよい.
 	// 現在のGameMainではCreate()でほとんどのInit/Load処理が行われているようです
-	return S_OK; // 成功を返す
+	return S_OK; // 成功を返す.
 }

@@ -1,8 +1,8 @@
-#pragma once
+ï»¿#pragma once
 #include "02_UIObject/UIObject.h"
 
 /*********************************************
-*	ƒ^ƒCƒgƒ‹UIƒNƒ‰ƒX.
+*	ã‚¿ã‚¤ãƒˆãƒ«UIã‚¯ãƒ©ã‚¹.
 **/
 class Select;
 
@@ -25,22 +25,22 @@ public:
 	void Draw();
 
 	/****************************************
-	* @brief ‘I‘ğ’†‚ÌUI€–Ú‚ğæ“¾.
+	* @brief é¸æŠä¸­ã®UIé …ç›®ã‚’å–å¾—.
 	****************************************/
 	Items GetSelected();
 
 private:
-	// ‘I‘ğˆ¶¬.
+	// é¸æŠè‚¢ç”Ÿæˆ.
 	void SelectCreate();
-	// ‘I‘ğˆXV.
+	// é¸æŠè‚¢æ›´æ–°.
 	void SelectUpdate();
-	// ‘I‘ğˆ’xXV.
-	//	‘–¸—p.
+	// é¸æŠè‚¢é…æ›´æ–°.
+	//	èµ°æŸ»ç”¨.
 	void SelectLateUpdate(std::shared_ptr<UIObject> ui);
-	// ƒAƒjƒ[ƒVƒ‡ƒ“‰Šú‰».
-	//	İ’è‚µ‚½‚¢UI€–Ú.
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³åˆæœŸåŒ–.
+	//	è¨­å®šã—ãŸã„UIé …ç›®.
 	void InitAnim(Items item);
-	// ƒAƒjƒ[ƒVƒ‡ƒ“XV.
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³æ›´æ–°.
 	void AnimUpdate();
 
 private:

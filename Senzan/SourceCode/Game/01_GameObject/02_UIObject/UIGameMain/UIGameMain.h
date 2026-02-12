@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "02_UIObject/UIObject.h"
-#include "Game//04_Time//Time.h"
+#include "Game//04_Time//Time.h".
 
 /*********************************************
 *	ゲームメインUIクラス.

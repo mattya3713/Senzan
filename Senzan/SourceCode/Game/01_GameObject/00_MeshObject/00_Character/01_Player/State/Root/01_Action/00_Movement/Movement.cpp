@@ -8,9 +8,9 @@
 
 namespace PlayerState {
 
-// ----------------------------------------------------
-// コンストラクタ
-// ----------------------------------------------------
+// ----------------------------------------------------.
+// コンストラクタ.
+// ----------------------------------------------------.
 Movement::Movement(Player* owner)
 	: Action(owner)
 	, m_Collision_BodyHit(std::make_shared<CapsuleCollider>(owner->GetTransform()))
@@ -57,4 +57,4 @@ void Movement::Exit()
 {
 	Action::Exit();
 }
-} // namespace PlayerState
+} // namespace PlayerState.

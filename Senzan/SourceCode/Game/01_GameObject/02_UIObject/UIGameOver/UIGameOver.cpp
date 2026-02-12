@@ -4,7 +4,7 @@
 #include "Utility/Color/Color.h"
 
 #include "Graphic/DirectX/DirectX11/DirectX11.h"
-#include "Game//04_Time//Time.h"
+#include "Game//04_Time//Time.h".
 #include "Game/05_InputDevice/Input.h"
 
 UIGameOver::UIGameOver()
@@ -24,13 +24,11 @@ UIGameOver::UIGameOver()
 	SelectCreate();
 }
 
-//----------------------------------------------------------------.
 
 UIGameOver::~UIGameOver()
 {
 }
 
-//----------------------------------------------------------------.
 
 void UIGameOver::SelectCreate()
 {
@@ -43,7 +41,6 @@ void UIGameOver::SelectCreate()
 	}
 }
 
-//----------------------------------------------------------------.
 
 void UIGameOver::Update()
 {
@@ -75,13 +72,11 @@ void UIGameOver::Update()
 	m_pSelect->Update();
 }
 
-//----------------------------------------------------------------.
 
 void UIGameOver::LateUpdate()
 {
 }
 
-//----------------------------------------------------------------.
 
 void UIGameOver::Draw()
 {
@@ -94,7 +89,6 @@ void UIGameOver::Draw()
 	m_pSelect->Draw();
 }
 
-//----------------------------------------------------------------.
 
 void UIGameOver::SelectUpdate()
 {	
@@ -122,7 +116,6 @@ void UIGameOver::SelectUpdate()
 	AnimUpdate();
 }
 
-//----------------------------------------------------------------.
 
 void UIGameOver::SelectLateUpdate(std::shared_ptr<UIObject> ui)
 {
@@ -156,7 +149,6 @@ void UIGameOver::SelectLateUpdate(std::shared_ptr<UIObject> ui)
 	}
 }
 
-//----------------------------------------------------------------.
 
 void UIGameOver::InitAnim(Items item)
 {
@@ -165,7 +157,6 @@ void UIGameOver::InitAnim(Items item)
 	m_AnimReturn = false;
 }
 
-//----------------------------------------------------------------.
 
 void UIGameOver::AnimUpdate()
 {
@@ -180,7 +171,6 @@ void UIGameOver::AnimUpdate()
 	}
 }
 
-//----------------------------------------------------------------.
 
 UIGameOver::Items UIGameOver::GetSelected()
 {

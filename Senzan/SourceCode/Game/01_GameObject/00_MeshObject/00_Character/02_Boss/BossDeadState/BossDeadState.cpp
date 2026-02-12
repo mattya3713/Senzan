@@ -1,6 +1,6 @@
 ﻿#include "BossDeadState.h"
 
-#include "00_MeshObject//00_Character//02_Boss//Boss.h"
+#include "00_MeshObject//00_Character//02_Boss//Boss.h".
 
 static constexpr double AnimSpeed = 3.0;
 
@@ -23,7 +23,7 @@ void BossDeadState::Enter()
 
 	if (m_pOwner->IsAnimEnd(Boss::enBossAnim::Dead))
 	{
-		//ゲームクリアへ遷移させる
+		//ゲームクリアへ遷移させる.
 		return;
 	}
 }

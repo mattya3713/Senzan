@@ -10,7 +10,6 @@ CustomFontCollectionLoader::~CustomFontCollectionLoader()
 {
 }
 
-//--------------------------------------------------------------------------------------.
 
 IFACEMETHODIMP CustomFontCollectionLoader::QueryInterface(REFIID iid, void** ppvObject)
 {
@@ -27,14 +26,12 @@ IFACEMETHODIMP CustomFontCollectionLoader::QueryInterface(REFIID iid, void** ppv
 	}
 }
 
-//--------------------------------------------------------------------------------------.
 
 ULONG __stdcall CustomFontCollectionLoader::AddRef()
 {
 	return InterlockedIncrement(&m_RefCount);
 }
 
-//--------------------------------------------------------------------------------------.
 
 ULONG __stdcall CustomFontCollectionLoader::Release()
 {
@@ -44,7 +41,6 @@ ULONG __stdcall CustomFontCollectionLoader::Release()
 	return newCount;
 }
 
-//--------------------------------------------------------------------------------------.
 
 IFACEMETHODIMP CustomFontCollectionLoader::CreateEnumeratorFromKey(
 	IDWriteFactory* factory, 

@@ -5,13 +5,11 @@ ResourceManager::ResourceManager()
 {	
 }
 
-//------------------------------------------------------------------------.
 
 ResourceManager::~ResourceManager()
 {
 }
 
-//------------------------------------------------------------------------.
 
 bool ResourceManager::LoadMesh()
 {
@@ -21,14 +19,12 @@ bool ResourceManager::LoadMesh()
 	return true;
 }
 
-//------------------------------------------------------------------------.
 
 bool ResourceManager::LoadSounds()
 {
 	return SoundManager::LoadSounds(GetInstance().m_hWnd);
 }
 
-//------------------------------------------------------------------------.
 
 bool ResourceManager::LoadEffects()
 {
@@ -39,14 +35,12 @@ bool ResourceManager::LoadEffects()
 	return true;
 }
 
-//------------------------------------------------------------------------.
 
 std::shared_ptr<StaticMesh> ResourceManager::GetStaticMesh(const std::string& name)
 {
 	return MeshManager::GetStaticMesh(name);
 }
 
-//------------------------------------------------------------------------.
 
 std::shared_ptr<SkinMesh> ResourceManager::GetSkinMesh(const std::string& name)
 {
@@ -54,29 +48,24 @@ std::shared_ptr<SkinMesh> ResourceManager::GetSkinMesh(const std::string& name)
 }
 
 
-//------------------------------------------------------------------------.
-
 std::shared_ptr<Sprite2D> ResourceManager::GetSprite2D(const std::string& name)
 {
 	return SpriteManager::GetSprite2D(name);
 }
 
-//------------------------------------------------------------------------.
 
 ::Effekseer::EffectRef ResourceManager::GetEffect(const std::string& name)
 {
-	// EffectResourceから取得
+	// EffectResourceから取得.
 	return EffectResource::GetResource(name);
 }
 
-//------------------------------------------------------------------------.
 
 void ResourceManager::SethWnd(HWND hWnd)
 {
 	GetInstance().m_hWnd = hWnd;
 }
 
-//------------------------------------------------------------------------.
 
 HWND ResourceManager::GethWnd()
 {

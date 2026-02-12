@@ -22,27 +22,27 @@
 // ウィンドウを画面中央で起動を有効にする.
 #define ENABLE_WINDOWS_CENTERING
 
-//=================================================
+//=================================================.
 // 定数.
-//=================================================
+//=================================================.
 const TCHAR WND_TITLE[] = _T("閃斬");
 const TCHAR APP_NAME[] = _T("閃斬");
 
-//=================================================
+//=================================================.
 // コンストラクタ.
-//=================================================
+//=================================================.
 Main::Main()
 	: m_hWnd            ( nullptr )
 	, m_pResourceLoader(std::make_unique<Loader>())
 {
 }
 
-//=================================================
+//=================================================.
 // デストラクタ.
-//=================================================
+//=================================================.
 Main::~Main()
 {
-	CImGuiManager::Relese(); // ImGuiの終了処理
+	CImGuiManager::Relese(); // ImGuiの終了処理.
 }
 
 // データロード処理.
@@ -88,10 +88,10 @@ void Main::Update()
 
 	DebugImgui();
 
-	// フレームキャプチャマネージャ更新
+	// フレームキャプチャマネージャ更新.
 	FrameCaptureManager::GetInstance().Update(Time::GetInstance().GetDeltaTime());
 
-	// 再生中はゲームロジックをスキップ
+	// 再生中はゲームロジックをスキップ.
 	if (FrameCaptureManager::GetInstance().IsPlaying())
 	{
 		return;
@@ -99,7 +99,7 @@ void Main::Update()
 
 	SceneManager::GetInstance().Update();
 
-    // SoundManager の更新（自動復帰タイマー等）
+    // SoundManager の更新（自動復帰タイマー等）.
     SoundManager::GetInstance().Update(Time::GetInstance().GetDeltaTime());
 
 	// マウスホイールのスクロール方向を初期化.
@@ -113,7 +113,7 @@ void Main::Update()
 	{
 		wasEscPressed = !wasEscPressed;
 	}
-#endif // _DEBUG
+#endif // _DEBUG.
 
 	Input::SetCenterMouseCursor(wasEscPressed);
 	Input::SetShowCursor(!wasEscPressed);
@@ -136,7 +136,7 @@ void Main::Draw()
 
 	auto& fc = FrameCaptureManager::GetInstance();
 
-	// 再生中はキャプチャしたフレームを描画
+	// 再生中はキャプチャしたフレームを描画.
 	if (fc.IsPlaying())
 	{
 		fc.RenderPlayback(Time::GetInstance().GetDeltaTime());
@@ -154,7 +154,7 @@ void Main::Draw()
 		pe.BeginSceneRender();
 		SceneManager::Draw();
 
-		// 【歪みエフェクト用】シーンをResolveしてから背景テクスチャとしてEffekseerに渡す
+		// 【歪みエフェクト用】シーンをResolveしてから背景テクスチャとしてEffekseerに渡す.
 		auto ctx = DirectX11::GetInstance().GetContext();
 		ctx->ResolveSubresource(pe.GetSceneResolvedTex(), 0, pe.GetSceneMSAATex(), 0, DXGI_FORMAT_R8G8B8A8_UNORM);
 		EffekseerManager::GetInstance().SetBackgroundTexture(pe.GetSceneSRV());
@@ -162,12 +162,12 @@ void Main::Draw()
 		pe.DrawToBackBuffer();
 	}
 	else {
-		// 通常描画（レンダーターゲットを戻してから描画）
+		// 通常描画（レンダーターゲットを戻してから描画）.
 		DirectX11::GetInstance().ResetRenderTarget();
 		SceneManager::Draw();
 	}
 
-	// キャプチャ中はフレームをコピー
+	// キャプチャ中はフレームをコピー.
 	if (fc.IsCapturing())
 	{
 		fc.CaptureFrame();
@@ -195,10 +195,10 @@ void Main::Loop()
 		return;
 	}
 
-	// タイマ精度を向上させる
+	// タイマ精度を向上させる.
 	timeBeginPeriod(1);
 
-	// 読み込み完了待ち処理
+	// 読み込み完了待ち処理.
 	DWORD lastTime = timeGetTime(); // 前のフレームの時間.
 	const float loadUpdateInterval = 1.0f / 60.0f; // 読み込み更新の間隔 (60FPS目安).
 	float accumulatedTime = 0.0f;
@@ -224,7 +224,7 @@ void Main::Loop()
 	}
 	while (!FadeManager::GetInstance().IsFadeCompleted(Fade::FadeType::FadeOut))
 	{
-		// Update fade and ensure the backbuffer is cleared each frame
+		// Update fade and ensure the backbuffer is cleared each frame.
 		// so the fade sprite doesn't composite over an uninitialized/back buffer.
 		FadeManager::GetInstance().Update();
 		DirectX11::GetInstance().ClearBackBuffer();
@@ -353,7 +353,7 @@ void Main::IsExitGame()
 
 	if (Input::IsKeyDown(Esc)) // Escキーが押された瞬間.
 	{
-		// 前回からの経過時間を計算
+		// 前回からの経過時間を計算.
 		float elapsedTime = currentTime - m_LastEscPressTime;
 
 		// ダブルタップの判定.
@@ -393,22 +393,22 @@ void Main::DebugImgui()
 
 	ImGui::Separator();
 
-	// --- World Time Scale の操作UI ---
+	// --- World Time Scale の操作UI ---.
 	ImGui::Text("World Time Scale");
 
-	// 現在の time scale を取得（Time クラスの GetWorldTimeScale() を使用）
+	// 現在の time scale を取得（Time クラスの GetWorldTimeScale() を使用）.
 	float timeScale = Time::GetInstance().GetWorldTimeScale();
 
-	// スライダーで time scale を調整（0.0f から 4.0f）
+	// スライダーで time scale を調整（0.0f から 4.0f）.
 	if (ImGui::SliderFloat("Scale", &timeScale, 0.0f, 4.0f, "%.2f")) {
-		// 負の値は許可しない
+		// 負の値は許可しない.
 		if (timeScale < 0.0f) {
 			timeScale = 0.0f;
 		}
 		Time::GetInstance().SetWorldTimeScale(timeScale);
 	}
 
-	// リセットと一時停止ボタン
+	// リセットと一時停止ボタン.
 	if (ImGui::Button("Reset##TimeScale")) {
 		Time::GetInstance().SetWorldTimeScale(1.0f);
 		timeScale = 1.0f;
@@ -419,21 +419,21 @@ void Main::DebugImgui()
 		Time::GetInstance().SetWorldTimeScale((cur > 0.0f) ? 0.0f : 1.0f);
 	}
 
-	// 現在の time scale をテキスト表示
+	// 現在の time scale をテキスト表示.
 	ImGui::Text("Current: %.2f", Time::GetInstance().GetWorldTimeScale());
 
 	ImGui::Separator();
 
-	// --- ディゾルブエフェクト デバッグ ---
+	// --- ディゾルブエフェクト デバッグ ---.
 	ImGui::Text(IMGUI_JP("ディゾルブエフェクト"));
 	
-	// スキンメッシュリストを取得
+	// スキンメッシュリストを取得.
 	static int selectedMeshIndex = 0;
 	auto meshList = MeshManager::GetSkinMeshList();
 	
 	if (!meshList.empty())
 	{
-		// メッシュ選択コンボボックス
+		// メッシュ選択コンボボックス.
 		if (ImGui::BeginCombo(IMGUI_JP("対象メッシュ"), meshList[selectedMeshIndex].c_str()))
 		{
 			for (int i = 0; i < static_cast<int>(meshList.size()); i++)
@@ -451,7 +451,7 @@ void Main::DebugImgui()
 			ImGui::EndCombo();
 		}
 		
-		// 選択されたメッシュのディゾルブ設定
+		// 選択されたメッシュのディゾルブ設定.
 		auto pMesh = MeshManager::GetSkinMesh(meshList[selectedMeshIndex]);
 		if (pMesh)
 		{

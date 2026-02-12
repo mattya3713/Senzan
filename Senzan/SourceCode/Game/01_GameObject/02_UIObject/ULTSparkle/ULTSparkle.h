@@ -12,7 +12,7 @@ public :
     struct SparkleParticle
     {
         std::shared_ptr<UIObject> ui;
-        DirectX::XMFLOAT2 velocity = {0.f,0.f}; // 移動方向＋速度
+        DirectX::XMFLOAT2 velocity = {0.f,0.f}; // 移動方向＋速度.
     };
 
 public:
@@ -27,7 +27,7 @@ public:
 
     // スパークルのアニメーションを実行.
     void DoPeakAnim();
-    // ゲージが最大かどうかを外部からセットする
+    // ゲージが最大かどうかを外部からセットする.
     void SetULTGaugeStatus(bool isMax, DirectX::XMFLOAT3 pos, DirectX::XMFLOAT2 size);
 
 private:

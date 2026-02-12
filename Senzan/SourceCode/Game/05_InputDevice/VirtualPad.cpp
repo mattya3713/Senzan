@@ -1,20 +1,20 @@
 ﻿#include "VirtualPad.h"
 #include <iostream> 
-#include <cmath> // std::sqrt, std::min, std::max に必要
+#include <cmath> // std::sqrt, std::min, std::max に必要.
 
-// --------------------------------------------------------------------------------
-// コンストラクタ
-// --------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------.
+// コンストラクタ.
+// --------------------------------------------------------------------------------.
 
 VirtualPad::VirtualPad()
 {
 }
 
-// --------------------------------------------------------------------------------
-// プライベート テンプレートヘルパーの実装 (checkActionState)
-// --------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------.
+// プライベート テンプレートヘルパーの実装 (checkActionState).
+// --------------------------------------------------------------------------------.
 
-// テンプレート関数はヘッダーにインライン展開するのが理想ですが、ここでは.cppに記述
+// テンプレート関数はヘッダーにインライン展開するのが理想ですが、ここでは.cppに記述.
 template <typename KeyCheckFunc, typename ButtonCheckFunc>
 bool VirtualPad::checkActionState(eGameAction action,
     KeyCheckFunc&& keyCheck,
@@ -24,8 +24,8 @@ bool VirtualPad::checkActionState(eGameAction action,
     auto it = m_KeyMap.find(action);
     if (it == m_KeyMap.end() || it->second.Type != eActionType::Button)
     {
-        // 軸アクションが間違って渡された場合のログ (Debug::Warning が定義されている前提)
-        // if (it != m_KeyMap.end() && it->second.type == eActionType::Axis) { Debug::Warning("Button check called for Axis action."); }
+        // 軸アクションが間違って渡された場合のログ (Debug::Warning が定義されている前提).
+        // if (it != m_KeyMap.end() && it->second.type == eActionType::Axis) { Debug::Warning("Button check called for Axis action."); }.
         return false;
     }
 
@@ -196,7 +196,7 @@ float VirtualPad::GetSingleAxisValue(eGameAction componentAction) const
         total_value += value * source.Scale;
     }
 
-    // 軸の値の最大値を 1.0f に制限
+    // 軸の値の最大値を 1.0f に制限.
     return std::min(1.0f, std::max(-1.0f, total_value));
 }
 
@@ -340,17 +340,17 @@ void VirtualPad::SetupDefaultBindings()
         }
     };
 
-    // ----- [ Axis Actions: 軸入力の内部コンポーネント ] -----
+    // ----- [ Axis Actions: 軸入力の内部コンポーネント ] -----.
 
     // 【Move Axis X】: 左スティックX軸の生の値とキーボードA/Dを合成.
     m_KeyMap[Action::Move_Axis_X] = {
         eActionType::Axis,
         {
-            // 左スティックX軸
+            // 左スティックX軸.
             { ESource::ControllerStickAxis, 0, EKey::None, EStickState::Right, ETarget::Left, 1.0f },
-            // キーボード 'D' (正方向)
+            // キーボード 'D' (正方向).
             { ESource::KeyBorad, 'D', EKey::None, EStickState::None, ETarget::None, 1.0f },
-            // キーボード 'A' (負方向)
+            // キーボード 'A' (負方向).
             { ESource::KeyBorad, 'A', EKey::None, EStickState::None, ETarget::None, -1.0f },
         }
     };
@@ -361,9 +361,9 @@ void VirtualPad::SetupDefaultBindings()
         {
             // 左スティックY軸 (前方/後方)
             { ESource::ControllerStickAxis, 0, EKey::None, EStickState::Up, ETarget::Left, 1.0f },
-            // キーボード 'W' (正方向)
+            // キーボード 'W' (正方向).
             { ESource::KeyBorad, 'W', EKey::None, EStickState::None, ETarget::None, 1.0f },
-            // キーボード 'S' (負方向)
+            // キーボード 'S' (負方向).
             { ESource::KeyBorad, 'S', EKey::None, EStickState::None, ETarget::None, -1.0f },
         }
     };
@@ -373,7 +373,7 @@ void VirtualPad::SetupDefaultBindings()
         eActionType::Axis,
         {
             { ESource::ControllerStickAxis, 0, EKey::None, EStickState::Right, ETarget::Right, 1.0f },
-            // マウス移動X軸 (感度調整のためのスケール)
+            // マウス移動X軸 (感度調整のためのスケール).
             { ESource::MouseMove, 0, EKey::None, EStickState::None, ETarget::None, 0.5f }
         }
     };
@@ -382,11 +382,10 @@ void VirtualPad::SetupDefaultBindings()
     m_KeyMap[Action::Camera_Y] = {
         eActionType::Axis,
         {
-            // 右スティックY軸 (カメラでは通常反転)
+            // 右スティックY軸 (カメラでは通常反転).
             { ESource::ControllerStickAxis, 0, EKey::None, EStickState::Up, ETarget::Right, -1.0f },
-            // マウス移動Y軸 (反転させてスケールを設定)
+            // マウス移動Y軸 (反転させてスケールを設定).
             { ESource::MouseMove, 0, EKey::None, EStickState::None, ETarget::None, -0.5f }
         }
     };
 }
-

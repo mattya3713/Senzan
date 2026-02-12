@@ -29,9 +29,9 @@ void GameObject::SetTransform(const Transform& transform)
 	}
 }
 
-// ====================================================================================================
-// 座標設定 (SetPosition)
-// ====================================================================================================
+// ====================================================================================================.
+// 座標設定 (SetPosition).
+// ====================================================================================================.
 
 void GameObject::SetPosition(const DirectX::XMFLOAT3& Position)
 {
@@ -59,13 +59,13 @@ void GameObject::SetPositionZ(float Z)
 }
 
 
-// ====================================================================================================
-// 座標加算 (AddPosition)
-// ====================================================================================================
+// ====================================================================================================.
+// 座標加算 (AddPosition).
+// ====================================================================================================.
 
 void GameObject::AddPosition(const DirectX::XMFLOAT3& Position)
 {
-    // SIMD演算を使用して加算
+    // SIMD演算を使用して加算.
     DirectX::XMVECTOR v_pos = DirectX::XMLoadFloat3(&m_spTransform->Position);
     DirectX::XMVECTOR v_add = DirectX::XMLoadFloat3(&Position);
     DirectX::XMVECTOR v_new = DirectX::XMVectorAdd(v_pos, v_add);
@@ -95,9 +95,9 @@ void GameObject::AddPositionZ(float Z)
 }
 
 
-// ====================================================================================================
-// 回転設定 (SetRotation)
-// ====================================================================================================
+// ====================================================================================================.
+// 回転設定 (SetRotation).
+// ====================================================================================================.
 
 void GameObject::SetRotation(const DirectX::XMFLOAT3& Rotation)
 {
@@ -135,7 +135,7 @@ void GameObject::SetRotationAroundAxis(const DirectX::XMFLOAT3& Axis, float Angl
     DirectX::XMVECTOR q_axis = DirectX::XMQuaternionRotationAxis(v_axis, Angle);
     DirectX::XMVECTOR q_current = DirectX::XMLoadFloat4(&m_spTransform->Quaternion);
 
-    // 現在のクォータニオンに新しい回転を乗算
+    // 現在のクォータニオンに新しい回転を乗算.
     DirectX::XMVECTOR q_new = DirectX::XMQuaternionMultiply(q_current, q_axis);
     DirectX::XMStoreFloat4(&m_spTransform->Quaternion, q_new);
 
@@ -143,9 +143,9 @@ void GameObject::SetRotationAroundAxis(const DirectX::XMFLOAT3& Axis, float Angl
 }
 
 
-// ====================================================================================================
-// 拡縮設定 (SetScale)
-// ====================================================================================================
+// ====================================================================================================.
+// 拡縮設定 (SetScale).
+// ====================================================================================================.
 
 void GameObject::SetScale(const DirectX::XMFLOAT3& Scale)
 {
@@ -177,42 +177,36 @@ void GameObject::SetScaleZ(float Z)
     m_spTransform->Scale.z = Z;
 }
 
-//-----------------------------------------------------------------------.
 
 const std::string& GameObject::GetTag() const
 {
 	return m_Tag;
 }
 
-//-----------------------------------------------------------------------.
 
 void GameObject::SetTag(const std::string& tag)
 {
 	m_Tag = tag;
 }
 
-//-----------------------------------------------------------------------.
 
 const bool GameObject::IsActive() const
 {
 	return m_IsActive;
 }
 
-//-----------------------------------------------------------------------.
 
 void GameObject::SetIsActive(const bool isActive)
 {
 	m_IsActive = isActive;
 }
 
-//-----------------------------------------------------------------------.
 
 const bool GameObject::IsRenderActive() const
 {
 	return m_IsRenderActive;
 }
 
-//-----------------------------------------------------------------------.
 
 void GameObject::SetIsRenderActive(const bool isActive)
 {
@@ -242,7 +236,7 @@ float GameObject::GetDelta()
     float delta_time = Time::GetInstance().GetDeltaTime();
     float world_scale = Time::GetInstance().GetWorldTimeScale();
 
-    // m_TimeScale が -1f の場合 (ワールドタイムスケールを無視)　
+    // m_TimeScale が -1f の場合 (ワールドタイムスケールを無視).
     if (MyMath::IsNearlyEqual(m_TimeScale, -1.f))
     {
         return delta_time;
@@ -256,19 +250,19 @@ float GameObject::GetDelta()
 // 目標方向へラープ回転.
 void GameObject::RotetToTarget(float TargetRote, float RotetionSpeed)
 {
-    // Use quaternion slerp to rotate smoothly around yaw without affecting pitch/roll.
+    // クォータニオンSlerpでヨー方向にスムーズ回転する.
     float deltaTime = GetDelta();
 
-    // Normalize degrees
+    // 角度を正規化する.
     TargetRote = MyMath::NormalizeAngleDegrees(TargetRote);
     DirectX::XMFLOAT3 current_rotation = m_spTransform->GetRotationDegrees();
     float CurrentRote = MyMath::NormalizeAngleDegrees(current_rotation.y);
 
-    // Angle difference in degrees (normalized)
+    // 角度差分 (度数法, 正規化済み).
     float angleDiffDeg = MyMath::NormalizeAngleDegrees(TargetRote - CurrentRote);
     float maxRotateDeg = RotetionSpeed * deltaTime;
 
-    // If within one frame's rotation, snap to target.
+    // 1フレーム以内の回転量なら目標にスナップする.
     float t = 0.0f;
     if (std::fabsf(angleDiffDeg) <= maxRotateDeg)
     {
@@ -280,18 +274,17 @@ void GameObject::RotetToTarget(float TargetRote, float RotetionSpeed)
         t = std::clamp(t, 0.0f, 1.0f);
     }
 
-    // Current quaternion
+    // 現在のクォータニオン.
     DirectX::XMVECTOR q_current = DirectX::XMLoadFloat4(&m_spTransform->Quaternion);
 
-    // Target yaw in radians
+    // 目標のヨー角をラジアンに変換.
     float targetYawRad = DirectX::XMConvertToRadians(TargetRote);
     DirectX::XMVECTOR q_target = DirectX::XMQuaternionRotationRollPitchYaw(0.0f, targetYawRad, 0.0f);
 
-    // Slerp and apply
+    // Slerpで補間し適用する.
     DirectX::XMVECTOR q_result = DirectX::XMQuaternionSlerp(q_current, q_target, t);
     q_result = DirectX::XMQuaternionNormalize(q_result);
     DirectX::XMFLOAT4 qf;
     DirectX::XMStoreFloat4(&qf, q_result);
     m_spTransform->SetQuaternion(qf);
 }
-

@@ -28,7 +28,6 @@
 #include "System/Singleton/Debug/Log/DebugLog.h"
 
 
-
 namespace PlayerState {
 Root::Root(Player* owner)
     : PlayerStateBase(owner)

@@ -4,7 +4,7 @@
 #include "Utility/Color/Color.h"
 
 #include "Graphic/DirectX/DirectX11/DirectX11.h"
-#include "Game//04_Time//Time.h"
+#include "Game//04_Time//Time.h".
 #include "Game/05_InputDevice/Input.h"
 
 
@@ -22,13 +22,11 @@ UITitle::UITitle()
 	SelectCreate();
 }
 
-//----------------------------------------------------------------.
 
 UITitle::~UITitle()
 {
 }
 
-//----------------------------------------------------------------.
 
 void UITitle::SelectCreate()
 {
@@ -41,7 +39,6 @@ void UITitle::SelectCreate()
 	}
 }
 
-//----------------------------------------------------------------.
 
 void UITitle::Update()
 {
@@ -55,13 +52,11 @@ void UITitle::Update()
 	m_pSelect->Update();
 }
 
-//----------------------------------------------------------------.
 
 void UITitle::LateUpdate()
 {
 }
 
-//----------------------------------------------------------------.
 
 void UITitle::Draw()
 {
@@ -74,7 +69,6 @@ void UITitle::Draw()
 	m_pSelect->Draw();
 }
 
-//----------------------------------------------------------------.
 
 void UITitle::SelectUpdate()
 {	
@@ -102,7 +96,6 @@ void UITitle::SelectUpdate()
 	AnimUpdate();
 }
 
-//----------------------------------------------------------------.
 
 void UITitle::SelectLateUpdate(std::shared_ptr<UIObject> ui)
 {
@@ -136,7 +129,6 @@ void UITitle::SelectLateUpdate(std::shared_ptr<UIObject> ui)
 	}
 }
 
-//----------------------------------------------------------------.
 
 void UITitle::InitAnim(Items item)
 {
@@ -145,7 +137,6 @@ void UITitle::InitAnim(Items item)
 	m_AnimReturn = false;
 }
 
-//----------------------------------------------------------------.
 
 void UITitle::AnimUpdate()
 {
@@ -160,7 +151,6 @@ void UITitle::AnimUpdate()
 	}
 }
 
-//----------------------------------------------------------------.
 
 UITitle::Items UITitle::GetSelected()
 {

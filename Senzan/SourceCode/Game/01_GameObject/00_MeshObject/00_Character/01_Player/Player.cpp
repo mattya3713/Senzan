@@ -41,9 +41,9 @@
 #include "Resource/Effect/EffectResource.h"
 #include <random>
 
-//#if _DEBUG
+//#if _DEBUG.
 #include "System/Singleton/ImGui/CImGuiManager.h"
-//#endif
+//#endif.
 
 Player::Player()
 	: Character         ()
@@ -131,7 +131,7 @@ Player::Player()
 	// 押し戻しの追加.
 	std::unique_ptr<CapsuleCollider> pressCollider = std::make_unique<CapsuleCollider>(m_spTransform);
 
-	m_pPressCollider = pressCollider.get();  // ポインタを保存
+	m_pPressCollider = pressCollider.get();  // ポインタを保存.
 
 	pressCollider->SetColor(Color::eColor::Cyan);
 	pressCollider->SetHeight(3.0f);
@@ -191,7 +191,7 @@ void Player::Update()
 
     EffekseerManager::GetInstance().GetManager()->Update();
 
-    // ジャスト回避エフェクトの更新（ステートに依存しない）
+    // ジャスト回避エフェクトの更新（ステートに依存しない）.
     if (m_pJustDodgeEffect && m_pJustDodgeEffect->IsPlaying())
     {
         m_pJustDodgeEffect->Update(GetDelta());
@@ -221,7 +221,7 @@ void Player::LateUpdate()
 	// 押し戻し.
 	HandleCollisionResponse();
 
-    // 衝突イベント処理を実行
+    // 衝突イベント処理を実行.
     if (IsSpecial()){return;}
 
     HandleParry_NocDetection();
@@ -236,24 +236,24 @@ void Player::Draw()
 {
     // モデルの関係で前後反転.
     // X/Z 軸の回転が描画時に変わらないよう、元の回転を保持して
-    // 一時的に Y 軸のみを変更して描画を行い、その後に復元する。
+    // 一時的に Y 軸のみを変更して描画を行い、その後に復元する。.
     DirectX::XMFLOAT3 originalRot = m_spTransform->Rotation;
     DirectX::XMFLOAT3 tempRot = originalRot;
-    tempRot.x = 0.0f; // X軸回転を無効化
-    tempRot.z = 0.0f; // Z軸回転を無効化
+    tempRot.x = 0.0f; // X軸回転を無効化.
+    tempRot.z = 0.0f; // Z軸回転を無効化.
     tempRot.y = originalRot.y + D3DXToRadian(180.0f);
     m_spTransform->SetRotation(tempRot);
 
     m_RootState->Draw();
     Character::Draw();
 
-    // ジャスト回避エフェクトの描画
+    // ジャスト回避エフェクトの描画.
     if (m_pJustDodgeEffect && m_pJustDodgeEffect->IsPlaying())
     {
         m_pJustDodgeEffect->Draw();
     }
 
-    // 回転を元に戻す
+    // 回転を元に戻す.
     m_spTransform->SetRotation(originalRot);
 }
 
@@ -296,27 +296,27 @@ void Player::ChangeState(PlayerState::eID id)
                s == PlayerState::eID::SpecialAttack;
     };
 
-    // まだ予約がない場合はそのままセット
+    // まだ予約がない場合はそのままセット.
     if (m_NextStateID == PlayerState::eID::None)
     {
         m_NextStateID = id;
         return;
     }
 
-    // 新しい遷移がSystem側なら優先して上書き
+    // 新しい遷移がSystem側なら優先して上書き.
     if (IsSystemState(id))
     {
         m_NextStateID = id;
         return;
     }
 
-    // 既に予約されている遷移がSystem側ならそれを優先（上書きしない）
+    // 既に予約されている遷移がSystem側ならそれを優先（上書きしない）.
     if (IsSystemState(m_NextStateID))
     {
         return;
     }
 
-    // それ以外は新しい遷移で上書きする
+    // それ以外は新しい遷移で上書きする.
     m_NextStateID = id;
 }
 
@@ -336,7 +336,7 @@ std::reference_wrapper<PlayerStateBase> Player::GetStateReference(PlayerState::e
 	catch (const std::exception& e)
 	{
 		std::string message = "Player::GetStateReference failed (ID: " + std::to_string(static_cast<int>(id)) + "): " + e.what();
-		//Debug::Warning(message.c_str());
+		//Debug::Warning(message.c_str());.
 		throw;
 	}
 }
@@ -393,12 +393,12 @@ void Player::HandleDamageDetection()
 				SoundManager::GetInstance().Play("Damage");
 				SoundManager::GetInstance().SetVolume("Damage",7000);
 
-				// 既にスタン中や無敵時間であれば処理を中断
+				// 既にスタン中や無敵時間であれば処理を中断.
 				if (IsKnockBack() || IsDead()) { continue; }
 
 				m_Combo = 0;
 
-				// ダメージを適用 
+				// ダメージを適用.
 				ApplyDamage(info.AttackAmount);
 
 				// ボスからPlayerへのベクトルを計算.
@@ -413,7 +413,7 @@ void Player::HandleDamageDetection()
 
 				m_KnockBackPower = 40.f;
 
-				// 状態をノックバックに遷移させる
+				// 状態をノックバックに遷移させる.
 				ChangeState(PlayerState::eID::KnockBack);
 
 				CameraManager::GetInstance().ShakeCamera(0.5f, 4.5f); // カメラを少し揺らす.
@@ -531,15 +531,15 @@ void Player::HandleParry_SuccessDetection()
 				SoundManager::GetInstance().SetVolume("Parry",9000);
 				m_IsSuccessParry = true;
 				
-				// パリィ成功時のゲージ増加
+				// パリィ成功時のゲージ増加.
 				m_CurrentUltValue += 100.0f * ComboMultiplier();
 
-				// パリィ成功時のカメラ演出（シェイク）
+				// パリィ成功時のカメラ演出（シェイク）.
 				CameraManager::GetInstance().ShakeCamera(0.15f, 0.3f);
 
                 CombatCoordinator::GetInstance().OnParrySuccess(true);
 
-            // パリィエフェクトを衝突点に出す（小さなランダムオフセットを追加）
+            // パリィエフェクトを衝突点に出す（小さなランダムオフセットを追加）.
                 for(int i = 0 ; i < 3; ++i)
             {
                 static thread_local std::mt19937 s_rng((std::random_device())());
@@ -591,15 +591,15 @@ void Player::HandleParry_FailDetection()
 				SoundManager::GetInstance().SetVolume("Parry",7000);
 				m_IsSuccessParry = true;
 
-                // パリィ成功時のゲージ増加
+                // パリィ成功時のゲージ増加.
                 m_CurrentUltValue += 100.0f * ComboMultiplier();
 
-				// パリィ成功時のカメラ演出（シェイク）
+				// パリィ成功時のカメラ演出（シェイク）.
 				CameraManager::GetInstance().ShakeCamera(0.15f, 0.3f);
-			    // Boss に通知（アニメ再生のみ）
+			    // Boss に通知（アニメ再生のみ）.
 			    CombatCoordinator::GetInstance().OnParrySuccess(false);
 
-                // パリィエフェクトを衝突点に出す（ランダム回転）
+                // パリィエフェクトを衝突点に出す（ランダム回転）.
                 {
                     static thread_local std::mt19937 s_rng((std::random_device())());
                     std::uniform_real_distribution<float> rotDist(0.0f, DirectX::XM_2PI);
@@ -643,12 +643,12 @@ void Player::HandleParry_NocDetection()
                 SoundManager::GetInstance().Play("Damage");
                 SoundManager::GetInstance().SetVolume("Damage", 7000);
 
-                // 既にスタン中や無敵時間であれば処理を中断
+                // 既にスタン中や無敵時間であれば処理を中断.
                 if (IsKnockBack() || IsDead()) { continue; }
 
                 m_Combo = 0;
 
-                // ダメージを適用 
+                // ダメージを適用.
                 ApplyDamage(info.AttackAmount);
 
                 // ボスからPlayerへのベクトルを計算.
@@ -663,7 +663,7 @@ void Player::HandleParry_NocDetection()
 
                 m_KnockBackPower = 40.f;
 
-                // 状態をノックバックに遷移させる
+                // 状態をノックバックに遷移させる.
                 ChangeState(PlayerState::eID::KnockBack);
 
                 CameraManager::GetInstance().ShakeCamera(0.5f, 4.5f); // カメラを少し揺らす.
@@ -688,11 +688,11 @@ void Player::StartJustDodgeEffect(const DirectX::XMFLOAT3& startPos, const Direc
     {
         m_pJustDodgeEffect = std::make_unique<JustDodgeEffect>();
     }
-    // Extend the target position in the boss forward direction by extraDistance (if provided)
+    // ボスの前方向にextraDistance分だけターゲット位置を延長する（指定されている場合）.
     DirectX::XMFLOAT3 finalTarget = targetPos;
     if (extraDistance != 0.0f)
     {
-        // compute direction from start to target (XZ) and extend
+        // 開始位置からターゲットへの方向（XZ平面）を計算して延長する.
         float dx = targetPos.x - startPos.x;
         float dz = targetPos.z - startPos.z;
         float len = sqrtf(dx*dx + dz*dz);

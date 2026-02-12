@@ -55,7 +55,6 @@ UIGameMain::~UIGameMain()
 {
 }
 
-//-----------------------------------------------------------------------.
 
 void UIGameMain::Create()
 {
@@ -100,7 +99,6 @@ void UIGameMain::Create()
     }
 }
 
-//-----------------------------------------------------------------------.
 
 void UIGameMain::Update()
 {
@@ -169,7 +167,6 @@ void UIGameMain::Update()
 	m_ComboChanged = false;
 }
 
-//-----------------------------------------------------------------------.
 
 void UIGameMain::LateUpdate()
 {
@@ -180,7 +177,6 @@ void UIGameMain::LateUpdate()
     m_pULTSparkle->LateUpdate();
 }
 
-//-----------------------------------------------------------------------.
 
 void UIGameMain::Draw()
 {
@@ -194,14 +190,12 @@ void UIGameMain::Draw()
     m_pULTSparkle->Draw();
 }
 
-//-----------------------------------------------------------------------.
 
 void UIGameMain::SetCombo(int num)
 {
 	m_Combo = num;
 }
 
-//-----------------------------------------------------------------------.
 
 void UIGameMain::SetTime(float progress)
 {
@@ -209,7 +203,6 @@ void UIGameMain::SetTime(float progress)
     m_TimeProgress = progress;
 }
 
-//-----------------------------------------------------------------------.
 
 void UIGameMain::SetPlayerHP(float max, float now)
 {
@@ -223,14 +216,12 @@ void UIGameMain::SetPlayerHP(float max, float now)
 	}
 }
 
-//-----------------------------------------------------------------------.
 
 void UIGameMain::SetPlayerUlt(float max, float now)
 {
 	m_PlayerUlt.Set(max, now);
 }
 
-//-----------------------------------------------------------------------.
 
 void UIGameMain::SetBossHP(float max, float now)
 {
@@ -244,7 +235,6 @@ void UIGameMain::SetBossHP(float max, float now)
 	}
 }
 
-//-----------------------------------------------------------------------.
 
 DirectX::XMFLOAT4 UIGameMain::LerpColor(const DirectX::XMFLOAT4& a, const DirectX::XMFLOAT4& b, float t)
 {
@@ -256,7 +246,6 @@ DirectX::XMFLOAT4 UIGameMain::LerpColor(const DirectX::XMFLOAT4& a, const Direct
 	};
 }
 
-//-----------------------------------------------------------------------.
 
 DirectX::XMFLOAT4 UIGameMain::GetComboColor(int combo)
 {
@@ -284,7 +273,6 @@ DirectX::XMFLOAT4 UIGameMain::GetComboColor(int combo)
 	return kComboColorTable[count - 1].color;
 }
 
-//-----------------------------------------------------------------------.
 
 void UIGameMain::Gauge::Set(float max, float now)
 {
@@ -319,7 +307,6 @@ void UIGameMain::Gauge::Set(float max, float now)
 	EaseMax = EaseFrame * Time::GetInstance().GetUnscaledDeltaTime();
 }
 
-//-----------------------------------------------------------------------.
 
 void UIGameMain::Gauge::Update(float dt)
 {
@@ -356,7 +343,6 @@ void UIGameMain::Gauge::Update(float dt)
 	}
 }
 
-//-----------------------------------------------------------------------.
 
 void UIGameMain::Gauge::StartFollow(float targetRate)
 {
@@ -373,7 +359,6 @@ void UIGameMain::Gauge::StartFollow(float targetRate)
 	EaseMax = EaseFrame * Time::GetInstance().GetUnscaledDeltaTime();
 }
 
-//-----------------------------------------------------------------------.
 
 bool UIGameMain::Gauge::ConsumeChanged()
 {

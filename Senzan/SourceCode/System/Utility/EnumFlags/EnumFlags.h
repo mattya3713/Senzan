@@ -1,16 +1,16 @@
-#pragma once
-#include <type_traits> // std::underlying_type_t, std::enable_if_t, std::true_type, std::false_type
-#include <cstdint>     // •W€‚Ì®”Œ^
+ï»¿#pragma once
+#include <type_traits> // std::underlying_type_t, std::enable_if_t, std::true_type, std::false_type.
+#include <cstdint>     // æ¨™æº–ã®æ•´æ•°å‹.
 
-// ƒgƒŒƒCƒg\‘¢‘Ì: EnumType ‚ªƒrƒbƒgƒtƒ‰ƒO‚Æ‚µ‚Ä—LŒø‰»‚³‚ê‚Ä‚¢‚é‚©‚ğ¦‚·ƒ}[ƒJ[
+// ãƒˆãƒ¬ã‚¤ãƒˆæ§‹é€ ä½“: EnumType ãŒãƒ“ãƒƒãƒˆãƒ•ãƒ©ã‚°ã¨ã—ã¦æœ‰åŠ¹åŒ–ã•ã‚Œã¦ã„ã‚‹ã‹ã‚’ç¤ºã™ãƒãƒ¼ã‚«ãƒ¼.
 template <typename T>
 struct is_scoped_enum_flag : std::false_type {};
 
-// Šî’êŒ^‚Ì•Ê–¼’è‹`.
+// åŸºåº•å‹ã®åˆ¥åå®šç¾©.
 template <typename T>
 using underlying_type = std::underlying_type_t<T>;
 
-// ƒeƒ“ƒvƒŒ[ƒgŠÖ”‚ğ—LŒø‰»‚·‚é‚½‚ß‚ÌƒGƒCƒŠƒAƒX.
+// ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆé–¢æ•°ã‚’æœ‰åŠ¹åŒ–ã™ã‚‹ãŸã‚ã®ã‚¨ã‚¤ãƒªã‚¢ã‚¹.
 template <typename T> using enable_if_flag = std::enable_if_t<is_scoped_enum_flag<T>::value, T>;
 template <typename T> using enable_if_flag_ref = std::enable_if_t<is_scoped_enum_flag<T>::value, T&>;
 
@@ -20,15 +20,15 @@ template <typename T> inline enable_if_flag<T> operator|(T a, T b) noexcept { re
 template <typename T> inline enable_if_flag<T> operator&(T a, T b) noexcept { return static_cast<T>(static_cast<underlying_type<T>>(a) & static_cast<underlying_type<T>>(b)); }
 // ^ (XOR).
 template <typename T> inline enable_if_flag<T> operator^(T a, T b) noexcept { return static_cast<T>(static_cast<underlying_type<T>>(a) ^ static_cast<underlying_type<T>>(b)); }
-// ~ (NOT/”½“]).
+// ~ (NOT/åè»¢).
 template <typename T> inline enable_if_flag<T> operator~(T a) noexcept { return static_cast<T>(~static_cast<underlying_type<T>>(a)); }
-// |= (OR ‘ã“ü).
+// |= (OR ä»£å…¥).
 template <typename T> inline enable_if_flag_ref<T> operator|=(T& a, T b) noexcept { a = a | b; return a; }
-// &= (AND ‘ã“ü).
+// &= (AND ä»£å…¥).
 template <typename T> inline enable_if_flag_ref<T> operator&=(T& a, T b) noexcept { a = a & b; return a; }
-// ^= (XOR ‘ã“ü).
+// ^= (XOR ä»£å…¥).
 template <typename T> inline enable_if_flag_ref<T> operator^=(T& a, T b) noexcept { a = a ^ b; return a; }
 
-// EnumType ‚ğƒrƒbƒgƒtƒ‰ƒO‚Æ‚µ‚Ä—LŒø‰»‚·‚é.
+// EnumType ã‚’ãƒ“ãƒƒãƒˆãƒ•ãƒ©ã‚°ã¨ã—ã¦æœ‰åŠ¹åŒ–ã™ã‚‹.
 #define ENABLE_ENUM_FLAG_OPERATORS(EnumType) \
     template <> struct is_scoped_enum_flag<EnumType> : std::true_type {};

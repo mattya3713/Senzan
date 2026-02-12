@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "CollisionInfo.h"
 
-struct Transform; // forward declaration to avoid include
+struct Transform; // forward declaration to avoid include.
 
 class CollisionDetector;
 class BoxCollider;
@@ -63,7 +63,7 @@ public:
 	virtual void Update() = 0;
 
 	// 親のトランスフォームを取得する.
-	//inline const std::weak_ptr<Transform>& GetParentTransform() const noexcept { return m_wpTransform; }
+	//inline const std::weak_ptr<Transform>& GetParentTransform() const noexcept { return m_wpTransform; }.
 
 	// 座標を取得する.
 	inline const DirectX::XMFLOAT3 GetPosition() const noexcept; 

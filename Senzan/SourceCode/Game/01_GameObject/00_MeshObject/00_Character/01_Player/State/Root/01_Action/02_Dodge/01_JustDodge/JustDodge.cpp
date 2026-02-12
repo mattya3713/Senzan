@@ -52,7 +52,7 @@ void JustDodge::Enter()
 
     m_IsEffectStart = false;
 
-    // ゲージ増加
+    // ゲージ増加.
     m_pOwner->m_CurrentUltValue += 900.0f * m_pOwner->ComboMultiplier();
 
     // タイムスケールを戻す && Boss攻撃判定を消す.
@@ -70,16 +70,16 @@ void JustDodge::Enter()
 
 void JustDodge::Update()
 {
-    //Dodge::Update();
+    //Dodge::Update();.
 
-    // 攻撃開始時にボスの方を向く（即時）
+    // 攻撃開始時にボスの方を向く（即時）.
     if (m_pOwner)
     {
         DirectX::XMFLOAT3 pos = m_pOwner->GetPosition();
         DirectX::XMFLOAT3 target = m_pOwner->m_TargetPos;
         float dx = target.x - pos.x;
         float dz = target.z - pos.z;
-        // 同じ手法でYawを計算してセット
+        // 同じ手法でYawを計算してセット.
         float angle_radian = std::atan2f(dx, dz);
         m_pOwner->SetRotationY(angle_radian);
     }
@@ -143,12 +143,12 @@ void JustDodge::Update()
         );
     }
 
-    // 回避攻撃再生 - Player側で管理するのでステートではStartJustDodgeEffectを呼び出すだけ
+    // 回避攻撃再生 - Player側で管理するのでステートではStartJustDodgeEffectを呼び出すだけ.
     if (!m_IsEffectStart && m_currentTime >= 2.0f)
     {
         DirectX::XMFLOAT3 playerPos = m_pOwner->GetPosition();
         DirectX::XMFLOAT3 bossPos = m_pOwner->m_TargetPos;
-        // エフェクトの終点をボスより奥にする（例: +10.0f）
+        // エフェクトの終点をボスより奥にする（例: +10.0f）.
         m_pOwner->StartJustDodgeEffect(playerPos, bossPos, 10.0f, 1.0f, 2.0f);
         m_IsEffectStart = true;
     }
@@ -184,7 +184,7 @@ void JustDodge::Draw()
         }
     }
 
-    // エフェクトは Player 側で描画されるのでここでは何もしない
+    // エフェクトは Player 側で描画されるのでここでは何もしない.
     Dodge::Draw();
 }
 
@@ -196,9 +196,8 @@ void JustDodge::Exit()
     // タイムスケールを戻す.
     CombatCoordinator::GetInstance().EndJustDodge();
 
-    // エフェクトは Player 側で管理されるので、ステート終了時には何もしない
-    // （エフェクトは duration 経過後に自然終了する）
+    // エフェクトは Player 側で管理されるので、ステート終了時には何もしない.
+    // （エフェクトは duration 経過後に自然終了する）.
 }
 
 } // PlayerState.
-

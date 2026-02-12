@@ -40,7 +40,6 @@ const std::filesystem::path FileManager::GetSelectFolderPath()
 	return folderPath;
 }
 
-//-------------------------------------------------------------------------------------------------------.
 
 const std::filesystem::path FileManager::GetSelectFilePath(const wchar_t* filter)
 {
@@ -74,7 +73,6 @@ const std::filesystem::path FileManager::GetSelectFilePath(const wchar_t* filter
 
 }
 
-//-------------------------------------------------------------------------------------------------------.
 
 const json FileManager::JsonLoad(const std::filesystem::path& filePath)
 {
@@ -106,7 +104,6 @@ const json FileManager::JsonLoad(const std::filesystem::path& filePath)
 	return Out;
 }
 
-//-------------------------------------------------------------------------------------------------------.
 
 const bool FileManager::JsonSave(const std::filesystem::path& filePath, const json& jsonData)
 {

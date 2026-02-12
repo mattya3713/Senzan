@@ -30,7 +30,7 @@ BossStompState::BossStompState(Boss* owner)
     , m_JumpedSoundPlayed(false)
     , m_LandedSoundPlayed(false)
 {
-    // 初期設定をファイルから読み込む（存在すれば上書き）
+    // 初期設定をファイルから読み込む（存在すれば上書き）.
     try { LoadSettings(); } catch (...) {}
 }
 
@@ -43,7 +43,7 @@ void BossStompState::DrawImGui()
     CImGuiManager::Slider<float>(IMGUI_JP("上昇速度倍率"), m_UpSpeed, 0.1f, 5.0f, true);
     CImGuiManager::Slider<float>(IMGUI_JP("前方移動速度"), m_ForwardSpeed, 0.0f, 30.0f, true);
     CImGuiManager::Slider<float>(IMGUI_JP("遅延秒数"), m_WaitSeconds, 0.0f, 5.0f, true);
-    // legacy pre-slow removed
+    // legacy pre-slow removed.
     CImGuiManager::Slider<float>(IMGUI_JP("遅延中アニメ速度"), m_SlowAnimSpeed, 0.0f, 2.0f, true);
     CImGuiManager::Slider<float>(IMGUI_JP("スロー継続時間"), m_SlowDuration, 0.0f, 10.0f, true);
     ImGui::Separator();
@@ -52,17 +52,17 @@ void BossStompState::DrawImGui()
     CImGuiManager::Slider<float>(IMGUI_JP("上昇高さ"), m_AscentHeight, 0.0f, 200.0f, true);
     CImGuiManager::Slider<float>(IMGUI_JP("上昇時間"), m_AscentDuration, 0.01f, 5.0f, true);
     CImGuiManager::Slider<float>(IMGUI_JP("下降時間"), m_DescentDuration, 0.01f, 5.0f, true);
-    // Easing selection - simple combo
+    // イージング選択 - シンプルコンボ.
     const char* easingNames[] = { "Liner","InSine","OutSine","InOutSine","InQuad","OutQuad","InOutQuad","InCubic","OutCubic","InOutCubic","InQuart","OutQuart","InOutQuart","InQuint","OutQuint","InOutQuint","InExpo","OutExpo","InOutExpo","InCirc","OutCirc","InOutCirc","InBack","OutBack","InOutBack","InElastic","OutElastic","InOutElastic","InBounce","OutBounce","InOutBounce" };
     int ascendIndex = static_cast<int>(m_AscentEasing);
     int descendIndex = static_cast<int>(m_DescentEasing);
     if (ImGui::Combo(IMGUI_JP("上昇イージング"), &ascendIndex, easingNames, IM_ARRAYSIZE(easingNames))) m_AscentEasing = static_cast<MyEasing::Type>(ascendIndex);
     if (ImGui::Combo(IMGUI_JP("下降イージング"), &descendIndex, easingNames, IM_ARRAYSIZE(easingNames))) m_DescentEasing = static_cast<MyEasing::Type>(descendIndex);
-    // pre-slow removed; use m_WaitSeconds / m_SlowAnimSpeed
+    // プリスロー削除済み; m_WaitSeconds / m_SlowAnimSpeed を使用
     // 上昇/落下パラメータは一時無効化
-    // CImGuiManager::Slider<float>(IMGUI_JP("上昇時間"), m_AscentTime, 0.0f, 5.0f, true);
-    // CImGuiManager::Slider<float>(IMGUI_JP("落下水平加速"), m_FallAccel, 0.0f, 200.0f, true);
-    // CImGuiManager::Slider<float>(IMGUI_JP("落下最大速度"), m_MaxFallHorizSpeed, 0.0f, 200.0f, true);
+    // CImGuiManager::Slider<float>(IMGUI_JP("上昇時間"), m_AscentTime, 0.0f, 5.0f, true);.
+    // CImGuiManager::Slider<float>(IMGUI_JP("落下水平加速"), m_FallAccel, 0.0f, 200.0f, true);.
+    // CImGuiManager::Slider<float>(IMGUI_JP("落下最大速度"), m_MaxFallHorizSpeed, 0.0f, 200.0f, true);.
     // 手動の保存/読み込みボタン
     if (ImGui::Button(IMGUI_JP("Load"))) {
         try { LoadSettings(); }
@@ -76,7 +76,7 @@ void BossStompState::DrawImGui()
 
     BossAttackStateBase::DrawImGui();
 
-    // 当たり判定デバッグ表示の追加
+    // 当たり判定デバッグ表示の追加.
     auto* pStompCollider = m_pOwner->GetStompCollider();
     if (pStompCollider) {
         ImGui::Separator();
@@ -86,7 +86,7 @@ void BossStompState::DrawImGui()
         if (ImGui::Checkbox(IMGUI_JP("コライダー有効"), &active)) {
             pStompCollider->SetActive(active);
         }
-        // 半径調整 (SphereCollider などが実装している SetRadius を利用)
+        // 半径調整 (SphereCollider などが実装している SetRadius を利用).
         float radius = pStompCollider->GetRadius();
         if (ImGui::SliderFloat(IMGUI_JP("半径"), &radius, 0.0f, 200.0f)) {
             pStompCollider->SetRadius(radius);
@@ -100,14 +100,14 @@ void BossStompState::DrawImGui()
         
     }
 
-    // collider windows are managed by base class (use BossAttackStateBase::DrawImGui)
+    // コライダーウィンドウは基底クラスが管理する (BossAttackStateBase::DrawImGuiを使用).
     ImGui::End();
 #endif
 }
 
 void BossStompState::LoadSettings()
 {
-    // まず基底の設定を読み込む
+    // まず基底の設定を読み込む.
     BossAttackStateBase::LoadSettings();
 
     // 設定ファイルは Data/Json/Boss 以下に保存する
@@ -127,15 +127,15 @@ void BossStompState::LoadSettings()
     if (j.contains("StompRadius")) m_StompRadius = j["StompRadius"].get<float>();
     if (j.contains("StompDamage")) m_StompDamage = j["StompDamage"].get<float>();
     if (j.contains("StompActive")) m_StompActive = j["StompActive"].get<bool>();
-    // vertical easing params
+    // 垂直イージングパラメータ.
     if (j.contains("UseVerticalEasing")) m_UseVerticalEasing = j["UseVerticalEasing"].get<bool>();
     if (j.contains("AscentHeight")) m_AscentHeight = j["AscentHeight"].get<float>();
     if (j.contains("AscentDuration")) m_AscentDuration = j["AscentDuration"].get<float>();
     if (j.contains("DescentDuration")) m_DescentDuration = j["DescentDuration"].get<float>();
     if (j.contains("AscentEasing")) m_AscentEasing = static_cast<MyEasing::Type>(j["AscentEasing"].get<int>());
     if (j.contains("DescentEasing")) m_DescentEasing = static_cast<MyEasing::Type>(j["DescentEasing"].get<int>());
-    // (local collider windows moved to base m_ColliderWindows)
-    // stomp コライダー設定の読み込み
+    // (local collider windows moved to base m_ColliderWindows).
+    // stomp コライダー設定の読み込み.
     if (j.contains("StompRadius") || j.contains("StompDamage") || j.contains("StompActive")) {
         auto* pStomp = m_pOwner ? m_pOwner->GetStompCollider() : nullptr;
         if (j.contains("StompRadius")) {
@@ -151,8 +151,8 @@ void BossStompState::LoadSettings()
             if (pStomp) pStomp->SetActive(a);
         }
     }
-    // no additional parameters
-    // オフセットは ColliderWindow で管理
+    // 追加パラメータなし.
+    // オフセットは ColliderWindow で管理.
 }
 
 void BossStompState::SaveSettings() const
@@ -169,21 +169,21 @@ void BossStompState::SaveSettings() const
     j["StompRadius"] = m_StompRadius;
     j["StompDamage"] = m_StompDamage;
     j["StompActive"] = m_StompActive;
-    // vertical easing params
+    // 垂直イージングパラメータ.
     j["UseVerticalEasing"] = m_UseVerticalEasing;
     j["AscentHeight"] = m_AscentHeight;
     j["AscentDuration"] = m_AscentDuration;
     j["DescentDuration"] = m_DescentDuration;
     j["AscentEasing"] = static_cast<int>(m_AscentEasing);
     j["DescentEasing"] = static_cast<int>(m_DescentEasing);
-    // collider windows persisted via base SerializeSettings/SaveSettings
-    // stomp コライダー設定保存
+    // コライダーウィンドウは基底のSerializeSettings/SaveSettingsで永続化.
+    // 踏みつけコライダー設定保存.
     if (auto* pStomp = m_pOwner ? m_pOwner->GetStompCollider() : nullptr) {
         j["StompRadius"] = pStomp->GetRadius();
         j["StompDamage"] = pStomp->GetAttackAmount();
         j["StompActive"] = pStomp->GetActive();
     }
-    // no additional parameters
+    // 追加パラメータなし.
 
     auto filePath = GetSettingsFileName();
     if (!filePath.is_absolute()) {
@@ -200,7 +200,7 @@ BossStompState::~BossStompState()
 
 void BossStompState::Enter()
 {
-    // Load settings when entering the state so runtime changes are applied immediately
+    // ステート進入時に設定を読み込み、実行時の変更を即座に反映する.
     try { LoadSettings(); } catch (...) {}
 
     // Use base enter to initialize common timers/windows and reset m_CurrentTime
@@ -209,7 +209,7 @@ void BossStompState::Enter()
 	m_Velocity = { 0.0f, 0.0f, 0.0f };
 	m_GroundedFrag = true;
 	m_HasLanded = false;
-    // 初期化: タイマーとフラグをリセット
+    // 初期化: タイマーとフラグをリセット.
     m_AnimSlowed = false;
     m_IsMoving = false;
 
@@ -249,9 +249,9 @@ void BossStompState::Enter()
 
 void BossStompState::Update()
 {
-    // 呼び出し位置: 基底の Update を先に実行して ImGui を表示・デバッグ停止を反映する
+    // 呼び出し位置: 基底の Update を先に実行して ImGui を表示・デバッグ停止を反映する.
     BossAttackStateBase::Update();
-    // use base timing and windows
+    // 基底クラスのタイミングとウィンドウを使用.
     float dt = m_pOwner->GetDelta();
     UpdateBaseLogic(dt);
     auto* pStompCollider = m_pOwner->GetStompCollider();
@@ -259,11 +259,11 @@ void BossStompState::Update()
 	switch (m_List)
 	{
     case BossStompState::enAttack::None:
-        // 指定秒数経過でアニメをスローにする (use m_CurrentTime from base)
+        // 指定秒数経過でアニメをスローにする (use m_CurrentTime from base).
         if (!m_AnimSlowed && m_CurrentTime >= m_WaitSeconds) {
             m_AnimSlowed = true;
             m_pOwner->SetAnimSpeed(m_SlowAnimSpeed);
-            // start slow elapsed timer
+            // 減速経過タイマーを開始する.
             m_SlowElapsed = 0.0f;
         }
 
@@ -283,7 +283,7 @@ void BossStompState::Update()
         }
 
         FacePlayerInstantYaw();
-		// Special_0 が終了したら座標移動を開始して Special_1 を再生
+		// Special_0 が終了したら座標移動を開始して Special_1 を再生.
 		if (m_pOwner->IsAnimEnd(Boss::enBossAnim::Special_0) && !m_IsMoving)
 		{
             if (!m_LandedSoundPlayed) {
@@ -305,36 +305,36 @@ void BossStompState::Update()
 			float dist = DirectX::XMVectorGetX(DirectX::XMVector3Length(vDiff));
 			m_Distance = dist;
 			DirectX::XMStoreFloat3(&m_MoveVec, DirectX::XMVector3Normalize(DirectX::XMVectorSetY(vDiff, 0.0f)));
-			// initialize vertical easing timers when movement starts
+			// 移動開始時に垂直イージングタイマーを初期化する.
 			m_VerticalTimer = 0.0f;
 			m_StartY = m_pOwner->GetPosition().y;
 			if (pStompCollider) {
-				// Follow UpdateBaseLogic: set base collider params so UpdateColliderWindows will apply them on activation
-				m_ColliderWidth = (m_StompRadius > 0.0f) ? m_StompRadius : 30.0f; // radius stored in base width
+				// UpdateBaseLogicに従い、UpdateColliderWindowsが有効化時に適用できるよう基底コライダーパラメータを設定する.
+				m_ColliderWidth = (m_StompRadius > 0.0f) ? m_StompRadius : 30.0f; // 半径を基底のwidthに格納.
 				m_AttackAmount = (m_StompDamage > 0.0f) ? m_StompDamage : 15.0f;
-				// Position offset / BoneName for activation comes from ColliderWindow (loaded from JSON)
-				// Do not manually SetActive here; UpdateBaseLogic will activate the collider at the configured time.
+				// 位置オフセット / ボーン名はColliderWindow (JSONから読み込み) から取得.
+				// 手動での再生アクティブ設定は行わない; UpdateBaseLogicで設定された時間にコライダーが有効化される.
 			}
 		}
 		break;
 
 	case BossStompState::enAttack::Stomp:
-		// 移動中のみ BossAttack を実行
+		// 移動中のみ BossAttack を実行.
 		if (m_IsMoving) {
-			// advance move timer
+			// advance move timer.
 			m_MoveTimer += m_pOwner->GetDelta();
-			// run BossAttack which now performs eased movement based on m_MoveTimer/m_MoveDuration
+			// イージング移動を基にBossAttackを実行する (m_MoveTimer/m_MoveDuration).
 			BossAttack();
 		}
 
-		// Special_1 を再生し終わったら移動を止めて SpecialToIdol を再生
+		// Special_1 を再生し終わったら移動を止めて SpecialToIdol を再生.
 		if (m_pOwner->IsAnimEnd(Boss::enBossAnim::Special_1) && m_IsMoving)
 		{
 			m_IsMoving = false;
             m_pOwner->SetAnimSpeed(2.0f);
 			m_pOwner->ChangeAnim(Boss::enBossAnim::SpecialToIdol);
 			m_List = enAttack::CoolTime;
-			// 無効化されていた stomp コライダーをオフ
+			// 無効化されていた stomp コライダーをオフ.
 			auto* pStompCollider = m_pOwner->GetStompCollider();
 			if (pStompCollider) pStompCollider->SetActive(false);
 		}
@@ -342,7 +342,7 @@ void BossStompState::Update()
 	case BossStompState::enAttack::CoolTime:
 		if (m_pOwner->IsAnimEnd(Boss::enBossAnim::SpecialToIdol))
 		{
-           m_List = enAttack::Trans; // Transition to the next state
+           m_List = enAttack::Trans; // 次のステートへ遷移する.
            m_JumpedSoundPlayed = m_LandedSoundPlayed = false;
         }
 		break;
@@ -364,15 +364,15 @@ void BossStompState::Draw()
 void BossStompState::Exit()
 {
 	m_GroundedFrag = true;
-	// 保存: 実行時に ImGui 等で変更した設定を永続化
+	// 保存: 実行時に ImGui 等で変更した設定を永続化.
 	try { SaveSettings(); } catch (...) {}
 
     m_pOwner->SetPositionY(m_StartY);
-	// 退出時に念のため stomp コライダーを無効化
+	// 退出時に念のため stomp コライダーを無効化.
 	if (m_pOwner && m_pOwner->GetStompCollider()) {
 		m_pOwner->GetStompCollider()->SetActive(false);
 	}
-	// m_pOwner->SetPositionY(0.0f);
+	// m_pOwner->SetPositionY(0.0f);.
 }
 
 std::pair<Boss::enBossAnim, float> BossStompState::GetParryAnimPair()
@@ -384,11 +384,11 @@ void BossStompState::BossAttack()
 {
     float dt = m_pOwner->GetDelta();
 
-    // progress for movement easing (0..1)
+    // 移動イージングの進行度 (0..1).
     float progress = m_MoveDuration > 0.0f ? (m_MoveTimer / m_MoveDuration) : 1.0f;
     if (progress > 1.0f) progress = 1.0f;
 
-    // easeOut quad: 1 - (1-x)^2
+    // easeOut quad: 1 - (1-x)^2.
     auto easeOut = [](float x) { return 1.0f - (1.0f - x) * (1.0f - x); };
 
     float eased = easeOut(progress);
@@ -404,10 +404,10 @@ void BossStompState::BossAttack()
 
     m_pOwner->AddPosition(movement);
 
-    // vertical easing: when moving, update Y according to ascent/descent easing
+    // 垂直イージング: 移動中、上昇/下降に応じてYを更新する.
     if (m_UseVerticalEasing)
     {
-        // advance vertical timer
+        // 垂直タイマーを進める.
         m_VerticalTimer += dt;
         float totalVert = m_AscentDuration + m_DescentDuration;
         float t = std::min(m_VerticalTimer, totalVert);
@@ -415,18 +415,18 @@ void BossStompState::BossAttack()
         float newY = m_StartY;
         if (t <= m_AscentDuration)
         {
-            // ascent phase: 0 -> apex
+            // 上昇フェーズ: 0 -> 頂点.
             float out; MyEasing::UpdateEasing(m_AscentEasing, t, m_AscentDuration, 0.0f, m_AscentHeight, out);
             newY = m_StartY + out;
         }
         else
         {
-            // descent: apex -> ground (startY)
+            // 下降: 頂点 -> 地面 (startY).
             float descendT = t - m_AscentDuration;
             float out; MyEasing::UpdateEasing(m_DescentEasing, descendT, m_DescentDuration, m_AscentHeight, 0.0f, out);
             newY = m_StartY + out;
         }
-        // If vertical sequence finished, snap exactly to start Y (ground)
+        // If vertical sequence finished, snap exactly to start Y (ground).
         if (m_VerticalTimer >= (m_AscentDuration + m_DescentDuration))
         {
             newY = m_StartY;
@@ -434,11 +434,11 @@ void BossStompState::BossAttack()
         m_pOwner->SetPositionY(newY);
     }
 
-    // If movement finished, ensure flags / list updated
+    // 移動が完了した場合、フラグ / リストを更新する.
     if (progress >= 1.0f)
     {
         m_IsMoving = false;
-        // trigger transition to SpecialToIdol if not already
+        // SpecialToIdolへの遷移をトリガーする (未遷移の場合).
         if (m_List == enAttack::Stomp)
         {
             m_pOwner->ChangeAnim(Boss::enBossAnim::SpecialToIdol);

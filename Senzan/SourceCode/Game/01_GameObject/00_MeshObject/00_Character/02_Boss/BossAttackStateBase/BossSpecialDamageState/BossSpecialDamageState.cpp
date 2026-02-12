@@ -39,7 +39,7 @@ void BossSpecialDamageState::Update()
         m_PhaseTimer += dt;
         m_ReplayTimer += dt;
 
-        // ダメージアニメーションをリプレイ（Playerが終わるまで繰り返す）
+        // ダメージアニメーションをリプレイ（Playerが終わるまで繰り返す）.
         if (m_TakeDamageReplayEnabled && m_ReplayTimer >= m_TakeDamageReplayTime)
         {
             m_pOwner->SetAnimSpeed(m_TakeDamageAnimSpeed);
@@ -47,7 +47,7 @@ void BossSpecialDamageState::Update()
             m_pOwner->ChangeAnim(Boss::enBossAnim::Hit);
             m_ReplayTimer = 0.0f;
         }
-        // Downへの遷移はForceTransitionToDown()で行うため、自動遷移は無効
+        // Downへの遷移はForceTransitionToDown()で行うため、自動遷移は無効.
     }
     break;
 
@@ -105,7 +105,7 @@ void BossSpecialDamageState::Draw()
 
 void BossSpecialDamageState::ForceTransitionToDown()
 {
-    // TakeDamageフェーズ中の場合のみDownに遷移
+    // TakeDamageフェーズ中の場合のみDownに遷移.
     if (m_Phase == Phase::TakeDamage)
     {
         m_Phase = Phase::Down;
@@ -199,4 +199,3 @@ void BossSpecialDamageState::SaveSettings() const
     j["GetUpTransitionTime"] = m_GetUpTransitionTime;
     FileManager::JsonSave(filePath, j);
 }
-

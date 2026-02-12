@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "..//BossAttackStateBase.h"
+#include "..//BossAttackStateBase.h".
 
 class Boss;
 
@@ -21,7 +21,7 @@ public:
     void SaveSettings() const override;
     std::filesystem::path GetSettingsFileName() const override { return std::filesystem::path("BossSpecialDamageState.json"); }
     
-    // 外部からDownフェーズに遷移させる
+    // 外部からDownフェーズに遷移させる.
     void ForceTransitionToDown();
     
 private:

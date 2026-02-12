@@ -21,7 +21,7 @@ public:
 	void Update();		// 更新処理.
 	void Draw();		// 描画処理.
 	HRESULT LoadData();	// データロード処理.
-	void Create();	// 初期処理. (名前を修正)
+	void Create();	// 初期処理. (名前を修正).
 	void Release();		// 解放処理.
 
 	void Loop();		// メインループ.
@@ -49,10 +49,9 @@ private:
 	std::unique_ptr<Loader>			m_pResourceLoader;
 	
 	// ゲームを終了するためのデバッグフラグ.
-	float m_LastEscPressTime = 0.0f; // 前回Escが押されたゲーム内時刻
-	const float DOUBLE_TAP_TIME_THRESHOLD = 0.3f; // ダブルタップとみなす時間 (例: 0.3秒)
+	float m_LastEscPressTime = 0.0f; // 前回Escが押されたゲーム内時刻.
+	const float DOUBLE_TAP_TIME_THRESHOLD = 0.3f; // ダブルタップとみなす時間 (例: 0.3秒).
 
 	float m_SomeFloatValue = 0.0f;
 	bool m_bFeatureEnabled = false;
 };
-

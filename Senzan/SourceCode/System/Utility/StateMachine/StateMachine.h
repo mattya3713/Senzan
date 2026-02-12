@@ -26,7 +26,7 @@ public:
 	**************************************************************************/
     void ChangeState(std::shared_ptr<StateBase<FSM_Owner>> pNewState)
     {		
-        // 現在のステートが存在し、遷移を許可していない場合は変更を拒否する
+        // 現在のステートが存在し、遷移を許可していない場合は変更を拒否する.
         if (m_pCurrentState != nullptr && !m_pCurrentState->CanChangeState())
         {
             return;

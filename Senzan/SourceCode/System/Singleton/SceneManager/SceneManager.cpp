@@ -18,7 +18,7 @@
 
 #if _DEBUG
 #include "ImGui/CImGuiManager.h"
-#endif // _DEBUG
+#endif // _DEBUG.
 
 
 SceneManager::SceneManager()
@@ -30,7 +30,7 @@ SceneManager::SceneManager()
 
 #if _DEBUG
 	, m_DebugFirstScene()
-#endif // _DEBUG
+#endif // _DEBUG.
 {
 
 }
@@ -41,10 +41,10 @@ SceneManager::~SceneManager()
 
 void SceneManager::LoadData()
 {
-	// 最初にロードするシーンを環境に応じて決定
+	// 最初にロードするシーンを環境に応じて決定.
 	eList initial_scene = eList::Title;
 
-	// --- 環境ごとの初期シーン設定 ---
+	// --- 環境ごとの初期シーン設定 ---.
 
 #if _DEBUG
 #ifdef MATTYA_PC
@@ -54,18 +54,18 @@ void SceneManager::LoadData()
 #elif defined(L_PC)
 	initial_scene = eList::L;
 #elif _DEBUG
-	// 上記の環境マクロが定義されておらず、デバッグビルドの場合
-	// 通常は開発中のメインシーンから開始
-	//initial_scene = eList::GameMain;
+	// 上記の環境マクロが定義されておらず、デバッグビルドの場合.
+	// 通常は開発中のメインシーンから開始.
+	//initial_scene = eList::GameMain;.
 
 #else
-	// リリースビルドまたは不明な環境の場合、タイトルから開始
+	// リリースビルドまたは不明な環境の場合、タイトルから開始.
 	initial_scene = eList::Title;
 
 #endif 
 #endif // _DEBUG.
 
-    // フェードイン開始
+    // フェードイン開始.
     FadeManager::GetInstance().StartFade(Fade::FadeType::FadeIn);
 
     // 初回ロード処理.
@@ -139,7 +139,7 @@ void SceneManager::Update()
 	if (ImGui::Button("UIEditor")) { LoadScene(eList::UIEditor); }
 
 	ImGui::End();
-#endif // _DEBUG
+#endif // _DEBUG.
 }
 
 void SceneManager::Draw()
@@ -212,7 +212,7 @@ void SceneManager::MakeScene(eList Scene)
 		case eList::AnimationTuning:
 			m_pScene = std::make_unique<AnimationTuningScene>();
 			break;
-#endif // _DEBUG
+#endif // _DEBUG.
 		case eList::MAX:
 		default:
 			break;

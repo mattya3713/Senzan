@@ -1,6 +1,6 @@
 ﻿#include "BossParryState.h"
-#include "Game//01_GameObject//00_MeshObject//00_Character//02_Boss//Boss.h"
-#include "Game//01_GameObject//00_MeshObject//00_Character//02_Boss//BossIdolState//BossIdolState.h"
+#include "Game//01_GameObject//00_MeshObject//00_Character//02_Boss//Boss.h".
+#include "Game//01_GameObject//00_MeshObject//00_Character//02_Boss//BossIdolState//BossIdolState.h".
 #include "Game/04_Time/Time.h"
 
 BossParryState::BossParryState(Boss* owner)
@@ -46,7 +46,7 @@ void BossParryState::Update()
         m_pOwner->m_TimeScale = 1.f;
         if (m_WithDelay)
         {
-            // Suc の場合: 指定の順番で再生 (bottom-up): FlinchToIdol -> Flinch -> FlinchParis
+            // Suc の場合: 指定の順番で再生 (bottom-up): FlinchToIdol -> Flinch -> FlinchParis.
             m_pOwner->SetAnimSpeed(2.0f);
             m_pOwner->SetAnimTime(0.889);
             m_pOwner->ChangeAnim(Boss::enBossAnim::FlinchParis);
@@ -54,7 +54,7 @@ void BossParryState::Update()
         }
         else
         {
-            // Fai の場合: Hit を再生して終了したら Idol へ
+            // Fai の場合: Hit を再生して終了したら Idol へ.
             m_pOwner->SetAnimSpeed(1.0f);
             m_pOwner->ChangeAnim(Boss::enBossAnim::Hit);
             m_Phase = ParryPhase::PlayHit;

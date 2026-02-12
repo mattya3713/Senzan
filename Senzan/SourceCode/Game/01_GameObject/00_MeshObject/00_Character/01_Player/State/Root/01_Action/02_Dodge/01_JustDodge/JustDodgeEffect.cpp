@@ -37,7 +37,7 @@ void JustDodgeEffect::Start(const std::string& effectName, const DirectX::XMFLOA
     auto effect = EffectResource::GetResource(effectName);
     if (effect == nullptr) return;
 
-    // Play at start position
+    // 開始位置で再生する.
     m_Handle = EffekseerManager::GetInstance().GetManager()->Play(effect, m_StartPos.x, m_StartPos.y, m_StartPos.z);
     if (m_Handle != -1)
     {
@@ -45,7 +45,7 @@ void JustDodgeEffect::Start(const std::string& effectName, const DirectX::XMFLOA
         {
             EffekseerManager::GetInstance().GetManager()->SetScale(m_Handle, scale, scale, scale);
         }
-        // 向きを目標方向へ向ける (XZ 平面)
+        // 向きを目標方向へ向ける (XZ 平面).
         float dx = m_StartPos.x - m_TargetPos.x;
         float dz = m_StartPos.z - m_TargetPos.z;
         if (std::fabs(dx) > 1e-6f || std::fabs(dz) > 1e-6f)
@@ -60,35 +60,35 @@ void JustDodgeEffect::Update(float deltaTime)
 {
     if (m_Handle == -1) return;
     
-    // 経過時間を更新
+    // 経過時間を更新.
     m_ElapsedTime += deltaTime;
     
-    // 進行度を計算 (0.0 ~ 1.0)
+    // 進行度を計算 (0.0 ~ 1.0).
     float t = m_ElapsedTime / m_Duration;
     t = std::clamp(t, 0.0f, 1.0f);
     
-    // 線形補間で現在位置を計算: CurrentPos = StartPos + (TargetPos - StartPos) * t
+    // 線形補間で現在位置を計算: CurrentPos = StartPos + (TargetPos - StartPos) * t.
     m_CurrentPos.x = m_StartPos.x + (m_TargetPos.x - m_StartPos.x) * t;
     m_CurrentPos.y = m_StartPos.y + (m_TargetPos.y - m_StartPos.y) * t;
     m_CurrentPos.z = m_StartPos.z + (m_TargetPos.z - m_StartPos.z) * t;
     
-    // エフェクトの位置を更新
+    // エフェクトの位置を更新.
     auto mgr = EffekseerManager::GetInstance().GetManager();
     if (mgr != nullptr && mgr->Exists(m_Handle))
     {
         mgr->SetLocation(m_Handle, m_CurrentPos.x, m_CurrentPos.y, m_CurrentPos.z);
     }
     
-    // エフェクトのシミュレーションを進める
+    // エフェクトのシミュレーションを進める.
     EffekseerManager::GetInstance().UpdateHandle(m_Handle);
 
-    // 移動完了チェック
+    // 移動完了チェック.
     if (t >= 1.0f)
     {
         m_IsFinished = true;
     }
     
-    // エフェクトが終了したかチェック
+    // エフェクトが終了したかチェック.
     if (mgr == nullptr || !mgr->Exists(m_Handle))
     {
         m_Handle = -1;

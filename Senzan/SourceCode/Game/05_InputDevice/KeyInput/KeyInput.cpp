@@ -6,14 +6,12 @@ KeyInput::KeyInput()
 {
 }
 
-//-------------------------------------------------------------------------------------------------------.
 
 KeyInput::~KeyInput()
 {
 
 }
 
-//-------------------------------------------------------------------------------------------------------.
 
 void KeyInput::Update()
 {
@@ -26,7 +24,6 @@ void KeyInput::Update()
 	if (GetKeyboardState(pI.m_NowKeyState) == false) { return; };
 }
 
-//-------------------------------------------------------------------------------------------------------.
 
 bool KeyInput::IsKeyPress(const int& key)
 {
@@ -38,7 +35,6 @@ bool KeyInput::IsKeyPress(const int& key)
 	return false;
 }
 
-//-------------------------------------------------------------------------------------------------------.
 
 bool KeyInput::IsKeyPress(const std::vector<int>& keyList)
 {
@@ -52,7 +48,6 @@ bool KeyInput::IsKeyPress(const std::vector<int>& keyList)
 	return true;
 }
 
-//-------------------------------------------------------------------------------------------------------.
 
 bool KeyInput::IsKeyDown(const int& key)
 {
@@ -67,7 +62,6 @@ bool KeyInput::IsKeyDown(const int& key)
 	return false;
 }
 
-//-------------------------------------------------------------------------------------------------------.
 
 bool KeyInput::IsKeyDown(const std::vector<int>& keyList)
 {
@@ -82,7 +76,6 @@ bool KeyInput::IsKeyDown(const std::vector<int>& keyList)
 	return true;
 }
 
-//-------------------------------------------------------------------------------------------------------.
 
 bool KeyInput::IsKeyUp(const int& key)
 {
@@ -97,7 +90,6 @@ bool KeyInput::IsKeyUp(const int& key)
 	return false;
 }
 
-//-------------------------------------------------------------------------------------------------------.
 
 bool KeyInput::IsKeyRepeat(const int& key)
 {
@@ -112,7 +104,6 @@ bool KeyInput::IsKeyRepeat(const int& key)
 	return false;
 }
 
-//-------------------------------------------------------------------------------------------------------.
 
 bool KeyInput::IsKeyRepeat(const std::vector<int>& keyList)
 {

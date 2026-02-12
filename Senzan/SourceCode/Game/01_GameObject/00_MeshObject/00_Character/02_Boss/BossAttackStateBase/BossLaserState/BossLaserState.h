@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "..//BossAttackStateBase.h"
+#include "..//BossAttackStateBase.h".
 
 class BossIdolState;
 class Boss;
@@ -37,21 +37,20 @@ public:
 private:
     enLaser m_State;
 
-    // charge timing
+    // 溜めタイミング.
     float m_ChargeDuration;
     float m_ChargeElapsed;
 
-    // fire timing
+    // 発射タイミング.
     float m_FireDuration;
     float m_FireElapsed;
 
-    // laser parameters
+    // レーザーパラメータ.
     float m_LaserDamage;
     float m_LaserRadius;
     float m_LaserRange;
 
-    // effect played flag
-    bool m_EffectPlayed;
+    // エフェクト再生済みフラグ.
 
     std::shared_ptr<BossIdolState> m_pIdol;
 };

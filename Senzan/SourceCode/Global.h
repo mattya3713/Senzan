@@ -12,26 +12,26 @@
 #define NOMINMAX
 #endif
 #pragma warning( push )
-// C26495: メンバー変数が必ず初期化されていない警告 (type.6)
-// C4834: 破棄された戻り値のある波括弧初期化の警告
-// C4305: doubleからfloatへの切り捨て (リテラル初期化でよくある)
+// C26495: メンバー変数が必ず初期化されていない警告 (type.6).
+// C4834: 破棄された戻り値のある波括弧初期化の警告.
+// C4305: doubleからfloatへの切り捨て (リテラル初期化でよくある).
 #pragma warning( disable : 26495 4834 4305 ) 
 //警告についてのｺｰﾄﾞ分析を無効にする.4005:再定義.
 #pragma warning(disable:4005)
 #include <Windows.h>
 #include <crtdbg.h>
 
-//DirectX9
+//DirectX9.
 #include <d3dx9.h>
-//DirectX11
+//DirectX11.
 #include <D3DX11.h>
 #include <D3D11.h>
 //ライブラリ読み込み.
 #pragma comment( lib, "winmm.lib" )
-//DirectX9
+//DirectX9.
 #pragma comment( lib, "d3dx9.lib" )
 #pragma comment( lib, "d3d9.lib" )
-//DirectX11
+//DirectX11.
 #pragma comment( lib, "d3dx11.lib" )
 #pragma comment( lib, "d3d11.lib" )
 
@@ -73,23 +73,23 @@
 #endif // _DEBUG.
 
 // DirectX12.
-//#include <D3D12.h>
-//#include <dxgi1_6.h>
-//#include <DirectXMath.h>
+//#include <D3D12.h>.
+//#include <dxgi1_6.h>.
+//#include <DirectXMath.h>.
 
 // DirectSound.
 #include <dsound.h>
 
 //ライブラリ読み込み.
 #pragma comment(lib, "winmm.lib")
-//#pragma comment(lib, "d3d12.lib")
-//#pragma comment(lib, "dxgi.lib")
+//#pragma comment(lib, "d3d12.lib").
+//#pragma comment(lib, "dxgi.lib").
 //DirectSound.
 #pragma comment( lib, "dsound.lib" )
 
 //// ライブラリを設定しなくてはならない.
 //// $(DXTEX_DIR)\Bin\Desktop_2022_Win10\x64\Debugをリンカー>全般>追加のライブラリディテクトリに追加.
-//#pragma comment( lib,"DirectXTex.lib" )
+//#pragma comment( lib,"DirectXTex.lib" ).
 
 
 #include "Macro.h"	

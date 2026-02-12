@@ -72,7 +72,7 @@ SkinMesh::SkinMesh()
 {
 }
 
-// (no static scene alpha)
+// (no static scene alpha).
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 
@@ -187,7 +187,7 @@ HRESULT	SkinMesh::CreateShader()
 HRESULT SkinMesh::ReadSkinInfo(
 	MYMESHCONTAINER* pContainer, SKIN_VERTEX* pVB, SKIN_PARTS_MESH* pParts)
 {
-	//Xファイルから抽出すべき情報は、
+	//Xファイルから抽出すべき情報は、.
 	//「頂点ごとのボーンインデックス」「頂点ごとのボーンウェイト」.
 	//「バインド行列」「ポーズ行列」の4項目.
 
@@ -280,7 +280,7 @@ HRESULT SkinMesh::LoadXMesh(std::string FileName)
 	const char* lp_filename = FileName.c_str();
 
 	//ファイル名をパスごと取得.
-	// FIX 2: Use the safe function _tcscpy_s (assuming m_FilePath is a TCHAR array)
+	// FIX 2: Use the safe function _tcscpy_s (assuming m_FilePath is a TCHAR array).
 	// Note: You must ensure m_FilePath is large enough.
 	_tcscpy_s(m_FilePath, _countof(m_FilePath), lp_filename);
 
@@ -460,7 +460,7 @@ HRESULT SkinMesh::CreateAppMeshFromD3DXMesh(LPD3DXFRAME p)
 	auto pFaceBuffer = std::make_unique<int[]>(pAppMesh->NumFace * 3);
 	//3頂点ポリゴンなので、1フェイス=3頂点(3インデックス).
 
-	//頂点読み込み. (SKIN_VERTEX::positionがD3DXVECTOR3互換と仮定)
+	//頂点読み込み. (SKIN_VERTEX::positionがD3DXVECTOR3互換と仮定).
 	for (DWORD i = 0; i < pAppMesh->NumVert; i++) {
 		pVB[i].Position = m_pD3dxMesh->GetVertexCoord(pContainer, i);
 	}
@@ -497,7 +497,7 @@ HRESULT SkinMesh::CreateAppMeshFromD3DXMesh(LPD3DXFRAME p)
 		//スペキュラパワー.
 		pAppMesh->pMaterial[i].SpecularPower = m_pD3dxMesh->GetSpecularPower(pContainer, i);
 
-		//アンビエントが0だと光源からの直射光が全く当たらない陰の部分の明るさが、
+		//アンビエントが0だと光源からの直射光が全く当たらない陰の部分の明るさが、.
 		// 真っ暗になるので、最低値と最高値を設定する.
 		float low = 0.3f;	//適当に0.3くらいにしておく.
 		float high = 1.0f;
@@ -525,9 +525,9 @@ HRESULT SkinMesh::CreateAppMeshFromD3DXMesh(LPD3DXFRAME p)
 			_TRUNCATE);
 
 		LPTSTR name = TexFilename_w;
-#else//#ifdef UNICODE
+#else//#ifdef UNICODE.
 		LPTSTR name = d3dxMaterials[No].pTextureFilename;
-#endif//#ifdef UNICODE
+#endif//#ifdef UNICODE.
 #endif
 
 		//テクスチャ(ディフューズテクスチャのみ).
@@ -540,9 +540,9 @@ HRESULT SkinMesh::CreateAppMeshFromD3DXMesh(LPD3DXFRAME p)
 			ConvertCharaMultiByteToUnicode(TextureName_w, 32, name_org);
 			name = TextureName_w;
 		}
-#else//#ifdef UNICODE
+#else//#ifdef UNICODE.
 		LPTSTR name = m_pD3dxMesh->GetTexturePath(pContainer, i);
-#endif//#ifdef UNICODE
+#endif//#ifdef UNICODE.
 
 		if (name != nullptr) {
 			LPTSTR ret = _tcsrchr(m_FilePath, _T('\\'));
@@ -606,16 +606,16 @@ HRESULT SkinMesh::CreateAppMeshFromD3DXMesh(LPD3DXFRAME p)
 
 	}
 
-	//スキン情報ある？
+	//スキン情報ある？.
 	if (pContainer->pSkinInfo == nullptr) {
 #ifdef _DEBUG
 		//不明なスキンあればここで教える.不要ならコメントアウトしてください.
-		//TCHAR strDbg[128];
-		//WCHAR str[64] = L"";
-		//ConvertCharaMultiByteToUnicode(str, 64, pContainer->Name);
-		//_stprintf_s(strDbg, _T("ContainerName:[%s]"), str);
-		//MessageBox(nullptr, strDbg, _T("Not SkinInfo"), MB_OK);
-#endif//#ifdef _DEBUG
+		//TCHAR strDbg[128];.
+		//WCHAR str[64] = L"";.
+		//ConvertCharaMultiByteToUnicode(str, 64, pContainer->Name);.
+		//_stprintf_s(strDbg, _T("ContainerName:[%s]"), str);.
+		//MessageBox(nullptr, strDbg, _T("Not SkinInfo"), MB_OK);.
+#endif//#ifdef _DEBUG.
 		pAppMesh->EnableBones = false;
 	}
 	else {
@@ -655,11 +655,11 @@ void SkinMesh::SetNewPoseMatrices(
 {
 	//望むフレームでUpdateすること.
 	//しないと行列が更新されない.
-	//m_pD3dxMesh->UpdateFrameMatrices(
+	//m_pD3dxMesh->UpdateFrameMatrices(.
 	// m_pD3dxMesh->m_pFrameRoot)をレンダリング時に実行すること.
 
-	//また、アニメーション時間に見合った行列を更新するのはD3DXMESHでは
-	//アニメーションコントローラが(裏で)やってくれるものなので、
+	//また、アニメーション時間に見合った行列を更新するのはD3DXMESHでは.
+	//アニメーションコントローラが(裏で)やってくれるものなので、.
 	//アニメーションコントローラを使ってアニメを進行させることも必要.
 	//m_pD3dxMesh->m_pAnimController->AdvanceTime(...)を.
 	//レンダリング時に実行すること.
@@ -677,17 +677,17 @@ void SkinMesh::SetNewPoseMatrices(
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 
-// 【修正】戻り値を D3DXMATRIX から XMMATRIX に変更
+// 【修正】戻り値を D3DXMATRIX から XMMATRIX に変更.
 DirectX::XMMATRIX SkinMesh::GetCurrentPoseMatrix(SKIN_PARTS_MESH* pParts, int Index)
 {
-	// mBindPose, mNewPose は XMMATRIX と仮定して XM 行列演算を使用
+	// mBindPose, mNewPose は XMMATRIX と仮定して XM 行列演算を使用.
 	DirectX::XMMATRIX ret =
 		pParts->pBoneArray[Index].mBindPose * pParts->pBoneArray[Index].mNewPose;
 	return ret;
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------
-// SkinMesh.cpp の DrawFrame 関数の新しい実装
+// SkinMesh.cpp の DrawFrame 関数の新しい実装.
 
 void SkinMesh::DrawFrame(LPD3DXFRAME p)
 {
@@ -708,12 +708,12 @@ void SkinMesh::DrawFrame(LPD3DXFRAME p)
 	}
 
 	//再帰関数.
-	//(兄弟)
+	//(兄弟).
 	if (pFrame->pFrameSibling != nullptr)
 	{
 		DrawFrame(pFrame->pFrameSibling);
 	}
-	//(親子)
+	//(親子).
 	if (pFrame->pFrameFirstChild != nullptr)
 	{
 		DrawFrame(pFrame->pFrameFirstChild);
@@ -737,13 +737,13 @@ void SkinMesh::DrawFrameDepth(LPD3DXFRAME pFrame)
 		DrawPartsMeshDepth(pMyFrame->pPartsMesh, CombinedWorld, pContainer);
 	}
 
-	// (子)
+	// (子).
 	if (pFrame->pFrameFirstChild != nullptr)
 	{
 		DrawFrameDepth(pFrame->pFrameFirstChild);
 	}
 
-	// (兄弟)
+	// (兄弟).
 	if (pFrame->pFrameSibling != nullptr)
 	{
 		DrawFrameDepth(pFrame->pFrameSibling);
@@ -752,7 +752,7 @@ void SkinMesh::DrawFrameDepth(LPD3DXFRAME pFrame)
 #define SEND_CB_TO_FUNC
 //-------------------------------------------------------------------------------------------------------------------------------------
 
-// 【修正】引数を D3DXMATRIX から XMMATRIX に変更
+// 【修正】引数を D3DXMATRIX から XMMATRIX に変更.
 void SkinMesh::DrawPartsMesh(
 	SKIN_PARTS_MESH* pMesh, DirectX::XMMATRIX World, MYMESHCONTAINER* pContainer)
 {
@@ -787,7 +787,7 @@ void SkinMesh::DrawPartsMesh(
 	//プリミティブ・トポロジーをセット.
 	m_pContext11->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	//マテリアルの数だけ、
+	//マテリアルの数だけ、.
 	//それぞれのマテリアルのインデックスバッファを描画.
 	for (DWORD i = 0; i < pMesh->NumMaterial; i++)
 	{
@@ -804,7 +804,7 @@ void SkinMesh::DrawPartsMesh(
 			pMesh->ppIndexBuffer[i],
 			DXGI_FORMAT_R32_UINT, 0);
 
-		//コンスタントバッファに情報を設定（マテリアルごと）
+		//コンスタントバッファに情報を設定（マテリアルごと）.
 		SendCBufferPerMaterial(&pMesh->pMaterial[i]);
 
 		//テクスチャをシェーダに渡す.
@@ -817,7 +817,7 @@ void SkinMesh::DrawPartsMesh(
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 
-// 【修正】引数を D3DXMATRIX から XMMATRIX に変更
+// 【修正】引数を D3DXMATRIX から XMMATRIX に変更.
 void SkinMesh::DrawPartsMeshDepth(SKIN_PARTS_MESH* pMesh, DirectX::XMMATRIX World, MYMESHCONTAINER* pContainer)
 {
 	//ワールド行列算出.
@@ -847,7 +847,7 @@ void SkinMesh::DrawPartsMeshDepth(SKIN_PARTS_MESH* pMesh, DirectX::XMMATRIX Worl
 	//プリミティブ・トポロジーをセット.
 	m_pContext11->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	//マテリアルの数だけ、
+	//マテリアルの数だけ、.
 	//それぞれのマテリアルのインデックスバッファを描画.
 	for (DWORD i = 0; i < pMesh->NumMaterial; i++)
 	{
@@ -864,7 +864,7 @@ void SkinMesh::DrawPartsMeshDepth(SKIN_PARTS_MESH* pMesh, DirectX::XMMATRIX Worl
 			pMesh->ppIndexBuffer[i],
 			DXGI_FORMAT_R32_UINT, 0);
 
-		//コンスタントバッファに情報を設定（マテリアルごと）
+		//コンスタントバッファに情報を設定（マテリアルごと）.
 		SendCBufferPerMaterial(&pMesh->pMaterial[i]);
 
 		//テクスチャをシェーダに渡す.
@@ -894,11 +894,11 @@ void SkinMesh::SendCBufferPerBone(SKIN_PARTS_MESH* pMesh)
 			DirectX::XMMATRIX mat = GetCurrentPoseMatrix(pMesh, i);
 			mat = DirectX::XMMatrixTranspose(mat);
 
-			// ポインタ経由でアクセス
+			// ポインタ経由でアクセス.
 			cb->mBone[i] = mat;
 		}
 
-		// ヒープ上のデータをコピー
+		// ヒープ上のデータをコピー.
 		memcpy_s(pData.pData, pData.RowPitch,
 			reinterpret_cast<void*>(cb), sizeof(CBUFFER_PER_BONES));
 
@@ -925,21 +925,21 @@ void SkinMesh::SendCBufferPerFrame()
 		CBUFFER_PER_FRAME cb;
 
 		//カメラ位置.
-		// 【修正】m_CamPos (XMFLOAT3) から XMVECTOR をロード
+		// 【修正】m_CamPos (XMFLOAT3) から XMVECTOR をロード.
 		DirectX::XMVECTOR camPos = DirectX::XMLoadFloat3(&m_CamPos);
 
-		// 【修正】XMVECTOR を XMFLOAT4 にストア (CBUFFER_PER_FRAME::CameraPosがXMFLOAT4と仮定)
+		// 【修正】XMVECTOR を XMFLOAT4 にストア (CBUFFER_PER_FRAME::CameraPosがXMFLOAT4と仮定).
 		DirectX::XMStoreFloat4(reinterpret_cast<DirectX::XMFLOAT4*>(&cb.CameraPos), camPos);
 
 		//ライト方向.
-		// LightManager::GetDirectionLight()->GetDirection() は D3DXVECTOR3 を返すと仮定
+		// LightManager::GetDirectionLight()->GetDirection() は D3DXVECTOR3 を返すと仮定.
 		DirectX::XMFLOAT3 d3dxLightDir = LightManager::GetDirectionLight()->GetDirection();
 
-		// 【修正】D3DXVECTOR3 を XMVECTOR に変換し、正規化
+		// 【修正】D3DXVECTOR3 を XMVECTOR に変換し、正規化.
 		DirectX::XMVECTOR lightDir = DirectX::XMVectorSet(d3dxLightDir.x, d3dxLightDir.y, d3dxLightDir.z, 0.0f);
 		lightDir = DirectX::XMVector3Normalize(lightDir);
 
-		// 【修正】結果を cb.vLightDir (XMFLOAT4と仮定) にストア
+		// 【修正】結果を cb.vLightDir (XMFLOAT4と仮定) にストア.
 		DirectX::XMStoreFloat4(reinterpret_cast<DirectX::XMFLOAT4*>(&cb.vLightDir), lightDir);
 
 		// ライトを使用するか.
@@ -995,7 +995,7 @@ void SkinMesh::SendCBufferPerMesh()
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 
-// 【修正】引数に XMMATRIX World を追加
+// 【修正】引数に XMMATRIX World を追加.
 void SkinMesh::SendCBufferPerMeshDepth()
 {
 	ID3D11Buffer* CBuffer = Shadow::GetInstance().GetCBuffer();
@@ -1009,11 +1009,11 @@ void SkinMesh::SendCBufferPerMeshDepth()
 	{
 		Shadow::CBUFFER cb;
 
-		// LightManagerの行列を取得（D3DXMATRIXを返すため変換が必要）
+		// LightManagerの行列を取得（D3DXMATRIXを返すため変換が必要）.
 		DirectX::XMMATRIX lightView = LightManager::GetDirectionLight()->GetViewMatrix();
 		DirectX::XMMATRIX lightProj = LightManager::GetDirectionLight()->GetProjectionMatrix();
 
-		// 【修正】mWLPをXMで計算し、転置
+		// 【修正】mWLPをXMで計算し、転置.
 		cb.mWLP = m_WorldMatrix * lightView * lightProj;
 		cb.mWLP = DirectX::XMMatrixTranspose(cb.mWLP);	//行列を転置する.
 		//※行列の計算方法がDirectXとGPUで異なるため転置が必要.
@@ -1041,21 +1041,21 @@ void SkinMesh::SendCBufferPerMaterial(MY_SKINMATERIAL* pMaterial)
 	{
 		CBUFFER_PER_MATERIAL cb;
 
-		// pMaterial->AmbientなどはXMFLOAT4型に変換済みと仮定 (ヘッダーファイル変換済み)
+		// pMaterial->AmbientなどはXMFLOAT4型に変換済みと仮定 (ヘッダーファイル変換済み).
 		cb.Ambient = pMaterial->Ambient;
 		cb.Diffuse = pMaterial->Diffuse;
 		cb.Specular = pMaterial->Specular;
-		// Emissive のアルファにグローバルアルファを乗算
+		// Emissive のアルファにグローバルアルファを乗算.
 		cb.Emissive = pMaterial->Emissive;
 		cb.Diffuse.w *= m_GlobalAlpha;
 		cb.Ambient.w *= m_GlobalAlpha;
 		cb.Specular.w *= m_GlobalAlpha;
 
-		// ディゾルブパラメータ設定
-		cb.Dissolve.x = m_DissolveThreshold;    // 閾値
-		cb.Dissolve.y = m_DissolveEdgeWidth;    // エッジ幅
-		cb.Dissolve.z = m_DissolveEnabled ? 1.0f : 0.0f; // 有効フラグ
-		cb.Dissolve.w = 0.0f;                   // 予約
+		// ディゾルブパラメータ設定.
+		cb.Dissolve.x = m_DissolveThreshold;    // 閾値.
+		cb.Dissolve.y = m_DissolveEdgeWidth;    // エッジ幅.
+		cb.Dissolve.z = m_DissolveEnabled ? 1.0f : 0.0f; // 有効フラグ.
+		cb.Dissolve.w = 0.0f;                   // 予約.
 
 		memcpy_s(pDat.pData, pDat.RowPitch,
 			reinterpret_cast<void*>(&cb), sizeof(cb));
@@ -1071,7 +1071,7 @@ void SkinMesh::SendCBufferPerMaterial(MY_SKINMATERIAL* pMaterial)
 
 void SkinMesh::SendTexture(MY_SKINMATERIAL* pMaterial)
 {
-	if (pMaterial->TextureName[0] != 0 && pMaterial->pTexture != nullptr) // TextNameが空でないか、pTextureが設定されているか
+	if (pMaterial->TextureName[0] != 0 && pMaterial->pTexture != nullptr) // TextNameが空でないか、pTextureが設定されているか.
 	{
 		m_pContext11->PSSetSamplers(0, 1, &m_pSampleLinear);
 		m_pContext11->PSSetShaderResources(0, 1, &pMaterial->pTexture);
@@ -1156,7 +1156,7 @@ HRESULT SkinMesh::DestroyAppMeshFromD3DXMesh(LPD3DXFRAME p)
 			pFrame->pPartsMesh->pMaterial = nullptr;
 		}
 
-		// インデックスバッファの解放
+		// インデックスバッファの解放.
 		if (pFrame->pPartsMesh->ppIndexBuffer != nullptr)
 		{
 			int iMax = static_cast<int>(pFrame->pPartsMesh->NumMaterial);
@@ -1169,10 +1169,10 @@ HRESULT SkinMesh::DestroyAppMeshFromD3DXMesh(LPD3DXFRAME p)
 			pFrame->pPartsMesh->ppIndexBuffer = nullptr;
 		}
 
-		// 頂点バッファの解放
+		// 頂点バッファの解放.
 		SAFE_RELEASE(pFrame->pPartsMesh->pVertexBuffer);
 
-		// SKIN_PARTS_MESH 本体を解放
+		// SKIN_PARTS_MESH 本体を解放.
 		delete pFrame->pPartsMesh;
 	}
 	pFrame->pPartsMesh = nullptr;
@@ -1226,7 +1226,7 @@ int SkinMesh::GetAnimMax(LPD3DXANIMATIONCONTROLLER pAC)
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 
-// 【修正】pOutMatの型をD3DXMATRIX*からDirectX::XMMATRIX*に変更
+// 【修正】pOutMatの型をD3DXMATRIX*からDirectX::XMMATRIX*に変更.
 bool SkinMesh::GetMatrixFromBone(
 	LPCSTR sBoneName, DirectX::XMMATRIX* pOutMat)
 {
@@ -1240,7 +1240,7 @@ bool SkinMesh::GetMatrixFromBone(
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 
-// 【修正】pOutPosの型をD3DXVECTOR3*からDirectX::XMFLOAT3*に変更
+// 【修正】pOutPosの型をD3DXVECTOR3*からDirectX::XMFLOAT3*に変更.
 bool SkinMesh::GetPosFromBone(
 	LPCSTR sBoneName, DirectX::XMFLOAT3* pOutPos)
 {
@@ -1248,10 +1248,10 @@ bool SkinMesh::GetPosFromBone(
 	{
 		if (m_pD3dxMesh->GetPosFromBone(sBoneName, pOutPos)) {
 
-			// 【修正】ボーン位置をXMVECTORにロード
+			// 【修正】ボーン位置をXMVECTORにロード.
 			DirectX::XMVECTOR tmpPosVector = DirectX::XMVectorSet(pOutPos->x, pOutPos->y, pOutPos->z, 1.0f);
 
-			// 【修正】モデルのトランスフォームをXMで構築
+			// 【修正】モデルのトランスフォームをXMで構築.
 			DirectX::XMMATRIX mScale, mRot;
 
 			// m_spTransformはXMFLOAT3/4と仮定してロード
@@ -1259,24 +1259,24 @@ bool SkinMesh::GetPosFromBone(
 			DirectX::XMVECTOR rotation = DirectX::XMLoadFloat3(&m_spTransform.Rotation);
 			DirectX::XMVECTOR position = DirectX::XMLoadFloat3(&m_spTransform.Position);
 			
-			// XM 行列の作成
+			// XM 行列の作成.
 			mScale = DirectX::XMMatrixScalingFromVector(scale);
 			mRot = DirectX::XMMatrixRotationRollPitchYawFromVector(rotation);
 			DirectX::XMMATRIX mTran = DirectX::XMMatrixTranslationFromVector(tmpPosVector);
 
-			// 【修正】ワールド行列の合成 (Translation * Scale * Rotation)
-			// 注意: ボーンの位置は既にボーン階層変換後のワールド行列の平行移動成分であるため、
-			// mTranではなく、ボーン行列全体 (GetMatrixFromBone) を使用するか、
-			// ここでは単にボーンの位置に対してモデルのスケールと回転を適用し、最後にモデルの平行移動を加算する。
-			// オリジナルのコードの意図通り、ボーン位置のみを抽出し、それに対してスケールと回転を適用しているものとする。
+			// 【修正】ワールド行列の合成 (Translation * Scale * Rotation).
+			// 注意: ボーンの位置は既にボーン階層変換後のワールド行列の平行移動成分であるため、.
+			// mTranではなく、ボーン行列全体 (GetMatrixFromBone) を使用するか、.
+			// ここでは単にボーンの位置に対してスケールと回転を適用し、最後にモデルの平行移動を加算する。.
+			// オリジナルのコードの意図通り、ボーン位置のみを抽出し、それに対してスケールと回転を適用しているものとする。.
 
-			// ボーン位置を原点とし、そこからモデルのスケールと回転を適用
+			// ボーン位置を原点とし、そこからモデルのスケールと回転を適用.
 			DirectX::XMVECTOR transformedPos = DirectX::XMVector3TransformCoord(tmpPosVector, mScale * mRot);
 
-			// モデルの全体位置を加算
+			// モデルの全体位置を加算.
 			DirectX::XMVECTOR finalPos = DirectX::XMVectorAdd(transformedPos, position);
 
-			// 【修正】結果を pOutPos (XMFLOAT3) に格納
+			// 【修正】結果を pOutPos (XMFLOAT3) に格納.
 			DirectX::XMStoreFloat3(pOutPos, finalPos);
 
 			return true;
@@ -1294,23 +1294,23 @@ bool SkinMesh::GetDeviaPosFromBone(
 	if (m_pD3dxMesh != nullptr)
 	{
 		DirectX::XMMATRIX  d3dxBoneMat;
-		// D3DXPARSER::GetMatrixFromBone は D3DXMATRIX を返す
+		// D3DXPARSER::GetMatrixFromBone は D3DXMATRIX を返す.
 		if (m_pD3dxMesh->GetMatrixFromBone(sBoneName, &d3dxBoneMat)) {
 
-			// 【修正】D3DXMATRIX を XMMATRIX に変換
+			// 【修正】D3DXMATRIX を XMMATRIX に変換.
 			DirectX::XMMATRIX mBone = d3dxBoneMat;
 
-			// 【修正】SpecifiedPos (ずれ)を行列化 (XMMATRIX)
+			// 【修正】SpecifiedPos (ずれ)を行列化 (XMMATRIX).
 			DirectX::XMVECTOR vDevia = DirectX::XMLoadFloat3(&SpecifiedPos);
 			DirectX::XMMATRIX mDevia = DirectX::XMMatrixTranslationFromVector(vDevia);
 
-			// 【修正】ずれ * ボーン行列を XM で計算
+			// 【修正】ずれ * ボーン行列を XM で計算.
 			DirectX::XMMATRIX mtmp = mDevia * mBone;
 
-			// 【修正】mtmp の平行移動成分を取得 (ボーンの最終位置)
+			// 【修正】mtmp の平行移動成分を取得 (ボーンの最終位置).
 			DirectX::XMVECTOR tmpPosVector = mtmp.r[3];
 
-			// 【修正】ここから GetPosFromBone と同様のモデル全体トランスフォームを適用
+			// 【修正】ここから GetPosFromBone と同様のモデル全体トランスフォームを適用.
 
 			DirectX::XMVECTOR scale = DirectX::XMLoadFloat3(&m_spTransform.Scale);
 			DirectX::XMVECTOR rotation = DirectX::XMLoadFloat3(&m_spTransform.Rotation);
@@ -1319,13 +1319,13 @@ bool SkinMesh::GetDeviaPosFromBone(
 			DirectX::XMMATRIX mScale = DirectX::XMMatrixScalingFromVector(scale);
 			DirectX::XMMATRIX mRot = DirectX::XMMatrixRotationRollPitchYawFromVector(rotation);
 
-			// ボーン位置を原点とし、そこからモデルのスケールと回転を適用
+			// ボーン位置を原点とし、そこからモデルのスケールと回転を適用.
 			DirectX::XMVECTOR transformedPos = DirectX::XMVector3TransformCoord(tmpPosVector, mScale * mRot);
 
-			// モデルの全体位置を加算
+			// モデルの全体位置を加算.
 			DirectX::XMVECTOR finalPos = DirectX::XMVectorAdd(transformedPos, position);
 
-			// 【修正】結果を pOutPos (XMFLOAT3) に格納
+			// 【修正】結果を pOutPos (XMFLOAT3) に格納.
 			DirectX::XMStoreFloat3(pOutPos, finalPos);
 
 			return true;
@@ -1394,4 +1394,3 @@ void SkinMesh::ConvertCharaMultiByteToUnicode(
 		str,
 		_TRUNCATE);
 }
-

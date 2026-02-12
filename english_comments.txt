@@ -1,0 +1,1686 @@
+﻿Game\00_Scene\02_GameMain\GameMain.cpp:100: // CombatCoordinator に Player と Boss の参照を設定.
+Game\00_Scene\Ex_Test\02_L\LTestScene.h:57: //SkyBox表示用.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.cpp:56: //		UIの追加と削除.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.cpp:66: //		UI調整.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.cpp:69: // UIリストの検索関数.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.cpp:82: // Z座標を基準にソート.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.cpp:146: // JSON読み込み.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.cpp:238: // jsonData[画像名] に配列として追加.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.cpp:256: // Z座標を基準にソートする.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.cpp:259: if (!a || !b) return false; // UIObjectがnullptrなら後ろに.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.cpp:353: // UIなどのデータをクリア.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.cpp:377: //		UIリスト検索関数.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.cpp:471: // UI名とUIオブジェクトのペアを収集.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.h:29: //	ImGui使用関数.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.h:33: // UIリスト検索関数.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.h:35: // SpriteManagerからUIを追加.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.h:42: // Z座標を元にソートする関数(選択されたUIObect).
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.h:53: bool m_MoveAny;	// UI情報変更の有無.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.h:59: std::vector<std::shared_ptr<UIObject>> m_pUIs;				// UIクラス.
+Game\00_Scene\Ex_Test\03_UIEditor\UIEditor.h:60: std::vector<std::shared_ptr<Sprite2D>> m_pSprite2Ds;		// Sprite2Dクラス.
+Game\00_Scene\Ex_Test\04_AnimationTuning\AnimationTuningScene.cpp:52: //m_spCamera->SetPosition(DirectX::XMFLOAT3(0.0f, 5.0f, -50.0f));.
+Game\00_Scene\Ex_Test\04_AnimationTuning\AnimationTuningScene.cpp:53: //m_spCamera->SetLook(DirectX::XMFLOAT3(0.0f, 2.0f, 5.0f));.
+Game\00_Scene\Ex_Test\04_AnimationTuning\AnimationTuningScene.cpp:93: //m_upPlayer->Update();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\00_Pause\Pause.cpp:14: // ID�̎擾.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\00_Pause\Pause.h:18: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\01_KnockBack\KnockBack.cpp:22: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\01_KnockBack\KnockBack.cpp:40: // Y成分を0にし、水平方向の初速を計算.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\01_KnockBack\KnockBack.cpp:100: } // PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\01_KnockBack\KnockBack.h:18: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\02_Dead\Dead.cpp:15: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\02_Dead\Dead.cpp:60: } // PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\02_Dead\Dead.h:18: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\03_SpecialAttack\SpecialAttack.cpp:29: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\03_SpecialAttack\SpecialAttack.cpp:67: // CombatCoordinatorに通知（ボスをSpecialDamageStateに遷移させる）.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\03_SpecialAttack\SpecialAttack.cpp:279: // Y座標もランダムに決定.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\03_SpecialAttack\SpecialAttack.cpp:332: // SpecialAttack_2アニメーションを再生.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\03_SpecialAttack\SpecialAttack.cpp:377: }// PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\03_SpecialAttack\SpecialAttack.h:22: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\00_System\System.cpp:30: } // PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\00_Movement\00_Idle\Idle.cpp:22: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\00_Movement\00_Idle\Idle.cpp:68: } // PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\00_Movement\00_Idle\Idle.h:19: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\00_Movement\01_Run\Run.cpp:24: // ResourceManagerからエフェクトを取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\00_Movement\01_Run\Run.cpp:32: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\00_Movement\01_Run\Run.cpp:123: // Y座標を削除.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\00_Movement\01_Run\Run.cpp:149: } // PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\00_Movement\01_Run\Run.h:19: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:58: //    static bool isStop = false;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:60: //    ImGui::Begin(IMGUI_JP("AttackCombo_0 デバッグ"));.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:62: //    ImGui::Checkbox(IMGUI_JP("ストップ"), &isStop);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:64: //    RenderColliderWindowsUI("AttackCombo_0 Collider Windows");.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:66: //    bool isAccepting = (m_currentTime >= m_ComboStartTime && m_currentTime <= m_ComboEndTime);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:67: //    if (isAccepting) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:68: //        ImGui::TextColored(ImVec4(0.0f, 1.0f, 0.0f, 1.0f), IMGUI_JP("入力受付中"));.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:70: //    else {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:71: //        ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), IMGUI_JP("受付外"));.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:73: //    ImGui::Separator();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:74: //    ImGui::DragFloat(IMGUI_JP("コンボ入力開始時間 (ComboStart)"), &m_ComboStartTime, 0.01f, 0.0f, m_ComboEndTime);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:75: //    ImGui::DragFloat(IMGUI_JP("次コンボ最低開始時間 (ComboStart)"), &m_MinComboTransTime, 0.01f, 0.0f, m_ComboEndTime);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:76: //    ImGui::Text(IMGUI_JP("入力受付時間: %.3f - %.3f"), m_ComboStartTime, m_ComboEndTime);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:79: //    ImGui::Separator();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:80: //    ImGui::Text(IMGUI_JP("時間: %.3f / %.3f"), m_currentTime, m_ComboEndTime);
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:81: //    ImGui::DragFloat(IMGUI_JP("アニメ速度"), &m_AnimSpeed, 0.1f, 0.1f, 60.0f);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:82: //    ImGui::DragFloat(IMGUI_JP("ステート持続時間 (MaxTime)"), &m_ComboEndTime, 0.01f, 0.1f, 10.0f);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:84: //    if (ImGui::Button(IMGUI_JP("Load"))) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:85: //        try {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:86: //            std::filesystem::path filePath = std::filesystem::current_path() / "Data" / "Json" / "Player" / "AttackCombo" / "AttackCombo_0.json";
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:87: //            if (std::filesystem::exists(filePath)) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:88: //                json j = FileManager::JsonLoad(filePath);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:89: //                if (j.contains("m_AnimSpeed")) m_AnimSpeed = j["m_AnimSpeed"].get<float>();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:90: //                if (j.contains("m_MinComboTransTime")) m_MinComboTransTime = j["m_MinComboTransTime"].get<float>();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:91: //                if (j.contains("m_ComboStartTime")) m_ComboStartTime = j["m_ComboStartTime"].get<float>();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:92: //                if (j.contains("m_ComboEndTime")) m_ComboEndTime = j["m_ComboEndTime"].get<float>();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:94: //                if (j.contains("ColliderWindows") && j["ColliderWindows"].is_array()) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:95: //                    m_ColliderWindows.clear();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:96: //                    for (const auto& entry : j["ColliderWindows"]) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:97: //                        if (entry.contains("start") && entry.contains("duration")) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:98: //                            AddColliderWindow(entry["start"].get<float>(), entry["duration"].get<float>());.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:103: //                m_pOwner->SetAnimSpeed(m_AnimSpeed);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:106: //        catch (...) {}.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:108: //    ImGui::SameLine();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:109: //    if (ImGui::Button(IMGUI_JP("Save"))) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:110: //        try {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:111: //            std::filesystem::path dir = std::filesystem::current_path() / "Data" / "Json" / "Player" / "AttackCombo";
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:112: //            std::filesystem::create_directories(dir);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:113: //            std::filesystem::path filePath = dir / "AttackCombo_0.json";
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:115: //            json j;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:116: //            j["m_AnimSpeed"] = m_AnimSpeed;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:117: //            j["m_MinComboTransTime"] = m_MinComboTransTime;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:118: //            j["m_ComboStartTime"] = m_ComboStartTime;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:119: //            j["m_ComboEndTime"] = m_ComboEndTime;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:120: //            j["ColliderWindows"] = json::array();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:121: //            for (const auto& w : m_ColliderWindows) { json e; e["start"] = w.Start; e["duration"] = w.Duration; j["ColliderWindows"].push_back(e); }.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:122: //            FileManager::JsonSave(filePath, j);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:124: //        catch (...) {}.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:126: //    if (ImGui::Button(IMGUI_JP("Restert"))) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:127: //        this->Enter();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:130: //    ImGui::End();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.cpp:133: //  if (!isStop).
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\00_AttackCombo_0\AttackCombo_0.h:19: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:78: //    ImGui::Begin(IMGUI_JP("AttackCombo_1 デバッグ"));.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:80: //    ImGui::Checkbox(IMGUI_JP("ストップ"), &isStop);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:82: //    RenderColliderWindowsUI("AttackCombo_1 Collider Windows");.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:84: //    // Show whether combo input is currently accepted (green) or not (red).
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:85: //    bool isAccepting = (m_currentTime >= m_ComboStartTime && m_currentTime <= m_ComboEndTime);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:86: //    if (isAccepting) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:87: //        ImGui::TextColored(ImVec4(0.0f, 1.0f, 0.0f, 1.0f), IMGUI_JP("入力受付中"));.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:89: //    else {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:90: //        ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), IMGUI_JP("受付外"));.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:92: //    ImGui::Separator();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:93: //    ImGui::DragFloat(IMGUI_JP("コンボ入力開始時間 (ComboStart)"), &m_ComboStartTime, 0.01f, 0.0f, m_ComboEndTime);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:94: //    ImGui::DragFloat(IMGUI_JP("次コンボ最低開始時間 (ComboStart)"), &m_MinComboTransTime, 0.01f, 0.0f, m_ComboEndTime);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:96: //    ImGui::Text(IMGUI_JP("入力受付時間: %.3f - %.3f"), m_ComboStartTime, m_ComboEndTime);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:99: //    ImGui::Separator();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:100: //    ImGui::Text(IMGUI_JP("時間: %.3f / %.3f"), m_currentTime, m_ComboEndTime);
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:101: //    ImGui::DragFloat(IMGUI_JP("アニメ速度"), &m_AnimSpeed, 0.1f, 0.1f, 60.0f);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:102: //    ImGui::DragFloat(IMGUI_JP("ステート持続時間 (MaxTime)"), &m_ComboEndTime, 0.01f, 0.1f, 10.0f);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:104: //    if (ImGui::Button(IMGUI_JP("Load"))) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:105: //        try {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:106: //            std::filesystem::path filePath = std::filesystem::current_path() / "Data" / "Json" / "Player" / "AttackCombo" / "AttackCombo_1.json";
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:107: //            if (std::filesystem::exists(filePath)) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:108: //                json j = FileManager::JsonLoad(filePath);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:109: //                if (j.contains("m_AnimSpeed")) m_AnimSpeed = j["m_AnimSpeed"].get<float>();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:110: //                if (j.contains("m_MinComboTransTime")) m_MinComboTransTime = j["m_MinComboTransTime"].get<float>();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:111: //                if (j.contains("m_ComboStartTime")) m_ComboStartTime = j["m_ComboStartTime"].get<float>();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:112: //                if (j.contains("m_ComboEndTime")) m_ComboEndTime = j["m_ComboEndTime"].get<float>();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:114: //                if (j.contains("ColliderWindows") && j["ColliderWindows"].is_array()) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:115: //                    m_ColliderWindows.clear();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:116: //                    for (const auto& entry : j["ColliderWindows"]) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:117: //                        if (entry.contains("start") && entry.contains("duration")) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:118: //                            AddColliderWindow(entry["start"].get<float>(), entry["duration"].get<float>());.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:123: //                m_pOwner->SetAnimSpeed(m_AnimSpeed);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:126: //        catch (...) {}.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:128: //    ImGui::SameLine();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:129: //    if (ImGui::Button(IMGUI_JP("Save"))) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:130: //        try {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:131: //            std::filesystem::path dir = std::filesystem::current_path() / "Data" / "Json" / "Player" / "AttackCombo";
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:132: //            std::filesystem::create_directories(dir);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:133: //            std::filesystem::path filePath = dir / "AttackCombo_1.json";
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:135: //            json j;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:136: //            j["m_AnimSpeed"] = m_AnimSpeed;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:137: //            j["m_MinComboTransTime"] = m_MinComboTransTime;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:138: //            j["m_ComboStartTime"] = m_ComboStartTime;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:139: //            j["m_ComboEndTime"] = m_ComboEndTime;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:140: //            j["ColliderWindows"] = json::array();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:141: //            for (const auto& w : m_ColliderWindows) { json e; e["start"] = w.Start; e["duration"] = w.Duration; j["ColliderWindows"].push_back(e); }.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:142: //            FileManager::JsonSave(filePath, j);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:144: //        catch (...) {}.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:146: //    if (ImGui::Button(IMGUI_JP("Restert"))) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:147: //        this->Enter();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:150: //    ImGui::End();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.cpp:185: // movement similar to others (optional).
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\01_AttackCombo_1\AttackCombo_1.h:18: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:15: static constexpr float CLOSE_RANGE_THRESHOLD = 20.0f;    // Bossまでの距離に置いて近いと判断する.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:27: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:110: //    ImGui::Begin(IMGUI_JP("AttackCombo_2 デバッグ"));.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:112: //    ImGui::Checkbox(IMGUI_JP("ストップ"), &isStop);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:114: //    RenderColliderWindowsUI("AttackCombo_2 Collider Windows");.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:116: //    // Show whether combo input is currently accepted (green) or not (red).
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:117: //    bool isAccepting = (m_currentTime >= m_ComboStartTime && m_currentTime <= m_ComboEndTime);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:118: //    if (isAccepting) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:119: //        ImGui::TextColored(ImVec4(0.0f, 1.0f, 0.0f, 1.0f), IMGUI_JP("入力受付中"));.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:121: //    else {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:122: //        ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), IMGUI_JP("受付外"));.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:124: //    ImGui::Separator();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:125: //    ImGui::DragFloat(IMGUI_JP("コンボ入力開始時間 (ComboStart)"), &m_ComboStartTime, 0.01f, 0.0f, m_ComboEndTime);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:126: //    ImGui::DragFloat(IMGUI_JP("次コンボ最低開始時間 (ComboStart)"), &m_MinComboTransTime, 0.01f, 0.0f, m_ComboEndTime);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:127: //    ImGui::Text(IMGUI_JP("入力受付時間: %.3f - %.3f"), m_ComboStartTime, m_ComboEndTime);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:130: //    ImGui::Separator();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:131: //    ImGui::Text(IMGUI_JP("時間: %.3f / %.3f"), m_currentTime, m_ComboEndTime);
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:132: //    ImGui::DragFloat(IMGUI_JP("アニメ速度"), &m_AnimSpeed, 0.1f, 0.1f, 60.0f);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:133: //    ImGui::DragFloat(IMGUI_JP("ステート持続時間 (MaxTime)"), &m_ComboEndTime, 0.01f, 0.1f, 10.0f);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:135: //    if (ImGui::Button(IMGUI_JP("Load"))) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:136: //        try {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:137: //            std::filesystem::path filePath = std::filesystem::current_path() / "Data" / "Json" / "Player" / "AttackCombo" / "AttackCombo_2.json";
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:138: //            if (std::filesystem::exists(filePath)) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:139: //                json j = FileManager::JsonLoad(filePath);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:140: //                if (j.contains("m_AnimSpeed")) m_AnimSpeed = j["m_AnimSpeed"].get<float>();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:141: //                if (j.contains("m_MinComboTransTime")) m_MinComboTransTime = j["m_MinComboTransTime"].get<float>();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:142: //                if (j.contains("m_ComboStartTime")) m_ComboStartTime = j["m_ComboStartTime"].get<float>();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:143: //                if (j.contains("m_ComboEndTime")) m_ComboEndTime = j["m_ComboEndTime"].get<float>();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:145: //                if (j.contains("ColliderWindows") && j["ColliderWindows"].is_array()) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:146: //                    m_ColliderWindows.clear();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:147: //                    for (const auto& entry : j["ColliderWindows"]) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:148: //                        if (entry.contains("start") && entry.contains("duration")) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:149: //                            AddColliderWindow(entry["start"].get<float>(), entry["duration"].get<float>());.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:154: //                m_pOwner->SetAnimSpeed(m_AnimSpeed);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:157: //        catch (...) {}.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:159: //    ImGui::SameLine();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:160: //    if (ImGui::Button(IMGUI_JP("Save"))) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:161: //        try {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:162: //            std::filesystem::path dir = std::filesystem::current_path() / "Data" / "Json" / "Player" / "AttackCombo";
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:163: //            std::filesystem::create_directories(dir);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:164: //            std::filesystem::path filePath = dir / "AttackCombo_2.json";
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:166: //            json j;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:167: //            j["m_AnimSpeed"] = m_AnimSpeed;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:168: //            j["m_MinComboTransTime"] = m_MinComboTransTime;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:169: //            j["m_ComboStartTime"] = m_ComboStartTime;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:170: //            j["m_ComboEndTime"] = m_ComboEndTime;.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:171: //            j["ColliderWindows"] = json::array();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:172: //            for (const auto& w : m_ColliderWindows) { json e; e["start"] = w.Start; e["duration"] = w.Duration; j["ColliderWindows"].push_back(e); }.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:173: //            FileManager::JsonSave(filePath, j);.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:175: //        catch (...) {}.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:177: //    if (ImGui::Button(IMGUI_JP("Restert"))) {.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:178: //        this->Enter();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:181: //    ImGui::End();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.cpp:240: } // PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\02_AttackCombo_2\AttackCombo_2.h:19: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\03_Parry\Parry.cpp:21: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\03_Parry\Parry.cpp:197: // Exit で必ず再生速度を復帰.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\03_Parry\Parry.cpp:209: } // PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\03_Parry\Parry.h:18: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\Combat.cpp:33: // clear collider windows by default.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\Combat.cpp:35: // Ensure attack collider is disabled on enter.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\Combat.cpp:38: // Allow derived states to load their settings on enter.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\Combat.cpp:58: // Keep facing the move direction while in combat if a move vector is set.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\Combat.cpp:92: //C:\Users\green\source\C++\Senzan\Senzan\Data\Json\Player\AttackCombo.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\Combat.cpp:116: // normalize incoming values.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\Combat.cpp:119: // ensure flags are initialized.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\Combat.cpp:168: // Provide a convenience button to re-enter the current state (calls derived Enter).
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\Combat.cpp:170: // Call Enter on this state instance (virtual -> derived override will be invoked).
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\Combat.cpp:175: } // PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\01_Combat\Combat.h:44: float m_Distance;           // Bossとの距離.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\00_DodgeExecute\DodgeExecute.cpp:31: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\00_DodgeExecute\DodgeExecute.cpp:64: float blend_ratio = 0.5f;  // Liner比率を上げて最後の減速を緩やかに.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\00_DodgeExecute\DodgeExecute.cpp:67: // InOutCubic: 最初加速 → 中間最速 → 緩やかに減速.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\00_DodgeExecute\DodgeExecute.cpp:123: } // PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\00_DodgeExecute\DodgeExecute.h:18: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\01_JustDodge\JustDodge.cpp:34: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\01_JustDodge\JustDodge.cpp:73: //Dodge::Update();.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\01_JustDodge\JustDodge.cpp:102: // Y座標を削除.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\01_JustDodge\JustDodge.cpp:203: } // PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\01_JustDodge\JustDodge.h:20: // IDの取得.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\01_JustDodge\JustDodgeEffect.cpp:40: // Play at start position.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\01_JustDodge\JustDodgeEffect.h:5: // Lightweight effect controller: play an Effekseer effect that moves from player to boss.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\01_JustDodge\JustDodgeEffect.h:13: // Start the effect: effectName is looked up via EffectResource and played.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\01_JustDodge\JustDodgeEffect.h:14: // startPos/worldStart and targetPos/worldTarget are world-space positions.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\01_JustDodge\JustDodgeEffect.h:15: // duration: 移動にかける時間 (秒). デフォルト1秒.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\01_JustDodge\JustDodgeEffect.h:18: // Update per-frame: deltaTime を渡して位置を更新する.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\01_JustDodge\JustDodgeEffect.h:21: // Stop and release the effect handle immediately.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\Dodge.cpp:25: if (collider_ptr && collider_ptr->GetMyMask() == eCollisionGroup::Player_Damage) // GetID()は仮の関数.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\Dodge.cpp:69: // Y座標を削除し、水平なベクトルに変換.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\Dodge.cpp:113: float yaw = atan2f(forwardVec.x, forwardVec.z); // yaw を計算.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\02_Dodge\Dodge.cpp:144: } // PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\01_Action\Action.cpp:90: } // PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\Root\Root.cpp:218: } // PlayerState.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateBase.cpp:32: // atan2f(x, y) の引数順: 0度 = +Y軸方向.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:11: // System.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:12: Pause,         // System/Pause          : 一時停止.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:13: KnockBack,     // System/KnockBack      : 被ダメノックバッグ.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:14: Dead,          // System/Dead           : 死亡
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:15: SpecialAttack, // System/SpecialAttack  : 必殺技.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:17: // Gameplay/Movement.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:18: Idle,          // Gameplay/Movement/Idle: 無操作.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:19: Run,           // Gameplay/Movement/Run : 走り.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:21: // Gameplay/Dodge.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:22: DodgeExecute,  // Gameplay/Dodge/DodgeExecute   : 通常回避.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:23: JustDodge,     // Gameplay/Dodge/JustDodge      : ジャスト回避.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:25: // Gameplay/Combat.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:26: AttackCombo_0, // Gameplay/Combat/AttackCombo_0 : 攻撃一段階目.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:27: AttackCombo_1, // Gameplay/Combat/AttackCombo_1 : 攻撃二段階目.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:28: AttackCombo_2, // Gameplay/Combat/AttackCombo_2 : 攻撃三段階目.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\State\PlayerStateID.h:29: Parry,         // Gameplay/Combat/Parry         : ジャストガード.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\Player.cpp:238: // X/Z 軸の回転が描画時に変わらないよう、元の回転を保持して
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\Player.cpp:242: tempRot.x = 0.0f; // X軸回転を無効化.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\Player.cpp:243: tempRot.z = 0.0f; // Z軸回転を無効化.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\Player.cpp:339: //Debug::Warning(message.c_str());.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\Player.cpp:599: // Boss に通知（アニメ再生のみ）.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\Player.cpp:691: // Extend the target position in the boss forward direction by extraDistance (if provided).
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\Player.cpp:695: // compute direction from start to target (XZ) and extend.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\Player.h:32: class Combat; // forward declare Combat so Player can friend it.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\Player.h:90: // Set just-dodge timing flag (used by Scene to propagate enemy just-windows).
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\Player.h:93: // Allow external managers to cancel the player's attack collider.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\Player.h:150: // IDをキーとし、ステート参照を返すラムダ関数を値とするマップ.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\Player.h:165: float			m_MaxUltValue; 		// max閃値.
+Game\01_GameObject\00_MeshObject\00_Character\01_Player\Player.h:205: PlayerState::eID    m_DebugForcedState;     // None == 無効.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossJumpOnlState\BossJumpOnlState.cpp:114: // SpecialToIdolアニメーションが終了したら遷移.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossJumpOnlState\BossJumpOnlState.cpp:192: // Jump フェーズ: Special_0 を最初に再生し、0.9 秒後に上昇を開始。上昇後は一旦消えて delay の後プレイヤー真上から登場.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossJumpOnlState\BossJumpOnlState.cpp:205: // rise target は現在位置 + height.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossJumpOnlState\BossJumpOnlState.cpp:359: // Attack フェーズは、JumpOn の場合は落下処理.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossJumpOnlState\BossJumpOnlState.h:21: Attack,		//Playerに向かっての攻撃.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossJumpOnlState\BossJumpOnlState.h:23: Trans		//Idolに遷移.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossJumpOnlState\BossJumpOnlState.h:37: // PlayerのParry成功時硬直させたいアニメーションとタイミング.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossLaserState\BossLaserState.cpp:67: // keep facing player while charging.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossLaserState\BossLaserState.cpp:146: // Debug controls for forcing state.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossLaserState\BossLaserState.cpp:155: // collider debug.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossLaserState\BossLaserState.h:40: // charge timing.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossLaserState\BossLaserState.h:44: // fire timing.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossLaserState\BossLaserState.h:48: // laser parameters.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossLaserState\BossLaserState.h:53: // effect played flag.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.cpp:18: // Use Boss API to change anim via state machine owner if allowed.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.cpp:19: // Boss::enBossAnim is private; use ChangeAnim by enum index if available.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.cpp:20: m_pOwner->ChangeAnim(Boss::enBossAnim::Run); // Changed animation to Run.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.cpp:28: // Follow simplified BossMoveState movement phases for the duration of this state.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.cpp:37: // Use tunable members instead of local constants.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.cpp:40: // slightly increase rotation speed for snappier strafing.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.cpp:41: m_RotationSpeed = 0.4; // was 0.1.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.cpp:46: // Immediately enter Run within this continue state.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.cpp:52: // Use configurable forward move speed.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.cpp:119: // Face player every frame.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.cpp:127: // End this continue state when duration exceeded.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.h:20: float m_MoveSpeed = 10.0f; // forward move speed.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.h:21: // Movement logic copied from BossMoveState (phases: Start/Run/Stop/Strafe)
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossMoveContinueState\BossMoveContinueState.h:34: // Lerp multiplier used when tracking strafe ideal position. Larger = faster tracking.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossParryState\BossParryState.cpp:49: // Suc の場合: 指定の順番で再生 (bottom-up): FlinchToIdol -> Flinch -> FlinchParis.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossParryState\BossParryState.cpp:57: // Fai の場合: Hit を再生して終了したら Idol へ.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossParryState\BossParryState.h:29: // PlayerのParry成功時硬直させたいアニメーションとタイミング.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossShoutState\BossShoutState.cpp:36: //X,Z平面の方向.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossShoutState\BossShoutState.cpp:39: //Y軸回転角度を計算し、ボスをプレイヤーに向かせる.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossShoutState\BossShoutState.h:33: // PlayerのParry成功時硬直させたいアニメーションとタイミング.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSlashState\BossSlashState.cpp:89: // Idol遷移も時間で統一（余韻用に固定）.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSlashState\BossSlashState.cpp:132: // window 制御のコライダーを確実にOFF.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSlashState\BossSlashState.h:35: // PlayerのParry成功時硬直させたいアニメーションとタイミング.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSlashState\BossSlashState.h:42: // ImGui でスライダー等を表示してパラメータを調整できるようにする.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSpecialDamageState\BossSpecialDamageState.cpp:108: // TakeDamageフェーズ中の場合のみDownに遷移.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSpinningState\BossSpinningState.cpp:54: // start attack when charge animation ends or after charge time.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSpinningState\BossSpinningState.cpp:95: easedAngle = out.y; // Y 成分.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSpinningState\BossSpinningState.cpp:124: m_LastEasedAngle = 0.0f; // reset.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSpinningState\BossSpinningState.cpp:159: // Easing selector.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSpinningState\BossSpinningState.cpp:175: // Enter キーで JSON を読み込む (既存の処理).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSpinningState\BossSpinningState.cpp:194: // Load base settings (this reads Data/Json/Boss/<file>)
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSpinningState\BossSpinningState.cpp:197: // Load additional fields from the same location as other boss states.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSpinningState\BossSpinningState.cpp:211: // Serialize base + derived fields and save once.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSpinningState\BossSpinningState.h:29: // PlayerのParry成功時硬直させたいアニメーションとタイミング.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossSpinningState\BossSpinningState.h:32: // ImGui と設定の読み書き.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:46: // legacy pre-slow removed.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:55: // Easing selection - simple combo.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:61: // pre-slow removed; use m_WaitSeconds / m_SlowAnimSpeed
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:63: // CImGuiManager::Slider<float>(IMGUI_JP("上昇時間"), m_AscentTime, 0.0f, 5.0f, true);.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:64: // CImGuiManager::Slider<float>(IMGUI_JP("落下水平加速"), m_FallAccel, 0.0f, 200.0f, true);.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:65: // CImGuiManager::Slider<float>(IMGUI_JP("落下最大速度"), m_MaxFallHorizSpeed, 0.0f, 200.0f, true);.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:103: // collider windows are managed by base class (use BossAttackStateBase::DrawImGui).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:130: // vertical easing params.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:138: // stomp コライダー設定の読み込み.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:154: // no additional parameters.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:172: // vertical easing params.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:179: // collider windows persisted via base SerializeSettings/SaveSettings
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:180: // stomp コライダー設定保存.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:186: // no additional parameters.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:203: // Load settings when entering the state so runtime changes are applied immediately.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:206: // Use base enter to initialize common timers/windows and reset m_CurrentTime
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:254: // use base timing and windows.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:266: // start slow elapsed timer.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:286: // Special_0 が終了したら座標移動を開始して Special_1 を再生.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:308: // initialize vertical easing timers when movement starts.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:312: // Follow UpdateBaseLogic: set base collider params so UpdateColliderWindows will apply them on activation.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:313: m_ColliderWidth = (m_StompRadius > 0.0f) ? m_StompRadius : 30.0f; // radius stored in base width.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:315: // Position offset / BoneName for activation comes from ColliderWindow (loaded from JSON)
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:316: // Do not manually SetActive here; UpdateBaseLogic will activate the collider at the configured time.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:324: // advance move timer.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:326: // run BossAttack which now performs eased movement based on m_MoveTimer/m_MoveDuration
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:330: // Special_1 を再生し終わったら移動を止めて SpecialToIdol を再生.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:345: m_List = enAttack::Trans; // Transition to the next state.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:375: // m_pOwner->SetPositionY(0.0f);.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:387: // progress for movement easing (0..1).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:391: // easeOut quad: 1 - (1-x)^2.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:407: // vertical easing: when moving, update Y according to ascent/descent easing
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:410: // advance vertical timer.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:418: // ascent phase: 0 -> apex.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:424: // descent: apex -> ground (startY).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:429: // If vertical sequence finished, snap exactly to start Y (ground).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:437: // If movement finished, ensure flags / list updated
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.cpp:441: // trigger transition to SpecialToIdol if not already.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:17: Trans		//Idolに状態遷移.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:30: // PlayerのParry成功時硬直させたいアニメーションとタイミング.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:33: // ImGui と設定の読み書き.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:57: // float m_LastY; // 一時無効化: Y 制御オフ.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:72: // State timers / flags
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:73: float m_WaitSeconds = 0.4f;    // seconds before slowing animation.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:74: float m_SlowAnimSpeed = 0.5f;  // slowed animation speed value.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:75: bool  m_AnimSlowed = false;    // whether animation was slowed.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:76: bool  m_IsMoving = false;      // whether boss is currently moving (stomp phase).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:77: // use m_CurrentTime from base for timing.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:78: // slow duration control: how long animation stays slowed after delay.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:79: float m_SlowDuration = 1.5f;  // seconds to keep animation slowed.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:80: float m_SlowElapsed = 0.0f;   // elapsed time since slow started.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:81: // stomp collider settings (persisted).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:86: // movement easing params.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:87: float m_MoveDuration = 0.8f;   // duration of the movement/easing (seconds)
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:88: float m_MoveTimer = 0.0f;      // elapsed time since movement started.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:89: float m_Distance = 0.0f;       // total horizontal distance to move.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:90: DirectX::XMFLOAT3 m_MoveVec;   // normalized horizontal direction vector.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:91: // vertical control for ascent/descent
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:93: float m_AscentHeight = 10.0f;       // peak additional height relative to start.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:94: float m_AscentDuration = 0.25f;     // seconds.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:95: float m_DescentDuration = 0.55f;    // seconds.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:98: float m_VerticalTimer = 0.0f;       // timer for vertical easing.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossStompState\BossStompState.h:108: // using base's m_ColliderWindows.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossThrowingState\BossThrowingState.h:32: // PlayerのParry成功時硬直させたいアニメーションとタイミング.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossThrowingState\BossThrowingState.h:35: // ImGui と設定の読み書き.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:37: // Activation: for OneShot windows, activate only when crossing the start time.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:43: // Activate only when prevTime < Start <= currentTime.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:58: // apply current state collider settings to the activated collider so UI changes take effect.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:66: // Use virtual setters so Sphere/Box/Capsule implementations receive values
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:70: // Also apply initial offset.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:85: // Bone 名が設定されていれば、試しに Mesh からボーン位置を取得.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:87: // Boss のメッシュからボーン位置取得 API がある場合は使用する.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:103: // ColliderBase::GetPosition()が親の回転を自動適用するため、ローカルオフセットをそのまま設定.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:113: // ColliderBase provides SetPositionOffset; call on base pointer so all collider types are supported.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:119: // Deactivation: for OneShot, deactivate after the next frame (i.e., when currentTime > Start).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:154: // Reset previous time so UpdateColliderWindows sees a fresh time window on re-entry.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:155: // Use a negative value to ensure prevTime < Start for OneShot activations that begin at t=0.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:323: // XZ 平面に投影.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:335: // EndPos = StartPos + rotated * (Speed * Duration * Distance).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:396: // ImGui を用いた攻撃パラメータ編集パネル.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:479: // XMMatrixRotationY と一致: (-sin(y), 0, cos(y)).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:537: //ImGui::SameLine();.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:538: // Easing 選択.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.cpp:569: // Load / Save ボタン
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.h:116: // JSON 設定の読み書き.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.h:127: // PlayerのParry成功時硬直させたいアニメーションとタイミング.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.h:137: // Enter 時に自動でプレイヤーを向くか（デフォルト true）.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.h:157: // currentTime: 時間基準（秒）.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossAttackStateBase\BossAttackStateBase.h:158: // windows: 更新対象のウィンドウ配列（m_ColliderWindows など）.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossIdolState\BossIdolState.cpp:57: // MoveState->SetInitialAngle(angle_radian); // 必要であれば渡す.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossIdolState\BossIdolState.cpp:104: // m_pColl->Draw(transform);.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossIdolState\BossIdolState.h:45: //	std::shared_ptr<CapsuleCollider> m_pColl;.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:45: // Load persisted settings.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:65: // Distance view selector for ImGui (0:Near,1:Mid).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:232: // Apply display changes back to internal weights (keep internal representation consistent with displayed percentages).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:244: // Use a display variable so the stored index isn't decremented every frame.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:245: int displayForce = s_ForceAttackIndex + 1; // map internal -1..6 -> display 0..7.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:247: s_ForceAttackIndex = displayForce - 1; // store back (-1 = Random, 0-6 = Each attack).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:268: // Enter キーで読み込み (キー押下の立ち上がりで一度だけ実行).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:285: // Attack timer.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:288: // Decrease cooldowns.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:300: // Direction vector and distance to player.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:408: // If on cooldown, skip.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:411: // apply repeat penalty.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:514: // JSON では英語 ID をキーに使う (Enable / Cooldown are per-attack)
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:519: // per-distance weights.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.cpp:542: // per-distance normalize and write.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.h:52: // Attack identifiers (order matters for arrays).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.h:119: // Per-attack settings (indexed by AttackId::Count).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.h:122: // Distances: Near / Mid (遠距離削除)
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.h:125: // weights[distance][attack] - stored/edited as percentages that sum to ~100 per distance
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.h:127: std::array<float, Count>{ 12.5f, 12.5f, 12.5f, 12.5f, 12.5f, 12.5f, 12.5f, 12.5f }, // Near (sum = 100).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.h:128: std::array<float, Count>{ 12.5f, 12.5f, 12.5f, 12.5f, 12.5f, 12.5f, 12.5f, 12.5f }  // Mid (sum = 100).
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.h:141: // runtime cooldown/last-attack tracking
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\BossMoveState\BossMoveState.h:143: int m_LastAttackId = -1; // last chosen attack id.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.cpp:60: //DirectX::XMFLOAT3 pos = { 0.05f, 10.0f, 20.05f };.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.cpp:206: // BossAttackStateBase へキャストして設定を取得する.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.cpp:316: // BossParryStateへ遷移.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.cpp:331: // BossParryStateへ遷移（遅延フラグと遅延秒を渡す）.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.cpp:340: // BossParryStateへ遷移.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.cpp:383: // BossAttackStateBase へキャストして設定を取得する.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.cpp:549: // NOTE: 文字列は typo を避けるため定数化推奨.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.cpp:598: // apply rotation offset if provided.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.cpp:619: // apply rotation offset.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.h:12: //template<typename FSM_Owner> class StateMachine;.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.h:16: // Update関数の中にプレイヤーのポジションを設定する.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.h:114: // HPを倍率で設定（コンテニュー時に使用）.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.h:121: // withDelay=true の場合、指定秒数だけパリィ後に次フェーズへ移行する挙動になる。.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.h:134: // first  = 再生開始アニメ.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.h:135: // second = パリィで停止させたいアニメ（参照用）.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.h:168: // Playerロックオン.
+Game\01_GameObject\00_MeshObject\00_Character\02_Boss\Boss.h:236: // runtime flag indicating any attack's just window is active.
+Game\01_GameObject\00_MeshObject\00_Character\03_SnowBall\SnowBall.cpp:68: // Update メソッドの差し替え（アニメ終了でフェード開始）.
+Game\01_GameObject\00_MeshObject\00_Character\03_SnowBall\SnowBall.cpp:79: // State machine handling.
+Game\01_GameObject\00_MeshObject\00_Character\03_SnowBall\SnowBall.cpp:115: // SkinMesh のグローバルアルファを設定.
+Game\01_GameObject\00_MeshObject\00_Character\03_SnowBall\SnowBall.cpp:155: // t (0.0 ～ 1.0) を計算.
+Game\01_GameObject\00_MeshObject\00_Character\03_SnowBall\SnowBall.cpp:289: // CombatCoordinator に雪玉がパリィされたことを通知.
+Game\01_GameObject\00_MeshObject\00_Character\03_SnowBall\SnowBall.h:30: // Manager が削除判定を行うためのフラグ.
+Game\01_GameObject\00_MeshObject\00_Character\03_SnowBall\SnowBall.h:42: DirectX::XMFLOAT3 Player_Pos; // P2 (着弾点).
+Game\01_GameObject\00_MeshObject\00_Character\03_SnowBall\SnowBall.h:43: DirectX::XMFLOAT3 Boss_Pos;   // P0 (開始点).
+Game\01_GameObject\00_MeshObject\00_Character\03_SnowBall\SnowBall.h:44: DirectX::XMFLOAT3 Current_Pos; // P1 (制御点).
+Game\01_GameObject\00_MeshObject\00_Character\04_BackGround\BackGround.cpp:6: //SeyBox���b�V���̃A�^�b�`.
+Game\01_GameObject\00_MeshObject\00_Character\Character.cpp:65: // EffectResource から取得して Effekseer に再生依頼.
+Game\01_GameObject\00_MeshObject\00_Character\Character.cpp:106: // Effekseer: Play with orthographic coordinates requires using RenderHandleUI later.
+Game\01_GameObject\00_MeshObject\00_Character\Character.cpp:154: // UI エフェクトは正射影で描画.
+Game\01_GameObject\00_MeshObject\00_Character\Character.cpp:199: // yは無視する.
+Game\01_GameObject\00_MeshObject\00_Character\Character.cpp:205: // y成分を0にする.
+Game\01_GameObject\00_MeshObject\00_Character\Character.cpp:224: // if (m_InvincibleTimer > 0.0f) return;.
+Game\01_GameObject\00_MeshObject\00_Character\Character.cpp:226: // HPを減らす.
+Game\01_GameObject\00_MeshObject\00_Character\Character.cpp:231: // HPが0以下になったら死亡処理.
+Game\01_GameObject\00_MeshObject\00_Character\Character.cpp:237: // ChangeState(PlayerState::eID::Die);.
+Game\01_GameObject\00_MeshObject\00_Character\Character.cpp:245: // m_InvincibleTimer = 1.0f;.
+Game\01_GameObject\00_MeshObject\00_Character\Character.h:32: // UI座標(スクリーンピクセル)を指定してエフェクトを再生する.
+Game\01_GameObject\00_MeshObject\MeshObject.cpp:23: // Set object alpha.
+Game\01_GameObject\00_MeshObject\MeshObject.cpp:26: // clamp.
+Game\01_GameObject\00_MeshObject\MeshObject.cpp:70: // StaticMesh時の描画.
+Game\01_GameObject\00_MeshObject\MeshObject.cpp:75: // SkinMesh時の描画.
+Game\01_GameObject\00_MeshObject\MeshObject.cpp:89: // Apply object alpha to mesh, render, then restore previous alpha.
+Game\01_GameObject\00_MeshObject\MeshObject.cpp:94: // Restore previous alpha.
+Game\01_GameObject\00_MeshObject\MeshObject.cpp:118: // StaticMesh時の深度描画.
+Game\01_GameObject\00_MeshObject\MeshObject.cpp:123: // SkinMesh時の深度描画.
+Game\01_GameObject\00_MeshObject\MeshObject.h:37: public: // Getter／Setter.
+Game\01_GameObject\00_MeshObject\MeshObject.h:131: // SkinMesh 用アニメコントローラ.
+Game\01_GameObject\02_UIObject\Fade\Fade.cpp:59: // FadeInなら0.0f開始.
+Game\01_GameObject\02_UIObject\Fade\Fade.cpp:60: // FadeOutなら1.0f開始.
+Game\01_GameObject\02_UIObject\Fade\Fade.h:26: public: // Getter、Setter.
+Game\01_GameObject\02_UIObject\Fade\FadeManager.h:28: public: // Getter、Setter.
+Game\01_GameObject\02_UIObject\Select\Select.cpp:113: // scale用Easing.
+Game\01_GameObject\02_UIObject\Select\Select.h:13: DirectX::XMFLOAT3 basePos;	// White の初期座標.
+Game\01_GameObject\02_UIObject\Select\Select.h:14: DirectX::XMFLOAT3 moveDir;	// ZNode 方向へのベクトル（初期化時に計算）.
+Game\01_GameObject\02_UIObject\TimerWarning\TimerWarning.cpp:44: // AnchorではなくPivotに設定 (ユーザー指摘に基づき).
+Game\01_GameObject\02_UIObject\TimerWarning\TimerWarning.cpp:155: // Lerp(a, b, t) = a + (b - a) * t.
+Game\01_GameObject\02_UIObject\UIGameMain\UIGameMain.h:27: // easing.
+Game\01_GameObject\02_UIObject\UIGameMain\UIGameMain.h:35: // delay（赤用）.
+Game\01_GameObject\02_UIObject\UIGameMain\UIGameMain.h:127: // Debug用.
+Game\01_GameObject\02_UIObject\UILoader\UILoader.cpp:5: // json型を作成.
+Game\01_GameObject\02_UIObject\UILoader\UILoader.cpp:13: // JSON読み込み.
+Game\01_GameObject\02_UIObject\UILoader\UILoader.cpp:48: // SpriteDataの一部も上書き.
+Game\01_GameObject\02_UIObject\UILoader\UILoader.cpp:56: // Z座標を基準にソート.
+Game\01_GameObject\02_UIObject\ULTSparkle\ULTSparkle.cpp:178: // InExpoで吸い込まれるように一瞬で消す.
+Game\01_GameObject\02_UIObject\UIObject.h:17: // UIの種類.
+Game\01_GameObject\02_UIObject\UIObject.h:44: public: // Getter、Setter.
+Game\01_GameObject\02_UIObject\UIObject.h:127: std::string m_UIName;	// UIの自体名前.
+Game\01_GameObject\02_UIObject\UIObject.h:132: UIType		m_UIType;	// UIの種類.
+Game\01_GameObject\GameObject.cpp:22: // m_spTransformが有効なポインタを持っているか確認し、中身を上書きする.
+Game\01_GameObject\GameObject.cpp:27: // nullの場合は新しく作成.
+Game\01_GameObject\GameObject.cpp:68: // SIMD演算を使用して加算.
+Game\01_GameObject\GameObject.cpp:239: // m_TimeScale が -1f の場合 (ワールドタイムスケールを無視).
+Game\01_GameObject\GameObject.cpp:284: // Slerpで補間し適用する.
+Game\01_GameObject\GameObject.h:21: // Transform取得.
+Game\01_GameObject\GameObject.h:25: // sharedのコピー.
+Game\01_GameObject\GameObject.h:27: // sharedのMove.
+Game\02_Camera\FirstPersonCamera\FirstPersonCamera.cpp:19: // accel.
+Game\02_Camera\FirstPersonCamera\FirstPersonCamera.cpp:196: // Y を目の高さに固定しない（垂直移動で変化するため）.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:32: //if (ImGui::Begin(IMGUI_JP("LockOnCamera Debug"))).
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:35: //	if (!m_UseExplicitTarget) {.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:36: //		ImGui::DragFloat(IMGUI_JP("距離"), &m_Distance, 0.1f, 1.0f, 50.0f);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:38: //		ImGui::Text(IMGUI_JP("距離: 明示的ターゲット使用中で無効"));.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:40: //	ImGui::DragFloat(IMGUI_JP("追従速度"), &m_FollowSpeed, 0.05f, 0.1f, 10.0f);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:41: //	ImGui::DragFloat(IMGUI_JP("高さオフセット"), &m_HeightOffset, 0.1f, 0.0f, 20.0f);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:42: //	ImGui::DragFloat(IMGUI_JP("注視点高さ"), &m_LookOffset, 0.1f, 0.0f, 20.0f);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:43: //	ImGui::DragFloat(IMGUI_JP("注視点補間"), &m_LookLerp, 0.01f, 0.0f, 1.0f);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:45: //	// FOV controls (display as degrees).
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:46: //	float defaultFovDeg = DirectX::XMConvertToDegrees(m_DefaultFOV);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:47: //	float parryFovDeg = DirectX::XMConvertToDegrees(m_ParryFOV);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:48: //	if (ImGui::DragFloat(IMGUI_JP("デフォルトFOV(度)"), &defaultFovDeg, 0.1f, 10.0f, 170.0f)).
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:50: //		m_DefaultFOV = DirectX::XMConvertToRadians(defaultFovDeg);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:51: //		if (m_CameraMode != eCameraMode::Parry).
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:53: //			m_CurrentFOV = m_DefaultFOV;.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:54: //			SetFOV(m_CurrentFOV);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:57: //	if (ImGui::DragFloat(IMGUI_JP("パリィFOV(度)"), &parryFovDeg, 0.1f, 10.0f, 170.0f)).
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:59: //		m_ParryFOV = DirectX::XMConvertToRadians(parryFovDeg);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:62: //	ImGui::Separator();.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:63: //	ImGui::Text(IMGUI_JP("パリィカメラ設定"));.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:64: //	ImGui::DragFloat(IMGUI_JP("パリィ: 到達時間"), &m_ParryPhaseInDuration, 0.01f, 0.01f, 3.0f);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:65: //	ImGui::DragFloat(IMGUI_JP("パリィ: 滞在時間"), &m_ParryHoldDuration, 0.01f, 0.0f, 3.0f);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:66: //	ImGui::DragFloat(IMGUI_JP("パリィ: 戻る時間"), &m_ParryOutDuration, 0.01f, 0.01f, 3.0f);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:67: //	ImGui::DragFloat(IMGUI_JP("パリィ時高さ"), &m_ParryHeightOffset, 0.1f, -5.0f, 10.0f);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:68: //	ImGui::DragFloat(IMGUI_JP("パリィ時注視点高さ"), &m_ParryLookOffset, 0.1f, 0.0f, 15.0f);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:69: //	ImGui::DragFloat(IMGUI_JP("パリィ時距離"), &m_ParryDistance, 0.1f, 1.0f, 20.0f);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:70: //	ImGui::DragFloat(IMGUI_JP("パリィ: 横オフセット"), &m_ParryHorizontalOffset, 0.01f, -10.0f, 10.0f);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:71: //	ImGui::DragFloat(IMGUI_JP("パリィ: 前方オフセット"), &m_ParryForwardOffset, 0.01f, -10.0f, 10.0f);.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:73: //	ImGui::Separator();.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:74: //	ImGui::Text(IMGUI_JP("明示的ターゲット"));.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:75: //	ImGui::Checkbox(IMGUI_JP("明示的な目標/注視点を使用"), &m_UseExplicitTarget);
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:76: //	float camOff[3] = { m_ExplicitCameraPosOffset.x, m_ExplicitCameraPosOffset.y, m_ExplicitCameraPosOffset.z };.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:77: //	if (ImGui::DragFloat3(IMGUI_JP("カメラ位置オフセット (相対: x,y,z)"), camOff, 0.1f)) {.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:78: //		m_ExplicitCameraPosOffset = { camOff[0], camOff[1], camOff[2] };.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:80: //	float lookOff[3] = { m_ExplicitLookPosOffset.x, m_ExplicitLookPosOffset.y, m_ExplicitLookPosOffset.z };.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:81: //	if (ImGui::DragFloat3(IMGUI_JP("注視点オフセット (相対: x,y,z)"), lookOff, 0.1f)) {.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:82: //		m_ExplicitLookPosOffset = { lookOff[0], lookOff[1], lookOff[2] };.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:85: //	if (ImGui::Button(IMGUI_JP("パリィカメラテスト"))) {.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:86: //		StartParryCamera();.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:89: //	if (ImGui::Button(IMGUI_JP("Load"))) {.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:90: //		try { LoadSettings(); } catch (...) {}.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:92: //	ImGui::SameLine();.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:93: //	if (ImGui::Button(IMGUI_JP("Save"))) {.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:94: //		try { SaveSettings(); } catch (...) {}.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:96: //	ImGui::End();.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:135: // XMFLOAT3をXMVECTORにロードしてから計算.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:193: // totalDuration は上で計算済みなのでここでは再計算しない.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:224: easedT = 1.0f - (inv * inv); // ease in reversed to go from 1->0.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:225: easedT = 1.0f - easedT; // invert to go from 1->0 over phase.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:250: // FOVを補間して演出（狭める）.
+Game\02_Camera\LockOnCamera\LockOnCamera.cpp:547: // Apply loaded/default FOV
+Game\02_Camera\LockOnCamera\LockOnCamera.h:84: // m_ParryPhaseInDuration: カメラが目標地点へ移動する時間.
+Game\02_Camera\LockOnCamera\LockOnCamera.h:85: // m_ParryHoldDuration: 目標地点で留まる時間.
+Game\02_Camera\LockOnCamera\LockOnCamera.h:86: // m_ParryOutDuration: 元に戻る時間.
+Game\02_Camera\LockOnCamera\LockOnCamera.h:94: // m_ParryHorizontalOffset: プレイヤーの左右方向へのオフセット（正は右）.
+Game\02_Camera\LockOnCamera\LockOnCamera.h:95: // m_ParryForwardOffset: プレイヤーの前方（ボス方向）への追加前進距離（正は前）.
+Game\02_Camera\LockOnCamera\LockOnCamera.h:100: bool m_UseExplicitTarget = false; // true の時は m_ExplicitCameraPosOffset / m_ExplicitLookPosOffset を使用
+Game\02_Camera\LockOnCamera\LockOnCamera.h:127: // FOV control for parry and special effects (radians).
+Game\02_Camera\LockOnCamera\LockOnCamera.h:128: // Defaults: 50deg and 40deg in radians.
+Game\02_Camera\LockOnCamera\LockOnCamera.h:131: float m_CurrentFOV = 0.872664626f; // current active FOV.
+Game\02_Camera\LockOnCamera\LockOnCamera.h:133: // Getter/Setter for FOV
+Game\02_Camera\ThirdPersonCamera\ThirdPersonCamera.cpp:25: DirectX::XMVECTOR moveVecXM = {};    // XMVECTORで計算するための中間変数。.
+Game\02_Camera\ThirdPersonCamera\ThirdPersonCamera.cpp:53: // Y反転.
+Game\02_Camera\ThirdPersonCamera\ThirdPersonCamera.cpp:76: // YawとPitchから前方ベクトルとカメラ位置を計算する.
+Game\02_Camera\CameraBase.cpp:16: // Module-scope FOV that can be changed at runtime by cameras.
+Game\02_Camera\CameraBase.cpp:108: // XMVector3NormalizeはXMVECTORを返すため、XMStoreFloat3でXMFLOAT3に変換.
+Game\02_Camera\CameraBase.cpp:185: // DirectXMathの関数でプロジェクション行列を更新.
+Game\02_Camera\CameraBase.h:29: public: // Getter、Setter.
+Game\02_Camera\CameraBase.h:96: // FOVの設定・取得（ラジアン）.
+Game\03_Collision\00_Core\00_Box\BoxCollider.cpp:57: // Visualizerに渡す情報.
+Game\03_Collision\00_Core\00_Box\BoxCollider.cpp:80: // Boxのサイズを Data0 に設定 (Boxのメッシュは単位サイズを想定).
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:79: // ap を ab に投影し、スカラー値 e (Dot(ap, ab)) を求める.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:84: // Aの外側 (P1が最短点).
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:88: // Bの外側 (P2が最短点).
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:147: const DirectX::XMVECTOR r = DirectX::XMVectorSubtract(p2, p1); // r = B - A.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:148: const DirectX::XMVECTOR s = DirectX::XMVectorSubtract(q2, q1); // s = D - C.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:149: const DirectX::XMVECTOR e = DirectX::XMVectorSubtract(p1, q1); // e = A - C.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:218: // XMFLOAT3 にストア.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:234: // const DirectX::XMVECTOR p1 = GetCulcCapsuleSegmentStart(this);.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:235: // const DirectX::XMVECTOR p2 = GetCulcCapsuleSegmentEnd(this);.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:238: // OBB-Segment の最短距離アルゴリズム（Boxのローカル空間への変換とクランプ）が必要です。.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:240: // const float distSq = 9999.0f; // OBB-Segment::ClosestPtSegmentOBBSq(...).
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:243: // const float requiredRadius = GetRadius();.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:245: // return distSq <= (requiredRadius * requiredRadius);.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:272: // PositionOffset を親の回転で回転させてから中心に加算する.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:274: // mat_no_scale は回転と位置を含む行列だが回転のみの行列を作成してオフセットを回転させる.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:311: // PositionOffset を親の回転で回転させてから中心に加算する.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:333: // ap を ab に投影し、スカラー値 e (Dot(ap, ab)) を求める.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:361: // r = B - A (線分 AB の方向ベクトル).
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:363: // s = D - C (線分 CD の方向ベクトル).
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:365: // e = A - C (線分 AC のベクトル).
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:370: const float e_val = DirectX::XMVectorGetX(DirectX::XMVector3Dot(r, s)); // r . s.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:373: const float g_val = DirectX::XMVectorGetX(DirectX::XMVector3Dot(r, e)); // r . e.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:374: const float h_val = DirectX::XMVectorGetX(DirectX::XMVector3Dot(s, e)); // s . e.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:381: // k = a*f - e^2 (2x2行列の行列式).
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:386: // s=0 (点A)に固定して t を解く.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:389: // t を [0, 1] にクランプ.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:433: // t = 0 (点C)からの最短点.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:436: else { // t = 1.0f (点D)からの最短点.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.cpp:440: // s を最終的に [0, 1] にクランプ.
+Game\03_Collision\00_Core\01_Capsule\CapsuleCollider.h:46: // Radiusが負の値にならないようにガード.
+Game\03_Collision\00_Core\ColliderBase.h:4: struct Transform; // forward declaration to avoid include.
+Game\03_Collision\00_Core\ColliderBase.h:66: //inline const std::weak_ptr<Transform>& GetParentTransform() const noexcept { return m_wpTransform; }.
+Game\03_Collision\00_Core\CollisionSpec.h:55: // spawnDelay と spawnDuration を適用した開始・終了タイムスタンプを保持するなどに利用可能.
+Game\04_Time\Time.cpp:50: m_TimerNow += GetDeltaTime(); // TimeScaleの影響を受ける.
+Game\04_Time\Time.cpp:67: // FPSを維持するために待機が必要かチェックする.
+Game\04_Time\Time.cpp:77: // FPSを維持するための処理.
+Game\04_Time\Time.h:24: // FPSを維持するための処理.
+Game\04_Time\Time.h:75: // use steady_clock for monotonic timing.
+Game\05_InputDevice\Mouse\Mouse.cpp:111: bool isRightOfLeft = pI.m_NowMousePoint.x >= rect.left;	// x座標が左端より右にあるか.
+Game\05_InputDevice\Mouse\Mouse.cpp:112: bool isLeftOfRight = pI.m_NowMousePoint.x <= rect.right;	// x座標が右端より左にあるか.
+Game\05_InputDevice\Mouse\Mouse.cpp:114: bool isBottomOfTop = pI.m_NowMousePoint.y >= rect.top;		// y座標が上端より下にあるか.
+Game\05_InputDevice\Mouse\Mouse.cpp:115: bool isTopOfBottom = pI.m_NowMousePoint.y <= rect.bottom;	// y座標が下端より上にあるか.
+Game\05_InputDevice\Mouse\Mouse.cpp:118: // X軸とY軸の境界を判定.
+Game\05_InputDevice\Mouse\Mouse.h:49: public: // Getter、Setter.
+Game\05_InputDevice\XInput\XInput.cpp:200: // X軸の処理.
+Game\05_InputDevice\XInput\XInput.cpp:209: else // x < 0.
+Game\05_InputDevice\XInput\XInput.cpp:215: // Y軸の処理.
+Game\05_InputDevice\XInput\XInput.cpp:223: else // y < 0.
+Game\05_InputDevice\XInput\XInput.cpp:237: // X軸の処理.
+Game\05_InputDevice\XInput\XInput.cpp:246: else // x < 0.
+Game\05_InputDevice\XInput\XInput.cpp:252: // Y軸の処理.
+Game\05_InputDevice\XInput\XInput.cpp:260: else // y < 0.
+Game\05_InputDevice\XInput\XInput.cpp:318: // X軸のクランプ値.
+Game\05_InputDevice\XInput\XInput.cpp:324: // Y軸のクランプ値.
+Game\05_InputDevice\XInput\XInput.cpp:379: // X軸のクランプ値.
+Game\05_InputDevice\XInput\XInput.cpp:385: // Y軸のクランプ値.
+Game\05_InputDevice\XInput\XInput.h:167: public: // Getter、Setter.
+Game\05_InputDevice\VirtualPad.cpp:28: // if (it != m_KeyMap.end() && it->second.type == eActionType::Axis) { Debug::Warning("Button check called for Axis action."); }.
+Game\05_InputDevice\VirtualPad.cpp:83: // KeyBorad/MouseButton.
+Game\05_InputDevice\VirtualPad.cpp:88: // ControllerButton.
+Game\05_InputDevice\VirtualPad.cpp:101: // KeyBorad/MouseButton.
+Game\05_InputDevice\VirtualPad.cpp:107: // ControllerButton.
+Game\05_InputDevice\VirtualPad.cpp:120: // KeyBorad/MouseButton.
+Game\05_InputDevice\VirtualPad.cpp:125: // ControllerButton.
+Game\05_InputDevice\VirtualPad.cpp:246: // MoveForward: 'W' または 左スティック上 (スティック方向).
+Game\05_InputDevice\VirtualPad.cpp:255: // MoveBackward: 'S' または 左スティック下.
+Game\05_InputDevice\VirtualPad.cpp:264: // MoveRight: 'D' または 右矢印キー または 左スティック右.
+Game\05_InputDevice\VirtualPad.cpp:274: // MoveLeft: 'A' または 左矢印キー または 左スティック左 (追加).
+Game\05_InputDevice\VirtualPad.cpp:285: // Jump: スペース または Aボタン.
+Game\05_InputDevice\VirtualPad.cpp:294: // Attack: マウス左ボタン または 右トリガー (軸入力だがここでは論理入力として扱う).
+Game\05_InputDevice\VirtualPad.cpp:303: // Parry.
+Game\05_InputDevice\VirtualPad.cpp:313: // Dodge.
+Game\05_InputDevice\VirtualPad.cpp:324: // SpecialAttack.
+Game\05_InputDevice\VirtualPad.cpp:334: // Pause.
+Graphic\DirectX\DirectX11\DirectX11.cpp:25: //DirectX構築関数.
+Graphic\DirectX\DirectX11\DirectX11.cpp:128: //Debug::GetInstance().Error("フィルモードを設定してください.");.
+Graphic\DirectX\DirectX11\DirectX11.cpp:146: //Debug::GetInstance().Error("カリングモードを設定してください.");.
+Graphic\DirectX\DirectX11\DirectX11.cpp:184: // D3D_FEATURE_LEVEL列挙型の配列.
+Graphic\DirectX\DirectX11\DirectX11.cpp:185: // D3D_FEATURE_LEVEL_11_0:Direct3D 11.0 の GPUレベル.
+Graphic\DirectX\DirectX11\DirectX11.cpp:199: D3D11_SDK_VERSION,			//SDKのバージョン.
+Graphic\DirectX\DirectX11\DirectX11.cpp:206: //WARPデバイスの作成.
+Graphic\DirectX\DirectX11\DirectX11.cpp:207: // D3D_FEATURE_LEVEL_9_1～D3D_FEATURE_LEVEL_10_1.
+Graphic\DirectX\DirectX11\DirectX11.cpp:216: // DirectX SDKがインストールされていないと使えない.
+Graphic\DirectX\DirectX11\DirectX11.cpp:279: //pngファイル内にアルファ情報があるので、透過するようにブレンドステートで設定する.
+Graphic\DirectX\DirectX11\DirectX11.cpp:283: BlendDesc.IndependentBlendEnable = false;	//false	:RenderTarget[0]のメンバのみ使用する.
+Graphic\DirectX\DirectX11\DirectX11.cpp:284: //true	:RenderTarget[0～7]が使用できる.
+Graphic\DirectX\DirectX11\DirectX11.cpp:293: BlendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;		//ADD:加算合成.
+Graphic\DirectX\DirectX11\DirectX11.cpp:299: BlendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;//ADD:加算合成.
+Graphic\DirectX\DirectX11\DirectX11.cpp:412: //         Texture2Dの唯一の物として扱う.
+Graphic\DirectX\DirectX11\DirectX11.cpp:451: descDepth.CPUAccessFlags = 0;				//CPUからはアクセスしない.
+Graphic\DirectX\DirectX11\DirectX11.h:39: friend class Singleton<DirectX11>; // Singletonからのアクセスを許可.
+Graphic\DirectX\DirectX11\DirectX11.h:45: //DirectX11構築.
+Graphic\DirectX\DirectX11\DirectX11.h:47: //DirectX11解放.
+Graphic\DirectX\DirectX12\DirectX12.cpp:5: //DirectX12::DirectX12().
+Graphic\DirectX\DirectX12\DirectX12.cpp:29: //DirectX12::~DirectX12().
+Graphic\DirectX\DirectX12\DirectX12.cpp:31: //	if (m_hFenceEvent != nullptr).
+Graphic\DirectX\DirectX12\DirectX12.cpp:33: //		CloseHandle(m_hFenceEvent);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:34: //		m_hFenceEvent = nullptr; // nullptr にして二重解放を防ぐ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:38: //bool DirectX12::Create(HWND hWnd).
+Graphic\DirectX\DirectX12\DirectX12.cpp:40: //	m_hWnd = hWnd;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:44: //	EnableDebuglayer();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:48: //	try {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:50: //		// DXGIの生成.
+Graphic\DirectX\DirectX12\DirectX12.cpp:51: //		CreateDXGIFactory(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:52: //			m_pDxgiFactory);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:55: //		CreateCommandObject(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:56: //			m_pCmdAllocator,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:57: //			m_pCmdList,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:58: //			m_pCmdQueue);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:61: //		CreateSwapChain(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:62: //			m_pSwapChain);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:65: //		CreateRenderTarget(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:66: //			m_pRenderTargetViewHeap,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:67: //			m_pBackBuffer);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:70: //		CreateTextureLoadTable();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:73: //		CreateDepthDesc(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:74: //			m_pDepthBuffer,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:75: //			m_pDepthHeap,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:76: //			m_pDepthSRVHeap);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:79: //		CreateSceneDesc();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:82: //		CreateFance(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:83: //			m_pFence);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:85: //	catch(const std::runtime_error& Msg) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:88: //		std::wstring WStr = MyString::StringToWString(Msg.what());.
+Graphic\DirectX\DirectX12\DirectX12.cpp:90: //		return false;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:93: //	return true;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:97: //DirectX::XMVECTOR m_Position = DirectX::XMVectorSet(0.0f, 20.0f, -40.0f, 1.0f);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:99: //DirectX::XMVECTOR m_TargetPosition = DirectX::XMVectorSet(0.0f, 15.0f, 0.0f, 1.0f); // モデルの中心あたりを見るように調整.
+Graphic\DirectX\DirectX12\DirectX12.cpp:102: //void DirectX12::Update().
+Graphic\DirectX\DirectX12\DirectX12.cpp:105: //	DirectX::XMVECTOR currentEye = m_Position;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:106: //	float m_MoveSpeed = 1.0f;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:107: //	if (GetAsyncKeyState(VK_SHIFT) & 0x8000) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:108: //		m_MoveSpeed = 0.1f; // Shiftキーで移動速度を遅くする.
+Graphic\DirectX\DirectX12\DirectX12.cpp:110: //	DirectX::XMVECTOR currentTarget = m_TargetPosition;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:114: //	DirectX::XMMATRIX viewMatrix = DirectX::XMMatrixLookAtLH(currentEye, currentTarget, DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:118: //	DirectX::XMMATRIX invViewMatrix = DirectX::XMMatrixInverse(nullptr, viewMatrix);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:122: //	// HLSLではmul(vector, matrix)で使う場合、列ベクトルが行列の各列に格納される。.
+Graphic\DirectX\DirectX12\DirectX12.cpp:123: //	// DirectX::XMMATRIXは行優先なので、行ベクトルは行列の各行に格納される。.
+Graphic\DirectX\DirectX12\DirectX12.cpp:126: //	// LookAtLHの場合、カメラは-Z方向を見ているので、カメラの「前方」はワールドの-Z方向に近くなります。.
+Graphic\DirectX\DirectX12\DirectX12.cpp:129: //	DirectX::XMVECTOR cameraForward = DirectX::XMVector3Normalize(invViewMatrix.r[2]); // Z軸.
+Graphic\DirectX\DirectX12\DirectX12.cpp:130: //	DirectX::XMVECTOR cameraRight = DirectX::XMVector3Normalize(invViewMatrix.r[0]); // X軸.
+Graphic\DirectX\DirectX12\DirectX12.cpp:131: //	DirectX::XMVECTOR cameraUp = DirectX::XMVector3Normalize(invViewMatrix.r[1]); // Y軸.
+Graphic\DirectX\DirectX12\DirectX12.cpp:133: //	// Q/EキーはワールドのY軸に沿って移動する方が直感的かもしれません
+Graphic\DirectX\DirectX12\DirectX12.cpp:134: //	DirectX::XMVECTOR worldUp = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:136: //	if (GetAsyncKeyState('W') & 0x8000) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:140: //		// XMMatrixLookAtLHの場合、カメラは-Z方向を見ているので、invViewMatrix.r[2] はカメラのローカルZ軸（後方）.
+Graphic\DirectX\DirectX12\DirectX12.cpp:142: //		currentEye = DirectX::XMVectorAdd(currentEye, DirectX::XMVectorScale(cameraForward, m_MoveSpeed));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:143: //		currentTarget = DirectX::XMVectorAdd(currentTarget, DirectX::XMVectorScale(cameraForward, m_MoveSpeed));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:145: //	if (GetAsyncKeyState('S') & 0x8000) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:147: //		currentEye = DirectX::XMVectorSubtract(currentEye, DirectX::XMVectorScale(cameraForward, m_MoveSpeed));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:148: //		currentTarget = DirectX::XMVectorSubtract(currentTarget, DirectX::XMVectorScale(cameraForward, m_MoveSpeed));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:150: //	if (GetAsyncKeyState('A') & 0x8000) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:152: //		currentEye = DirectX::XMVectorSubtract(currentEye, DirectX::XMVectorScale(cameraRight, m_MoveSpeed));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:153: //		currentTarget = DirectX::XMVectorSubtract(currentTarget, DirectX::XMVectorScale(cameraRight, m_MoveSpeed));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:155: //	if (GetAsyncKeyState('D') & 0x8000) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:157: //		currentEye = DirectX::XMVectorAdd(currentEye, DirectX::XMVectorScale(cameraRight, m_MoveSpeed));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:158: //		currentTarget = DirectX::XMVectorAdd(currentTarget, DirectX::XMVectorScale(cameraRight, m_MoveSpeed));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:160: //	if (GetAsyncKeyState('Q') & 0x8000) { // Qキーで上に移動 (ワールドY軸方向).
+Graphic\DirectX\DirectX12\DirectX12.cpp:161: //		currentEye = DirectX::XMVectorAdd(currentEye, DirectX::XMVectorScale(worldUp, m_MoveSpeed));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:162: //		currentTarget = DirectX::XMVectorAdd(currentTarget, DirectX::XMVectorScale(worldUp, m_MoveSpeed));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:164: //	if (GetAsyncKeyState('E') & 0x8000) { // Eキーで下に移動 (ワールドY軸方向).
+Graphic\DirectX\DirectX12\DirectX12.cpp:165: //		currentEye = DirectX::XMVectorSubtract(currentEye, DirectX::XMVectorScale(worldUp, m_MoveSpeed));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:166: //		currentTarget = DirectX::XMVectorSubtract(currentTarget, DirectX::XMVectorScale(worldUp, m_MoveSpeed));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:169: //	m_Position = currentEye; // 更新されたカメラ位置.
+Graphic\DirectX\DirectX12\DirectX12.cpp:170: //	m_TargetPosition = currentTarget; // 更新されたターゲット位置.
+Graphic\DirectX\DirectX12\DirectX12.cpp:172: //	UpdateSceneBuffer(); // 更新.
+Graphic\DirectX\DirectX12\DirectX12.cpp:175: //void DirectX12::UpdateSceneBuffer().
+Graphic\DirectX\DirectX12\DirectX12.cpp:177: //	if (m_pMappedSceneData).
+Graphic\DirectX\DirectX12\DirectX12.cpp:179: //		DirectX::XMFLOAT3 currentEye = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:180: //		DirectX::XMStoreFloat3(&currentEye, m_Position); // 更新されたm_Positionを使用.
+Graphic\DirectX\DirectX12\DirectX12.cpp:182: //		DirectX::XMFLOAT3 target = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:183: //		DirectX::XMStoreFloat3(&target, m_TargetPosition); // 更新されたm_TargetPositionを使用.
+Graphic\DirectX\DirectX12\DirectX12.cpp:185: //		DirectX::XMFLOAT3 up(0, 1, 0); // ワールドの上方向は固定.
+Graphic\DirectX\DirectX12\DirectX12.cpp:187: //		m_pMappedSceneData->view =.
+Graphic\DirectX\DirectX12\DirectX12.cpp:188: //			DirectX::XMMatrixLookAtLH(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:189: //			DirectX::XMLoadFloat3(&currentEye),.
+Graphic\DirectX\DirectX12\DirectX12.cpp:190: //			DirectX::XMLoadFloat3(&target),.
+Graphic\DirectX\DirectX12\DirectX12.cpp:191: //			DirectX::XMLoadFloat3(&up));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:193: //		DXGI_SWAP_CHAIN_DESC1 desc = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:194: //		auto result = m_pSwapChain->GetDesc1(&desc);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:195: //		m_pMappedSceneData->proj =.
+Graphic\DirectX\DirectX12\DirectX12.cpp:196: //			DirectX::XMMatrixPerspectiveFovLH.
+Graphic\DirectX\DirectX12\DirectX12.cpp:203: //		m_pMappedSceneData->eye = currentEye; // 定数バッファのeyeも更新.
+Graphic\DirectX\DirectX12\DirectX12.cpp:205: //	else.
+Graphic\DirectX\DirectX12\DirectX12.cpp:207: //		std::cerr << "Warning: m_pMappedSceneData is null in UpdateSceneBuffer()." << std::endl;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:211: //void DirectX12::BeginDraw().
+Graphic\DirectX\DirectX12\DirectX12.cpp:213: //	// DirectX処理.
+Graphic\DirectX\DirectX12\DirectX12.cpp:215: //	auto BBIdx = m_pSwapChain->GetCurrentBackBufferIndex();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:216: //	auto Barrier = CD3DX12_RESOURCE_BARRIER::Transition(m_pBackBuffer[BBIdx].Get(),.
+Graphic\DirectX\DirectX12\DirectX12.cpp:217: //		D3D12_RESOURCE_STATE_PRESENT, D3D12_RESOURCE_STATE_RENDER_TARGET);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:218: //	m_pCmdList->ResourceBarrier(1, &Barrier);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:221: //	auto rtvH = m_pRenderTargetViewHeap->GetCPUDescriptorHandleForHeapStart();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:222: //	rtvH.ptr += BBIdx * m_pDevice12->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:225: //	auto DSVHeapPointer = m_pDepthHeap->GetCPUDescriptorHandleForHeapStart();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:226: //	m_pCmdList->OMSetRenderTargets(1, &rtvH, false, &DSVHeapPointer);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:227: //	m_pCmdList->ClearDepthStencilView(DSVHeapPointer, D3D12_CLEAR_FLAG_DEPTH, 1.0f, 0, 0, nullptr);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:230: //	float ClearColor[] = { 0.f,0.f,0.f,1.0f };.
+Graphic\DirectX\DirectX12\DirectX12.cpp:231: //	m_pCmdList->ClearRenderTargetView(rtvH, ClearColor, 0, nullptr);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:234: //	m_pCmdList->RSSetViewports(1, m_pViewport.get());.
+Graphic\DirectX\DirectX12\DirectX12.cpp:235: //	m_pCmdList->RSSetScissorRects(1, m_pScissorRect.get());.
+Graphic\DirectX\DirectX12\DirectX12.cpp:238: //void DirectX12::EndDraw().
+Graphic\DirectX\DirectX12\DirectX12.cpp:240: //	auto BBIdx = m_pSwapChain->GetCurrentBackBufferIndex();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:241: //	auto barrier = CD3DX12_RESOURCE_BARRIER::Transition(m_pBackBuffer[BBIdx].Get(),.
+Graphic\DirectX\DirectX12\DirectX12.cpp:242: //		D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:244: //	m_pCmdList->ResourceBarrier(1, &barrier);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:247: //	m_pCmdList->Close();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:250: //	ID3D12CommandList* cmdlists[] = { m_pCmdList.Get() };.
+Graphic\DirectX\DirectX12\DirectX12.cpp:251: //	m_pCmdQueue->ExecuteCommandLists(1, cmdlists);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:253: //	// SwapChain の Present を呼び出す (ここで一度だけ行われる).
+Graphic\DirectX\DirectX12\DirectX12.cpp:254: //	m_pSwapChain->Present(1, 0);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:257: //	WaitForGPU();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:259: //	m_pCmdAllocator->Reset();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:261: //	m_pCmdList->Reset(m_pCmdAllocator.Get(), nullptr);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:265: //const MyComPtr<IDXGISwapChain4> DirectX12::GetSwapChain().
+Graphic\DirectX\DirectX12\DirectX12.cpp:267: //	return m_pSwapChain;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:270: //// DirectX12デバイスを取得.
+Graphic\DirectX\DirectX12\DirectX12.cpp:271: //const MyComPtr<ID3D12Device> DirectX12::GetDevice().
+Graphic\DirectX\DirectX12\DirectX12.cpp:273: //	return m_pDevice12;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:277: //const MyComPtr<ID3D12GraphicsCommandList> DirectX12::GetCommandList().
+Graphic\DirectX\DirectX12\DirectX12.cpp:279: //	return m_pCmdList;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:283: //MyComPtr<ID3D12Resource> DirectX12::GetTextureByPath(const char* texpath).
+Graphic\DirectX\DirectX12\DirectX12.cpp:286: //	auto [iterator, Result] = m_ResourceTable.emplace(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:287: //		texpath,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:288: //		nullptr.
+Graphic\DirectX\DirectX12\DirectX12.cpp:291: //	if (Result) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:293: //		iterator->second = CreateTextureFromFile(texpath);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:297: //	return iterator->second;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:300: //// GPUの完了待ち.
+Graphic\DirectX\DirectX12\DirectX12.cpp:301: //void DirectX12::WaitForGPU().
+Graphic\DirectX\DirectX12\DirectX12.cpp:303: //	m_pCmdQueue->Signal(m_pFence.Get(), ++m_FenceValue);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:305: //	if (m_pFence->GetCompletedValue() < m_FenceValue) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:306: //		// eventが正常に作成されたかを確認.
+Graphic\DirectX\DirectX12\DirectX12.cpp:307: //		if (m_hFenceEvent != nullptr) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:308: //			m_pFence->SetEventOnCompletion(m_FenceValue, m_hFenceEvent);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:309: //			WaitForSingleObject(m_hFenceEvent, INFINITE);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:311: //		else {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:312: //			OutputDebugString(L"Failed to create event!\n");.
+Graphic\DirectX\DirectX12\DirectX12.cpp:317: //// DXGIの生成.
+Graphic\DirectX\DirectX12\DirectX12.cpp:318: //void DirectX12::CreateDXGIFactory(MyComPtr<IDXGIFactory6>& DxgiFactory).
+Graphic\DirectX\DirectX12\DirectX12.cpp:321: //	//HRESULT result = CreateDXGIFactory2(DXGI_CREATE_FACTORY_DEBUG, IID_PPV_ARGS(DxgiFactory.ReleaseAndGetAddressOf()));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:323: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:326: //		DXGI_CREATE_FACTORY_DEBUG,			// デバッグモード.
+Graphic\DirectX\DirectX12\DirectX12.cpp:327: //		IID_PPV_ARGS(DxgiFactory.ReleaseAndGetAddressOf()));		// (Out)DXGI.
+Graphic\DirectX\DirectX12\DirectX12.cpp:329: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:332: //		IID_PPV_ARGS(m_pDxgiFactory.ReleaseAndGetAddressOf()));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:336: //	D3D_FEATURE_LEVEL Levels[] = {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:337: //		D3D_FEATURE_LEVEL_12_2,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:338: //		D3D_FEATURE_LEVEL_12_1,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:339: //		D3D_FEATURE_LEVEL_12_0,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:340: //		D3D_FEATURE_LEVEL_11_1,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:341: //		D3D_FEATURE_LEVEL_11_0,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:342: //		D3D_FEATURE_LEVEL_10_1,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:343: //		D3D_FEATURE_LEVEL_10_0,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:344: //		D3D_FEATURE_LEVEL_9_3,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:345: //		D3D_FEATURE_LEVEL_9_2,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:346: //		D3D_FEATURE_LEVEL_9_1,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:349: //	HRESULT Ret = S_OK;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:350: //	D3D_FEATURE_LEVEL FeatureLevel;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:352: //	for (auto Lv: Levels).
+Graphic\DirectX\DirectX12\DirectX12.cpp:354: //		// DirectX12を実体化.
+Graphic\DirectX\DirectX12\DirectX12.cpp:355: //		if (D3D12CreateDevice(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:356: //			FindAdapter(L"NVIDIA"),				// グラボを選択.
+Graphic\DirectX\DirectX12\DirectX12.cpp:357: //			Lv,									// フィーチャーレベル.
+Graphic\DirectX\DirectX12\DirectX12.cpp:358: //			IID_PPV_ARGS(m_pDevice12.ReleaseAndGetAddressOf())) == S_OK)// (Out)Direct12.
+Graphic\DirectX\DirectX12\DirectX12.cpp:361: //			FeatureLevel = Lv;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:362: //			break;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:369: //void DirectX12::CreateCommandObject(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:370: //	MyComPtr<ID3D12CommandAllocator>&	CmdAllocator,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:371: //	MyComPtr<ID3D12GraphicsCommandList>&CmdList,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:372: //	MyComPtr<ID3D12CommandQueue>&		CmdQueue).
+Graphic\DirectX\DirectX12\DirectX12.cpp:374: //	m_hFenceEvent = CreateEvent(nullptr, FALSE, FALSE, nullptr);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:376: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:379: //		D3D12_COMMAND_LIST_TYPE_DIRECT,			// 作成するコマンドアロケータの種類.
+Graphic\DirectX\DirectX12\DirectX12.cpp:380: //		IID_PPV_ARGS(CmdAllocator.ReleaseAndGetAddressOf()));		// (Out) コマンドアロケータ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:382: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:386: //		D3D12_COMMAND_LIST_TYPE_DIRECT,		// 作成するコマンド リストの種類.
+Graphic\DirectX\DirectX12\DirectX12.cpp:387: //		CmdAllocator.Get(),					// アロケータへのポインタ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:388: //		nullptr,							// ダミーの初期パイプラインが設定される?.
+Graphic\DirectX\DirectX12\DirectX12.cpp:389: //		IID_PPV_ARGS(CmdList.ReleaseAndGetAddressOf()));				// (Out) コマンドリスト.
+Graphic\DirectX\DirectX12\DirectX12.cpp:392: //	D3D12_COMMAND_QUEUE_DESC CmdQueueDesc = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:393: //	CmdQueueDesc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;				// タイムアウトなし.
+Graphic\DirectX\DirectX12\DirectX12.cpp:394: //	CmdQueueDesc.NodeMask = 0;										// アダプターを一つしか使わないときは0でいい.
+Graphic\DirectX\DirectX12\DirectX12.cpp:395: //	CmdQueueDesc.Priority = D3D12_COMMAND_QUEUE_PRIORITY_NORMAL;	// プライオリティは特に指定なし.
+Graphic\DirectX\DirectX12\DirectX12.cpp:396: //	CmdQueueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;				// コマンドリストと合わせる.
+Graphic\DirectX\DirectX12\DirectX12.cpp:398: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:402: //		IID_PPV_ARGS(CmdQueue.ReleaseAndGetAddressOf()));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:406: //void DirectX12::CreateSwapChain(MyComPtr<IDXGISwapChain4>& SwapChain).
+Graphic\DirectX\DirectX12\DirectX12.cpp:409: //	DXGI_SWAP_CHAIN_DESC1 SwapChainDesc = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:410: //	SwapChainDesc.Width = WND_W;									//  画面の幅.
+Graphic\DirectX\DirectX12\DirectX12.cpp:411: //	SwapChainDesc.Height = WND_H;									//  画面の高さ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:412: //	SwapChainDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;				//  表示形式.
+Graphic\DirectX\DirectX12\DirectX12.cpp:413: //	SwapChainDesc.Stereo = false;									//  全画面モードかどうか.
+Graphic\DirectX\DirectX12\DirectX12.cpp:414: //	SwapChainDesc.SampleDesc.Count = 1;								//  ピクセル当たりのマルチサンプルの数.
+Graphic\DirectX\DirectX12\DirectX12.cpp:415: //	SwapChainDesc.SampleDesc.Quality = 0;							//  品質レベル(0~1).
+Graphic\DirectX\DirectX12\DirectX12.cpp:416: //	SwapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;	//  ﾊﾞｯｸﾊﾞｯﾌｧのメモリ量.
+Graphic\DirectX\DirectX12\DirectX12.cpp:417: //	SwapChainDesc.BufferCount = 2;									//  ﾊﾞｯｸﾊﾞｯﾌｧの数.
+Graphic\DirectX\DirectX12\DirectX12.cpp:418: //	SwapChainDesc.Scaling = DXGI_SCALING_STRETCH;					//  ﾊﾞｯｸﾊﾞｯﾌｧのｻｲｽﾞがﾀｰｹﾞｯﾄと等しくない場合のｻｲｽﾞ変更の動作.
+Graphic\DirectX\DirectX12\DirectX12.cpp:419: //	SwapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;		//  ﾌﾘｯﾌﾟ後は素早く破棄.
+Graphic\DirectX\DirectX12\DirectX12.cpp:420: //	SwapChainDesc.AlphaMode = DXGI_ALPHA_MODE_UNSPECIFIED;			//  ｽﾜｯﾌﾟﾁｪｰﾝ,ﾊﾞｯｸﾊﾞｯﾌｧの透過性の動作.
+Graphic\DirectX\DirectX12\DirectX12.cpp:421: //	SwapChainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;	//  ｽﾜｯﾌﾟﾁｪｰﾝ動作のｵﾌﾟｼｮﾝ(ｳｨﾝﾄﾞｳﾌﾙｽｸ切り替え可能ﾓｰﾄﾞ).
+Graphic\DirectX\DirectX12\DirectX12.cpp:423: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:426: //		m_pCmdQueue.Get(),								// コマンドキュー.
+Graphic\DirectX\DirectX12\DirectX12.cpp:427: //		m_hWnd,											// ウィンドウハンドル.
+Graphic\DirectX\DirectX12\DirectX12.cpp:430: //		nullptr,										// これもnulltrでよう.
+Graphic\DirectX\DirectX12\DirectX12.cpp:433: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:436: //		&m_SwapChainDesc); // m_SwapChainDesc に格納.
+Graphic\DirectX\DirectX12\DirectX12.cpp:440: //void DirectX12::CreateRenderTarget(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:441: //	MyComPtr<ID3D12DescriptorHeap>&			RenderTargetViewHeap,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:442: //	std::vector<MyComPtr<ID3D12Resource>>&	BackBuffer).
+Graphic\DirectX\DirectX12\DirectX12.cpp:445: //	D3D12_DESCRIPTOR_HEAP_DESC HeapDesc = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:446: //	HeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_RTV;		// RTV用ヒープ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:447: //	HeapDesc.NumDescriptors = 2;						// 2つのディスクリプタ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:448: //	HeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;	// ヒープのオプション(特になしを設定).
+Graphic\DirectX\DirectX12\DirectX12.cpp:449: //	HeapDesc.NodeMask = 0;								// 単一アダプタ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:451: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:455: //		IID_PPV_ARGS(RenderTargetViewHeap.ReleaseAndGetAddressOf()));	// (Out)ディスクリプタヒープ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:458: //	DXGI_SWAP_CHAIN_DESC SwcDesc = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:459: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:465: //	D3D12_CPU_DESCRIPTOR_HANDLE DescriptorHandle = RenderTargetViewHeap->GetCPUDescriptorHandleForHeapStart();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:468: //	m_pBackBuffer.resize(SwcDesc.BufferCount);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:470: //	// SRGBレンダーターゲットビュー設定.
+Graphic\DirectX\DirectX12\DirectX12.cpp:471: //	D3D12_RENDER_TARGET_VIEW_DESC RTVDesc = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:472: //	RTVDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM_SRGB;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:473: //	RTVDesc.ViewDimension = D3D12_RTV_DIMENSION_TEXTURE2D;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:476: //	for (UINT i = 0; i < (SwcDesc.BufferCount); ++i).
+Graphic\DirectX\DirectX12\DirectX12.cpp:478: //		MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:481: //			i,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:482: //			IID_PPV_ARGS(m_pBackBuffer[i].GetAddressOf()));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:484: //		RTVDesc.Format = m_pBackBuffer[i]->GetDesc().Format;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:487: //		m_pDevice12->CreateRenderTargetView(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:488: //			BackBuffer[i].Get(),.
+Graphic\DirectX\DirectX12\DirectX12.cpp:490: //			DescriptorHandle);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:493: //		DescriptorHandle.ptr += m_pDevice12->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:496: //	DXGI_SWAP_CHAIN_DESC1 Desc = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:497: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:502: //	m_pViewport.reset(new CD3DX12_VIEWPORT(BackBuffer[0].Get()));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:503: //	m_pScissorRect.reset(new CD3DX12_RECT(0, 0, Desc.Width, Desc.Height));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:508: //void DirectX12::CreateDepthDesc(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:509: //	MyComPtr<ID3D12Resource>&		DepthBuffer,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:510: //	MyComPtr<ID3D12DescriptorHeap>&	DepthHeap,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:511: //	MyComPtr<ID3D12DescriptorHeap>& DepthSRVHeap).
+Graphic\DirectX\DirectX12\DirectX12.cpp:513: //	DXGI_SWAP_CHAIN_DESC1 desc = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:514: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:520: //	D3D12_RESOURCE_DESC DepthResourceDesc =.
+Graphic\DirectX\DirectX12\DirectX12.cpp:521: //		CD3DX12_RESOURCE_DESC::Tex2D(DXGI_FORMAT_R32_TYPELESS,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:522: //		desc.Width, desc.Height);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:523: //	DepthResourceDesc.Flags = D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:526: //	D3D12_HEAP_PROPERTIES DepthHeapProperty = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:527: //	DepthHeapProperty.Type = D3D12_HEAP_TYPE_DEFAULT;					// DEFAULTだから後はUNKNOWNでよし.
+Graphic\DirectX\DirectX12\DirectX12.cpp:528: //	DepthHeapProperty.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:532: //	m_DepthClearValue.DepthStencil.Depth = 1.0f;		// 深さ１(最大値)でクリア.
+Graphic\DirectX\DirectX12\DirectX12.cpp:533: //	m_DepthClearValue.Format = DXGI_FORMAT_D32_FLOAT;	// 32bit深度値としてクリア.
+Graphic\DirectX\DirectX12\DirectX12.cpp:535: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:539: //		D3D12_HEAP_FLAG_NONE,						// ヒープのオプション(特になしを設定).
+Graphic\DirectX\DirectX12\DirectX12.cpp:541: //		D3D12_RESOURCE_STATE_DEPTH_WRITE,			// リソースの初期状態.
+Graphic\DirectX\DirectX12\DirectX12.cpp:543: //		IID_PPV_ARGS(DepthBuffer.ReleaseAndGetAddressOf())); // (Out)深度バッファ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:546: //	D3D12_DESCRIPTOR_HEAP_DESC DsvHeapDesc = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:547: //	DsvHeapDesc.NumDescriptors = 1;                   // 深度ビュー1つ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:548: //	DsvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_DSV;// デスクリプタヒープのタイプ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:549: //	DsvHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:551: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:555: //		IID_PPV_ARGS(DepthHeap.ReleaseAndGetAddressOf()));	// (Out)デスクリプタヒープ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:558: //	D3D12_DEPTH_STENCIL_VIEW_DESC DsvDesc = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:559: //	DsvDesc.Format = DXGI_FORMAT_D32_FLOAT;					// デプスフォーマット.
+Graphic\DirectX\DirectX12\DirectX12.cpp:560: //	DsvDesc.ViewDimension = D3D12_DSV_DIMENSION_TEXTURE2D;	// 2Dテクスチャ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:561: //	DsvDesc.Flags = D3D12_DSV_FLAG_NONE;					// フラグなし.
+Graphic\DirectX\DirectX12\DirectX12.cpp:563: //	D3D12_CPU_DESCRIPTOR_HANDLE handle = DepthHeap->GetCPUDescriptorHandleForHeapStart();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:565: //	m_pDevice12->CreateDepthStencilView(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:566: //		m_pDepthBuffer.Get(),								// 深度バッファ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:568: //		DepthHeap->GetCPUDescriptorHandleForHeapStart());	// ヒープ内の位置.
+Graphic\DirectX\DirectX12\DirectX12.cpp:570: //	D3D12_DESCRIPTOR_HEAP_DESC HeapDesc = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:571: //	HeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:572: //	HeapDesc.NodeMask = 0;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:573: //	HeapDesc.NumDescriptors = 1;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:574: //	HeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:576: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:581: //	D3D12_SHADER_RESOURCE_VIEW_DESC DepthSrvResDesc = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:582: //	DepthSrvResDesc.Format = DXGI_FORMAT_R32_FLOAT;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:583: //	DepthSrvResDesc.Texture2D.MipLevels = 1;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:584: //	DepthSrvResDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:585: //	DepthSrvResDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:587: //	auto srvHandle = DepthSRVHeap->GetCPUDescriptorHandleForHeapStart();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:588: //	m_pDevice12->CreateShaderResourceView(DepthBuffer.Get(), &DepthSrvResDesc, srvHandle);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:593: //void DirectX12::CreateSceneDesc().
+Graphic\DirectX\DirectX12\DirectX12.cpp:596: //	auto heapProp = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:597: //	// sizeof(SceneData) を256バイトの倍数に切り上げ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:598: //	auto resDesc = CD3DX12_RESOURCE_DESC::Buffer((sizeof(SceneData) + 0xff) & ~0xff);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:600: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:604: //		D3D12_HEAP_FLAG_NONE,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:606: //		D3D12_RESOURCE_STATE_GENERIC_READ,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:607: //		nullptr,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:608: //		IID_PPV_ARGS(m_pSceneConstBuff.ReleaseAndGetAddressOf())); // クラスメンバー変数に代入.
+Graphic\DirectX\DirectX12\DirectX12.cpp:611: //	// m_pRawMappedSceneData は生ポインタ.
+Graphic\DirectX\DirectX12\DirectX12.cpp:612: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:621: //	if (m_pMappedSceneData) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:622: //		DirectX::XMFLOAT3 eye_pos(0, 0, -50);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:623: //		DirectX::XMFLOAT3 target_pos(0, 0, 0);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:624: //		DirectX::XMFLOAT3 up_vec(0, 1, 0);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:626: //		m_pMappedSceneData->view =.
+Graphic\DirectX\DirectX12\DirectX12.cpp:627: //			DirectX::XMMatrixLookAtLH(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:628: //			DirectX::XMLoadFloat3(&eye_pos),.
+Graphic\DirectX\DirectX12\DirectX12.cpp:629: //			DirectX::XMLoadFloat3(&target_pos),.
+Graphic\DirectX\DirectX12\DirectX12.cpp:630: //			DirectX::XMLoadFloat3(&up_vec));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:635: //		m_pMappedSceneData->proj =.
+Graphic\DirectX\DirectX12\DirectX12.cpp:636: //			DirectX::XMMatrixPerspectiveFovLH.
+Graphic\DirectX\DirectX12\DirectX12.cpp:638: //			aspectRatio,         // アス比.
+Graphic\DirectX\DirectX12\DirectX12.cpp:643: //		m_pMappedSceneData->eye = eye_pos;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:645: //	else {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:646: //		std::cerr << "Error: m_pRawMappedSceneData is null after mapping Scene Constant Buffer." << std::endl;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:651: //void DirectX12::CreateFance(MyComPtr<ID3D12Fence>& Fence).
+Graphic\DirectX\DirectX12\DirectX12.cpp:653: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:656: //		m_FenceValue,									// 初期化子.
+Graphic\DirectX\DirectX12\DirectX12.cpp:657: //		D3D12_FENCE_FLAG_NONE,							// フェンスのオプション.
+Graphic\DirectX\DirectX12\DirectX12.cpp:658: //		IID_PPV_ARGS(Fence.ReleaseAndGetAddressOf()));// (Out) フェンス.
+Graphic\DirectX\DirectX12\DirectX12.cpp:662: //void DirectX12::CreateTextureLoadTable().
+Graphic\DirectX\DirectX12\DirectX12.cpp:664: //	m_LoadLambdaTable["sph"] =.
+Graphic\DirectX\DirectX12\DirectX12.cpp:665: //		m_LoadLambdaTable["spa"] =.
+Graphic\DirectX\DirectX12\DirectX12.cpp:666: //		m_LoadLambdaTable["bmp"] =.
+Graphic\DirectX\DirectX12\DirectX12.cpp:667: //		m_LoadLambdaTable["png"] =.
+Graphic\DirectX\DirectX12\DirectX12.cpp:668: //		m_LoadLambdaTable["jpg"] =.
+Graphic\DirectX\DirectX12\DirectX12.cpp:670: //		return LoadFromWICFile(path.c_str(), DirectX::WIC_FLAGS_NONE, meta, img);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:673: //	m_LoadLambdaTable["tga"] = [](const std::wstring& path, DirectX::TexMetadata* meta, DirectX::ScratchImage& img)->HRESULT {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:674: //		return LoadFromTGAFile(path.c_str(), meta, img);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:677: //	m_LoadLambdaTable["dds"] = [](const std::wstring& path, DirectX::TexMetadata* meta, DirectX::ScratchImage& img)->HRESULT {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:678: //		return LoadFromDDSFile(path.c_str(), DirectX::DDS_FLAGS_NONE, meta, img);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:684: //MyComPtr<ID3D12Resource> DirectX12::CreateTextureFromFile(const char* Texpath).
+Graphic\DirectX\DirectX12\DirectX12.cpp:686: //	std::string TexPath = Texpath;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:687: //	DirectX::TexMetadata Metadata = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:688: //	DirectX::ScratchImage ScratchImg = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:690: //	std::wstring wTexPath = MyString::StringToWString(TexPath);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:691: //	auto Extension = MyFilePath::GetExtension(TexPath);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:693: //	HRESULT Result = m_LoadLambdaTable[Extension](wTexPath, &Metadata, ScratchImg);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:695: //	if (FAILED(Result)) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:696: //		std::string_view ErrorMessage = MyAssert::HResultToJapanese(Result);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:697: //		MessageBoxA(nullptr, std::string(ErrorMessage).c_str(), "Texture Load Error", MB_OK | MB_ICONERROR);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:698: //		return MyComPtr<ID3D12Resource>();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:702: //	D3D12_RESOURCE_DESC TexResDesc = CD3DX12_RESOURCE_DESC::Tex2D(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:703: //		Metadata.format,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:704: //		Metadata.width,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:710: //	MyComPtr<ID3D12Resource> textureResource = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:711: //	CD3DX12_HEAP_PROPERTIES heapPropsDefault(D3D12_HEAP_TYPE_DEFAULT);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:713: //	Result = m_pDevice12->CreateCommittedResource(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:715: //		D3D12_HEAP_FLAG_NONE,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:717: //		D3D12_RESOURCE_STATE_COPY_DEST, // 初期状態はコピー先.
+Graphic\DirectX\DirectX12\DirectX12.cpp:718: //		nullptr,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:719: //		IID_PPV_ARGS(textureResource.ReleaseAndGetAddressOf()).
+Graphic\DirectX\DirectX12\DirectX12.cpp:721: //	if (FAILED(Result)) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:722: //		return MyComPtr<ID3D12Resource>();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:726: //	UINT64 uploadBufferSize = 0;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:727: //	std::vector<D3D12_SUBRESOURCE_DATA> subresources;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:729: //	for (size_t arraySlice = 0; arraySlice < Metadata.arraySize; ++arraySlice).
+Graphic\DirectX\DirectX12\DirectX12.cpp:731: //		for (size_t mipLevel = 0; mipLevel < Metadata.mipLevels; ++mipLevel).
+Graphic\DirectX\DirectX12\DirectX12.cpp:733: //			const DirectX::Image* img = ScratchImg.GetImage(mipLevel, arraySlice, 0);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:734: //			if (!img) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:735: //				return MyComPtr<ID3D12Resource>();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:738: //			D3D12_SUBRESOURCE_DATA sd;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:739: //			sd.pData = img->pixels;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:740: //			sd.RowPitch = img->rowPitch;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:741: //			sd.SlicePitch = img->slicePitch;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:742: //			subresources.push_back(sd);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:746: //	m_pDevice12->GetCopyableFootprints(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:751: //		nullptr,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:752: //		nullptr,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:753: //		nullptr,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:757: //	MyComPtr<ID3D12Resource> textureUploadHeap = {}; // ローカル変数として MyComPtr を宣言.
+Graphic\DirectX\DirectX12\DirectX12.cpp:759: //	CD3DX12_HEAP_PROPERTIES heapPropsUpload(D3D12_HEAP_TYPE_UPLOAD);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:760: //	D3D12_RESOURCE_DESC bufferResDesc = CD3DX12_RESOURCE_DESC::Buffer(uploadBufferSize);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:762: //	Result = m_pDevice12->CreateCommittedResource(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:764: //		D3D12_HEAP_FLAG_NONE,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:766: //		D3D12_RESOURCE_STATE_GENERIC_READ,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:767: //		nullptr,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:768: //		IID_PPV_ARGS(textureUploadHeap.ReleaseAndGetAddressOf()).
+Graphic\DirectX\DirectX12\DirectX12.cpp:770: //	if (FAILED(Result)) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:771: //		return MyComPtr<ID3D12Resource>();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:776: //	MyComPtr<ID3D12CommandAllocator> tempCmdAllocator;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:777: //	MyComPtr<ID3D12GraphicsCommandList> tempCmdList;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:779: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:782: //		D3D12_COMMAND_LIST_TYPE_DIRECT,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:783: //		IID_PPV_ARGS(tempCmdAllocator.ReleaseAndGetAddressOf()));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:785: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:789: //		D3D12_COMMAND_LIST_TYPE_DIRECT,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:790: //		tempCmdAllocator.Get(),.
+Graphic\DirectX\DirectX12\DirectX12.cpp:791: //		nullptr,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:792: //		IID_PPV_ARGS(tempCmdList.ReleaseAndGetAddressOf()));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:795: //	tempCmdList->Reset(tempCmdAllocator.Get(), nullptr);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:797: //	// UpdateSubresources は CopyCommandList を引数に取る.
+Graphic\DirectX\DirectX12\DirectX12.cpp:798: //	UpdateSubresources(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:799: //		tempCmdList.Get(), // tempCmdList を使用.
+Graphic\DirectX\DirectX12\DirectX12.cpp:800: //		textureResource.Get(),.
+Graphic\DirectX\DirectX12\DirectX12.cpp:801: //		textureUploadHeap.Get(),.
+Graphic\DirectX\DirectX12\DirectX12.cpp:805: //		subresources.data().
+Graphic\DirectX\DirectX12\DirectX12.cpp:809: //	CD3DX12_RESOURCE_BARRIER textureBarrier = CD3DX12_RESOURCE_BARRIER::Transition(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:810: //		textureResource.Get(),.
+Graphic\DirectX\DirectX12\DirectX12.cpp:811: //		D3D12_RESOURCE_STATE_COPY_DEST,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:812: //		D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE.
+Graphic\DirectX\DirectX12\DirectX12.cpp:814: //	tempCmdList->ResourceBarrier(1, &textureBarrier);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:816: //	tempCmdList->Close(); // コマンドリストを閉じる.
+Graphic\DirectX\DirectX12\DirectX12.cpp:819: //	ID3D12CommandList* ppCommandLists[] = { tempCmdList.Get() };.
+Graphic\DirectX\DirectX12\DirectX12.cpp:820: //	m_pCmdQueue->ExecuteCommandLists(_countof(ppCommandLists), ppCommandLists); // メインのキューで実行.
+Graphic\DirectX\DirectX12\DirectX12.cpp:823: //	MyComPtr<ID3D12Fence> uploadFence;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:824: //	HANDLE uploadFenceEvent = CreateEvent(nullptr, FALSE, FALSE, nullptr);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:825: //	UINT64 fenceValueForUpload = 0;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:827: //	MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:830: //		fenceValueForUpload,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:831: //		D3D12_FENCE_FLAG_NONE,.
+Graphic\DirectX\DirectX12\DirectX12.cpp:832: //		IID_PPV_ARGS(uploadFence.ReleaseAndGetAddressOf()));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:835: //	m_pCmdQueue->Signal(uploadFence.Get(), ++fenceValueForUpload);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:838: //	if (uploadFence->GetCompletedValue() < fenceValueForUpload) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:839: //		if (uploadFenceEvent != nullptr) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:840: //			MyAssert::IsFailed(.
+Graphic\DirectX\DirectX12\DirectX12.cpp:843: //				fenceValueForUpload, uploadFenceEvent);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:844: //			WaitForSingleObject(uploadFenceEvent, INFINITE);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:846: //		else {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:847: //			OutputDebugString(L"Failed to create upload fence event!\n");.
+Graphic\DirectX\DirectX12\DirectX12.cpp:851: //	if (uploadFenceEvent != nullptr) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:852: //		CloseHandle(uploadFenceEvent);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:858: //	m_ResourceTable[Texpath] = textureResource;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:860: //	return textureResource;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:864: //IDXGIAdapter* DirectX12::FindAdapter(std::wstring FindWord).
+Graphic\DirectX\DirectX12\DirectX12.cpp:867: //	std::vector <IDXGIAdapter*> Adapter;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:870: //	IDXGIAdapter* TmpAdapter = nullptr;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:872: //	// forですべてのアダプターをベクター配列に入れる.
+Graphic\DirectX\DirectX12\DirectX12.cpp:873: //	for (int i = 0; m_pDxgiFactory->EnumAdapters(i, &TmpAdapter) != DXGI_ERROR_NOT_FOUND; ++i) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:874: //		Adapter.push_back(TmpAdapter);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:878: //	for (auto Adpt : Adapter) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:880: //		DXGI_ADAPTER_DESC Adesc = {};.
+Graphic\DirectX\DirectX12\DirectX12.cpp:883: //		Adpt->GetDesc(&Adesc);.
+Graphic\DirectX\DirectX12\DirectX12.cpp:886: //		std::wstring strDesc = Adesc.Description;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:888: //		// NVIDIAなら格納.
+Graphic\DirectX\DirectX12\DirectX12.cpp:889: //		if (strDesc.find(FindWord) != std::string::npos) {.
+Graphic\DirectX\DirectX12\DirectX12.cpp:890: //			return Adpt;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:894: //	return nullptr;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:898: //void DirectX12::EnableDebuglayer().
+Graphic\DirectX\DirectX12\DirectX12.cpp:900: //	ID3D12Debug* DebugLayer = nullptr;.
+Graphic\DirectX\DirectX12\DirectX12.cpp:903: //	D3D12GetDebugInterface(IID_PPV_ARGS(&DebugLayer));.
+Graphic\DirectX\DirectX12\DirectX12.cpp:906: //	DebugLayer->EnableDebugLayer();.
+Graphic\DirectX\DirectX12\DirectX12.cpp:909: //	DebugLayer->Release();.
+Graphic\DirectX\DirectX12\DirectX12.h:24: //constexpr size_t PmdVertexSize = 38;.
+Graphic\DirectX\DirectX12\DirectX12.h:30: //class DirectX12.
+Graphic\DirectX\DirectX12\DirectX12.h:32: //public:.
+Graphic\DirectX\DirectX12\DirectX12.h:35: //	struct MaterialForHlsl {.
+Graphic\DirectX\DirectX12\DirectX12.h:36: //		DirectX::XMFLOAT3	Diffuse;	// ディフューズ色.
+Graphic\DirectX\DirectX12\DirectX12.h:37: //		float				Alpha;		// α値.
+Graphic\DirectX\DirectX12\DirectX12.h:38: //		DirectX::XMFLOAT3	Specular;	// スペキュラの強.
+Graphic\DirectX\DirectX12\DirectX12.h:39: //		float				Specularity;// スペキュラ色.
+Graphic\DirectX\DirectX12\DirectX12.h:40: //		DirectX::XMFLOAT3	Ambient;	// アンビエント色.
+Graphic\DirectX\DirectX12\DirectX12.h:42: //		MaterialForHlsl().
+Graphic\DirectX\DirectX12\DirectX12.h:52: //	struct AdditionalMaterial {.
+Graphic\DirectX\DirectX12\DirectX12.h:53: //		std::string TexPath;	// テクスチャファイルパス.
+Graphic\DirectX\DirectX12\DirectX12.h:54: //		int			ToonIdx;	// トゥーン番号.
+Graphic\DirectX\DirectX12\DirectX12.h:55: //		bool		EdgeFlg;	// マテリアル毎の輪郭線フラグ.
+Graphic\DirectX\DirectX12\DirectX12.h:57: //		AdditionalMaterial().
+Graphic\DirectX\DirectX12\DirectX12.h:65: //	struct Material {.
+Graphic\DirectX\DirectX12\DirectX12.h:66: //		unsigned int IndicesNum;		// インデックス数.
+Graphic\DirectX\DirectX12\DirectX12.h:67: //		MaterialForHlsl Materialhlsl;	// シェーダ側に投げられるマテリアルデータ.
+Graphic\DirectX\DirectX12\DirectX12.h:68: //		AdditionalMaterial Additional;	// それ以外のマテリアルデータ.
+Graphic\DirectX\DirectX12\DirectX12.h:70: //		Material().
+Graphic\DirectX\DirectX12\DirectX12.h:78: //	struct SceneData {.
+Graphic\DirectX\DirectX12\DirectX12.h:79: //		DirectX::XMMATRIX view;//ビュー行列.
+Graphic\DirectX\DirectX12\DirectX12.h:80: //		DirectX::XMMATRIX proj;//プロジェクション行列.
+Graphic\DirectX\DirectX12\DirectX12.h:81: //		DirectX::XMFLOAT3 eye;//視点座標.
+Graphic\DirectX\DirectX12\DirectX12.h:84: //public:.
+Graphic\DirectX\DirectX12\DirectX12.h:85: //	DirectX12();.
+Graphic\DirectX\DirectX12\DirectX12.h:88: //	//DirectX12構築.
+Graphic\DirectX\DirectX12\DirectX12.h:89: //	bool Create(HWND hWnd);.
+Graphic\DirectX\DirectX12\DirectX12.h:90: //	void Update();.
+Graphic\DirectX\DirectX12\DirectX12.h:91: //	void UpdateSceneBuffer();.
+Graphic\DirectX\DirectX12\DirectX12.h:93: //	void BeginDraw();.
+Graphic\DirectX\DirectX12\DirectX12.h:94: //	void EndDraw();.
+Graphic\DirectX\DirectX12\DirectX12.h:97: //	const MyComPtr<IDXGISwapChain4> GetSwapChain();.
+Graphic\DirectX\DirectX12\DirectX12.h:99: //	// DirextX12デバイス取得.
+Graphic\DirectX\DirectX12\DirectX12.h:100: //	const MyComPtr<ID3D12Device> GetDevice();.
+Graphic\DirectX\DirectX12\DirectX12.h:103: //	const MyComPtr<ID3D12GraphicsCommandList> GetCommandList();.
+Graphic\DirectX\DirectX12\DirectX12.h:106: //	MyComPtr<ID3D12Resource> GetTextureByPath(const char* texpath);.
+Graphic\DirectX\DirectX12\DirectX12.h:108: //	ID3D12Resource* GetSceneConstantBuffer() const { return m_pSceneConstBuff.Get(); }.
+Graphic\DirectX\DirectX12\DirectX12.h:109: //	SceneData* GetMappedSceneData() const { return m_pMappedSceneData; }.
+Graphic\DirectX\DirectX12\DirectX12.h:111: //	// GPUの完了待ち.
+Graphic\DirectX\DirectX12\DirectX12.h:112: //	void WaitForGPU();.
+Graphic\DirectX\DirectX12\DirectX12.h:114: //private:// 作っていくんだよねぇ~.
+Graphic\DirectX\DirectX12\DirectX12.h:116: //	// DXGIの生成.
+Graphic\DirectX\DirectX12\DirectX12.h:117: //	void CreateDXGIFactory(MyComPtr<IDXGIFactory6>& DxgiFactory);.
+Graphic\DirectX\DirectX12\DirectX12.h:120: //	void CreateCommandObject(.
+Graphic\DirectX\DirectX12\DirectX12.h:121: //		MyComPtr<ID3D12CommandAllocator>&	CmdAllocator,.
+Graphic\DirectX\DirectX12\DirectX12.h:122: //		MyComPtr<ID3D12GraphicsCommandList>&CmdList,.
+Graphic\DirectX\DirectX12\DirectX12.h:123: //		MyComPtr<ID3D12CommandQueue>&		CmdQueue);.
+Graphic\DirectX\DirectX12\DirectX12.h:126: //	void CreateSwapChain(MyComPtr<IDXGISwapChain4>& SwapChain);.
+Graphic\DirectX\DirectX12\DirectX12.h:129: //	void CreateRenderTarget(.
+Graphic\DirectX\DirectX12\DirectX12.h:130: //		MyComPtr<ID3D12DescriptorHeap>&			RenderTargetViewHeap,.
+Graphic\DirectX\DirectX12\DirectX12.h:131: //		std::vector<MyComPtr<ID3D12Resource>>&	BackBuffer);.
+Graphic\DirectX\DirectX12\DirectX12.h:134: //	void CreateDepthDesc(.
+Graphic\DirectX\DirectX12\DirectX12.h:135: //		MyComPtr<ID3D12Resource>&		DepthBuffer,.
+Graphic\DirectX\DirectX12\DirectX12.h:136: //		MyComPtr<ID3D12DescriptorHeap>&	DepthHeap,.
+Graphic\DirectX\DirectX12\DirectX12.h:137: //		MyComPtr<ID3D12DescriptorHeap>&	DepthSRVHeap);.
+Graphic\DirectX\DirectX12\DirectX12.h:140: //	void CreateSceneDesc();.
+Graphic\DirectX\DirectX12\DirectX12.h:143: //	void CreateFance(MyComPtr<ID3D12Fence>& Fence);.
+Graphic\DirectX\DirectX12\DirectX12.h:147: //private:.
+Graphic\DirectX\DirectX12\DirectX12.h:153: //	IDXGIAdapter* FindAdapter(std::wstring FindWord);.
+Graphic\DirectX\DirectX12\DirectX12.h:158: //	void EnableDebuglayer();.
+Graphic\DirectX\DirectX12\DirectX12.h:165: //	MyComPtr<ID3D12Resource> CreateTextureFromFile(const char* Texpath);.
+Graphic\DirectX\DirectX12\DirectX12.h:170: //	void CreateTextureLoadTable();.
+Graphic\DirectX\DirectX12\DirectX12.h:173: //private:.
+Graphic\DirectX\DirectX12\DirectX12.h:174: //	HWND m_hWnd;	// ウィンドウハンドル.
+Graphic\DirectX\DirectX12\DirectX12.h:176: //	// DXGI.
+Graphic\DirectX\DirectX12\DirectX12.h:177: //	MyComPtr<IDXGIFactory6>					m_pDxgiFactory;			// ディスプレイに出力するためのAPI.
+Graphic\DirectX\DirectX12\DirectX12.h:178: //	MyComPtr<IDXGISwapChain4>				m_pSwapChain;			// スワップチェーン.
+Graphic\DirectX\DirectX12\DirectX12.h:179: //	DXGI_SWAP_CHAIN_DESC1                   m_SwapChainDesc;		// スワップチェーンのディスクリプション.
+Graphic\DirectX\DirectX12\DirectX12.h:181: //	// DirectX12.
+Graphic\DirectX\DirectX12\DirectX12.h:182: //	MyComPtr<ID3D12Device>					m_pDevice12;			// DirectX12のデバイスコンテキスト.
+Graphic\DirectX\DirectX12\DirectX12.h:183: //	MyComPtr<ID3D12CommandAllocator>		m_pCmdAllocator;		// コマンドアロケータ(命令をためておくメモリ領域).
+Graphic\DirectX\DirectX12\DirectX12.h:184: //	MyComPtr<ID3D12GraphicsCommandList>		m_pCmdList;				// コマンドリスト.
+Graphic\DirectX\DirectX12\DirectX12.h:185: //	MyComPtr<ID3D12CommandQueue>			m_pCmdQueue;			// コマンドキュー.
+Graphic\DirectX\DirectX12\DirectX12.h:188: //	MyComPtr<ID3D12DescriptorHeap>			m_pRenderTargetViewHeap;// レンダーターゲットビュー.
+Graphic\DirectX\DirectX12\DirectX12.h:189: //	std::vector<MyComPtr<ID3D12Resource>>	m_pBackBuffer;			// バックバッファ.
+Graphic\DirectX\DirectX12\DirectX12.h:192: //	MyComPtr<ID3D12Resource>				m_pDepthBuffer;			// 深度バッファ.
+Graphic\DirectX\DirectX12\DirectX12.h:193: //	MyComPtr<ID3D12DescriptorHeap>			m_pDepthHeap;			// 深度ステンシルビュー.
+Graphic\DirectX\DirectX12\DirectX12.h:194: //	MyComPtr<ID3D12DescriptorHeap>			m_pDepthSRVHeap;		// 深度ステンシルビューのデスクリプタヒープ.
+Graphic\DirectX\DirectX12\DirectX12.h:195: //	D3D12_CLEAR_VALUE						m_DepthClearValue;		// 深度のクリア値.
+Graphic\DirectX\DirectX12\DirectX12.h:198: //	MyComPtr<ID3D12Resource>				m_pSceneConstBuff;     // シーン定数バッファのリソース.
+Graphic\DirectX\DirectX12\DirectX12.h:199: //	SceneData*								m_pMappedSceneData; // シーン定数バッファのCPU側マップ済みポインタ.
+Graphic\DirectX\DirectX12\DirectX12.h:202: //	MyComPtr<ID3D12Fence>					m_pFence;				// 処理待ち柵.
+Graphic\DirectX\DirectX12\DirectX12.h:203: //	UINT64									m_FenceValue;			// 処理カウンター.
+Graphic\DirectX\DirectX12\DirectX12.h:204: //	HANDLE									m_hFenceEvent;			// フェンスイベントハンドル.
+Graphic\DirectX\DirectX12\DirectX12.h:207: //	MyComPtr<ID3D12PipelineState>			m_pPipelineState;		// パイプライン.
+Graphic\DirectX\DirectX12\DirectX12.h:208: //	MyComPtr<ID3D12RootSignature>			m_pRootSignature;		// ルートシグネチャ.
+Graphic\DirectX\DirectX12\DirectX12.h:209: //	std::unique_ptr<D3D12_VIEWPORT>			m_pViewport;			// ビューポート.
+Graphic\DirectX\DirectX12\DirectX12.h:210: //	std::unique_ptr<D3D12_RECT>				m_pScissorRect;			// シザー矩形.
+Graphic\DirectX\DirectX12\DirectX12.h:212: //	using LoadLambda_t = std::function<HRESULT(const std::wstring& Path, DirectX::TexMetadata*, DirectX::ScratchImage&)>;.
+Graphic\DirectX\DirectX12\DirectX12.h:213: //	std::map<std::string, LoadLambda_t>		m_LoadLambdaTable;.
+Graphic\DirectX\DirectX12\DirectX12.h:216: //	std::map<std::string, MyComPtr<ID3D12Resource>>	m_ResourceTable;.
+Graphic\DirectX\DirectX9\DirectX9.cpp:14: //Dx9初期化.
+Graphic\DirectX\DirectX9\DirectX9.cpp:24: //Diret3Dデバイスオブジェクトの作成.
+Graphic\DirectX\DirectX9\DirectX9.h:6: //DirectX9.
+Graphic\DirectX\DirectX9\DirectX9.h:11: //DirectX9.
+Graphic\DirectX\DirectX9\DirectX9.h:30: //DirectX9構築.
+Graphic\DirectX\DirectX9\DirectX9.h:32: //DirectX9解放.
+Graphic\Light\DirectionLight\DirectionLight.cpp:40: // m_View は XMMATRIX 型を想定.
+Graphic\Light\DirectionLight\DirectionLight.cpp:42: vPositionXM,          // Eye position (視点).
+Graphic\Light\DirectionLight\DirectionLight.cpp:43: vLookAtXM,            // Focus position (注視点).
+Graphic\Light\DirectionLight\DirectionLight.cpp:44: vUpVecXM              // Up direction (上方ベクトル).
+Graphic\Light\DirectionLight\DirectionLight.cpp:56: // WND_W * 5 と WND_H * 5 は、ライトのシャドウカスケードをカバーする直交ビューボリュームのサイズ.
+Graphic\Light\DirectionLight\DirectionLight.cpp:61: // m_Projection は XMMATRIX 型を想定.
+Graphic\Light\DirectionLight\DirectionLight.h:32: public: // Getter、Setter.
+Graphic\Light\LightManager.h:35: public: // Getter.
+Graphic\Shader\Base\VertexShaderBase.cpp:38: //ConfigInputLayout();.
+Graphic\Shader\ShaderCompile.h:15: //HLSLからバーテックスシェーダのブロブを作成.
+Graphic\Shader\ShaderResource.cpp:51: // ShadowMap.
+Resource\Effect\EffectResource.cpp:27: // Effekseerの拡張子以外は無視.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:45: //	ID3D11Device* pDevice11 外部で作成して持ってくる。.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:46: //	ID3D11DeviceContext* pContext11 外部で作成して持ってくる。.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:98: //	HLSLファイルを読み込みシェーダを作成する.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:99: //	HLSL: High Level Shading Language の略.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:111: //HLSLからバーテックスシェーダのブロブを作成.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:149: DXGI_FORMAT_R32G32B32_FLOAT,	//DXGIのフォーマット(32bit float型*3).
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:157: DXGI_FORMAT_R32G32_FLOAT,		//DXGIのフォーマット(32bit float型*2).
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:180: //HLSLからピクセルシェーダのブロブを作成.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:248: //x,yそれぞれの最大マス数.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:271: bd.CPUAccessFlags	= 0;	//CPUからはアクセスしない.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:316: //POINT:高速だが粗い.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:320: //MIRROR: 反転繰り返し.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:321: //CLAMP : 端の模様を引き伸ばす.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:322: //BORDER: 別途境界色を決める.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.cpp:377: // CancelRotationの逆行列を求めます.
+Resource\Mesh\00_Sprite\Sprite3D\Sprite3D.h:38: DirectX::XMFLOAT4	vUV;		//UV座標（x,yのみ使用）.
+Resource\Mesh\00_Sprite\UISprite\UISprite.cpp:41: //SAFE_RELEASE(m_pVertexBuffer);.
+Resource\Mesh\00_Sprite\UISprite\UISprite.cpp:230: // VSの作成.
+Resource\Mesh\00_Sprite\UISprite\UISprite.cpp:240: // PSの作成.
+Resource\Mesh\00_Sprite\UISprite\UISprite.cpp:294: bd.CPUAccessFlags	    = 0;	//CPUからはアクセスしない.
+Resource\Mesh\00_Sprite\UISprite\UISprite.cpp:334: //POINT:高速だが粗い.
+Resource\Mesh\00_Sprite\UISprite\UISprite.cpp:336: //MIRROR: 反転繰り返し.
+Resource\Mesh\00_Sprite\UISprite\UISprite.cpp:337: //CLAMP : 端の模様を引き伸ばす.
+Resource\Mesh\00_Sprite\UISprite\UISprite.cpp:338: //BORDER: 別途境界色を決める.
+Resource\Mesh\00_Sprite\UISprite\UISprite.cpp:375: // mRot = mYaw * mPitch * mRoll; (演算子オーバーロードに依存しない形式).
+Resource\Mesh\00_Sprite\UISprite\UISprite.cpp:387: // m_WorldMatrix = mScale * mRot * mTrans; の代替.
+Resource\Mesh\00_Sprite\UISprite\UISprite.h:43: ALIGN16	DirectX::XMFLOAT4	vUV;			//UV座標（x,yのみ使用）.
+Resource\Mesh\00_Sprite\UISprite\UISprite.h:49: // DirectX::XMFLOAT2をキーとして使用するためのハッシュ.
+Resource\Mesh\00_Sprite\UISprite\UISprite.h:56: // DirectX::XMFLOAT2を比較するための等価比較関数.
+Resource\Mesh\00_Sprite\UISprite\UISprite.h:61: // unordered_mapの動作に必要な等価演算子 (operator==) を定義します。.
+Resource\Mesh\00_Sprite\UISprite\UISprite.h:62: // floatの比較は、一般的には許容誤差 (epsilon) を使うべきですが、.
+Resource\Mesh\00_Sprite\UISprite\UISprite.h:84: public: // Getter、Setter.
+Resource\Mesh\01_Static\StaticMesh.cpp:260: // Xファイルのロード.
+Resource\Mesh\01_Static\StaticMesh.cpp:275: // Xファイルのロード(レイとの判定用に別設定で読み込む).
+Resource\Mesh\01_Static\StaticMesh.cpp:319: // VSの作成.
+Resource\Mesh\01_Static\StaticMesh.cpp:334: // PSの作成.
+Resource\Mesh\01_Static\StaticMesh.cpp:467: D3D11_BUFFER_DESC	bd;	// Dx11バッファ構造体.
+Resource\Mesh\01_Static\StaticMesh.cpp:481: // D3DXMESHOPT_COMPACT : 面の順番を変更し、使用されていない頂点と面を削除する.
+Resource\Mesh\01_Static\StaticMesh.cpp:482: // D3DXMESHOPT_ATTRSORT : パフォーマンスを上げる為、面の順番を変更して最適化を行う.
+Resource\Mesh\01_Static\StaticMesh.cpp:502: // Dx9のインデックスバッファからの情報で、Dx11のインデックスバッファを作成.
+Resource\Mesh\01_Static\StaticMesh.cpp:533: D3D11_BUFFER_DESC	bd;	// Dx11バッファ構造体.
+Resource\Mesh\01_Static\StaticMesh.cpp:536: // Dx9の場合、mapではなくLockで頂点バッファからデータを取り出す.
+Resource\Mesh\01_Static\StaticMesh.cpp:546: // Dx9の頂点バッファからの情報で、Dx11頂点バッファを作成.
+Resource\Mesh\01_Static\StaticMesh.cpp:631: // POINT:高速だが粗い.
+Resource\Mesh\01_Static\StaticMesh.cpp:636: // MIRROR: 反転繰り返し.
+Resource\Mesh\01_Static\StaticMesh.cpp:637: // CLAMP : 端の模様を引き伸ばす.
+Resource\Mesh\01_Static\StaticMesh.cpp:638: // BORDER: 別途境界色を決める.
+Resource\Mesh\01_Static\StaticMesh.cpp:667: // D3DXMatrixTranspose(&cb.mW, &cb.mW) の代替.
+Resource\Mesh\01_Static\StaticMesh.cpp:671: // DirectX::XMMATRIX mWVP = mWorld * mView * mProj; の代替.
+Resource\Mesh\01_Static\StaticMesh.cpp:675: // D3DXMatrixTranspose(&mWVP, &mWVP) の代替.
+Resource\Mesh\01_Static\StaticMesh.cpp:683: // DirectX::XMMATRIX mWLP = mWorld * lightView * lightProj; の代替.
+Resource\Mesh\01_Static\StaticMesh.cpp:687: // D3DXMatrixTranspose(&mWLP, &mWLP) の代替.
+Resource\Mesh\01_Static\StaticMesh.cpp:796: cb.mWLP = mWLP; // XMMATRIXをそのまま代入.
+Resource\Mesh\01_Static\StaticMesh.cpp:820: // D3DXのアクセスはそのまま維持 (環境全体を合わせないため).
+Resource\Mesh\01_Static\StaticMesh.cpp:829: // D3DXのアクセスはそのまま維持 (環境全体を合わせないため).
+Resource\Mesh\01_Static\StaticMesh.cpp:875: // D3DXのアクセスはそのまま維持 (環境全体を合わせないため).
+Resource\Mesh\01_Static\StaticMesh.cpp:884: // D3D9/D3DXのヘッダも必要に応じてインクルードされていると仮定
+Resource\Mesh\01_Static\StaticMesh.cpp:898: // D3DXComputeBoundingSphereのカスタム置き換えロジック (XMVectorMin/Maxを使用)
+Resource\Mesh\01_Static\StaticMesh.cpp:904: UINT stride = D3DXGetFVFVertexSize(GetMesh()->GetFVF()); // D3DXGetFVFVertexSizeは計算関数ではないためそのまま維持.
+Resource\Mesh\01_Static\StaticMesh.cpp:922: // XMVECTORにロードし、最小・最大値を更新 (SIMD演算).
+Resource\Mesh\01_Static\StaticMesh.cpp:931: // Min/Maxから中心座標 (Center) と半径 (Radius) を計算
+Resource\Mesh\01_Static\StaticMesh.cpp:937: // D3DXVECTOR3 out; -> m_CenterPosition (XMFLOAT3) へのストア.
+Resource\Mesh\01_Static\StaticMesh.h:8: // align()		:(�����I��)16byte �Ŏg�p����.
+Resource\Mesh\01_Static\StaticMesh.h:52: // X�t�@�C���̃��[�h�ŕK�v�B�󂯎����.
+Resource\Mesh\02_Skin\SkinMesh.cpp:169: // VSの作成.
+Resource\Mesh\02_Skin\SkinMesh.cpp:176: // PSの作成.
+Resource\Mesh\02_Skin\SkinMesh.cpp:190: //Xファイルから抽出すべき情報は、.
+Resource\Mesh\02_Skin\SkinMesh.cpp:222: //XファイルやCGソフトがボーン4本以内とは限らない.
+Resource\Mesh\02_Skin\SkinMesh.cpp:283: // FIX 2: Use the safe function _tcscpy_s (assuming m_FilePath is a TCHAR array).
+Resource\Mesh\02_Skin\SkinMesh.cpp:284: // Note: You must ensure m_FilePath is large enough.
+Resource\Mesh\02_Skin\SkinMesh.cpp:290: //Xファイル読み込み.
+Resource\Mesh\02_Skin\SkinMesh.cpp:440: //	LPD3DXMESH pD3DXMesh = pFrame->pMeshContainer->MeshData.pMesh;//D3DXメッシュ(ここから・・・).
+Resource\Mesh\02_Skin\SkinMesh.cpp:451: //Direct3DではUVの数だけ頂点が必要.
+Resource\Mesh\02_Skin\SkinMesh.cpp:505: // Ambient.x/y/zはD3DXVECTOR4/D3DXCOLORのx/y/zを保持
+Resource\Mesh\02_Skin\SkinMesh.cpp:583: //k番目のポリゴンを作る頂点のインデックス.
+Resource\Mesh\02_Skin\SkinMesh.cpp:613: //TCHAR strDbg[128];.
+Resource\Mesh\02_Skin\SkinMesh.cpp:614: //WCHAR str[64] = L"";.
+Resource\Mesh\02_Skin\SkinMesh.cpp:615: //ConvertCharaMultiByteToUnicode(str, 64, pContainer->Name);.
+Resource\Mesh\02_Skin\SkinMesh.cpp:617: //MessageBox(nullptr, strDbg, _T("Not SkinInfo"), MB_OK);.
+Resource\Mesh\02_Skin\SkinMesh.cpp:658: //m_pD3dxMesh->UpdateFrameMatrices(.
+Resource\Mesh\02_Skin\SkinMesh.cpp:659: // m_pD3dxMesh->m_pFrameRoot)をレンダリング時に実行すること.
+Resource\Mesh\02_Skin\SkinMesh.cpp:664: //m_pD3dxMesh->m_pAnimController->AdvanceTime(...)を.
+Resource\Mesh\02_Skin\SkinMesh.cpp:683: // mBindPose, mNewPose は XMMATRIX と仮定して XM 行列演算を使用.
+Resource\Mesh\02_Skin\SkinMesh.cpp:690: // SkinMesh.cpp の DrawFrame 関数の新しい実装.
+Resource\Mesh\02_Skin\SkinMesh.cpp:935: // LightManager::GetDirectionLight()->GetDirection() は D3DXVECTOR3 を返すと仮定.
+Resource\Mesh\02_Skin\SkinMesh.cpp:1012: // LightManagerの行列を取得（D3DXMATRIXを返すため変換が必要）.
+Resource\Mesh\02_Skin\SkinMesh.cpp:1044: // pMaterial->AmbientなどはXMFLOAT4型に変換済みと仮定 (ヘッダーファイル変換済み).
+Resource\Mesh\02_Skin\SkinMesh.cpp:1048: // Emissive のアルファにグローバルアルファを乗算.
+Resource\Mesh\02_Skin\SkinMesh.cpp:1074: if (pMaterial->TextureName[0] != 0 && pMaterial->pTexture != nullptr) // TextNameが空でないか、pTextureが設定されているか.
+Resource\Mesh\02_Skin\SkinMesh.cpp:1132: //SKIN_PARTS_MESHの解放.
+Resource\Mesh\02_Skin\SkinMesh.cpp:1175: // SKIN_PARTS_MESH 本体を解放.
+Resource\Mesh\02_Skin\SkinMesh.cpp:1180: //SKIN_PARTS_MESH解放完了.
+Resource\Mesh\02_Skin\SkinMesh.cpp:1182: //MYFRAMEのSKIN_PARTS_MESH以外のメンバーポインター変数は別の関数で解放されている.
+Resource\Mesh\02_Skin\SkinMesh.cpp:1257: // m_spTransformはXMFLOAT3/4と仮定してロード
+Resource\Mesh\02_Skin\SkinMesh.cpp:1262: // XM 行列の作成.
+Resource\Mesh\02_Skin\SkinMesh.cpp:1269: // mTranではなく、ボーン行列全体 (GetMatrixFromBone) を使用するか、.
+Resource\Mesh\02_Skin\SkinMesh.cpp:1297: // D3DXPARSER::GetMatrixFromBone は D3DXMATRIX を返す.
+Resource\Mesh\02_Skin\SkinMesh.h:37: // XMMATRIX は通常、初期化に XMStoreFloat4x4 などを使用するが、.
+Resource\Mesh\02_Skin\SkinMesh.h:38: // C++の構造体初期化として XMMATRIX を直接代入.
+Resource\Mesh\02_Skin\SkinMesh.h:144: TCHAR		m_FilePath[256];	// Xファイルのパス. (変更なし).
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:68: //SAFE_RELEASE( pMeshContainer->MeshData.pMesh );.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:118: // D3DXMATRIX から XMMATRIX に変換して格納.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:163: // ppBoneMatrix はポインタの配列であり、指している実体は pFrame->CombinedTransformationMatrix (D3DXFRAMEのメンバ).
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:245: // MYMESHCONTAINER::ppBoneMatrix[i] は XMMATRIX* なので、アドレスを格納できない。.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:248: // D3DXMATRIX と XMMATRIX はメモリレイアウトが同じであるため、読み出し時(GetNewPose)に XMMATRIX として扱えると期待する。.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:281: //Xファイルからメッシュを読み込む.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:284: //Xファイルからアニメーションメッシュを読み込み作成する.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:317: // D3DXPARSER のこの関数は D3DX の動作を維持するため D3DXMATRIX のままとする.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:358: //UVの取得.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:436: // D3DXVECTOR3 として読み出し.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:466: // D3DXVECTOR3 として読み出し.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:497: // D3DXVECTOR2 として読み出し.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:577: pContainer->MeshData.pMesh->UnlockAttributeBuffer(); // Unlockを追加.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:587: //FaceIndex番目のポリゴンを形成する3頂点の中で、IndexInFace番目[0,2]の頂点のインデックスを返す.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:605: // D3DXMATRIX を取得し、XMMATRIX に変換して返す.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:616: // ppBoneMatrix[BoneIndex] は XMMATRIX* (MYFRAME::CombinedTransformationMatrix のアドレスをキャストしたもの).
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:617: // UpdateFrameMatrices によって D3DXMATRIX が更新されているので、それを XMMATRIX として読み出す.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:741: // D3DXMATRIX を XMMATRIX に変換して出力.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:757: // XMFLOAT3 に格納.
+Resource\Mesh\02_Skin\SkinMeshParser.cpp:787: //Hierarchy削除.
+Resource\Mesh\02_Skin\SkinMeshParser.h:17: // D3DX 構造体（D3DXPARSER 内部での D3DX 依存型）.
+Resource\Mesh\02_Skin\SkinMeshParser.h:18: // D3DXPARSER は D3DXFRAME/D3DXMESHCONTAINER に依存するため、その定義は D3DX のものを使用
+Resource\Mesh\02_Skin\SkinMeshParser.h:21: // D3DXPARSER の UpdateFrameMatrices が D3DXMATRIX を使用するため、このメンバは D3DXMATRIX のまま残す.
+Resource\Mesh\02_Skin\SkinMeshParser.h:81: // SAFE_RELEASE は D3D11 のマクロと仮定.
+Resource\Mesh\02_Skin\SkinMeshParser.h:82: // pTexture は D3D11 の SRV のため、変更なし.
+Resource\Mesh\02_Skin\SkinMeshParser.h:83: // SAFE_RELEASE(pTexture); // ヘッダーでは宣言のみ.
+Resource\Mesh\02_Skin\SkinMeshParser.h:145: //	ID3DXAllocateHierarchy 派生クラス.
+Resource\Mesh\02_Skin\SkinMeshParser.h:149: //Xファイル内のアニメーション階層を読み下してくれるクラスを派生させる.
+Resource\Mesh\02_Skin\SkinMeshParser.h:150: //	ID3DXAllocateHierarchyは派生すること想定して設計されている.
+Resource\Mesh\02_Skin\SkinMeshParser.h:186: // LPD3DXMATRIX は D3DXPARSER 内部で必要.
+Resource\Mesh\02_Skin\SkinMeshParser.h:239: // D3DX 依存のまま.
+Resource\Mesh\MeshBase.cpp:104: mYaw = DirectX::XMMatrixRotationY(m_spTransform.Rotation.y); // Yaw (Y軸).
+Resource\Mesh\MeshBase.cpp:105: mPitch = DirectX::XMMatrixRotationX(m_spTransform.Rotation.x); // Pitch (X軸).
+Resource\Mesh\MeshBase.cpp:106: mRoll = DirectX::XMMatrixRotationZ(m_spTransform.Rotation.z); // Roll (Z軸).
+Resource\Mesh\MeshBase.h:7: //align()		:(強制的に)16byte で使用する.
+Resource\Mesh\MeshBase.h:65: DirectX::XMFLOAT2	Texture;	// UV座標.
+Resource\Mesh\MeshBase.h:75: public: // Getter、Setter.
+Resource\Mesh\MeshBase.h:121: //　Dx9.
+Resource\Mesh\MeshBase.h:124: //　Dx11.
+Resource\Sound\DirectSound.cpp:20: // WAVファイルの読み込み.
+Resource\Sound\DirectSound.cpp:58: // WAVデータを内部に保持しておく（複製バッファ作成用）.
+Resource\Sound\DirectSound.cpp:176: // DirectSoundの音量は -10000(無音) ～ 0(最大).
+Resource\Sound\DirectSound.cpp:191: // dsVolume is in range DSBVOLUME_MIN .. DSBVOLUME_MAX (-10000..0).
+Resource\Sound\DirectSound.h:7: // DirectSoundおよびマルチメディアAPI用のライブラリリンク.
+Resource\Sound\DirectSound.h:18: // WAVファイル解析用構造体.
+Resource\Sound\DirectSound.h:56: // WAVファイルの読み込み.
+Resource\Sound\DirectSound.h:64: // WAV データのコピー（複製バッファ作成のために保持）.
+System\GameLoop\Loader.cpp:135: // m_LineGenerateRateを使って待ち時間の幅を調節.
+System\GameLoop\Loader.h:76: // Spite.
+System\GameLoop\Loader.h:81: // UIObject.
+System\GameLoop\Main.cpp:45: CImGuiManager::Relese(); // ImGuiの終了処理.
+System\GameLoop\Main.cpp:51: // DirectXの初期化.
+System\GameLoop\Main.cpp:102: // SoundManager の更新（自動復帰タイマー等）.
+System\GameLoop\Main.cpp:227: // Update fade and ensure the backbuffer is cleared each frame.
+System\GameLoop\Main.cpp:228: // so the fade sprite doesn't composite over an uninitialized/back buffer.
+System\GameLoop\Main.cpp:247: // Time の更新は Loop が責務.
+System\GameLoop\Main.cpp:311: // hWndに関連付けられたCMainを取得.
+System\GameLoop\Main.cpp:317: // CREATESTRUCT構造体からCMainのポインタを取得.
+System\GameLoop\Main.cpp:319: // SetWindowLongPtrを使用しhWndにCMainインスタンスを関連付ける.
+System\GameLoop\Main.cpp:346: // Escキーのダブルタップでゲームを終了する.
+System\GameLoop\Main.cpp:354: if (Input::IsKeyDown(Esc)) // Escキーが押された瞬間.
+System\GameLoop\Main.h:42: // Escキーのダブルタップでゲームを終了する.
+System\GameLoop\WinMain.cpp:41: pCMain->Release();	//Direct3Dの解放.
+System\Singleton\CameraManager\CameraManager.cpp:35: // LockOnCameraにキャストしてパリィカメラ演出を開始.
+System\Singleton\CollisionDetector\CollisionDetector.cpp:51: // Detector側の記録リストに追加.
+System\Singleton\CollisionDetector\CollisionDetector.cpp:54: // Collider A への情報追加.
+System\Singleton\CollisionDetector\CollisionDetector.cpp:57: // Collider B への情報追加.
+System\Singleton\CombatCoordinator\CombatCoordinator.cpp:51: // BGMのフェードアウト.
+System\Singleton\CombatCoordinator\CombatCoordinator.cpp:54: // Bossにパリィ被弾を通知（パリィステートへ遷移）.
+System\Singleton\CombatCoordinator\CombatCoordinator.cpp:55: // withDelay フラグは Boss 側で解釈して遅延挙動を組み込む.
+System\Singleton\CombatCoordinator\CombatCoordinator.cpp:101: // Forward to Player: set just dodge timing and start effect.
+System\Singleton\CombatCoordinator\CombatCoordinator.cpp:103: // Player owns the effect; call StartJustDodgeEffect with default params.
+System\Singleton\CombatCoordinator\CombatCoordinator.cpp:105: // Also reduce world time scale to create the slow-mo feel.
+System\Singleton\CombatCoordinator\CombatCoordinator.cpp:106: // Player state may expect Time::SetWorldTimeScale, but CombatCoordinator shouldn't include Time header here;.
+System\Singleton\CombatCoordinator\CombatCoordinator.cpp:107: // callers can still use CombatCoordinator to coordinate. We set player's internal flag only.
+System\Singleton\CombatCoordinator\CombatCoordinator.h:24: // PlayerとBossの参照を設定（シーン初期化時に呼び出す）.
+System\Singleton\CombatCoordinator\CombatCoordinator.h:31: // withDelay = true の場合、ボスのパリィはアニメ再生後に delay 秒待機する挙動になる。.
+System\Singleton\CombatCoordinator\CombatCoordinator.h:33: // Called when player enters SpecialAttack state to coordinate boss behavior.
+System\Singleton\CombatCoordinator\CombatCoordinator.h:42: // Note: この関数はボス側の攻撃判定を無効化し、.
+System\Singleton\CombatCoordinator\CombatCoordinator.h:52: // Notification that the last parried object was a snowball.
+System\Singleton\CombatCoordinator\CombatCoordinator.h:62: // Entrypoints to control Player from external callers (Manager-level hooks).
+System\Singleton\CombatCoordinator\CombatCoordinator.h:63: // These provide a simple interface to trigger player-side effects from CombatCoordinator.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:78: // HLSLの VS_INPUT_VERTEX (スロット0) と VS_INPUT_INSTANCE (スロット1) に対応.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:85: // World Matrix (Offset 0 - 64).
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:91: // Color (Offset 64).
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:94: // ShapeType + Padding (Offset 80).
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:97: // Data0 (Offset 96).
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:100: // Data1 (Offset 112).
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:113: // OutputDebugStringA((char*)errors->GetBufferPointer());.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:151: //return;.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:200: // View * Proj を計算.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:207: // pData.pData には cb の中身（転置済みの ViewProj 行列）をコピーします。.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:208: // RowPitchはバッファ全体の行ピッチ（通常はバイト幅）ですが、コピーサイズが合っていれば問題ありません。.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:273: // DrawIndexedInstanced で一括描画.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:276: drawInstanceCount,                             // InstanceCount.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:277: 0,                                             // StartIndexLocation.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:278: 0,                                             // BaseVertexLocation.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:279: 0);                                            // StartInstanceLocation.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:359: // Y座標を計算.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:371: // X, Z座標を計算.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:391: // A. 天面キャップ (北極と最初のリングを接続).
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:405: // B. 側面 (リング i と リング i+1 の間の四角形を接続).
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:434: // C. 底面キャップ (最後のリングと南極を接続).
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:457: // halfHeight は円筒部分の半分の高さ (カプセル全体の半分の長さではない) と仮定.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:459: const int N = segments; // DIVIDE_X (水平分割数).
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:460: const int M = segments / 2; // DIVIDE_Y / 2 (半球の層数)
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:485: // XZ平面でのリングの半径.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:487: // Y座標 (単位球Y座標).
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:495: // Y軸を円筒のオフセットで移動.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:506: // Note: 厳密には、CapsuleCollider::CreateVertices() のロジックでは、円筒の頂点は作成されず、.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:513: // CapsulCollider::CreateVertices() のロジックを忠実に再現すると...
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:517: // vy = M の層を中央に 1層追加するロジックは無いため、ここでは追加しません。.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:523: int offset = M; // vy = M から開始.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:529: // XZ平面でのリングの半径.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:531: // Y座標 (単位球Y座標).
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:539: // Y軸を円筒のオフセットで移動 (下側).
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:553: // Note: このロジックは、以前のSphereColliderのものとほぼ同一のため、.
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:587: loop2ndtIndex = startIndex + N; // Nは水平分割数 (DIVIDE_X).
+System\Singleton\Debug\CollisionVisualizer\CollisionVisualizer.cpp:597: indices.emplace_back(startIndex + N); // Nは水平分割数 (DIVIDE_X).
+System\Singleton\Debug\Log\DebugLog.h:88: // DirectX::XMFLOATx.
+System\Singleton\Debug\Log\DebugLog.h:102: // DirectX::XMFLOAT4X4.
+System\Singleton\Debug\Log\DebugLog.h:132: // std::vector.
+System\Singleton\Debug\Log\DebugLog.h:139: // std::array.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:12: // FrameCaptureManager の ImGui を Release でも有効にする場合は 1 にする.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:19: // FileManagerを利用してjson読み書き.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:126: // vignette（周辺減光）.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:246: // m_FrameInterval は秒単位の目安にしておく（assumedFPS を使用）.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:310: // m_CapturedFrameCount は最大 m_MaxFrames を上限にする.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:320: // F9 押下で巻き戻しモード開始（再生を 60fps で行う）.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:324: // Backup current frame interval and set to 60 FPS for rewind playback.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:327: m_bPlaying = true; // reuse playing state for rendering rewind.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:347: // PostEffectManager が有効な場合のみリゾルブ済みテクスチャを使う.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:360: // nothing created.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:383: // PostEffect が有効で SceneResolvedTex がある場合はそれを使う.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:390: // If downsampling requested, render the source SRV into the downsampled RTV.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:393: // Set render target to downsampled texture.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:396: // Save current RTV (use ResetRenderTarget to restore later).
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:398: // Save and set viewport to match downsampled render target so fullscreen quad covers whole target.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:405: // Draw fullscreen quad sampling srcSRV.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:416: // Unbind.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:419: // Restore previous RTV.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:421: // Restore previous viewports.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:460: // Create SRV for backbuffer temporarily.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:463: // If backbuffer is MSAA, CreateShaderResourceView with TEXTURE2D will fail (E_INVALIDARG).
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:464: // Resolve into a non-MSAA texture first, then create SRV from that.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:473: tmpDesc.SampleDesc.Count = 1; // non-MSAA.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:490: // Resolve MSAA backbuffer into non-MSAA texture.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:526: // Render sample into downsampled RTV.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:531: // Ensure viewport matches the capture target so the quad fills entire texture.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:558: // MSAA の場合は ResolveSubresource を使って非MSAAテクスチャへ解決.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:603: else { // BGRA.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:642: // Backup current frame interval so we can restore after special playback modes.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:651: // Restore frame interval if it was changed for special playback.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:730: // Draw内でシーン破棄は危険なのでフラグを立てて次フレームで処理.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:797: // norm: 0 (最初のフレーム) .. 1 (最後のフレーム).
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:798: // Intensity: 高 -> 低.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:918: // Create texture with RTV bind so we can render downsampled content into it.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:926: // Failed to create texture -> stop creating further to avoid repeated allocation failures.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:930: // shrink vectors to created count.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:939: // SRV作成.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:960: // Create RTV for rendering into (downsample target).
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:975: // Ensure m_MaxFrames matches actually created count.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:1123: cbDesc.ByteWidth = sizeof(float) * 4; // Time, Intensity, Chromatic, Padding.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:1185: // ImGuiデバッグ表示.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:1305: // Image 表示 (ImGui::Image expects ImTextureID).
+System\Singleton\FrameCaptureManager\FrameCaptureManager.cpp:1306: // DirectX11 SRV を ImTextureID として渡すために uintptr_t キャスト.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.h:3: // Enable FrameCapture ImGui display even in Release builds when set to 1.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.h:67: // ImGuiデバッグ表示.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.h:78: // sampleIntervalFrames: 何フレームごとに1枚保存するか（例:30 で30フレームに1回）.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.h:79: // assumedFPS: バッファサイズ計算時に用いる想定FPS（既定 60）。.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.h:96: // ClearBuffer と同じ.
+System\Singleton\FrameCaptureManager\FrameCaptureManager.h:140: // Backup of frame interval before special playback (used to restore after rewind playback).
+System\Singleton\FrameCaptureManager\FrameCaptureManager.h:146: // DirectX11リソース.
+System\Singleton\ImGui\CImGuiManager.cpp:6: constexpr char FONT_FILE_PATH[] = "Data//ImGui//Font//NotoSansJP-SemiBold.ttf";.
+System\Singleton\ImGui\CImGuiManager.cpp:10: // constexpr を使うことで、コンパイル時に定数として扱われ、最適化される.
+System\Singleton\ImGui\CImGuiManager.cpp:11: constexpr float SAMALINE_OFFSET = 100.f;    //ImGui::SameLineのオフセット値.
+System\Singleton\ImGui\CImGuiManager.cpp:38: //ImGuiのマルチビューポート機能を有効化(UIを複数ウィンドウとして表示可能にする).
+System\Singleton\ImGui\CImGuiManager.cpp:41: io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; //EnableMulti-Viewport / Platform Windows
+System\Singleton\ImGui\CImGuiManager.cpp:43: io.DeltaTime = 1.f / 60.f;    //time elapsed since the previous frame (in seconds).
+System\Singleton\ImGui\CImGuiManager.cpp:48: // io.Fonts->AddFontFromFileTTF 関数を使って、TrueTypeフォント（TTF）ファイルから日本語対応のフォントを追加する。.
+System\Singleton\ImGui\CImGuiManager.cpp:55: //Setup Dear ImGui style.
+System\Singleton\ImGui\CImGuiManager.cpp:56: //ImGui::StyleColorsDark();.
+System\Singleton\ImGui\CImGuiManager.cpp:57: //UIの文字を黒色にする.
+System\Singleton\ImGui\CImGuiManager.cpp:92: //ImGuiIO型のioをvoidとして使用？.
+System\Singleton\ImGui\CImGuiManager.cpp:125: //SAMALINE_OFFSETだけ右にずらして表示.
+System\Singleton\ImGui\CImGuiManager.cpp:129: // int型で表示.
+System\Singleton\ImGui\CImGuiManager.cpp:138: // float型で表示.
+System\Singleton\ImGui\CImGuiManager.cpp:148: // double型で表示.
+System\Singleton\ImGui\CImGuiManager.cpp:158: // D3DXVECTOR2型で表示.
+System\Singleton\ImGui\CImGuiManager.cpp:161: //D3DXVECTOR2型を使用するときのInput関数.
+System\Singleton\ImGui\CImGuiManager.cpp:167: // D3DXVECTOR3型で表示.
+System\Singleton\ImGui\CImGuiManager.cpp:170: //D3DXVECTOR3型を使用するときのInput関数.
+System\Singleton\ImGui\CImGuiManager.cpp:176: // string型で表示.
+System\Singleton\ImGui\CImGuiManager.cpp:183: //std::stringを使用するときのInput関数.
+System\Singleton\ImGui\CImGuiManager.cpp:250: //SAMALINE_OFFSETだけ右にずらして表示.
+System\Singleton\ImGui\CImGuiManager.cpp:254: //int型で表示.
+System\Singleton\ImGui\CImGuiManager.cpp:263: //float型で表示.
+System\Singleton\ImGui\CImGuiManager.cpp:355: //SAMALINE_OFFSETだけ右にずらして表示.
+System\Singleton\ImGui\CImGuiManager.h:31: //Render関数は準備する関数です.
+System\Singleton\ImGui\CImGuiManager.h:34: //Draw関数は、すぐに描画するイメージ関数です.
+System\Singleton\ImGui\CImGuiManager.h:46: ImGuiInputTextFlags flags = 0);	//ImGuiの入力オプション.
+System\Singleton\ImGui\CImGuiManager.h:49: //ImGuiで値をスライダーで調整できるようにする.
+System\Singleton\ImGui\CImGuiManager.h:67: //bool&は、呼び出し元の変数そのものを操作する.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:15: // Render an external SRV through post effects and output to backbuffer.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:22: // We'll render the provided SRV into our blur / accumulation pipeline similar to DrawToBackBuffer.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:23: // First, if blur is requested, run blur passes using srcSRV as input into m_BlurRTV[0]/[1].
+System\Singleton\PostEffectManager\PostEffectManager.cpp:28: // Unbind to avoid RTV/SRV race
+System\Singleton\PostEffectManager\PostEffectManager.cpp:32: // Horizontal pass -> m_BlurRTV[0].
+System\Singleton\PostEffectManager\PostEffectManager.cpp:50: // Vertical pass -> m_BlurRTV[1].
+System\Singleton\PostEffectManager\PostEffectManager.cpp:67: // Motion blur accumulation if enabled.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:78: ctx->PSSetShaderResources(0, 1, &m_SceneSRV); // use current scene SRV as base.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:115: // Finally, output finalSRV to backbuffer.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:126: // If caller requested a forced full-screen gray or global grayscale flag is enabled,.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:127: // temporarily force the circle-gray CB to cover the whole screen so the monochrome shader outputs gray.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:135: m_IsExpanding = true; // ensure shader uses expanding branch (gray inside).
+System\Singleton\PostEffectManager\PostEffectManager.cpp:136: // large radius ensures full-screen effect regardless of aspect.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:144: // Debug log: report gray/force state and circle radius
+System\Singleton\PostEffectManager\PostEffectManager.cpp:158: // restore circle effect state if we modified it.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:248: td.BindFlags = D3D11_BIND_RENDER_TARGET; // SRVはここでは付けない(MSAAのため).
+System\Singleton\PostEffectManager\PostEffectManager.cpp:265: dsd.SampleDesc.Count = 8; // RTVと一致させる.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:286: // VSの作成.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:293: // PSの作成.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:340: // accumulation target for simple motion blur.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:354: // blend pixel shader (simple lerp) - compile runtime same as blur.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:357: // reusing GaussianBlurRuntime.hlsl is fine if entrypoint provided; otherwise create simple file.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:363: // blend CB.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:365: blendCbDesc.ByteWidth = sizeof(float) * 4; // padding.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:408: // Unbind shader resources slots to avoid RTV/SRV race
+System\Singleton\PostEffectManager\PostEffectManager.cpp:421: // use radius factor to exaggerate offsets.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:452: // if accumulation not initialized, copy current resolved into accumulation.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:468: // Blend: render to accumulation using PSBlend (prev in t1).
+System\Singleton\PostEffectManager\PostEffectManager.cpp:477: // set CB blend factor.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:488: // current is in t0, prev in t1.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:494: // unbind prev.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:499: // use accumulation as final SRV.
+System\Singleton\PostEffectManager\PostEffectManager.cpp:519: // Resolved または ブラー後のテクスチャを渡す.
+System\Singleton\PostEffectManager\PostEffectManager.h:49: // Render an arbitrary SRV through the post-effect pipeline and output to backbuffer.
+System\Singleton\PostEffectManager\PostEffectManager.h:50: // srcW/srcH are the source SRV dimensions and are used for blur/motion blur texel calculations.
+System\Singleton\PostEffectManager\PostEffectManager.h:108: // accumulation target.
+System\Singleton\PostEffectManager\PostEffectManager.h:114: ID3D11Buffer* m_BlendCB; // contains blend factor.
+System\Singleton\ResourceManager\EffectManager\EffekseerManager.cpp:112: // XMFLOAT4に変換.
+System\Singleton\ResourceManager\EffectManager\EffekseerManager.cpp:129: // XMMATRIX の各行を構成するために XMVECTOR を作成.
+System\Singleton\ResourceManager\EffectManager\EffekseerManager.cpp:162: // DX11 専用の SetBackground を使用（SRV を直接渡す）.
+System\Singleton\ResourceManager\EffectManager\EffekseerManager.cpp:163: // deprecated警告を抑制.
+System\Singleton\ResourceManager\EffectManager\EffekseerManager.h:99: public: // Getter.
+System\Singleton\ResourceManager\MeshManager\MeshManager.h:15: friend class Singleton<MeshManager>;// Singletonからのアクセスを許可.
+System\Singleton\ResourceManager\SoundManager\SoundManager.cpp:58: // SEならピッチをランダムに変化させる.
+System\Singleton\ResourceManager\SoundManager\SoundManager.cpp:72: // Play may return an extra buffer when overlapping SE is created.
+System\Singleton\ResourceManager\SoundManager\SoundManager.cpp:76: // store to active list for cleanup when finished.
+System\Singleton\ResourceManager\SoundManager\SoundManager.cpp:109: // Clamp volume.
+System\Singleton\ResourceManager\SoundManager\SoundManager.cpp:138: // clamp.
+System\Singleton\ResourceManager\SoundManager\SoundManager.cpp:183: // ensure target.
+System\Singleton\ResourceManager\SoundManager\SoundManager.cpp:203: // restore.
+System\Singleton\ResourceManager\SoundManager\SoundManager.h:29: // fadeDownSeconds: 下げるフェード時間.
+System\Singleton\ResourceManager\SoundManager\SoundManager.h:30: // holdSeconds: 保持時間.
+System\Singleton\ResourceManager\SoundManager\SoundManager.h:31: // fadeUpSeconds: 戻すフェード時間.
+System\Singleton\ResourceManager\SoundManager\SoundManager.h:61: float m_fadeTimer = 0.0f; // current phase timer.
+System\Singleton\ResourceManager\ResourceManager.cpp:31: // EffectResourceを使ってData/Effectフォルダから全エフェクトを読み込む
+System\Singleton\ResourceManager\ResourceManager.cpp:59: // EffectResourceから取得.
+System\Singleton\SceneManager\SceneManager.cpp:59: //initial_scene = eList::GameMain;.
+System\Singleton\SingletonTemplate.h:5: * 参考元：https://shinh.skr.jp/template/singleton.html
+System\Singleton\SingletonTemplate.h:16: *		friend class Singleton<MyClass>; // Singletonからのアクセスを許可.
+System\Utility\Buffer\Any.h:56: // std::unique_ptr<T> を保持するホルダー.
+System\Utility\Buffer\Any.h:70: // std::unique_ptr で保持された値.
+System\Utility\Buffer\Any.h:74: // std::vector<std::unique_ptr<T>> を保持するホルダー.
+System\Utility\Buffer\Any.h:96: // std::vector<std::unique_ptr<T>> で保持された値.
+System\Utility\Buffer\Any.h:111: // std::unique_ptr<T> を受け取るコンストラクタ.
+System\Utility\Buffer\Any.h:115: // std::vector<std::unique_ptr<T>> を受け取るコンストラクタ.
+System\Utility\Buffer\Any.h:159: // std::unique_ptr<T> を取得するためのメソッド.
+System\Utility\Buffer\Any.h:170: // std::vector<std::unique_ptr<T>> を取得するためのメソッド.
+System\Utility\Buffer\Buffer.h:1: // Buffer.h シーンをまたいでinstanceを呼び出したいときに使用.
+System\Utility\Color\Color.h:6: // Alphaアニメーション用.
+System\Utility\ComPtr\ComPtr.h:63: // nullptr でなければ true を返す.
+System\Utility\ComPtr\ComPtr.h:92: m_ptr = nullptr; // nullptr に設定.
+System\Utility\ComPtr\ComPtr.h:104: // COM オブジェクトの参照カウントを増加させる.
+System\Utility\ComPtr\ComPtr.h:111: T* m_ptr; // COM オブジェクトのポインタ.
+System\Utility\CustomSTL\pair\Pair.h:58: // std::get �݊�.
+System\Utility\DirectWrite\CustomFontFileEnumerator\CustomFontFileEnumerator.h:47: IDWriteFactory*				m_pFactory;			// DirectWriteファクトリ.
+System\Utility\DirectWrite\DirectWrite.cpp:214: // ID2D1SolidColorBrushの作成.
+System\Utility\DirectWrite\DirectWrite.cpp:385: // Direct2Dファクトリ情報の初期化.
+System\Utility\DirectWrite\DirectWrite.cpp:394: // dpiの設定.
+System\Utility\DirectWrite\DirectWrite.cpp:419: // IDWriteFactoryの作成.
+System\Utility\DirectWrite\DirectWrite.h:54: *	参考サイト：https://islingtonsystem.hatenablog.jp/entry/DirectWrite_CustomFont_DirectX.
+System\Utility\DirectWrite\DirectWrite.h:111: public: // Getter、Setter.
+System\Utility\DirectWrite\DirectWrite.h:262: Microsoft::WRL::ComPtr<ID2D1Factory>				m_pD2DFactory;			// Direct2Dリソース.
+System\Utility\DirectWrite\DirectWrite.h:263: Microsoft::WRL::ComPtr<ID2D1RenderTarget>			m_pRenderTarget;		// Direct2Dレンダーターゲット.
+System\Utility\DirectWrite\DirectWrite.h:264: Microsoft::WRL::ComPtr<ID2D1SolidColorBrush>		m_pBrush;				// Direct2Dブラシ設定.
+System\Utility\DirectWrite\DirectWrite.h:265: Microsoft::WRL::ComPtr<ID2D1SolidColorBrush>		m_pShadowBrush;			// Direct2Dブラシ設定（影）.
+System\Utility\DirectWrite\DirectWrite.h:266: Microsoft::WRL::ComPtr<IDWriteFactory>				m_pDWriteFactory;		// DirectWriteリソース.
+System\Utility\DirectWrite\DirectWrite.h:267: Microsoft::WRL::ComPtr<IDWriteTextFormat>			m_pTextFormat;			// DirectWriteテキスト形式.
+System\Utility\DirectWrite\DirectWrite.h:268: Microsoft::WRL::ComPtr<IDWriteTextLayout>			m_pTextLayout;			// DirectWriteテキスト書式.
+System\Utility\DirectWrite\DirectWrite.h:280: float		m_Angle;// Z軸回転角度.
+System\Utility\EnumFlags\EnumFlags.h:32: // EnumType をビットフラグとして有効化する.
+System\Utility\FileManager\FileManager.cpp:98: // json型に変換.
+System\Utility\FileManager\FileManager.h:5: // json型を作成.
+System\Utility\Hash\Crc32Table\HashTable.h:17: *   参考URL:https://norizn.hatenablog.com/entry/2020/10/18/145628#2
+System\Utility\Hash\CHash.h:10: *   参考URL:https://norizn.hatenablog.com/entry/2020/10/18/145628#2
+System\Utility\Hash\CHash.h:51: // sizeofはnull終端を含み文字数+1されるので-1して文字数のみにしておく。.
+System\Utility\Math\Easing\Easing.h:14: // https://easings.net/ja
+System\Utility\Math\Random\Random.h:30: // static を外す！ これで毎回 Min/Max が反映される
+System\Utility\Math\Math.h:8: // floatなどの!=を近似値比較する.
+System\Utility\Math\Math.h:12: // aとbの差の絶対値が、許容誤差以内であればtrue.
+System\Utility\Math\Math.h:37: // X, Z 成分の長さの二乗を計算.
+System\Utility\String\String.cpp:6: // Note: template implementations moved to header to avoid linkage issues.
+System\Utility\String\String.cpp:17: // Trim possible trailing newline or spaces.
+System\Utility\String\String.cpp:84: // Convert UTF-16 (char16_t) to UTF-8 via WideChar APIs by first converting to wchar_t buffer.
+System\Utility\String\String.cpp:85: int wideCount = MultiByteToWideChar(CP_UTF8, 0, "", 0, nullptr, 0); // dummy to satisfy signatures (not used).
+System\Utility\String\String.cpp:118: // MultiByteToWideChar includes null terminator in count; remove it for std::wstring correctness.
+System\Utility\String\String.h:14: // Helper to provide human-readable type names for ToString.
+System\Utility\String\String.h:35: // Append value and a readable type tag so ExtractAmount can parse it.
+System\Utility\String\String.h:73: // UTF-16からUTF-8へ変換.
+System\Utility\String\String.h:76: // UTF-8からUTF-16へ変換.
+System\Utility\Transform\RectTransform.h:16: public: // Getter、Setter.
+System\Utility\Transform\Transform.cpp:29: // Snap yaw to desired value while preserving current pitch and roll.
+System\Utility\Transform\Transform.cpp:30: // Construct target quaternion from current pitch (Rotation.x), desired yaw, and current roll (Rotation.z).
+System\Utility\Transform\Transform.cpp:34: // Normalize desired yaw into [-PI, PI].
+System\Utility\Transform\Transform.cpp:42: // Ensure quaternion hemisphere matches to avoid 180deg long-path flips.
+System\Utility\Transform\Transform.cpp:50: // Synchronize Euler rotation from quaternion.
+System\Utility\Transform\Transform.cpp:151: // Y軸周りの180度回転の軸として、現在の右ベクトル（Y軸と前方ベクトルの外積）を使用.
+System\Utility\Transform\Transform.cpp:248: roll = 2.0f * atan2f(qf.y, qf.w); // roll (z) の計算.
+System\Utility\Transform\Transform.cpp:249: pitch = DirectX::XM_PIDIV2; // pitch (x) は π/2
+System\Utility\Transform\Transform.cpp:250: yaw = 0.0f; // yaw (y) は 0.
+System\Utility\Transform\Transform.cpp:254: roll = -2.0f * atan2f(qf.y, qf.w); // roll (z) の計算.
+System\Utility\Transform\Transform.cpp:255: pitch = -DirectX::XM_PIDIV2; // pitch (x) は -π/2
+System\Utility\Transform\Transform.cpp:256: yaw = 0.0f; // yaw (y) は 0.
+System\Utility\Transform\Transform.cpp:264: // roll (z).
+System\Utility\Transform\Transform.cpp:266: // pitch (x).
+System\Utility\Transform\Transform.cpp:268: // yaw (y).
+Constant.h:25: // XMFLOAT3 は静的初期化子リストで初期化可能.
+Constant.h:34: // XMFLOAT4からロードすることで、SIMDレジスタに正しい値が設定される.
+Constant.h:47: // RGBの定義.
+Global.h:15: // C26495: メンバー変数が必ず初期化されていない警告 (type.6).
+Global.h:16: // C4834: 破棄された戻り値のある波括弧初期化の警告.
+Global.h:17: // C4305: doubleからfloatへの切り捨て (リテラル初期化でよくある).
+Global.h:24: //DirectX9.
+Global.h:26: //DirectX11.
+Global.h:31: //DirectX9.
+Global.h:34: //DirectX11.
+Global.h:75: // DirectX12.
+Global.h:80: // DirectSound.
+Global.h:87: //DirectSound.
+Macro.h:11: // D3DXMATRIXをDirectX::XMMATRIXに変換.
+Macro.h:14: // D3DXMATRIXの各行のfloat要素をDirectX::XMVECTORとしてロードする.
+Macro.h:15: // XMMatrixは行優先でデータを格納する.
+Macro.h:26: // D3DXMATRIXをDirectX::XMMATRIXに変換.
+Macro.h:29: // XMMATRIXの各行ベクトルを取得.
+Macro.h:42: // IMGUI日本語対応.
+Macro.h:45: // UIEditorに使用、ナンバリング削除マクロ.
+stdafx.h:1: // stdafx.h : 標準のシステム インクルード ファイルのインクルード ファイル、または.

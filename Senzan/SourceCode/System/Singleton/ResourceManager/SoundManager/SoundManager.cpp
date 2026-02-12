@@ -21,7 +21,7 @@ bool SoundManager::LoadSounds(HWND hWnd) {
 }
 
 bool SoundManager::LoadAllInternal(HWND hWnd) {
-    // インターフェース生成
+    // インターフェース生成.
     if (FAILED(DirectSoundCreate8(NULL, &m_lpSoundInterface, NULL))) return false;
     if (FAILED(m_lpSoundInterface->SetCooperativeLevel(hWnd, DSSCL_NORMAL))) return false;
 
@@ -69,14 +69,14 @@ void SoundManager::Play(const std::string& name, bool isLoop) {
                 ds->SetFrequency(newFreq);
             }
         }
-        // Play may return an extra buffer when overlapping SE is created
+        // SE重複再生時に追加バッファが返される場合がある.
         LPDIRECTSOUNDBUFFER extraBuf = sounds[name]->Play(isLoop);
         if (extraBuf != nullptr)
         {
-            // store to active list for cleanup when finished
+            // 再生終了時のクリーンアップ用にアクティブリストへ格納する.
             inst.m_activeSEBuffers.push_back(extraBuf);
         }
-        // ループ再生ならBGMとして記録
+        // ループ再生ならBGMとして記録.
         if (isLoop) inst.m_currentBGMName = name;
     }
 }
@@ -106,26 +106,14 @@ void SoundManager::LowerCurrentBGMVolume(int newVolume)
     auto it = inst.m_pDxSounds.find(inst.m_currentBGMName);
     if (it == inst.m_pDxSounds.end()) return;
 
-    // Clamp volume
+    // 音量をクランプする.
     if (newVolume < 0) newVolume = 0;
     if (newVolume > 10000) newVolume = 10000;
 
     it->second->SetVolume(newVolume);
 }
 
-void SoundManager::UpdateKeyList() {
-    m_keys.clear();
-    m_keys.reserve(m_pDxSounds.size());
-    for (const auto& pair : m_pDxSounds) {
-        m_keys.push_back(pair.first);
-    }
-}
-
-const std::vector<std::string>& SoundManager::GetKeyList() {
-    return GetInstance().m_keys;
-}
-
-// (old two-parameter overload removed)
+// (旧2引数オーバーロードは削除済み).
 
 void SoundManager::LowerCurrentBGMVolumeTemporarily(int newVolume, float fadeDownSeconds, float holdSeconds, float fadeUpSeconds)
 {
@@ -135,7 +123,7 @@ void SoundManager::LowerCurrentBGMVolumeTemporarily(int newVolume, float fadeDow
     auto it = inst.m_pDxSounds.find(inst.m_currentBGMName);
     if (it == inst.m_pDxSounds.end()) return;
 
-    // clamp
+    // 音量をクランプする.
     if (newVolume < 0) newVolume = 0;
     if (newVolume > 10000) newVolume = 10000;
 
@@ -152,7 +140,7 @@ void SoundManager::LowerCurrentBGMVolumeTemporarily(int newVolume, float fadeDow
 
 void SoundManager::Update(float deltaTime)
 {
-    // クリーンアップ: 再生が終了した一時バッファを解放
+    // クリーンアップ: 再生が終了した一時バッファを解放.
     for (auto it = GetInstance().m_activeSEBuffers.begin(); it != GetInstance().m_activeSEBuffers.end(); )
     {
         LPDIRECTSOUNDBUFFER buf = *it;
@@ -180,7 +168,7 @@ void SoundManager::Update(float deltaTime)
     {
         float t = (inst.m_fadeDownDuration > 0.0f) ? (inst.m_fadeTimer / inst.m_fadeDownDuration) : 1.0f;
         if (t >= 1.0f) {
-            // ensure target
+            // 目標音量を設定する.
             if (it != inst.m_pDxSounds.end()) it->second->SetVolume(inst.m_fadeTargetVolume);
             inst.m_fadePhase = SoundManager::FadePhase::Holding;
             inst.m_fadeTimer = 0.0f;
@@ -200,7 +188,7 @@ void SoundManager::Update(float deltaTime)
     {
         float t = (inst.m_fadeUpDuration > 0.0f) ? (inst.m_fadeTimer / inst.m_fadeUpDuration) : 1.0f;
         if (t >= 1.0f) {
-            // restore
+            // 元の音量に復元する.
             if (it != inst.m_pDxSounds.end()) it->second->SetVolume(inst.m_prevBGMVolume);
             inst.m_fadePhase = SoundManager::FadePhase::Idle;
             inst.m_fadeActive = false;

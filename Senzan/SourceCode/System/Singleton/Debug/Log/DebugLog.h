@@ -66,7 +66,7 @@ private:
         ss << GetPrefix(level) << message << "\n";
         std::string full_message = ss.str();
 
-        // コンソール出力に統一
+        // コンソール出力に統一.
         if (level == LogLevel::Error) {
             std::cerr << full_message;
         }

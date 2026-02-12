@@ -1,9 +1,9 @@
 ﻿#include "BossShoutState.h"
 
-#include "Game//04_Time//Time.h"
-#include "Game//01_GameObject//00_MeshObject//00_Character//02_Boss//Boss.h"
-#include "Game//01_GameObject//00_MeshObject//00_Character//01_Player//Player.h"
-#include "..//..//BossMoveState//BossMoveState.h"
+#include "Game//04_Time//Time.h".
+#include "Game//01_GameObject//00_MeshObject//00_Character//02_Boss//Boss.h".
+#include "Game//01_GameObject//00_MeshObject//00_Character//01_Player//Player.h".
+#include "..//..//BossMoveState//BossMoveState.h".
 
 #include "00_MeshObject/00_Character/02_Boss/BossIdolState/BossIdolState.h"
 #include "System/Singleton/ImGui/CImGuiManager.h"
@@ -21,7 +21,7 @@ BossShoutState::~BossShoutState()
 void BossShoutState::Enter()
 {
 
-    // 初期値リセット。コライダーは実際のシャウト開始時に有効化する
+    // 初期値リセット。コライダーは実際のシャウト開始時に有効化する.
     m_ShoutElapsed = 0.0f;
     m_ShoutStartRadius = 0.0f;
 
@@ -72,7 +72,7 @@ void BossShoutState::Update()
                 SoundManager::GetInstance().Play("Shout", false);
                 SoundManager::GetInstance().SetVolume("Shout", 9400);
             }
-            // シャウト発動: コライダーを有効化し、半径を徐々に広げる準備
+            // シャウト発動: コライダーを有効化し、半径を徐々に広げる準備.
             if (auto* shoutCol = m_pOwner->GetShoutCollider()) {
                 shoutCol->SetActive(true);
                 shoutCol->SetAttackAmount(m_ShoutDamage);
@@ -89,7 +89,7 @@ void BossShoutState::Update()
         break;
 
     case BossShoutState::enShout::ShoutTime:
-        // 更新: コライダー半径を徐々に拡大
+        // 更新: コライダー半径を徐々に拡大.
         if (auto* shoutCol = m_pOwner->GetShoutCollider()) {
             if (shoutCol->GetActive()) {
                 float dt = m_pOwner->GetDelta();
@@ -170,7 +170,7 @@ void BossShoutState::LoadSettings()
     if (j.contains("ShoutDamage")) m_ShoutDamage = j["ShoutDamage"].get<float>();
     if (j.contains("ShoutRadius")) m_ShoutRadius = j["ShoutRadius"].get<float>();
     if (j.contains("KnockBackPower")) m_KnockBackPower = j["KnockBackPower"].get<float>();
-    // オフセットは ColliderWindow で管理
+    // オフセットは ColliderWindow で管理.
 }
 
 void BossShoutState::SaveSettings() const

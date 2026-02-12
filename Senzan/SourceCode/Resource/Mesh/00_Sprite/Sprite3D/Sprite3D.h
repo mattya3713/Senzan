@@ -12,9 +12,9 @@ class DirectX11;
 class Sprite3D
 {
 public:
-	//======================================
+	//======================================.
 	//	構造体.
-	//======================================
+	//======================================.
 	//幅高さ構造体.
 	struct WHSIZE
 	{
@@ -118,7 +118,7 @@ private:
 	ID3D11SamplerState*			m_pSampleLinear;	//サンプラ:テクスチャに各種フィルタをかける.
 
 	DirectX::XMFLOAT3		m_Position;	//座標.
-	DirectX::XMFLOAT3		m_Rotation;	//回転
+	DirectX::XMFLOAT3		m_Rotation;	//回転.
 	DirectX::XMFLOAT3		m_Scale;		//拡縮.
 
 	DirectX::XMFLOAT2		m_UV;		//テクスチャUV座標.

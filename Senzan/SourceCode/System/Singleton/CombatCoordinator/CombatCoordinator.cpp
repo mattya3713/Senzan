@@ -98,13 +98,13 @@ void CombatCoordinator::StartPlayerJustDodge(float TimeScale)
 {
     if (m_pPlayer)
     {
-        // Forward to Player: set just dodge timing and start effect
+        // Forward to Player: set just dodge timing and start effect.
         m_pPlayer->SetIsJustDodgeTiming(true);
-        // Player owns the effect; call StartJustDodgeEffect with default params
+        // エフェクトはPlayer側が管理する; デフォルトパラメータでStartJustDodgeEffectを呼ぶ.
         m_pPlayer->StartJustDodgeEffect(m_pPlayer->GetPosition(), m_pPlayer->GetPosition(), 1.0f, 1.0f);
-        // Also reduce world time scale to create the slow-mo feel
-        // Player state may expect Time::SetWorldTimeScale, but CombatCoordinator shouldn't include Time header here;
-        // callers can still use CombatCoordinator to coordinate. We set player's internal flag only.
+        // スローモーション演出のためワールド時間スケールも下げる.
+        // PlayerステートはTime::SetWorldTimeScaleを期待する場合があるが、CombatCoordinatorではTimeヘッダーを含めない.
+        // 呼び出し元はCombatCoordinator経由で調整可能. ここではPlayer内部フラグのみ設定する.
     }
 }
 
@@ -185,7 +185,7 @@ void CombatCoordinator::ForceBossDown()
 {
     if (m_pBoss)
     {
-        // ボスの現在のステートがBossSpecialDamageStateの場合、Downに遷移させる
+        // ボスの現在のステートがBossSpecialDamageStateの場合、Downに遷移させる.
         auto currentState = m_pBoss->GetStateMachine()->m_pCurrentState;
         auto specialDamageState = std::dynamic_pointer_cast<BossSpecialDamageState>(currentState);
         if (specialDamageState)

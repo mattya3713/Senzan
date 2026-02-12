@@ -1,8 +1,8 @@
-#pragma once
+ï»¿#pragma once
 
 class SpriteCollider
 {
 public:
-	// “_‚ÆlŠp‚Ì‚ ‚½‚è”»’è.
+	// ç‚¹ã¨å››è§’ã®ã‚ãŸã‚Šåˆ¤å®š.
 	static bool PointInSquare(POINT point, DirectX::XMFLOAT2 pos, DirectX::XMFLOAT2 size);
 };

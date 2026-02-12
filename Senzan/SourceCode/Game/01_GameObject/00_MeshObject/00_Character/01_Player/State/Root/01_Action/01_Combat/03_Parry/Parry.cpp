@@ -37,7 +37,7 @@ void Parry::Enter()
     m_ElapsedTime = 0.0f;
     m_IsPaused = false;
 
-    // アニメーション設定
+    // アニメーション設定.
     m_pOwner->SetIsLoop(false);
     m_pOwner->SetAnimTime(0.0f);
     m_pOwner->SetAnimSpeed(1.0f);
@@ -61,13 +61,13 @@ void Parry::Update()
         {
             if (m_UseForceOffset && m_pOwner)
             {
-                // ターゲット基準で回転させたオフセットを適用
+                // ターゲット基準で回転させたオフセットを適用.
                 DirectX::XMFLOAT3 target_pos = m_pOwner->m_TargetPos;
                 DirectX::XMVECTOR v_target_pos = DirectX::XMLoadFloat3(&target_pos);
                 DirectX::XMFLOAT3 player_pos = m_pOwner->GetPosition();
                 DirectX::XMVECTOR v_player_pos = DirectX::XMLoadFloat3(&player_pos);
 
-                // 水平方向のみで角度を決定
+                // 水平方向のみで角度を決定.
                 v_target_pos = DirectX::XMVectorSetY(v_target_pos, 0.f);
                 v_player_pos = DirectX::XMVectorSetY(v_player_pos, 0.f);
 
@@ -76,7 +76,7 @@ void Parry::Update()
                 DirectX::XMFLOAT3 diff; DirectX::XMStoreFloat3(&diff, v_diff);
                 float rad = std::atan2f(diff.x, diff.z);
 
-                // オフセットを Y 回転で回す（高さは保持）
+                // オフセットを Y 回転で回す（高さは保持）.
                 DirectX::XMVECTOR v_offset = DirectX::XMLoadFloat3(&m_ForceOffset);
                 DirectX::XMVECTOR v_off_y = DirectX::XMVectorSplatY(v_offset);
                 DirectX::XMVECTOR v_off_xz = DirectX::XMVectorSetY(v_offset, 0.f);
@@ -93,7 +93,7 @@ void Parry::Update()
     }
 #endif
     
-    // パリィ成功を待つ間、所定時間経過したらアニメ速度を0にして停止させる
+    // パリィ成功を待つ間、所定時間経過したらアニメ速度を0にして停止させる.
     if (m_pOwner->IsParry())
     {
         if (!m_IsFastTime)
@@ -120,14 +120,14 @@ void Parry::Update()
 
             m_pOwner->m_MoveVec = diff_vec;
 
-                // 雪玉によるパリィだったらオフセット適用をスキップ
+                // 雪玉によるパリィだったらオフセット適用をスキップ.
             if (CombatCoordinator::GetInstance().WasLastParriedBySnowball())
             {
                 CombatCoordinator::GetInstance().ClearLastParriedFlag();
             }
             else
             {
-                // ターゲット基準で回転させたオフセットを適用（高さは保持）
+                // ターゲット基準で回転させたオフセットを適用（高さは保持）.
                 DirectX::XMVECTOR v_offset = DirectX::XMLoadFloat3(&m_ForceOffset);
                 DirectX::XMVECTOR v_off_y = DirectX::XMVectorSplatY(v_offset);
                 DirectX::XMVECTOR v_off_xz = DirectX::XMVectorSetY(v_offset, 0.f);
@@ -145,9 +145,9 @@ void Parry::Update()
         }
         m_ElapsedTime += m_pOwner->GetDelta();
 
-        // アニメーション終了時の処理
+        // アニメーション終了時の処理.
         if (m_ElapsedTime >= 0.6f) {
-            m_pOwner->ChangeState(PlayerState::eID::Idle); // 失敗時も Idle に遷移
+            m_pOwner->ChangeState(PlayerState::eID::Idle); // 失敗時も Idle に遷移.
         }
     }
     else
@@ -159,7 +159,7 @@ void Parry::Update()
             m_pOwner->SetAnimSpeed(0.0f);
             m_IsPaused = true;
         }
-        // パリィが成功しなかった場合、最大待機時間を超えたらステートを抜ける
+        // パリィが成功しなかった場合、最大待機時間を超えたらステートを抜ける.
         if (m_ElapsedTime >= m_MaxWaitTime)
         {
             if (!m_IsAnimEndStart)
@@ -172,7 +172,7 @@ void Parry::Update()
             {
                 if (m_ElapsedTime >= m_PauseThreshold + (Time::GetInstance().GetDeltaTime() * 10.f))
                 {
-                    m_pOwner->ChangeState(PlayerState::eID::Idle); // 失敗時も Idle に遷移
+                    m_pOwner->ChangeState(PlayerState::eID::Idle); // 失敗時も Idle に遷移.
                 }
             }
             return;
@@ -194,7 +194,7 @@ void Parry::Draw()
 void Parry::Exit()
 {
     Combat::Exit();
-    // Exit で必ず再生速度を復帰
+    // Exit で必ず再生速度を復帰.
     m_pOwner->SetAnimSpeed(1.0f);
     m_IsPaused = false;
     m_IsAnimEndStart = false;

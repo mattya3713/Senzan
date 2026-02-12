@@ -1,8 +1,8 @@
-#pragma once
+ï»¿#pragma once
 #include "02_UIObject/UIObject.h"
 
 /*********************************************
-*	‘I‘ğƒAƒjƒ[ƒVƒ‡ƒ“ƒNƒ‰ƒX.
+*	é¸æŠã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚¯ãƒ©ã‚¹.
 **/
 
 class Select
@@ -10,8 +10,8 @@ class Select
 public:
 	struct WhiteInfo
 	{
-		DirectX::XMFLOAT3 basePos;	// White ‚Ì‰ŠúÀ•W.
-		DirectX::XMFLOAT3 moveDir;	// ZNode •ûŒü‚Ö‚ÌƒxƒNƒgƒ‹i‰Šú‰»‚ÉŒvZj.
+		DirectX::XMFLOAT3 basePos;	// White ã®åˆæœŸåº§æ¨™.
+		DirectX::XMFLOAT3 moveDir;	// ZNode æ–¹å‘ã¸ã®ãƒ™ã‚¯ãƒˆãƒ«ï¼ˆåˆæœŸåŒ–æ™‚ã«è¨ˆç®—ï¼‰.
 		DirectX::XMFLOAT3 scale;
 	};
 
@@ -26,13 +26,13 @@ public:
 	void Create();
 
 	/****************************************
-	* @brief ‘I‘ğƒAƒjƒ[ƒVƒ‡ƒ“‚ÌŠJn.
-	* @param pos ƒAƒjƒ[ƒVƒ‡ƒ“‚ğÀs‚·‚é’†SÀ•W.
+	* @brief é¸æŠã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®é–‹å§‹.
+	* @param pos ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å®Ÿè¡Œã™ã‚‹ä¸­å¿ƒåº§æ¨™.
 	****************************************/
 	void IsSelect(DirectX::XMFLOAT3 pos);
 
 private:
-	// XVE•`‰æ‚µ‚È‚¢UI‚ÌœŠO.
+	// æ›´æ–°ãƒ»æç”»ã—ãªã„UIã®é™¤å¤–.
 	bool IsHiddenUI(const std::string& name);
 
 private:

@@ -13,7 +13,6 @@ ThirdPersonCamera::ThirdPersonCamera()
 {
 }
 
-//-----------------------------------------------------------------------------------.
 
 ThirdPersonCamera::~ThirdPersonCamera()
 {
@@ -23,7 +22,7 @@ ThirdPersonCamera::~ThirdPersonCamera()
 
 void ThirdPersonCamera::Update()
 {
-    DirectX::XMVECTOR moveVecXM = {};    // XMVECTORで計算するための中間変数。
+    DirectX::XMVECTOR moveVecXM = {};    // XMVECTORで計算するための中間変数。.
 
     // コントローラー入力.
     if (Input::IsRStickActive())
@@ -43,8 +42,8 @@ void ThirdPersonCamera::Update()
     else // マウス入力.
     {
 
-        // マウスがウィンドウ中心に固定されている場合のみマウス移動を受け付ける
-        // さらに ImGui がマウスをキャプチャしている場合は UI 優先のため無視する
+        // マウスがウィンドウ中心に固定されている場合のみマウス移動を受け付ける.
+        // さらに ImGui がマウスをキャプチャしている場合は UI 優先のため無視する.
         if (Input::IsCenterMouseCursor() && !ImGui::GetIO().WantCaptureMouse)
         {
             // マウスの相対移動量を計算.
@@ -61,7 +60,7 @@ void ThirdPersonCamera::Update()
         }
         else
         {
-            // マウス入力を受け付けないので移動ベクトルはゼロのままにする
+            // マウス入力を受け付けないので移動ベクトルはゼロのままにする.
         }
     }
 

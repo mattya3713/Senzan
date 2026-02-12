@@ -1,4 +1,4 @@
-#include "RenderTargetView.h"
+ï»¿#include "RenderTargetView.h"
 #include "Graphic/DirectX/DirectX11/DirectX11.h"
 
 RenderTargetView::RenderTargetView()
@@ -11,15 +11,14 @@ RenderTargetView::~RenderTargetView()
     SAFE_RELEASE(m_pRenderTargetView);
 }
 
-//------------------------------------------------------------.
 
 void RenderTargetView::Init(ID3D11Texture2D* pTexture)
 {
-    // ƒeƒNƒXƒ`ƒƒ‚©‚çDesc‚ðŽæ“¾.
+    // ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‹ã‚‰Descã‚’å–å¾—.
     D3D11_TEXTURE2D_DESC textureDesc = {};
     pTexture->GetDesc(&textureDesc);
 
-    // ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒgƒrƒ…[‚Ìì¬.
+    // ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãƒ“ãƒ¥ãƒ¼ã®ä½œæˆ.
     D3D11_RENDER_TARGET_VIEW_DESC rtvDesc;
     rtvDesc.Format              = textureDesc.Format;
     rtvDesc.ViewDimension       = D3D11_RTV_DIMENSION_TEXTURE2D;
@@ -27,17 +26,15 @@ void RenderTargetView::Init(ID3D11Texture2D* pTexture)
     auto result = DirectX11::GetInstance().GetDevice()->CreateRenderTargetView(pTexture, &rtvDesc, &m_pRenderTargetView);
     if (FAILED(result))
     {
-        assert(0 && "ƒŒƒ“ƒ_[ƒ^[ƒQƒbƒgƒrƒ…[‚Ìì¬‚ÉŽ¸”s");
+        assert(0 && "ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆãƒ“ãƒ¥ãƒ¼ã®ä½œæˆã«å¤±æ•—");
     }
 }
 
-//------------------------------------------------------------.
 
 void RenderTargetView::ClearRenderTargetView(const DirectX::XMFLOAT4& clearColor)
 {
     DirectX11::GetInstance().GetContext()->ClearRenderTargetView(m_pRenderTargetView, reinterpret_cast<const FLOAT*>(&clearColor));
 }
-//------------------------------------------------------------.
 
 ID3D11RenderTargetView* RenderTargetView::GetRenderTargetView()
 {

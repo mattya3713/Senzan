@@ -30,7 +30,6 @@ Shadow::~Shadow()
 	SAFE_RELEASE(m_pCBuffer);
 }
 
-//---------------------------------------------------------------------------------.
 
 void Shadow::Begin()
 {
@@ -53,7 +52,6 @@ void Shadow::Begin()
 	RenderTargetManager::GetInstance().SetRenderTargets("ShadowMap");
 }
 
-//---------------------------------------------------------------------------------.
 
 void Shadow::End()
 {
@@ -73,14 +71,12 @@ void Shadow::End()
 	DirectX11::GetInstance().ResetRenderTarget();
 }
 
-//---------------------------------------------------------------------------------.
 
 ID3D11Buffer* Shadow::GetCBuffer()
 {
 	return m_pCBuffer;
 }
 
-//---------------------------------------------------------------------------------.
 
 void Shadow::CreateCBuffer()
 {
@@ -97,4 +93,3 @@ void Shadow::CreateCBuffer()
 		_ASSERT_EXPR(false, _T("コンスタントバッファ作成失敗"));
 	}
 }
-

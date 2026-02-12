@@ -4,7 +4,7 @@
 #include "Utility/Color/Color.h"
 
 #include "Graphic/DirectX/DirectX11/DirectX11.h"
-#include "Game//04_Time//Time.h"
+#include "Game//04_Time//Time.h".
 #include "Game/05_InputDevice/Input.h"
 
 
@@ -23,13 +23,11 @@ UIEnding::UIEnding()
 	SelectCreate();
 }
 
-//----------------------------------------------------------------.
 
 UIEnding::~UIEnding()
 {
 }
 
-//----------------------------------------------------------------.
 
 void UIEnding::SelectCreate()
 {
@@ -41,7 +39,6 @@ void UIEnding::SelectCreate()
 	}
 }
 
-//----------------------------------------------------------------.
 
 void UIEnding::Update()
 {
@@ -68,13 +65,11 @@ void UIEnding::Update()
 	m_pSelect->Update();
 }
 
-//----------------------------------------------------------------.
 
 void UIEnding::LateUpdate()
 {
 }
 
-//----------------------------------------------------------------.
 
 void UIEnding::Draw()
 {
@@ -87,14 +82,12 @@ void UIEnding::Draw()
 	m_pSelect->Draw();
 }
 
-//----------------------------------------------------------------.
 
 void UIEnding::SelectUpdate()
 {
 	AnimUpdate();
 }
 
-//----------------------------------------------------------------.
 
 void UIEnding::SelectLateUpdate(std::shared_ptr<UIObject> ui)
 {
@@ -104,7 +97,6 @@ void UIEnding::SelectLateUpdate(std::shared_ptr<UIObject> ui)
 	}
 }
 
-//----------------------------------------------------------------.
 
 void UIEnding::AnimUpdate()
 {

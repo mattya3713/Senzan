@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <DirectXMath.h>
 #include <string>
@@ -7,8 +7,8 @@
 struct Transform
 {
 	DirectX::XMFLOAT3 Position;
-	DirectX::XMFLOAT3 Rotation;		// ƒIƒCƒ‰[Šp(ƒ‰ƒWƒAƒ“).
-	DirectX::XMFLOAT4 Quaternion;	// ƒNƒH[ƒ^ƒjƒIƒ“.
+	DirectX::XMFLOAT3 Rotation;		// ã‚ªã‚¤ãƒ©ãƒ¼è§’(ãƒ©ã‚¸ã‚¢ãƒ³).
+	DirectX::XMFLOAT4 Quaternion;	// ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³.
 	DirectX::XMFLOAT3 Scale;
 
 	Transform()
@@ -31,14 +31,14 @@ struct Transform
 	{
 	}
 
-	// ƒQƒbƒ^[.
+	// ã‚²ãƒƒã‚¿ãƒ¼.
 	DirectX::XMFLOAT3 GetForward() const;
 	DirectX::XMFLOAT3 GetUp() const;
 	DirectX::XMFLOAT3 GetRight() const;
 	std::array<DirectX::XMFLOAT3, 3> GetAxisVector() const;
-	DirectX::XMFLOAT3 GetRotationDegrees() const; // Šp“x‚ÅƒIƒCƒ‰[Šp‚ğæ“¾.
+	DirectX::XMFLOAT3 GetRotationDegrees() const; // è§’åº¦ã§ã‚ªã‚¤ãƒ©ãƒ¼è§’ã‚’å–å¾—.
 
-	// ƒ[ƒ‹ƒhs—ñ‚ğ¶¬.
+	// ãƒ¯ãƒ¼ãƒ«ãƒ‰è¡Œåˆ—ã‚’ç”Ÿæˆ.
 	inline DirectX::XMMATRIX GetWorldMatrix() const
 	{
 		DirectX::XMMATRIX scaleMatrix = DirectX::XMMatrixScalingFromVector(DirectX::XMLoadFloat3(&Scale));
@@ -48,28 +48,26 @@ struct Transform
 		return scaleMatrix * rotationMatrix * translationMatrix;
 	}
 
-	// ƒZƒbƒ^[.
+	// ã‚»ãƒƒã‚¿ãƒ¼.
 	void SetPosition(const DirectX::XMFLOAT3& newPosition);
-	void SetRotation(const DirectX::XMFLOAT3& eulerAngles); // ƒ‰ƒWƒAƒ“‚Åİ’è.
-	void SetRotationX(float X); // ƒ‰ƒWƒAƒ“‚Åİ’è.
-	void SetRotationY(float Y); // ƒ‰ƒWƒAƒ“‚Åİ’è.
-	void SetRotationZ(float Z); // ƒ‰ƒWƒAƒ“‚Åİ’è.
-	void SetRotationDegrees(const DirectX::XMFLOAT3& eulerAnglesInDegrees); // Šp“x‚Å‰ñ“].
+	void SetRotation(const DirectX::XMFLOAT3& eulerAngles); // ãƒ©ã‚¸ã‚¢ãƒ³ã§è¨­å®š.
+	void SetRotationX(float X); // ãƒ©ã‚¸ã‚¢ãƒ³ã§è¨­å®š.
+	void SetRotationY(float Y); // ãƒ©ã‚¸ã‚¢ãƒ³ã§è¨­å®š.
+	void SetRotationZ(float Z); // ãƒ©ã‚¸ã‚¢ãƒ³ã§è¨­å®š.
+	void SetRotationDegrees(const DirectX::XMFLOAT3& eulerAnglesInDegrees); // è§’åº¦ã§å›è»¢.
 	void SetQuaternion(const DirectX::XMFLOAT4& newQuaternion);
 	void SetScale(const DirectX::XMFLOAT3& newScale);
 
-	// ˆÚ“®E‰ñ“].
+	// ç§»å‹•ãƒ»å›è»¢.
 	void Translate(const DirectX::XMFLOAT3& translation);
-	void Rotate(const DirectX::XMFLOAT3& eulerAngles); // ƒ‰ƒWƒAƒ“‚Å‰ñ“]‚ğ“K—p.
-	void RotateDegrees(const DirectX::XMFLOAT3& eulerAnglesInDegrees); // Šp“x‚Å‰ñ“]‚ğ“K—p.
-	void Rotate(const DirectX::XMFLOAT4& quaternion); // ƒNƒH[ƒ^ƒjƒIƒ“‚Å‰ñ“]‚ğ“K—p.
+	void Rotate(const DirectX::XMFLOAT3& eulerAngles); // ãƒ©ã‚¸ã‚¢ãƒ³ã§å›è»¢ã‚’é©ç”¨.
+	void RotateDegrees(const DirectX::XMFLOAT3& eulerAnglesInDegrees); // è§’åº¦ã§å›è»¢ã‚’é©ç”¨.
+	void Rotate(const DirectX::XMFLOAT4& quaternion); // ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã§å›è»¢ã‚’é©ç”¨.
 	void RotateToDirection(const DirectX::XMFLOAT3& NormVecDirection);
 
-	// ƒIƒCƒ‰[Šp‚ÆƒNƒH[ƒ^ƒjƒIƒ“‚Ì“¯Šú.
+	// ã‚ªã‚¤ãƒ©ãƒ¼è§’ã¨ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®åŒæœŸ.
 	void UpdateRotationFromQuaternion();
 	void UpdateQuaternionFromRotation();
-
-
 
 
 	inline Transform operator+(const Transform& other) const
@@ -88,10 +86,10 @@ struct Transform
 		XMFLOAT3 newPos, newRot, newScale;
 		XMFLOAT4 newQuat;
 
-		DirectX::XMStoreFloat3(&newPos, DirectX::XMVectorAdd(pos1, pos2)); // ˆÊ’u‚Í‰ÁZ
-		DirectX::XMStoreFloat3(&newRot, DirectX::XMVectorAdd(rot1, rot2)); // ƒIƒCƒ‰[Šp‚Í‰ÁZ (”ñ„§‚¾‚ªÀ‘•‚ğˆÛ)
-		DirectX::XMStoreFloat4(&newQuat, DirectX::XMQuaternionMultiply(quat1, quat2)); // ƒNƒH[ƒ^ƒjƒIƒ“‚ÍæZ‚ÅŒ‹‡
-		DirectX::XMStoreFloat3(&newScale, DirectX::XMVectorAdd(scale1, quat2)); // ƒXƒP[ƒ‹‚Í‰ÁZ
+		DirectX::XMStoreFloat3(&newPos, DirectX::XMVectorAdd(pos1, pos2)); // ä½ç½®ã¯åŠ ç®—.
+		DirectX::XMStoreFloat3(&newRot, DirectX::XMVectorAdd(rot1, rot2)); // ã‚ªã‚¤ãƒ©ãƒ¼è§’ã¯åŠ ç®— (éæ¨å¥¨ã ãŒå®Ÿè£…ã‚’ç¶­æŒ).
+		DirectX::XMStoreFloat4(&newQuat, DirectX::XMQuaternionMultiply(quat1, quat2)); // ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã¯ä¹—ç®—ã§çµåˆ.
+		DirectX::XMStoreFloat3(&newScale, DirectX::XMVectorAdd(scale1, quat2)); // ã‚¹ã‚±ãƒ¼ãƒ«ã¯åŠ ç®—.
 
 		return Transform{ newPos, newRot, newQuat, newScale };
 	}
@@ -113,7 +111,7 @@ struct Transform
 
 		DirectX::XMStoreFloat3(&newPos, DirectX::XMVectorSubtract(pos1, pos2));
 		DirectX::XMStoreFloat3(&newRot, DirectX::XMVectorSubtract(rot1, rot2));
-		// ƒNƒH[ƒ^ƒjƒIƒ“‚ÌŒ¸Z‚Í–³ˆÓ–¡‚È‚½‚ßA‚±‚±‚Å‚Í’Pƒ‚É¬•ªŒ¸Z‚ğˆÛ (‚½‚¾‚µ”ñ„§)
+		// ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®æ¸›ç®—ã¯ç„¡æ„å‘³ãªãŸã‚ã€ã“ã“ã§ã¯å˜ç´”ã«æˆåˆ†æ¸›ç®—ã‚’ç¶­æŒ (ãŸã ã—éæ¨å¥¨).
 		DirectX::XMStoreFloat4(&newQuat, DirectX::XMVectorSubtract(quat1, quat2));
 		DirectX::XMStoreFloat3(&newScale, DirectX::XMVectorSubtract(scale1, scale2));
 
@@ -135,12 +133,12 @@ struct Transform
 		DirectX::XMFLOAT3 newPos, newRot, newScale;
 		DirectX::XMFLOAT4 newQuat;
 
-		// ˆÊ’u‚ÆƒXƒP[ƒ‹‚ÍæZ‚ÅŒ‹‡ (‚±‚ê‚ÍƒxƒNƒgƒ‹¬•ª‚ÌæZ‚Æ‚µ‚Ä‰ğß)
+		// ä½ç½®ã¨ã‚¹ã‚±ãƒ¼ãƒ«ã¯ä¹—ç®—ã§çµåˆ (ã“ã‚Œã¯ãƒ™ã‚¯ãƒˆãƒ«æˆåˆ†ã®ä¹—ç®—ã¨ã—ã¦è§£é‡ˆ).
 		DirectX::XMStoreFloat3(&newPos, DirectX::XMVectorMultiply(pos1, pos2));
 		DirectX::XMStoreFloat3(&newRot, DirectX::XMVectorMultiply(rot1, rot2));
 		DirectX::XMStoreFloat3(&newScale, DirectX::XMVectorMultiply(scale1, scale2));
 
-		// ƒNƒH[ƒ^ƒjƒIƒ“‚ÍæZ‚Å‰ñ“]‚ğŒ‹‡ (‚±‚ê‚Í³‚µ‚¢)
+		// ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã¯ä¹—ç®—ã§å›è»¢ã‚’çµåˆ (ã“ã‚Œã¯æ­£ã—ã„).
 		DirectX::XMStoreFloat4(&newQuat, DirectX::XMQuaternionMultiply(quat1, quat2));
 
 		return Transform{ newPos, newRot, newQuat, newScale };
@@ -196,12 +194,12 @@ struct Transform
 		DirectX::XMVECTOR quat2 = DirectX::XMLoadFloat4(&other.Quaternion);
 		DirectX::XMVECTOR scale2 = DirectX::XMLoadFloat3(&other.Scale);
 
-		// ˆÊ’uA‰ñ“](ƒIƒCƒ‰[Šp)AƒXƒP[ƒ‹‚Í‰ÁZ
+		// ä½ç½®ã€å›è»¢(ã‚ªã‚¤ãƒ©ãƒ¼è§’)ã€ã‚¹ã‚±ãƒ¼ãƒ«ã¯åŠ ç®—.
 		DirectX::XMStoreFloat3(&Position, DirectX::XMVectorAdd(pos1, pos2));
 		DirectX::XMStoreFloat3(&Rotation, DirectX::XMVectorAdd(rot1, rot2));
 		DirectX::XMStoreFloat3(&Scale, DirectX::XMVectorAdd(scale1, scale2));
 
-		// ƒNƒH[ƒ^ƒjƒIƒ“‚ÍæZ (‰ñ“]‚ÌŒ‹‡)
+		// ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã¯ä¹—ç®— (å›è»¢ã®çµåˆ).
 		DirectX::XMStoreFloat4(&Quaternion, DirectX::XMQuaternionMultiply(quat1, quat2));
 
 		UpdateRotationFromQuaternion();
@@ -223,7 +221,7 @@ struct Transform
 
 		DirectX::XMStoreFloat3(&Position, DirectX::XMVectorSubtract(pos1, pos2));
 		DirectX::XMStoreFloat3(&Rotation, DirectX::XMVectorSubtract(rot1, rot2));
-		DirectX::XMStoreFloat4(&Quaternion, DirectX::XMVectorSubtract(quat1, quat2)); // (”ñ„§‚¾‚ªÀ‘•‚ğˆÛ)
+		DirectX::XMStoreFloat4(&Quaternion, DirectX::XMVectorSubtract(quat1, quat2)); // (éæ¨å¥¨ã ãŒå®Ÿè£…ã‚’ç¶­æŒ).
 		DirectX::XMStoreFloat3(&Scale, DirectX::XMVectorSubtract(scale1, scale2));
 
 		return *this;
@@ -262,7 +260,7 @@ struct Transform
 	}
 
 	//---------------------------------------------------------------------------------
-	// ”äŠr‰‰ZqƒI[ƒo[ƒ[ƒh‚ÌÀ‘•
+	// æ¯”è¼ƒæ¼”ç®—å­ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ã®å®Ÿè£….
 	//---------------------------------------------------------------------------------
 
 	inline bool operator==(const Transform& other) const
@@ -281,7 +279,7 @@ struct Transform
 
 
 #if _DEBUG
-	// ƒfƒoƒbƒO—p‚É“à—e‚ğ•¶š—ñ‰».
+	// ãƒ‡ãƒãƒƒã‚°ç”¨ã«å†…å®¹ã‚’æ–‡å­—åˆ—åŒ–.
 	std::string ToString() const;
 #endif
 };

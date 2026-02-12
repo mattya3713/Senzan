@@ -75,7 +75,7 @@ void CollisionVisualizer::CreateShader()
         errors.GetAddressOf(),
         nullptr);
 
-    // HLSLの VS_INPUT_VERTEX (スロット0) と VS_INPUT_INSTANCE (スロット1) に対応
+    // HLSLの VS_INPUT_VERTEX (スロット0) と VS_INPUT_INSTANCE (スロット1) に対応.
     std::vector<D3D11_INPUT_ELEMENT_DESC> layout =
     {
         // スロット0: 頂点データ.
@@ -88,29 +88,29 @@ void CollisionVisualizer::CreateShader()
         {"WORLD", 2, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 32, D3D11_INPUT_PER_INSTANCE_DATA, 1},
         {"WORLD", 3, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 48, D3D11_INPUT_PER_INSTANCE_DATA, 1}, 
 
-        // Color (Offset 64).
+        // カラー (オフセット 64).
         {"COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 64, D3D11_INPUT_PER_INSTANCE_DATA, 1}, 
 
-        // ShapeType + Padding (Offset 80).
+        // シェイプタイプ + パディング (オフセット 80).
         {"SHAPETYPE", 0, DXGI_FORMAT_R32G32B32A32_UINT, 1, 80, D3D11_INPUT_PER_INSTANCE_DATA, 1}, 
 
-        // Data0 (Offset 96).
+        // Data0 (オフセット 96).
         {"DATA", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 96, D3D11_INPUT_PER_INSTANCE_DATA, 1}, 
 
-        // Data1 (Offset 112).
+        // Data1 (オフセット 112).
         {"DATA", 1, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 112, D3D11_INPUT_PER_INSTANCE_DATA, 1},
     };
 
     pDevice->CreateVertexShader(compiledShader->GetBufferPointer(), compiledShader->GetBufferSize(), nullptr, m_VertexShader.GetAddressOf());
 
-    // インプットレイアウトの作成 (失敗チェック推奨)
+    // インプットレイアウトの作成 (失敗チェック推奨).
     pDevice->CreateInputLayout(layout.data(), static_cast<UINT>(layout.size()), compiledShader->GetBufferPointer(), compiledShader->GetBufferSize(), m_InputLayout.GetAddressOf());
 
 
-    // ピクセルシェーダー
+    // ピクセルシェーダー.
     hr = D3DX11CompileFromFile(_T("Data\\Shader\\Wire\\WirePS.hlsl"), nullptr, nullptr, "PS_Main", "ps_5_0", uCompileFlag, 0, nullptr, compiledShader.ReleaseAndGetAddressOf(), errors.ReleaseAndGetAddressOf(), nullptr);
     if (FAILED(hr) && errors) {
-        // OutputDebugStringA((char*)errors->GetBufferPointer());
+        // OutputDebugStringA((char*)errors->GetBufferPointer());.
         assert(0 && "ピクセルシェーダーのコンパイル失敗");
         return;
     }
@@ -127,7 +127,7 @@ void CollisionVisualizer::CreateD3D11Buffer(
     ID3D11Device* pDevice = DirectX11::GetInstance().GetDevice();
     HRESULT hr;
 
-    // 1. 頂点バッファの作成
+    // 1. 頂点バッファの作成.
     D3D11_BUFFER_DESC vb_desc = {};
     vb_desc.Usage = D3D11_USAGE_DEFAULT;
     vb_desc.ByteWidth = sizeof(SimpleVertex) * static_cast<UINT>(vertices.size());
@@ -136,7 +136,7 @@ void CollisionVisualizer::CreateD3D11Buffer(
     hr = pDevice->CreateBuffer(&vb_desc, &vb_initData, vb_out.GetAddressOf());
     if (FAILED(hr)) { assert(0 && "頂点バッファの作成失敗"); return; }
 
-    // 2. インデックスバッファの作成
+    // 2. インデックスバッファの作成.
     D3D11_BUFFER_DESC ib_desc = {};
     ib_desc.Usage = D3D11_USAGE_DEFAULT;
     ib_desc.ByteWidth = sizeof(WORD) * static_cast<UINT>(indices.size());
@@ -148,7 +148,7 @@ void CollisionVisualizer::CreateD3D11Buffer(
 
 void CollisionVisualizer::Draw()
 {
-    //return;
+    //return;.
 
     if (m_DebugInfoQueue.empty()) { return; }
 
@@ -159,10 +159,10 @@ void CollisionVisualizer::Draw()
     const size_t instanceCount = m_DebugInfoQueue.size();
     const size_t requiredSize = instanceCount * sizeof(DebugColliderInfo);
 
-    // ---------------------------------------------
+    // ---------------------------------------------.
     // 1. インスタンスバッファの作成/リサイズと更新
-    // ---------------------------------------------
-    // バッファが未作成、またはサイズが不足している場合は再作成
+    // ---------------------------------------------.
+    // バッファが未作成、またはサイズが不足している場合は再作成.
     if (!m_InstanceBuffer || requiredSize > m_InstanceBufferSize)
     {
         D3D11_BUFFER_DESC desc = {};
@@ -176,7 +176,7 @@ void CollisionVisualizer::Draw()
         m_InstanceBufferSize = requiredSize;
     }
 
-    // インスタンスデータをバッファにマップして書き込み
+    // インスタンスデータをバッファにマップして書き込み.
     D3D11_MAPPED_SUBRESOURCE pData;
     if (SUCCEEDED(pDeviceContext->Map(
         m_InstanceBuffer.Get(), 0, 
@@ -187,9 +187,9 @@ void CollisionVisualizer::Draw()
     }
     else { m_DebugInfoQueue.clear(); return; }
 
-    // ---------------------------------------------
-    // 2. CBufferの更新とセット (ViewProj行列のみ)
-    // ---------------------------------------------
+    // ---------------------------------------------.
+    // 2. CBufferの更新とセット (ViewProj行列のみ).
+    // ---------------------------------------------.
     if (SUCCEEDED(pDeviceContext->Map(m_ConstantBuffer.Get(),
         0, D3D11_MAP_WRITE_DISCARD, 0, &pData)))
     {
@@ -197,15 +197,15 @@ void CollisionVisualizer::Draw()
         DirectX::XMMATRIX mView = pCamera.GetViewMatrix();
         DirectX::XMMATRIX mProj = pCamera.GetProjMatrix();
 
-        // View * Proj を計算
+        // View * Proj を計算.
         DirectX::XMMATRIX mViewProj_temp = DirectX::XMMatrixMultiply(mView, mProj);
 
-        // 成功コードに合わせて、C++の行優先行列を転置して列優先にする
+        // 成功コードに合わせて、C++の行優先行列を転置して列優先にする.
         cb.ViewProj = DirectX::XMMatrixTranspose(mViewProj_temp);
 
-        // 2. メモリへのコピー
-        // pData.pData には cb の中身（転置済みの ViewProj 行列）をコピーします。
-        // RowPitchはバッファ全体の行ピッチ（通常はバイト幅）ですが、コピーサイズが合っていれば問題ありません。
+        // 2. メモリへのコピー.
+        // pData.pData には cb の中身（転置済みの ViewProj 行列）をコピーします。.
+        // RowPitchはバッファ全体の行ピッチ（通常はバイト幅）ですが、コピーサイズが合っていれば問題ありません。.
         memcpy_s(pData.pData, pData.RowPitch, (void*)(&cb), sizeof(CBuffer));
 
         pDeviceContext->Unmap(m_ConstantBuffer.Get(), 0);
@@ -214,34 +214,34 @@ void CollisionVisualizer::Draw()
     pDeviceContext->PSSetConstantBuffers(0, 1, m_ConstantBuffer.GetAddressOf());
 
 
-    // ---------------------------------------------
-    // 3. 共通レンダリングステートの設定
-    // ---------------------------------------------
+    // ---------------------------------------------.
+    // 3. 共通レンダリングステートの設定.
+    // ---------------------------------------------.
     pDeviceContext->VSSetShader(m_VertexShader.Get(), nullptr, 0);
     pDeviceContext->PSSetShader(m_PixelShader.Get(), nullptr, 0);
     pDeviceContext->IASetInputLayout(m_InputLayout.Get());
     pDeviceContext->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-    pDirectX11.SetRasterizerState(eRasterizerMode::Wireframe | eRasterizerMode::None); // ワイヤーフレーム設定
+    pDirectX11.SetRasterizerState(eRasterizerMode::Wireframe | eRasterizerMode::None); // ワイヤーフレーム設定.
 
 
-    // ---------------------------------------------
-    // 4. 描画ループ (DrawIndexedInstanced)
-    // ---------------------------------------------
+    // ---------------------------------------------.
+    // 4. 描画ループ (DrawIndexedInstanced).
+    // ---------------------------------------------.
 
-    // 描画効率のため、キューを形状タイプでソート
+    // 描画効率のため、キューを形状タイプでソート.
     std::sort(m_DebugInfoQueue.begin(), m_DebugInfoQueue.end(), [](const auto& a, const auto& b) {
         return a.ShapeType < b.ShapeType;
         });
 
     size_t instanceStartOffset = 0;
 
-    // 形状リソースマップをループ
+    // 形状リソースマップをループ.
     for (const auto& pair : m_ShapeResources)
     {
         const ColliderBase::eShapeType type = pair.first;
         const ShapeData& currentShape = pair.second;
 
-        // 現在の形状タイプに該当するインスタンスの範囲を検索
+        // 現在の形状タイプに該当するインスタンスの範囲を検索.
         auto first = std::find_if(m_DebugInfoQueue.begin() + instanceStartOffset, m_DebugInfoQueue.end(),
             [&type](const DebugColliderInfo& info) { return info.ShapeType == type; });
         auto last = std::find_if_not(first, m_DebugInfoQueue.end(),
@@ -251,7 +251,7 @@ void CollisionVisualizer::Draw()
 
         if (drawInstanceCount == 0) continue;
 
-        // 頂点バッファ (スロット0) と インスタンスバッファ (スロット1) を同時にセット
+        // 頂点バッファ (スロット0) と インスタンスバッファ (スロット1) を同時にセット.
         UINT stride_geom = sizeof(SimpleVertex);
         UINT offset_geom = 0;
 
@@ -270,54 +270,54 @@ void CollisionVisualizer::Draw()
             currentShape.IndexBuffer.Get(), 
             DXGI_FORMAT_R16_UINT, 0);
 
-        // DrawIndexedInstanced で一括描画
+        // DrawIndexedInstanced で一括描画.
         pDeviceContext->DrawIndexedInstanced(
-            static_cast<UINT>(currentShape.Indices.size()), // IndexCountPerInstance
-            drawInstanceCount,                             // InstanceCount
-            0,                                             // StartIndexLocation
-            0,                                             // BaseVertexLocation
-            0);                                            // StartInstanceLocation
+            static_cast<UINT>(currentShape.Indices.size()), // インスタンスあたりのインデックス数.
+            drawInstanceCount,                             // インスタンス数.
+            0,                                             // 開始インデックス位置.
+            0,                                             // 基本頂点位置.
+            0);                                            // 開始インスタンス位置.
 
-        // 次の形状タイプへオフセットを更新
+        // 次の形状タイプへオフセットを更新.
         instanceStartOffset += drawInstanceCount;
     }
 
-    // ---------------------------------------------
-    // 5. 描画後のクリーンアップ
-    // ---------------------------------------------
+    // ---------------------------------------------.
+    // 5. 描画後のクリーンアップ.
+    // ---------------------------------------------.
     pDirectX11.SetRasterizerState(eRasterizerMode::Solid | eRasterizerMode::Front);
     m_DebugInfoQueue.clear();
 }
 
-// ----------------------------------------------------
-// 形状リソース作成関数の実装
-// ----------------------------------------------------
+// ----------------------------------------------------.
+// 形状リソース作成関数の実装.
+// ----------------------------------------------------.
 void CollisionVisualizer::CreateBoxResources(ShapeData& out_data)
 {
-    // 各辺の半分の長さは 0.5f に固定
+    // 各辺の半分の長さは 0.5f に固定.
     float half_size = 0.5f;
 
-    // 1. 頂点データ (8頂点): BoxCollider::CreateVerticesの順序を適用
+    // 1. 頂点データ (8頂点): BoxCollider::CreateVerticesの順序を適用.
     std::vector<SimpleVertex> vertices = {
-        // 0: 左上奥
+        // 0: 左上奥.
         { DirectX::XMFLOAT3(-half_size,  half_size,  half_size) },
-        // 1: 右上奥
+        // 1: 右上奥.
         { DirectX::XMFLOAT3(half_size,  half_size,  half_size) },
-        // 2: 左下奥
+        // 2: 左下奥.
         { DirectX::XMFLOAT3(-half_size, -half_size,  half_size) },
-        // 3: 右下奥
+        // 3: 右下奥.
         { DirectX::XMFLOAT3(half_size, -half_size,  half_size) },
-        // 4: 左上前
+        // 4: 左上前.
         { DirectX::XMFLOAT3(-half_size,  half_size, -half_size) },
-        // 5: 右上前
+        // 5: 右上前.
         { DirectX::XMFLOAT3(half_size,  half_size, -half_size) },
-        // 6: 左下前
+        // 6: 左下前.
         { DirectX::XMFLOAT3(-half_size, -half_size, -half_size) },
-        // 7: 右下前
+        // 7: 右下前.
         { DirectX::XMFLOAT3(half_size, -half_size, -half_size) }
     };
 
-    // 2. インデックスデータ (TRIANGLELISTとして36個のインデックスを生成): BoxCollider::CreateIndicesの順序を適用
+    // 2. インデックスデータ (TRIANGLELISTとして36個のインデックスを生成): BoxCollider::CreateIndicesの順序を適用.
     std::vector<WORD> indices = {
         0, 1, 2, 2, 1, 3,
         4, 6, 5, 5, 6, 7,
@@ -333,42 +333,42 @@ void CollisionVisualizer::CreateBoxResources(ShapeData& out_data)
 
 void CollisionVisualizer::CreateSphereResources(ShapeData& out_data, int segments)
 {
-    // 緯度・経度の分割数を均一にする (segmentsは水平分割数を意味すると仮定)
+    // 緯度・経度の分割数を均一にする (segmentsは水平分割数を意味すると仮定).
     const int stacks = segments / 2; // 垂直方向の層の数 (半球ごとに segments/4 を目安)
-    const int slices = segments;    // 水平方向の分割数
-    const float radius = 0.5f;      // 単位球の半径
+    const int slices = segments;    // 水平方向の分割数.
+    const float radius = 0.5f;      // 単位球の半径.
 
     std::vector<SimpleVertex> vertices;
     std::vector<WORD> indices;
 
-    // ----------------------------------------------------
-    // 1. 頂点の生成 (UV Sphere)
-    // ----------------------------------------------------
+    // ----------------------------------------------------.
+    // 1. 頂点の生成 (UV Sphere).
+    // ----------------------------------------------------.
 
-    // 天面の極 (North Pole)
+    // 天面の極 (North Pole).
     vertices.emplace_back(DirectX::XMFLOAT3(0.0f, radius, 0.0f));
 
-    // 側面のリング (i = 1 から stacks-1 まで)
+    // 側面のリング (i = 1 から stacks-1 まで).
     for (int i = 1; i < stacks; ++i)
     {
-        // 緯度角 (Phi) を計算: 0 ～ PI (90度から-90度)
+        // 緯度角 (Phi) を計算: 0 ～ PI (90度から-90度).
         float phi = DirectX::XM_PI * (float)i / (float)stacks;
         float sin_phi = std::sin(phi);
         float cos_phi = std::cos(phi);
 
-        // Y座標を計算
+        // Y座標を計算.
         float y = cos_phi * radius;
-        // 現在のリングの半径 (xz平面上の距離)
+        // 現在のリングの半径 (xz平面上の距離).
         float current_radius = sin_phi * radius;
 
         for (int j = 0; j < slices; ++j)
         {
-            // 経度角 (Theta) を計算: 0 ～ 2PI
+            // 経度角 (Theta) を計算: 0 ～ 2PI.
             float theta = 2.0f * DirectX::XM_PI * (float)j / (float)slices;
             float sin_theta = std::sin(theta);
             float cos_theta = std::cos(theta);
 
-            // X, Z座標を計算
+            // X, Z座標を計算.
             float x = current_radius * sin_theta;
             float z = current_radius * cos_theta;
 
@@ -376,72 +376,72 @@ void CollisionVisualizer::CreateSphereResources(ShapeData& out_data, int segment
         }
     }
 
-    // 底面の極 (South Pole)
+    // 底面の極 (South Pole).
     vertices.emplace_back(DirectX::XMFLOAT3(0.0f, -radius, 0.0f));
 
 
-    // ----------------------------------------------------
-    // 2. インデックスの生成
-    // ----------------------------------------------------
+    // ----------------------------------------------------.
+    // 2. インデックスの生成.
+    // ----------------------------------------------------.
 
-    // 総頂点数を確認
+    // 総頂点数を確認.
     const int num_vertices = static_cast<int>(vertices.size());
-    const int last_pole_index = num_vertices - 1; // 底面の極のインデックス
+    const int last_pole_index = num_vertices - 1; // 底面の極のインデックス.
 
-    // A. 天面キャップ (北極と最初のリングを接続)
-    // 最初のリングの開始インデックス: 1
+    // A. 天面キャップ (北極と最初のリングを接続).
+    // 最初のリングの開始インデックス: 1.
     for (int j = 0; j < slices; ++j)
     {
-        int i0 = 0;                          // 北極
-        int i1 = 1 + j;                      // 現在の頂点
-        int i2 = 1 + (j + 1) % slices;       // 次の頂点
+        int i0 = 0;                          // 北極.
+        int i1 = 1 + j;                      // 現在の頂点.
+        int i2 = 1 + (j + 1) % slices;       // 次の頂点.
 
-        // (i0, i2, i1) の順で三角形を生成 (外側から見て反時計回り)
+        // (i0, i2, i1) の順で三角形を生成 (外側から見て反時計回り).
         indices.emplace_back(i0);
         indices.emplace_back(i2);
         indices.emplace_back(i1);
     }
 
-    // B. 側面 (リング i と リング i+1 の間の四角形を接続)
-    // リングの総数: stacks - 2 (両極を除く)
+    // B. 側面 (リング i と リング i+1 の間の四角形を接続).
+    // リングの総数: stacks - 2 (両極を除く).
     for (int i = 0; i < stacks - 2; ++i)
     {
-        int ring_start_a = 1 + i * slices;       // リング A の開始インデックス
-        int ring_start_b = 1 + (i + 1) * slices; // リング B の開始インデックス
+        int ring_start_a = 1 + i * slices;       // リング A の開始インデックス.
+        int ring_start_b = 1 + (i + 1) * slices; // リング B の開始インデックス.
 
         for (int j = 0; j < slices; ++j)
         {
-            // リング A の頂点
+            // リング A の頂点.
             int iA = ring_start_a + j;
             int iB = ring_start_a + (j + 1) % slices;
 
-            // リング B の頂点
+            // リング B の頂点.
             int iC = ring_start_b + j;
             int iD = ring_start_b + (j + 1) % slices;
 
-            // 1. 下側の三角形 (iA, iD, iC)
+            // 1. 下側の三角形 (iA, iD, iC).
             indices.emplace_back(iA);
             indices.emplace_back(iD);
             indices.emplace_back(iC);
 
-            // 2. 上側の三角形 (iA, iB, iD)
+            // 2. 上側の三角形 (iA, iB, iD).
             indices.emplace_back(iA);
             indices.emplace_back(iB);
             indices.emplace_back(iD);
         }
     }
 
-    // C. 底面キャップ (最後のリングと南極を接続)
-    // 最後のリングの開始インデックス: last_pole_index - slices
+    // C. 底面キャップ (最後のリングと南極を接続).
+    // 最後のリングの開始インデックス: last_pole_index - slices.
     int last_ring_start = last_pole_index - slices;
 
     for (int j = 0; j < slices; ++j)
     {
-        int i0 = last_pole_index;           // 南極
-        int i1 = last_ring_start + j;       // 現在の頂点
-        int i2 = last_ring_start + (j + 1) % slices; // 次の頂点
+        int i0 = last_pole_index;           // 南極.
+        int i1 = last_ring_start + j;       // 現在の頂点.
+        int i2 = last_ring_start + (j + 1) % slices; // 次の頂点.
 
-        // (i0, i1, i2) の順で三角形を生成 (外側から見て反時計回り)
+        // (i0, i1, i2) の順で三角形を生成 (外側から見て反時計回り).
         indices.emplace_back(i0);
         indices.emplace_back(i1);
         indices.emplace_back(i2);
@@ -453,38 +453,38 @@ void CollisionVisualizer::CreateSphereResources(ShapeData& out_data, int segment
 
 void CollisionVisualizer::CreateCapsuleResources(ShapeData& out_data, float halfHeight, int segments)
 {
-    // ユニットカプセルとして、半径を 0.5f に固定します。
-      // halfHeight は円筒部分の半分の高さ (カプセル全体の半分の長さではない) と仮定
+    // ユニットカプセルとして、半径を 0.5f に固定します。.
+      // halfHeight は円筒部分の半分の高さ (カプセル全体の半分の長さではない) と仮定.
     const float radius = 0.5f;
-    const int N = segments; // DIVIDE_X (水平分割数)
+    const int N = segments; // DIVIDE_X (水平分割数).
     const int M = segments / 2; // DIVIDE_Y / 2 (半球の層数)
 
     std::vector<SimpleVertex> vertices;
     std::vector<WORD> indices;
 
-    // 中心角
+    // 中心角.
     const float centerRadianX = 2.0f * DirectX::XM_PI / static_cast<float>(N);
-    const float centerRadianY = 2.0f * DirectX::XM_PI / static_cast<float>(M * 2); // DIVIDE_Y は 2M と等しい
+    const float centerRadianY = 2.0f * DirectX::XM_PI / static_cast<float>(M * 2); // DIVIDE_Y は 2M と等しい.
 
-    // 上部の中心オフセット
+    // 上部の中心オフセット.
     const float offsetHeight = halfHeight;
 
-    // ----------------------------------------------------
-    // 1. 天面の極 (Pole)
-    // ----------------------------------------------------
+    // ----------------------------------------------------.
+    // 1. 天面の極 (Pole).
+    // ----------------------------------------------------.
     vertices.emplace_back(DirectX::XMFLOAT3(0.0f, offsetHeight + radius, 0.0f));
 
-    // ----------------------------------------------------
-    // 2. 上部半球 (vy = 0 to M-1)
-    // ----------------------------------------------------
+    // ----------------------------------------------------.
+    // 2. 上部半球 (vy = 0 to M-1).
+    // ----------------------------------------------------.
     for (int vy = 0; vy < M; vy++)
     {
-        // 緯度角 (Y軸周りの角度)
+        // 緯度角 (Y軸周りの角度).
         float yRadian = static_cast<float>(vy + 1) * centerRadianY / 2.0f;
 
-        // XZ平面でのリングの半径
+        // XZ平面でのリングの半径.
         float tempLen = std::abs(std::sin(yRadian) * radius);
-        // Y座標 (単位球Y座標)
+        // Y座標 (単位球Y座標).
         float y = std::cos(yRadian) * radius;
 
         for (int vx = 0; vx < N; vx++)
@@ -492,43 +492,43 @@ void CollisionVisualizer::CreateCapsuleResources(ShapeData& out_data, float half
             float x = tempLen * std::sin(static_cast<float>(vx) * centerRadianX);
             float z = tempLen * std::cos(static_cast<float>(vx) * centerRadianX);
 
-            // Y軸を円筒のオフセットで移動
+            // Y軸を円筒のオフセットで移動.
             DirectX::XMFLOAT3 pos = DirectX::XMFLOAT3(x, y + offsetHeight, z);
             vertices.emplace_back(pos);
         }
     }
 
-    // ----------------------------------------------------
-    // 3. 中央の円筒部 (上下の半球の繋ぎ目に追加の頂点を作成)
-    // ----------------------------------------------------
-    // 頂点 1 〜 N が上部半球の赤道リング。これを下にずらしたリングを追加する
+    // ----------------------------------------------------.
+    // 3. 中央の円筒部 (上下の半球の繋ぎ目に追加の頂点を作成).
+    // ----------------------------------------------------.
+    // 頂点 1 〜 N が上部半球の赤道リング。これを下にずらしたリングを追加する.
 
-    // Note: 厳密には、CapsuleCollider::CreateVertices() のロジックでは、円筒の頂点は作成されず、
-    // 半球の境界線がそのまま繋がっているように見えます ( vy = M の層がない)。
-    // したがって、このロジックでは中央に円筒状のメッシュを生成せず、
-    // 半球の赤道部分を直接接続することで円筒に見せるようにします。
-    // *ただし、CapsuleCollider::CreateVerticesのロジックを忠実に再現すると以下のようになります。
+    // Note: 厳密には、CapsuleCollider::CreateVertices() のロジックでは、円筒の頂点は作成されず、.
+    // 半球の境界線がそのまま繋がっているように見えます ( vy = M の層がない)。.
+    // したがって、このロジックでは中央に円筒状のメッシュを生成せず、.
+    // 半球の赤道部分を直接接続することで円筒に見せるようにします。.
+    // *ただし、CapsuleCollider::CreateVerticesのロジックを忠実に再現すると以下のようになります。.
 
     /*
     // CapsulCollider::CreateVertices() のロジックを忠実に再現すると...
     // -> 上部半球の頂点生成を vy < DIVIDE_Y / 2 = M で行っている。
     // -> 下部半球の頂点生成を vy < DIVIDE_Y / 2 で行い、offset = DIVIDE_Y / 2 を使用している。
     // つまり、vy = M/2 の層が円筒の開始であり、vy = M/2 の層が円筒の終了である。
-    // vy = M の層を中央に 1層追加するロジックは無いため、ここでは追加しません。
+    // vy = M の層を中央に 1層追加するロジックは無いため、ここでは追加しません。.
     */
 
-    // ----------------------------------------------------
-    // 4. 下部半球 (vy = M to 2M-1)
-    // ----------------------------------------------------
-    int offset = M; // vy = M から開始
+    // ----------------------------------------------------.
+    // 4. 下部半球 (vy = M to 2M-1).
+    // ----------------------------------------------------.
+    int offset = M; // vy = M から開始.
     for (int vy = 0; vy < M; vy++)
     {
-        // 緯度角 (Y軸周りの角度)
+        // 緯度角 (Y軸周りの角度).
         float yRadian = static_cast<float>(vy + offset) * centerRadianY / 2.0f;
 
-        // XZ平面でのリングの半径
+        // XZ平面でのリングの半径.
         float tempLen = std::abs(std::sin(yRadian) * radius);
-        // Y座標 (単位球Y座標)
+        // Y座標 (単位球Y座標).
         float y = std::cos(yRadian) * radius;
 
         for (int vx = 0; vx < N; vx++)
@@ -536,26 +536,26 @@ void CollisionVisualizer::CreateCapsuleResources(ShapeData& out_data, float half
             float x = tempLen * std::sin(static_cast<float>(vx) * centerRadianX);
             float z = tempLen * std::cos(static_cast<float>(vx) * centerRadianX);
 
-            // Y軸を円筒のオフセットで移動 (下側)
+            // Y軸を円筒のオフセットで移動 (下側).
             DirectX::XMFLOAT3 pos = DirectX::XMFLOAT3(x, y - offsetHeight, z);
             vertices.emplace_back(pos);
         }
     }
 
-    // ----------------------------------------------------
-    // 5. 底面の極 (Bottom Pole)
-    // ----------------------------------------------------
+    // ----------------------------------------------------.
+    // 5. 底面の極 (Bottom Pole).
+    // ----------------------------------------------------.
     vertices.emplace_back(DirectX::XMFLOAT3(0.0f, -(offsetHeight + radius), 0.0f));
 
-    // ----------------------------------------------------
-    // 6. インデックスの生成 (SphereColliderの複雑なロジックを流用)
-    // ----------------------------------------------------
-    // Note: このロジックは、以前のSphereColliderのものとほぼ同一のため、
-    // 頂点数が異なるカプセルでもそのまま利用可能です。
+    // ----------------------------------------------------.
+    // 6. インデックスの生成 (SphereColliderの複雑なロジックを流用).
+    // ----------------------------------------------------.
+    // Note: このロジックは、以前のSphereColliderのものとほぼ同一のため、.
+    // 頂点数が異なるカプセルでもそのまま利用可能です。.
 
-    const int TotalRings = 2 * M; // 側面リングの総数
+    const int TotalRings = 2 * M; // 側面リングの総数.
 
-    // 6-1. 天面
+    // 6-1. 天面.
     int offsetIndex = 0;
     for (int i = 0; i < N * 3; i++)
     {
@@ -569,10 +569,10 @@ void CollisionVisualizer::CreateCapsuleResources(ShapeData& out_data, float half
         }
     }
 
-    // 6-2. 側面
+    // 6-2. 側面.
     int startIndex = indices[1];
-    // 総層数は DIVIDE_Y = 2M。両極を除くので TotalRings - 2 = 2M - 2 層の間のメッシュ。
-    int sideIndexLen = N * (TotalRings - 1) * 2 * 3; // (2M-1)層の間の四角形
+    // 総層数は DIVIDE_Y = 2M。両極を除くので TotalRings - 2 = 2M - 2 層の間のメッシュ。.
+    int sideIndexLen = N * (TotalRings - 1) * 2 * 3; // (2M-1)層の間の四角形.
     int loop1stIndex = 0;
     int loop2ndtIndex = 0;
     int lapDiv = N * 2 * 3;
@@ -604,7 +604,7 @@ void CollisionVisualizer::CreateCapsuleResources(ShapeData& out_data, float half
             {
                 // 一周したときのループ処理.
                 // 周回ポリゴンの最後から２番目のIndex.
-                indices.emplace_back(loop2ndtIndex); // 💡 修正: loop2ndtIndex を使用
+                indices.emplace_back(loop2ndtIndex); // 💡 修正: loop2ndtIndex を使用.
             }
             else
             {
@@ -622,7 +622,7 @@ void CollisionVisualizer::CreateCapsuleResources(ShapeData& out_data, float half
         }
     }
 
-    // 6-3. 底面
+    // 6-3. 底面.
     int bottom_pole_index = static_cast<int>(vertices.size()) - 1;
     int last_ring_start_index = bottom_pole_index - N;
     int loopIndex = last_ring_start_index;
